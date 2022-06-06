@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Login</title>
+	<title>Login | Connect Social</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link rel="icon" type="image/x-icon" href="{{ asset('img/coin.png') }}">
 </head>
 <style type="text/css">
 	.btn-csutom {
@@ -71,7 +72,7 @@
 				<!--<a href="registration">New to our platform? Registration</a>-->												
 			</form>
 		</div>
-		<div class="col-md-4 col-md-offset-4" style="margin-top:30px; ">
+		<div class="col-md-8 col-md-offset-8" style="margin-top:30px; ">
 			<p style="text-align: center;"><img class="img-ctrl" src="{{ asset('img/coin.png') }}" alt="tag"></p>
 		</div>		
 	</div>
