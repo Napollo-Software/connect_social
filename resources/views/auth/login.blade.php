@@ -47,7 +47,7 @@
 			<p style="text-align: center;"><img class="logo" src="{{ asset('img/logo.png') }}" alt="tag"></p>
 			<h4 class="heading">Log in to Admin Panel</h4>
 			<p class="small-text">Enter your email and password to sign in</p>
-			<form action="{{route('login-user')}}" method="post">
+			<form action="" method="post">
 				@if(Session::has('success'))
 				<div class="alert alert-success">{{Session::get('success')}}</div>
 				@endif
@@ -78,8 +78,6 @@
 	</div>
 </div>	
 </section>
-
-
 <footer>
 	<p class="footer-text">Copyright 2022 © Connect Social</p>
 </footer>

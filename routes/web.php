@@ -1,25 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/login', [AuthController::class, 'login'])->middleware('alreadyLoggedIn');
-Route::get('/registration', [AuthController::class, 'registration'])->middleware('alreadyLoggedIn');
-Route::post('/register-user', [AuthController::class, 'registerUser'])->name('register-user');
-Route::post('/login-user', [AuthController::class, 'loginUser'])->name('login-user');
-Route::get('/dashboard', [AuthController::class, 'dashboard'])->middleware('isLoggedIn');
-Route::get('/logout', [AuthController::class, 'logout']);
+
+// INSERT INTO `users` (`id`, `name`, `role`, `email`, `password`, `created_at`, `updated_at`) VALUES (NULL, 'Administrator', '1', 'super_admin@connect.com', '$2y$10$D4qxG3pfH3FkDbbkyGKRi.qdGdi0DcwKlqnnLKB6jtdW.c2fGj/.G', '2022-06-10 21:24:09', '2022-06-10 21:24:09');
