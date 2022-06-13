@@ -12,7 +12,7 @@ function sendEmail($to,$from,$subject,$message){
         $mail->SMTPSecure = 'tls';                  // encryption - ssl/tls
         $mail->Port = 587;                          // port - 587/465
 
-        $mail->setFrom('connectsocial@napollo.net', 'Connect social');
+        $mail->setFrom($from, 'Connect social');
         $mail->addAddress($to);
         //$mail->addCC();
         //$mail->addBCC($request->emailBcc);
