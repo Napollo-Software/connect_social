@@ -10,9 +10,7 @@
                                                      document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}
                 </a>
-
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
                     </form>
