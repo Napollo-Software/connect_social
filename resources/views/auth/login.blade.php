@@ -45,7 +45,7 @@
         <div class="row">
             <div class="col-md-4 col-md-offset-4" style="margin-top:30px; ">
                 <p style="text-align: center;"><img class="logo" src="{{ asset('img/logo.png') }}" alt="tag"></p>
-                <h4 class="heading">Log in to Admin Panel</h4>
+                <h4 class="heading">Log in to Admin Panel -</h4>
                 <p class="small-text">Enter your email and password to sign in</p>
                 <form action="{{route('login')}}" method="post">
                     @if(Session::has('success'))
