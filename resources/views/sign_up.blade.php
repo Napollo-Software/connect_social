@@ -345,9 +345,10 @@
                contentType: false,
                cache: false,
                success:function(data) {
-
+                   window.location.href="";
                },
                error:function (xhr) {
+                   console.log(xhr);
                    var error = '';
                    $.each(xhr.responseJSON.errors,function (index,value) {
                        error += value[0]+' ';
