@@ -433,7 +433,7 @@ td {
     height: 45px !important;
 }
 .signup-btn {
-    width: 109px !important;
+    min-width: 109px !important;
     position: relative;
     left: 0px;
     float: left;

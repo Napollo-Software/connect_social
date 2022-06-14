@@ -13,11 +13,10 @@ class CreateReferralTable extends Migration
      */
     public function up()
     {
-        Schema::create('refferals', function (Blueprint $table) {
+        Schema::create('referrals', function (Blueprint $table) {
             $table->id();
-            $table->integer('refer_by');
-            $table->integer('refer_to');
-            $table->rememberToken();
+            $table->integer('referred_by');
+            $table->integer('referred_to');
             $table->timestamps();
         });
     }

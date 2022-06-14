@@ -32,7 +32,8 @@
     <div class="container">
         <form id="register-form">
             @csrf
-            <input type="hidden" value="2" name="role">
+            <input type="hidden" value="{{$role}}" name="role">
+            <input type="hidden" value="{{$by}}" name="referred_by">
             <div class="row mb-4">
                 <div class="col-lg-6">
                     <input class="form-control custom-signup" type="email" name="email" placeholder="Email">
@@ -282,8 +283,8 @@
                 </div>
                 <div class="col-lg-6">
                     <select class="form-control custom-signup" name="gender">
-                        <option>Male</option>
-                        <option>Female</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
                     </select>
                 </div>
             </div>
@@ -324,6 +325,7 @@
     </div>
 </div>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="{{url('index.js')}}"></script>
 
 <script src="{{url('js/vendor/modernizr-3.11.2.min.js')}}"></script>
 <script src="{{url('js/plugins.js')}}"></script>
@@ -336,7 +338,7 @@
     $(function () {
        $(document).on('submit','#register-form',function (e) {
            e.preventDefault();
-           $.ajax({
+           /*$.ajax({
                type:'POST',
                url:'{{route('register')}}',
                data:new FormData(this),
@@ -357,6 +359,14 @@
                    $('#modal').modal('show');
                }
            });
+           */
+
+           var route = '{{route('register')}}';
+           var method = 'POST';
+           var data = new FormData(this);
+           var next = {'type':'reload','message':'modal','modal-target':$('#modal')};
+           submit($(this).find('button[type=submit]'),method,route,data,next);
+
        });
     });
 </script>
