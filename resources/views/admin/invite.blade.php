@@ -48,17 +48,28 @@
 
                                     <div class="form-group">
                                         <label for="message">Message</label>
-                                        <textarea class="form-control mb-3" type="hidden" name="message" id="message" placeholder="Message" rows="10" readonly>Hi XXXXX,
-{{auth()->user()->fullName()}} has sent you an invitation link to join Connect Social.
-Now, you can register your Ambassador or Merchant Account on Connect Social. You’re being rewarded XX Connect Coins as a joining bonus. Also, when someone joins Connect Social through your referral link, you’re rewarded each time.
-Join through the below referral link:
-<a href="{{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a>
-As a merchant, you can list and sell your products on our marketplace. As an ambassador, you can refer other ambassadors and get as many reward coins as you want.
-Ask us anything at abcxyz@gmail.com if you have any important queries.</textarea>
+                                        <p class="bg-light border rounded p-3">
+                                            Hi XXXXX,<br>
+                                            {{auth()->user()->fullName()}} has sent you an invitation link to join Connect Social.<br>
+                                            Now, you can register your Ambassador or Merchant Account on Connect Social. You’re being rewarded XX Connect Coins as a joining bonus. Also, when someone joins Connect Social through your referral link, you’re rewarded each time.<br>
+                                            Join through the below referral link:<br>
+                                            <a href="{{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a><br>
+                                            As a merchant, you can list and sell your products on our marketplace. As an ambassador, you can refer other ambassadors and get as many reward coins as you want.<br>
+                                            Ask us anything at abcxyz@gmail.com if you have any important queries.
+                                        </p>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group" style="text-align: right;">
                                         <button type="submit" class="btn btn-primary px-5 btn-sm">Send</button>
                                     </div>
+
+                                    <textarea class="form-control mb-3" name="message" id="message" placeholder="Message" rows="10" style="visibility:hidden" readonly>Hi XXXXX,<br>
+                                        {{auth()->user()->fullName()}} has sent you an invitation link to join Connect Social.<br>
+Now, you can register your Ambassador or Merchant Account on Connect Social. You’re being rewarded XX Connect Coins as a joining bonus. Also, when someone joins Connect Social through your referral link, you’re rewarded each time.<br>
+Join through the below referral link:<br>
+<a href="{{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a><br>
+As a merchant, you can list and sell your products on our marketplace. As an ambassador, you can refer other ambassadors and get as many reward coins as you want.<br>
+Ask us anything at abcxyz@gmail.com if you have any important queries.</textarea>
+
                                 </form>
                             </div>
                         </div>
@@ -73,7 +84,6 @@ Ask us anything at abcxyz@gmail.com if you have any important queries.</textarea
                 var route = '{{route('invite.send')}}';
                 var method = 'POST';
                 var data = new FormData(this);
-
                 var next = {'type':'form-reset','target':$('#send-invite-form')};
                 submit($(this).find('button[type=submit]'),method,route,data,next);
             });

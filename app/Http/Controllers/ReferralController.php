@@ -17,6 +17,6 @@ class ReferralController extends Controller
             $referer=$request->referer;
             return view('sign_up',compact('referer'));
         }
-        return view('home');
+        return view('admin.dashboard');
     }
 }

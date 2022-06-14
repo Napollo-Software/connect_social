@@ -1,6 +1,9 @@
 <?php
 use \PHPMailer\PHPMailer\PHPMailer;
-function sendEmail($to,$from='connectsocial@napollo.net',$subject,$message){
+function sendEmail($to,$from,$subject,$message){
+    if ($from==null){
+        $from='connectsocial@napollo.net';
+    }
     $mail = new PHPMailer(true);
     try {
         $mail->SMTPDebug = 0;
@@ -23,7 +26,7 @@ function sendEmail($to,$from='connectsocial@napollo.net',$subject,$message){
         $mail->Body    = $message;
         // $mail->AltBody = plain text version of email body;
         if($mail->send() ) {
-            return response()->json(["success", "Email has been sent."]);
+            return true;
         }
         else {
             return response()->json(["failed", $mail->ErrorInfo]);
