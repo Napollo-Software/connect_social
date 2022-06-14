@@ -5,7 +5,7 @@
                     <img src="{{url('img/coin.png')}}" class="logo-icon" alt="logo icon">
                 </div>
                 <div>
-                    <h4 class="logo-text">Social Connect</h4>
+                    <h5 class="text-primary logo-text mt-2"> Connect Social</h5>
                 </div>
                 <div class="toggle-icon ms-auto"><i class='bx bx-arrow-to-left'></i>
                 </div>

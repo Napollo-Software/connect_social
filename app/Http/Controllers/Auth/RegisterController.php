@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Referral;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Nexmo;
 
 class RegisterController extends Controller
 {
@@ -69,7 +71,37 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        sendEmail($data['email'],'connectsocial@napollo.net','Email Verification','Message');
+        $mobilecode=rand(100000,999999);
+        $emailcode=rand(100000,999999);
+        $message='<h6>Email Verification:</h6>
+Dear '.$data['fname'].' '.$data['lname'].',<br>
+Congrats! You are one step away to be our part!<br>
+You need to verify your email address to activate your account. Please use the following 5-digit One Time Password (OTP) to complete your sign-up procedure. <br>
+'.$emailcode.'<br>
+Do not provide this code to anyone else to keep your important data confidential. If you are receiving this email without registering, contact us.<br>
+For any help, seek our assistance at abcdef@gmail.com.<br>
+With Best Regards,<br>
+Connect Social';
+        sendEmail($data['email'],'connectsocial@napollo.net','Almost There! Confirm Your Email',$message);
+
+
+
+        $nexmo = app('Nexmo\Client');
+        $nexmo->message()->send([
+            'to'   => '+923040647306',
+            'from' => '16105552344',
+            'text' => 'Make Everything Special With Connect Social,<br>
+To get started with us, you need to verify your phone number. Please use the following 4-digit OTP to confirm your phone number and complete your registration. <br>
+'.$mobilecode.'
+To avoid inconvenience and secure your data, do not share this OTP with anyone else. If you did not register with us, contact us at abcdef@gmail.com at your earliest. <br>
+Best Wishes<br>
+Connect Social'
+        ]);
+
+
+
+
+
         $user=User::create([
             'fname' => $data['fname'],
             'lname' => $data['lname'],
@@ -80,8 +112,21 @@ class RegisterController extends Controller
             'gender' => $data['gender'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
+            'email_code'=>$emailcode,
+            'phone_code'=>$mobilecode,
         ])  ;
-        
+
+
+
+
+
+
+
+
+        $referral = new Referral();
+        $referral->referred_by=$data['referred_by'];
+        $referral->referred_to=$user->id;
+        $referral->save();
         return $user;
     }
 }

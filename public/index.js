@@ -14,16 +14,26 @@ function submit(b,m,r,d,n) {
             if (n['type']=='form-reset'){
                 n['target'].trigger("reset");
             }
+            if (n['type']=='reload'){
+                window.location.reload();
+            }
+
             swal("Success!", data.success, "success");
         },
         error:function (xhr) {
             b.attr('disabled',null).html(previous);
-
             var error = '';
             $.each(xhr.responseJSON.errors,function (index,value) {
                 error += value[0]+' ';
             });
-            swal("Failed!", error, "error");
+            if (n['message']=='modal'){
+               var modal= n['modal-target'];
+               modal.modal('show');
+               var message= modal.find('#message');
+               message.html(error);
+            }else{
+                swal("Failed!", error, "error");
+            }
         }
     });
 }

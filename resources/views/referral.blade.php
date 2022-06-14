@@ -17,7 +17,7 @@
         <h4 class="bg-light" style="padding: 100px 0"><a id="sign-up" class="">{{url('referral-link/'.$name.'/'.$id)}}</a></h4>
     </div>
 
-    <form action="{{route('sign.up')}}" id="submit-sign-up" method="get">
+    <form action="{{route('join.as')}}" id="submit-sign-up" method="post">
         @csrf
         <input type="hidden" value="{{$id}}" name="referer">
     </form>
@@ -26,7 +26,7 @@
 <script>
     $(function () {
         $('#sign-up').click(function (e) {
-            e.preventDefault()
+            e.preventDefault();
             $('#submit-sign-up').submit();
         });
     });
