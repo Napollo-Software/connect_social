@@ -22,15 +22,13 @@ function sendEmail($to,$from,$subject,$message){
         $mail->Subject = $subject;
         $mail->Body    = $message;
         // $mail->AltBody = plain text version of email body;
-        if( !$mail->send() ) {
-            return back()->with("failed", "Email not sent.")->withErrors($mail->ErrorInfo);
+        if($mail->send() ) {
+            return response()->json(["success", "Email has been sent."]);
         }
-
         else {
-            return back()->with("success", "Email has been sent.");
+            return response()->json(["failed", $mail->ErrorInfo]);
         }
-
     } catch (Exception $e) {
-        return back()->with('error','Message could not be sent.');
+        return response()->json(["error", "Message could not be sent."]);
     }
 }

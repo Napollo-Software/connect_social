@@ -73,7 +73,7 @@
                 </form>
             </div>
             <div class="col-md-8 col-md-offset-8" style="margin-top:30px; ">
-                <p style="text-align: center;"><img class="img-ctrl" src="{{ asset('img/coin.png') }}" alt="tag"></p>
+                <p style="text-align: center;"><img class="img-ctrl" src="{{ url('img/coin.png') }}" alt="tag"></p>
             </div>
         </div>
     </div>

@@ -70,17 +70,17 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         sendEmail($data['email'],'connectsocial@napollo.net','Email Verification','Message');
-        dd(1);
         $user=User::create([
             'fname' => $data['fname'],
             'lname' => $data['lname'],
             'role' => $data['role'],
             'email' => $data['email'],
+            'country_code' => '+'.$data['countryCode'],
             'phone' => $data['phone'],
             'gender' => $data['gender'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
-        ]);
+        ])  ;
         return $user;
     }
 }
