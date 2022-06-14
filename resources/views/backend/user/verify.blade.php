@@ -1,5 +1,4 @@
-@extends('layouts.app')
-@section ('content')
+
 
 @if (Session::has('message'))
 <div class="alert alert-danger">{{Session::get('message')}}</div>
@@ -15,4 +14,3 @@
     </form>
     
 </div>
-@endsection
