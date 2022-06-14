@@ -57,12 +57,12 @@
                     @csrf
                     <div class="form-group" style="margin-bottom:20px;">
                         <label for="names">Email</label>
-                        <input type="email" class="form-control" name="email" placeholder="Your Email here" value="{{old('name')}}">
+                        <input type="email" class="form-control" name="email" placeholder="Your Email here" value="{{old('email')}}">
                         <span class="text-danger">@error('email'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group" style="margin-bottom:20px;">
                         <label for="names">Password</label>
-                        <input type="password" class="form-control" name="password" placeholder="Password" value="">
+                        <input type="password" class="form-control" name="password" placeholder="Password" value="{{old('password')}}">
                         <span class="text-danger">@error('password'){{$message}} @enderror</span>
                     </div>
                     <div class="form-group">
@@ -73,7 +73,7 @@
                 </form>
             </div>
             <div class="col-md-8 col-md-offset-8" style="margin-top:30px; ">
-                <p style="text-align: center;"><img class="img-ctrl" src="{{ asset('img/coin.png') }}" alt="tag"></p>
+                <p style="text-align: center;"><img class="img-ctrl" src="{{ url('img/coin.png') }}" alt="tag"></p>
             </div>
         </div>
     </div>

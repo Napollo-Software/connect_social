@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ReferralController extends Controller
 {
@@ -11,7 +13,10 @@ class ReferralController extends Controller
         return view('referral',compact('name','id'));
     }
     public function sign_up(Request $request){
-        $referer=$request->referer;
-        return view('sign_up',compact('referer'));
+        if (!Auth::user()){
+            $referer=$request->referer;
+            return view('sign_up',compact('referer'));
+        }
+        return view('home');
     }
 }
