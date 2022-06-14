@@ -1,6 +1,6 @@
 <?php
 use \PHPMailer\PHPMailer\PHPMailer;
-function sendEmail($to,$from,$subject,$message){
+function sendEmail($to,$from='connectsocial@napollo.net',$subject,$message){
     $mail = new PHPMailer(true);
     try {
         $mail->SMTPDebug = 0;

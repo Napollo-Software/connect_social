@@ -12,7 +12,12 @@ class InviteController extends Controller
         return view('admin.invite');
     }
     public function send(Request $request){
-        dd($request->all());
+        $this->validate($request,[
+           'email'=>'required|string|email|max:255',
+           'name'=>'required|string|max:255'
+        ]);
+        sendEmail($request->email,null,$request->subject,$request->message);
+        return response()->json(['success'=>'Invitation sent successfully!']);
     }
 
 }

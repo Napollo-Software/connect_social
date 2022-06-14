@@ -48,11 +48,11 @@
 
                                     <div class="form-group">
                                         <label for="message">Message</label>
-                                        <textarea class="form-control mb-3" type="text" name="message" id="message" placeholder="Message" rows="10" readonly>Hi XXXXX,
+                                        <textarea class="form-control mb-3" type="hidden" name="message" id="message" placeholder="Message" rows="10" readonly>Hi XXXXX,
 {{auth()->user()->fullName()}} has sent you an invitation link to join Connect Social.
 Now, you can register your Ambassador or Merchant Account on Connect Social. You’re being rewarded XX Connect Coins as a joining bonus. Also, when someone joins Connect Social through your referral link, you’re rewarded each time.
 Join through the below referral link:
-                                            {{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}
+<a href="{{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a>
 As a merchant, you can list and sell your products on our marketplace. As an ambassador, you can refer other ambassadors and get as many reward coins as you want.
 Ask us anything at abcxyz@gmail.com if you have any important queries.</textarea>
                                     </div>
@@ -70,10 +70,11 @@ Ask us anything at abcxyz@gmail.com if you have any important queries.</textarea
         $(function () {
             $(document).on('submit','#send-invite-form',function (e) {
                 e.preventDefault();
-                var route = '{{route('register')}}';
+                var route = '{{route('invite.send')}}';
                 var method = 'POST';
                 var data = new FormData(this);
-                var next = {};
+
+                var next = {'type':'form-reset','target':$('#send-invite-form')};
                 submit($(this).find('button[type=submit]'),method,route,data,next);
             });
         });

@@ -144,6 +144,7 @@
             </div>
         </div>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!--end switcher-->
 	<!-- Bootstrap JS -->
 	<script src="{{url('admin_assets/js/bootstrap.bundle.min.js')}}"></script>
