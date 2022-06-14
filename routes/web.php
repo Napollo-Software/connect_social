@@ -1,11 +1,20 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\SmsController;
 use App\Http\Controllers\ReferralController;
 
 Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/sms', [SmsController::class, 'sms'])->name('sms');
 Route::get('/sign-up', [ReferralController::class, 'sign_up'])->name('sign.up');
+Route::get('/user', [UserController::class, 'create'])->name('create');
+Route::post('/user', [UserController::class, 'store'])->name('store');
+Route::get('/verify', [UserController::class, 'Getverify'])->name('getverify');
+Route::post('/verify', [UserController::class, 'Postverify'])->name('postverify');
+//Route::get('/user', 'UserController@create');
+
 
 Route::get('/referral-link/{name}/{id}', [ReferralController::class, 'referral_link'])->name('referral.link');
 
