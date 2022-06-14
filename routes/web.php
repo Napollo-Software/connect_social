@@ -10,7 +10,6 @@ Auth::routes();
 Route::get('/sms', [SmsController::class, 'sms'])->name('sms');
 
 Route::get('/', [HomeController::class, 'index'])->name('dashboard');
-
 Route::get('/sign-up', [ReferralController::class, 'sign_up'])->name('sign.up');
 Route::get('/user', [UserController::class, 'create'])->name('create');
 Route::post('/user', [UserController::class, 'store'])->name('store');
