@@ -1,5 +1,6 @@
 <?php
 use \PHPMailer\PHPMailer\PHPMailer;
+
 function sendEmail($to,$from,$subject,$message){
     if ($from==null){
         $from='connectsocial@napollo.net';

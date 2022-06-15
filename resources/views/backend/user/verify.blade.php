@@ -5,5 +5,4 @@
         <input type="text" name="code" placeholder="enter code here">
         <input type="submit" value="Verify">
     </form>
-
 </div>

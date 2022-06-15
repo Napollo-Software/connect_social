@@ -30,7 +30,7 @@
           <entry key="html" value="4" />
           <entry key="js" value="3" />
           <entry key="json" value="3" />
-          <entry key="php" value="115" />
+          <entry key="php" value="118" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -40,7 +40,7 @@
           <entry key="HTML" value="4" />
           <entry key="JSON" value="3" />
           <entry key="JavaScript" value="3" />
-          <entry key="PHP" value="57" />
+          <entry key="PHP" value="60" />
           <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
@@ -50,7 +50,7 @@
           <entry key="env" value="36" />
           <entry key="html" value="1" />
           <entry key="js" value="653" />
-          <entry key="php" value="6331" />
+          <entry key="php" value="6341" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -59,7 +59,7 @@
           <entry key="CSS" value="4" />
           <entry key="HTML" value="1" />
           <entry key="JavaScript" value="653" />
-          <entry key="PHP" value="2499" />
+          <entry key="PHP" value="2509" />
           <entry key="PLAIN_TEXT" value="36" />
         </counts>
       </usages-collector>
@@ -71,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
-              <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+              <caret line="17" column="82" lean-forward="true" selection-start-line="17" selection-start-column="82" selection-end-line="17" selection-end-column="82" />
               <folding>
                 <element signature="e#6#43#0#PHP" expanded="true" />
               </folding>
@@ -79,20 +79,35 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-125">
-              <caret line="7" selection-start-line="7" selection-end-line="8" />
+            <state relative-caret-position="351">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+              <folding>
+                <element signature="e#41#69#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/backend/user/verify.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/helpers.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
-              <caret line="2" column="23" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="23" />
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+              <folding>
+                <element signature="n#sendEmail#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/backend/user/verify.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -115,53 +130,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
-              <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="29" column="38" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/sign_up.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="283" column="38" lean-forward="true" selection-start-line="283" selection-start-column="38" selection-end-line="283" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/auth/register.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="40" column="30" selection-start-line="40" selection-start-column="25" selection-end-line="40" selection-end-column="30" />
+            <state relative-caret-position="289">
+              <caret line="24" column="6" lean-forward="true" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -190,6 +160,7 @@
       <find>paulin</find>
       <find>signup-btn</find>
       <find>gender</find>
+      <find>Nexmo</find>
     </findStrings>
     <replaceStrings>
       <replace>admin_assets/</replace>
@@ -219,7 +190,6 @@
         <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
         <option value="$PROJECT_DIR$/routes/admin/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/app/helpers.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/invite.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/InviteController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/header.blade.php" />
@@ -234,10 +204,11 @@
         <option value="$PROJECT_DIR$/resources/views/sign_up.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ReferralController.php" />
         <option value="$PROJECT_DIR$/app/Models/User.php" />
-        <option value="$PROJECT_DIR$/resources/views/backend/user/verify.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/app/helpers.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
+        <option value="$PROJECT_DIR$/resources/views/backend/user/verify.blade.php" />
       </list>
     </option>
   </component>
@@ -433,12 +404,6 @@
             <path>
               <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
               <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="migrations" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -485,7 +450,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="user.php&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/connect_social/app/Models/User.php&#10;route&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/connect_social/app/Providers/RouteServiceProvider.php&#10;validator&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="app.php&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/connect_social/config/app.php&#10;user.php&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/connect_social/app/Models/User.php&#10;route&#9;FILE&#9;file://E:/Program Files/xampp/htdocs/connect_social/app/Providers/RouteServiceProvider.php&#10;validator&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -525,12 +490,12 @@
       <workItem from="1654876536561" duration="4022000" />
       <workItem from="1654880916355" duration="2306000" />
       <workItem from="1655119063190" duration="1757000" />
-      <workItem from="1655120921943" duration="38579000" />
+      <workItem from="1655120921943" duration="40269000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46664000" />
+    <option name="totallyTimeSpent" value="48354000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -719,13 +684,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2022_06_14_164608_create_referral_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -831,30 +789,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/backend/user/verify.blade.php">
+    <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="272">
+          <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/nexmo/laravel/src/NexmoServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="167" column="26" selection-start-line="167" selection-start-column="26" selection-end-line="167" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
-          <caret line="17" column="49" lean-forward="true" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+          <caret line="17" column="82" lean-forward="true" selection-start-line="17" selection-start-column="82" selection-end-line="17" selection-end-column="82" />
           <folding>
             <element signature="e#6#43#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+        <state relative-caret-position="351">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+          <folding>
+            <element signature="e#41#69#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="n#sendEmail#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -870,15 +852,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        <state relative-caret-position="289">
+          <caret line="24" column="6" lean-forward="true" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UserController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/user/verify.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
-          <caret line="7" selection-start-line="7" selection-end-line="8" />
+        <state relative-caret-position="119">
+          <caret line="7" column="6" lean-forward="true" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
