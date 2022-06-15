@@ -4,12 +4,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SmsController;
 use App\Http\Controllers\ReferralController;
+use App\Http\Controllers\ProfilesController;
 
 Auth::routes();
 
 Route::get('/sms', [SmsController::class, 'sms'])->name('sms');
 
 Route::get('/', [HomeController::class, 'index'])->name('dashboard');
+Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
 Route::post('/join', [ReferralController::class, 'join_as'])->name('join.as');
 Route::get('/sign-up', [ReferralController::class, 'sign_up'])->name('sign.up');
 Route::get('/user', [UserController::class, 'create'])->name('create');

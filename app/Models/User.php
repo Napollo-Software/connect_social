@@ -34,4 +34,9 @@ class User extends Authenticatable
     public function fullName(){
         return $this->fname.' '.$this->lname;
     }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 }
