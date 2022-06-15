@@ -65,6 +65,11 @@
                         <input type="password" class="form-control" name="password" placeholder="Password" value="{{old('password')}}">
                         <span class="text-danger">@error('password'){{$message}} @enderror</span>
                     </div>
+                    @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
                     <div class="form-group">
                         <button class="btn btn-block btn-primary btn-csutom" type="submit">Login</button>
                     </div>
