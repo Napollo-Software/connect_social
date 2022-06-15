@@ -38,6 +38,12 @@
                         <div class="menu-title">Roles</div>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('permission')}}">
+                        <div class="parent-icon"><i class='bx bxs-user-account'></i></div>
+                        <div class="menu-title">Permissions</div>
+                    </a>
+                </li>
 
 
 {{--                <li>
