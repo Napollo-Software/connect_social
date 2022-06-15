@@ -1,4 +1,3 @@
-
 <div style="padding-left: 100px">
     <form action="/user" method="POST">
         {{ csrf_field() }}

@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{url('admin_assets/css/dark-theme.css')}}" />
     <link rel="stylesheet" href="{{url('admin_assets/css/semi-dark.css')}}" />
     <link rel="stylesheet" href="{{url('admin_assets/css/header-colors.css')}}" />
-    <title>Syndron - Bootstrap5 Admin Template</title>
+    <title>Connect Social </title>
 </head>
 
 <body>

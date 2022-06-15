@@ -37,3 +37,24 @@ function submit(b,m,r,d,n) {
         }
     });
 }
+function InitTable(r,t,col) {
+    $('#example').DataTable({
+        responsive: true,
+        "bDestroy": true,
+        "processing": true,
+        "serverSide": true,
+        "Paginate": true,
+        "order": [[0, 'asc']],
+        "pageLength": 25,
+        "ajax": {
+            "url": r,
+            "dataType": "json",
+            "type": "POST",
+            "data": {_token: t}
+        },
+        "columns":col
+    });
+}
+
+
+
