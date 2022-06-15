@@ -100,8 +100,6 @@ Connect Social'
 
 
 
-
-
         $user=User::create([
             'fname' => $data['fname'],
             'lname' => $data['lname'],
@@ -115,11 +113,6 @@ Connect Social'
             'email_code'=>$emailcode,
             'phone_code'=>$mobilecode,
         ])  ;
-
-
-
-
-
 
 
 

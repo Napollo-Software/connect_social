@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="{{url('admin_assets/css/dark-theme.css')}}" />
     <link rel="stylesheet" href="{{url('admin_assets/css/semi-dark.css')}}" />
     <link rel="stylesheet" href="{{url('admin_assets/css/header-colors.css')}}" />
-    <title>Syndron - Bootstrap5 Admin Template</title>
+    <title>Connect Social </title>
 </head>
 
 <body>
@@ -155,6 +155,9 @@
 	<script src="{{url('admin_assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
 	<!--app JS-->
 	<script src="{{url('admin_assets/js/app.js')}}"></script>
+    <script>
+        var token = '{{csrf_token()}}';
+    </script>
 	@yield("script")
     @include("admin.layouts.theme-control")
 

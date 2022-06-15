@@ -1,8 +1,10 @@
 
+
 @if (Session::has('message'))
 <div class="alert alert-danger">{{Session::get('message')}}</div>
     
 @endif
+
 
 
 <div style="padding-left: 100px">
@@ -12,4 +14,5 @@
         <input type="submit" value="Verify">
     </form>
 
+</div>
 

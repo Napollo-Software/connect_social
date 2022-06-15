@@ -26,6 +26,19 @@
                         <div class="menu-title">Invite</div>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('users')}}">
+                        <div class="parent-icon"><i class='bx bx-user'></i></div>
+                        <div class="menu-title">Users</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('roles')}}">
+                        <div class="parent-icon"><i class='bx bxs-user-account'></i></div>
+                        <div class="menu-title">Roles</div>
+                    </a>
+                </li>
+
 
 {{--                <li>
                     <a href="javascript:;" class="has-arrow">

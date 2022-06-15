@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function create(){
         return view ('backend.user.create');
-    
+
     }
 
     public function store(Request $request) {
@@ -23,13 +23,9 @@ class UserController extends Controller
         // $user->save();
 
         $nexmo = app('Nexmo\Client');
-        $nexmo->message()->send([
-            'to'   => '+923040647306',
-            'from' => '16105552344',
-            'text' => 'Enter 9900 to verify your phone number.'
-        ]);
+
         return redirect ('/verify');
-        
+
     }
 
     public function Getverify(){
