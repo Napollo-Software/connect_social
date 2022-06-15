@@ -266,6 +266,66 @@ textarea {
 .ml-3 {
   margin-left: 30px;
 }
+.mt-1rem {
+  margin-top: 1rem;
+}
+.mt-2rem {
+  margin-top: 2rem;
+}
+.mt-3rem {
+  margin-top: 3rem;
+}
+.mt-4rem {
+  margin-top: 4rem;
+}
+.mb-1rem {
+  margin-bottom: 1rem;
+}
+.mb-2rem {
+  margin-bottom: 2rem;
+}
+.mb-3rem {
+  margin-bottom: 3rem;
+}
+.mb-4rem {
+  margin-bottom: 4rem;
+}
+.mr-blk-1rem{
+  margin-block: 1rem;
+}
+.mr-blk-2rem{
+  margin-block: 2rem;
+}
+.mr-blk-3rem{
+  margin-block: 3rem;
+}
+.mr-blk-4rem{
+  margin-block: 4rem;
+}
+.mr-1rem {
+  margin-right: 1rem;
+}
+.mr-2rem {
+  margin-right: 2rem;
+}
+.mr-3rem {
+  margin-right: 3rem;
+}
+.mr-4rem {
+  margin-right: 4rem;
+}
+.ml-1rem {
+  margin-left: 1rem;
+}
+.ml-2rem {
+  margin-left: 2rem;
+}
+.ml-3rem {
+  margin-left: 3rem;
+}
+.ml-4rem {
+  margin-left: 4rem;
+}
 .cs-nav-light {
   background-color: transparent !important;
     height: 100px;
@@ -379,7 +439,7 @@ td {
   padding-right:20px;   
 }
 .logo img{
-  width: 350px;
+  width: 300px;
   text-align: center;
 }
 .logo{
@@ -433,7 +493,7 @@ td {
     height: 45px !important;
 }
 .signup-btn {
-    min-width: 109px !important;
+    width: 109px !important;
     position: relative;
     left: 0px;
     float: left;
@@ -497,84 +557,49 @@ button.close {
     color: #c7c2c2;
     transition: .5s ease;
 }
-
-
-
-/*  Forgot Password  */
-.action-div {
-  background: #f0f0f0;
+.verification-header {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background: #F0F0F0;
+    width: 100%;
 }
-
-.action-div-logo-inner img {
-  width: 350px;
-  display: block;
+.verification-form {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+}
+.sec-border{
+    border: 1px solid lightgray;
+}
+.verification-btn{
+    color: white;
+    background-color: black;
+    padding-block: 6px;
+    width: 25%;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+.verification-btn:hover{
+    color: black;
+    background-color: white;
+    transition: .2s ease;
+}
+.wid-60{
+  width: 60%;
   margin: auto;
 }
-
-.form-div {
-  background: rgb(249 249 249 / 44%);
+.note{
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
 }
-
-.form-div-main {
-  padding: 60px;
-  box-shadow: rgb(100 100 111 / 10%) 0px 7px 18px 2px;
-  border: 1px solid #f0f0f0;
-  border-radius: 4px;
-  background: #fff;
+.t-center{
+  text-align: center;
 }
-
-.form-field-input {
-  box-shadow: 0px 7px 19px #f0f0f0;
-  max-width: 300px;
-  display: block;
-  margin: auto;
-  outline: none !important;
-  color: #000;
-  border-radius: 2px;
+.vef-mod-hdr{
+  border-bottom: none!important;
 }
-
-.form-sub-title {
-  margin-bottom: 10px;
-}
-
-.form-div-main-upper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-.custom-black-btn {
-  padding: 6px 15px;
-  background: #000;
-  border: 1px solid #000;
-  color: #f0f0f0;
-  border-radius: 2px;
-  transition: all .3s ease-in;
-}
-
-.form-div-inner {
-  height: calc(100vh - 180px);
-}
-
-/* Effects */
-
-.form-field-input:focus {
-  border-color: #000;
-  box-shadow: 0px 7px 19px #f0f0f0;
-}
-
-.custom-black-btn:hover {
-  border: 1px solid #000;
-  background: #fff;
-  color: #000;
-}
-
-
-/* Responsive */
-
-@media only screen and (max-width: 480px) {
-  .form-div-main {
-      padding: 50px 15px;
-  }
+.white{
+  color: #fff !important;
 }
