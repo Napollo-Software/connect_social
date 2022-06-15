@@ -75,7 +75,7 @@
                 "order": [[0, 'asc']],
                 "pageLength": 25,
                 "ajax": {
-                    "url": "{{ route('user.fetch') }}",
+                    "url": "{{ route('users.fetch') }}",
                     "dataType": "json",
                     "type": "POST",
                     "data": {_token: "{{csrf_token()}}"}
