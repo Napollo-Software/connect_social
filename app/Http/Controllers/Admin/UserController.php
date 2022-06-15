@@ -17,6 +17,7 @@ class UserController extends Controller
         $data = User::all();
         return DataTables::of($data)
             ->addIndexColumn()
+
             ->rawColumns(['action'])
             ->make(true);
     }

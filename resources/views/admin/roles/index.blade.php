@@ -21,7 +21,7 @@
                     </nav>
                 </div>
                 <div class="ms-auto">
-                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#modal"><i class="bx bx-plus-circle"></i> Role</button>
+                    <button class="btn btn-sm btn-primary create" data-bs-toggle="modal" data-bs-target="#modal" ><i class="bx bx-plus-circle"></i> Role</button>
                 </div>
             </div>
 
@@ -63,8 +63,10 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <form id="modal-form">
+                    @csrf
+                    <input type="hidden" name="id" value="0" id="id">
                 <div class="modal-header">
-                    <h5 class="modal-title"><i class="bx bx-plus-circle"></i> Create Role</h5>
+                    <h5 class="modal-title"><i class="bx bx-plus"></i> Role</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -75,7 +77,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
                 </form>
             </div>
@@ -97,17 +99,41 @@
 
             ];
             var route = '{{ route('roles.fetch')}}';
-            var token = '{{csrf_token()}}';
 
             InitTable(route,token,columns);
 
             $('#modal').on('submit','#modal-form',function (e) {
                 e.preventDefault();
-                var route = '{{route('roles.store')}}';
+                var route = '{{route('roles.submit')}}';
                 var method = 'POST';
                 var data = new FormData(this);
-                var next = {'type':'data-table'};
+                var next = {'type':'data-table-modal'};
                 submit($(this).find('button[type=submit]'),method,route,data,next);
+            });
+            $(document).on('click','.create',function () {
+                $('#id').val(0);
+            });
+            $(document).on('click','.delete',function () {
+                var id = $(this).attr('data-id');
+                var route = '{{route('roles.destroy')}}';
+                var next = {'type':'soft-dt'};
+                cdelete('Are you sure to delete this role?',id,token,route,next)
+            });
+            $(document).on('click','.edit',function () {
+
+                $.ajax({
+                    type:'POST',
+                    url:'{{route('roles.edit')}}',
+                    data: {'id':$(this).attr('data-id'),_token:'{{csrf_token()}}'},
+                    dataType:'JSON',
+                    success:function(data) {
+                        $('#id').val(data.id);
+                        $('#name').val(data.name);
+                        $('#modal').modal('show');
+                    },
+                    error:function (xhr) {
+                    }
+                });
 
             });
         });

@@ -155,6 +155,9 @@
 	<script src="{{url('admin_assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
 	<!--app JS-->
 	<script src="{{url('admin_assets/js/app.js')}}"></script>
+    <script>
+        var token = '{{csrf_token()}}';
+    </script>
 	@yield("script")
     @include("admin.layouts.theme-control")
 

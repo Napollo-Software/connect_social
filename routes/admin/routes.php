@@ -18,6 +18,9 @@ Route::middleware('auth')->group(function () {
     Route::prefix('roles')->group(function () {
         Route::get('/', [RoleController::class, 'index'])->name('roles');
         Route::post('fetch', [RoleController::class, 'fetch'])->name('roles.fetch');
+        Route::post('submit', [RoleController::class, 'submit'])->name('roles.submit');
+        Route::post('edit', [RoleController::class, 'edit'])->name('roles.edit');
+        Route::post('destroy', [RoleController::class, 'destroy'])->name('roles.destroy');
     });
 
 
