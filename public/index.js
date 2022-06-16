@@ -19,14 +19,15 @@ function submit(b,m,r,d,n) {
             if (n['type']=='reload'){
                 window.location.reload();
             }
+            if (n['type']=='next-route'){
+                window.location.href=n['url'];
+            }
             swal("Success!", data.success, "success").then(function () {
                 if (n['type']=='data-table-modal'){
                     $('#modal').modal('hide');
                     $('#example').DataTable().ajax.reload();
                 }
-                if (n['type']=='next-route'){
-                    window.location.href=n['url'];
-                }
+
             });
         },
         error:function (xhr) {

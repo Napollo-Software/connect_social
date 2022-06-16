@@ -17,7 +17,9 @@ class UserController extends Controller
         $data = User::all();
         return DataTables::of($data)
             ->addIndexColumn()
-
+            ->addColumn('role', function ($data) {
+                return $data->roles->name;
+            })
             ->rawColumns(['action'])
             ->make(true);
     }

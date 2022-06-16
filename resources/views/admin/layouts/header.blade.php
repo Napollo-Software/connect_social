@@ -327,7 +327,7 @@
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img
                                     @if(auth()->user()->profile)
-                                    src="{{asset('storage/profile/'.auth()->user()->profile)}}"
+                                    src="{{Storage::disk('local')->url('/profile/'.auth()->user()->profile)}}"
                                     @else
                                     src="admin_assets//images/avatars/avatar-2.png"
                                     @endif
