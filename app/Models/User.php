@@ -27,6 +27,7 @@ class User extends Authenticatable
         'password',
         'email_code',
         'phone_code',
+        'profile',
     ];
     protected $hidden = [
         'password',
@@ -37,10 +38,5 @@ class User extends Authenticatable
     ];
     public function fullName(){
         return $this->fname.' '.$this->lname;
-    }
-
-    public function profile()
-    {
-        return $this->hasOne(Profile::class);
     }
 }

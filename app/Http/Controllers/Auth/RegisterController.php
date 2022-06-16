@@ -7,7 +7,9 @@ use App\Models\Referral;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Nexmo;
 
@@ -51,15 +53,16 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string', 'max:30'],
+            'country_code' => ['required', 'max:30'],
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string','unique:users', 'max:255','regex:/(^[a-zA-Z]+[a-zA-Z0-9\\-]*$)/u'],
             'gender' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8','confirmed'],
+            'profile' => ['required','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
         ]);
     }
 
@@ -82,11 +85,10 @@ Do not provide this code to anyone else to keep your important data confidential
 For any help, seek our assistance at abcdef@gmail.com.<br>
 With Best Regards,<br>
 Connect Social';
-        sendEmail($data['email'],'connectsocial@napollo.net','Almost There! Confirm Your Email',$message);
 
 
 
-        $nexmo = app('Nexmo\Client');
+        /*$nexmo = app('Nexmo\Client');
         $nexmo->message()->send([
             'to'   => '+923040647306',
             'from' => '16105552344',
@@ -96,26 +98,27 @@ To get started with us, you need to verify your phone number. Please use the fol
 To avoid inconvenience and secure your data, do not share this OTP with anyone else. If you did not register with us, contact us at abcdef@gmail.com at your earliest. <br>
 Best Wishes<br>
 Connect Social'
-        ]);
+        ]);*/
 
 
+        $attachment = time() . $data['profile']->getClientOriginalName();
+        Storage::disk('local')->put('/public/profile/' . $attachment, File::get($data['profile']));
+        sendEmail($data['email'],'connectsocial@napollo.net','Almost There! Confirm Your Email',$message);
 
         $user=User::create([
             'fname' => $data['fname'],
             'lname' => $data['lname'],
             'role' => $data['role'],
             'email' => $data['email'],
-            'country_code' => '+'.$data['countryCode'],
+            'country_code' =>$data['country_code'],
             'phone' => $data['phone'],
             'gender' => $data['gender'],
             'username' => $data['username'],
             'password' => Hash::make($data['password']),
             'email_code'=>$emailcode,
             'phone_code'=>$mobilecode,
-        ])  ;
-
-
-
+            'profile'=>$attachment,
+        ]);
         $referral = new Referral();
         $referral->referred_by=$data['referred_by'];
         $referral->referred_to=$user->id;

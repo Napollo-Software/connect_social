@@ -6,12 +6,11 @@ use App\Http\Controllers\SmsController;
 use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\ProfilesController;
+use App\Http\Controllers\Auth\VerifyCodeController;
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/sms', [SmsController::class, 'sms'])->name('sms');
-
-Route::get('/', [HomeController::class, 'index'])->name('dashboard');
 Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
 Route::post('/join', [ReferralController::class, 'join_as'])->name('join.as');
 Route::get('/sign-up', [ReferralController::class, 'sign_up'])->name('sign.up');
@@ -24,5 +23,9 @@ Route::get('forget-password/resend-email', [ForgotPasswordController::class, 're
 Route::get('create-new-password/{id}/{token}', [ForgotPasswordController::class, 'create_new_password'])->name('forgot.create.new.password');
 Route::post('forget-password/change-password', [ForgotPasswordController::class, 'change_password'])->name('forgot.change.password');
 
+Route::post('verify-email-code', [VerifyCodeController::class, 'verify_code'])->name('email.verify.code');
+Route::get('resend-email-code', [VerifyCodeController::class, 'resend_code'])->name('email.resend.code');
 
+
+Route::get('/', [HomeController::class, 'index'])->middleware(['verified','email-verification'])->name('dashboard');
 Route::group([],__DIR__.'/admin/routes.php');

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 
 class ForgotPasswordController extends Controller
@@ -17,10 +18,19 @@ class ForgotPasswordController extends Controller
            'password'=>'required|min:8|confirmed'
         ]);
         $user = User::find($request->id);
-        $user->password=Hash::make($request->password);
-        $user->save();
-        return response()->json(['success'=>'Password is changed successfully!']);
-
+        if ($request->verification!=$user->email_token){
+            $response['message']=['Your link is expired.'];
+            return response()->json([
+                'status'      => 'failed',
+                'status_code' => 422,
+                'errors'     => $response,
+            ], 422);
+        }else{
+            $user->password=Hash::make($request->password);
+            $user->email_token=null;
+            $user->save();
+            return response()->json(['success'=>'Password is changed successfully!']);
+        }
     }
     public function create_new_password($id,$token){
         $user=User::find($id);
@@ -33,14 +43,14 @@ class ForgotPasswordController extends Controller
                 $tokenverify=true;
             }
         }
-        return view('auth.passwords.create-new-password',compact('account','tokenverify','user'));
+        return view('auth.passwords.create-new-password',compact('account','tokenverify','user','token'));
     }
 
     public function send_email(Request $request){
         $this->validate($request,['email'=>'required|max:50']);
         $user = User::where('email',$request->email)->first();
         if ($user){
-            $user->email_token=$request->_token;
+            $user->email_token=Crypt::encryptString(time());
             $user->save();
             $message='Hello '.$user->fullName().',<br>
 You recently requested for a password reset for your Connect Social account. Click on the below link or open the link in your browser to reset your passw<br>ord;<br>

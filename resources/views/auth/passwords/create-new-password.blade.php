@@ -16,6 +16,7 @@
                                     <form id="change-password">
                                         @csrf
                                         <input type="hidden" name="id" value="{{$user->id}}">
+                                        <input type="hidden" name="verification" value="{{$token}}">
                                         <div class="form-box text-center">
                                             <div class="form-title pb-3">
                                                 <h2>Create New Password</h2>
@@ -41,14 +42,14 @@
                                                var route = '{{route('forgot.change.password')}}';
                                                var method = 'POST';
                                                var data = new FormData(this);
-                                               var next = {'type':'reload'};
+                                               var next = {'type':'next-route','url':'{{route('login')}}'};
                                                submit($(this).find('button[type=submit]'),method,route,data,next);
                                            });
                                         });
                                     </script>
                                 @else
                                     <div class="form-box text-center">
-                                        <h2>Your token is expired.</h2>
+                                        <h2>Your link is expired.</h2>
                                     </div>
                                 @endif
                             @else

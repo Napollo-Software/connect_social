@@ -19,8 +19,6 @@ function submit(b,m,r,d,n) {
             if (n['type']=='reload'){
                 window.location.reload();
             }
-
-
             swal("Success!", data.success, "success").then(function () {
                 if (n['type']=='data-table-modal'){
                     $('#modal').modal('hide');
@@ -33,14 +31,7 @@ function submit(b,m,r,d,n) {
         },
         error:function (xhr) {
             b.attr('disabled',null).html(previous);
-            if (n['message']=='modal'){
-               var modal= n['modal-target'];
-               modal.modal('show');
-               var message= modal.find('#message');
-               message.html(error);
-            }else{
-                erroralert(xhr);
-            }
+            erroralert(xhr);
         }
     });
 }
