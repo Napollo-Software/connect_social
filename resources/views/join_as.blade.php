@@ -1,147 +1,193 @@
-<!doctype html>
-<html class="no-js" lang="">
-<head>
-    <meta charset="utf-8">
-    <title>Profile - Connect Social</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="{{url('favicon.png')}}">
-    <link rel="stylesheet" href="{{url('css/normalize.css')}}">
-    <link rel="stylesheet" href="{{url('css/main.css')}}">
-    <link rel="stylesheet" href="{{url('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{url('css/fontawesome.min.css')}}">
-    <link rel="stylesheet" href="{{url('css/all.css')}}">
-</head>
-<body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light cs-nav-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse  nav justify-content-center" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">About <span class="sr-only">(current)</span></a>
+@extends('auth.layouts.app')
+@section('content')
+    <link rel="stylesheet" href="{{url('assets/css/all.css')}}">
+    <!-- Header -->
+<div class="page-navigation">
+    <div class="container">
+        <!-- <div class="container-fluid"> -->
+        <div class="page-navigation-inner">
+            <div class="mobile-menu-btn">
+                <div class="mobile-menu-btn-outer">
+                    <div class="mobile-menu-btn-inner">
+                            <span class='mobile-menu-btn-image open-menu'>
+                                <img src="{{url('assets/images/icons/menu.png')}}" alt="">
+                            </span>
+                    </div>
+                </div>
+            </div>
+            <ul class="page-navigation-ul">
+                <li class="page-navigation-li active">
+                    <a href="javascript:void(0)" class="page-navigation-link">About</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Consumers</a>
+                <li class="page-navigation-li">
+                    <a href="javascript:void(0)" class="page-navigation-link">Consumer</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Merchants</a>
+                <li class="page-navigation-li">
+                    <a href="javascript:void(0)" class="page-navigation-link">Merchants</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Our World</a>
+                <li class="page-navigation-li">
+                    <a href="javascript:void(0)" class="page-navigation-link">Our World</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Treasure Island</a>
+                <li class="page-navigation-li">
+                    <a href="javascript:void(0)" class="page-navigation-link">Treasure Island</a>
+                </li>
+            </ul>
+            <div class="login-link">
+                <a href="{{url('login')}}" class="page-navigation-link">Login</a>
+            </div>
+        </div>
+        <div class="navigation-in-mobile">
+            <ul class="page-navigation-ul d-block">
+                <li class="page-navigation-li active">
+                    <a href="javascript:void(0)" class="page-navigation-link">About</a>
+                </li>
+                <li class="page-navigation-li">
+                    <a href="javascript:void(0)" class="page-navigation-link">Consumer</a>
+                </li>
+                <li class="page-navigation-li">
+                    <a href="javascript:void(0)" class="page-navigation-link">Merchants</a>
+                </li>
+                <li class="page-navigation-li">
+                    <a href="javascript:void(0)" class="page-navigation-link">Our World</a>
+                </li>
+                <li class="page-navigation-li">
+                    <a href="javascript:void(0)" class="page-navigation-link">Treasure Island</a>
                 </li>
             </ul>
         </div>
-        <div class="login-btn">
-            <a class="nav-link" href="{{route('login')}}">Login</a>
-        </div>
-    </nav>
-</header>
-
-<section class="main-wrapper">
-    <div class="container mb-3 mt-3">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="user-details">
-                    <img src="{{url('img/avatar.png')}}">
-                    <h3>{{$ref->fullName()}}</h3>
-                    <p>Ambassador</p>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <h4 class="heading-sty">Get Started & Join My Network!</h4>
-                <div class="btngroup">
-                    <a href="{{url('sign-up?by='.$ref->id.'&role=3')}}" class="bigblack-btn">Join as Merchant</a>
-                    <a href="{{url('sign-up?by='.$ref->id.'&role=2')}}" class="bigblack-btn-active">Join as Ambassador</a>
-                </div>
-            </div>
-        </div>
     </div>
-</section>
-<hr>
-<section>
+</div>
+<!-- Profile -->
+<div class="user-profile-div">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="profile-details">
-                    <h3>About Ambassador</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam.</p>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-                    <p>Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet. </p>
+        <!-- <div class="container-fluid"> -->
+        <div class="user-profile-div-inner">
+            <div class="user-profile-div-main row">
+                <div class="col-md-6">
+                    <div class="user-profile-info-inner">
+                        <div class="user-profile-info-image">
+                            <img
+                                    @if($ref->profile)
+                                    src="{{Storage::disk('local')->url('/profile/'.$ref->profile)}}"
+                                    @else
+                                    src="{{url('assets/images/user-profile/user-01.png')}}"
+                                    @endif
+                                    alt="">
+                        </div>
+                        <div class="user-profile-info-text">
+                            <h2 class="user-profile-info-text-name">{{$ref->fullName()}}</h2>
+                            <div class="user-profile-info-text-type"><i>{{$ref->roles->name}}</i></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="social-details">
-                    <h3>Social Info</h3>
-                    <table class="social-info-table">
-                        <tr>
-                            <th>City</th>
-                            <td>NYC</td>
-                        </tr>
-                        <tr>
-                            <th>Current State</th>
-                            <td>NY</td>
-                        </tr>
-                        <tr>
-                            <th>Relationship Status</th>
-                            <td>Single</td>
-                        </tr>
-                        <tr>
-                            <th>Date of Joining</th>
-                            <td>28 Jan 2020</td>
-                        </tr>
-                        <tr>
-                            <th>Workplace</th>
-                            <td>Lorem ipsum</td>
-                        </tr>
-                        <tr>
-                            <th>Highschool</th>
-                            <td>Lorem ipsum</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="company-bio">
-                    <h3>About Connect Social</h3>
-                    <a class="play-btn" data-toggle="modal" data-target="#exampleModalCenter" href="#"><i class="fa-solid fa-circle-play"></i></a><img src="img/vid.jpg">
-                    <div class="details">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam.</p>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
-                        <p>Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet. </p>
+                <div class="col-md-6">
+                    <div class="user-profile-info-action-inner text-center">
+                        <h4 class="user-profile-info-action-top-text">
+                            Get Started & Join My Network!
+                        </h4>
+                        <div class="user-profile-info-action-buttons">
+                            <a href="{{url('sign-up?by='.$ref->id.'&role=5')}}" class="user-profile-btn-large white mr-3">Join as Merchant</a>
+                            <a href="{{url('sign-up?by='.$ref->id.'&role=3')}}" class="user-profile-btn-large black">Join as Ambassador</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
-
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <div class="modal-body">
-                <p>Video URL</p>
+</div>
+<div class="user-profile-about">
+    <div class="container">
+        <!-- <div class="container-fluid"> -->
+        <div class="user-profile-about-inner">
+            <div class="user-profile-about-main row">
+                <div class="user-profile-about-text col-md-5">
+                    <h2 class="user-profile-about-title text-center">
+                        About Ambassador
+                    </h2>
+                    <div class="user-profile-about-text-p">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.<p>
+                        <p>Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet,</p>
+                    </div>
+                    <div class="user-profile-social-info">
+                        <div class="user-profile-social-info-title">
+                            <div class="user-profile-social-info-table">
+                                <table class="table table-borderd">
+                                    <tbody>
+                                    <tr>
+                                        <td>City</td>
+                                        <td>NYC</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Current State</td>
+                                        <td>NY</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Relationship Status</td>
+                                        <td>Single</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Date of Joining</td>
+                                        <td>28 Jan 2020</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Workplace</td>
+                                        <td>Lorem Ipsum</td>
+                                    </tr>
+                                    <tr>
+                                        <td>High School</td>
+                                        <td>Lorem Ipsum</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-profile-about-video col-md-6">
+                    <h2 class="user-profile-about-title text-center">
+                        About Connect Social
+                    </h2>
+                    <div class="user-profile-video-container">
+                        <div class="user-profile-video-container-inner">
+                            <div class="user-profile-video-container-image">
+                                <img src="{{url('assets/images/video/bg-01.png')}}" alt="">
+                                <div class="user-profile-video-controller">
+                                    <div class="user-profile-video-controller-inner">
+                                        <img src="{{url('assets/images/icons/play.svg')}}" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-profile-video-bottom-text">
+                        <div class="user-profile-video-bottom-text-inner">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, impedit aperiam! Nam amet eius, alias earum, praesentium magni ex accusamus pariatur aut perspiciatis, repellendus velit facere libero ipsam commodi quae.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, impedit aperiam! Nam amet eius, alias earum, praesentium magni ex accusamus pariatur aut perspiciatis, repellendus velit facere libero ipsam commodi quae.</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, impedit aperiam! Nam amet eius, alias earum, praesentium magni ex accusamus pariatur aut perspiciatis, repellendus velit facere libero ipsam commodi quae.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    var count = 0;
+    $(".mobile-menu-btn-image").click(function() {
+        if (count == 0) {
+            $('.navigation-in-mobile').slideDown(500);
+            count = 1;
+        } else {
+            $('.navigation-in-mobile').slideUp(500);
+            count = 0;
+        }
+    });
+    // $(".mobile-menu-btn-image.close-menu").click(function() {
 
-
-<script src="{{url('js/vendor/modernizr-3.11.2.min.js')}}"></script>
-<script src="{{url('js/plugins.js')}}"></script>
-<script src="{{url('js/main.js')}}"></script>
-<script src="{{url('js/bootstrap.min.js')}}"></script>
-<script src="{{url('js/fontawesome.min.js')}}"></script>
-<script src="{{url('js/all.js')}}"></script>
-</body>
-</html>
+    //     $(".mobile-menu-btn-image").removeClass('close-menu');
+    //     $(".mobile-menu-btn-image").addClass('open-menu');
+    // });
+</script>
+    @endsection

@@ -53,7 +53,7 @@
                                             {{auth()->user()->fullName()}} has sent you an invitation link to join Connect Social.<br>
                                             Now, you can register your Ambassador or Merchant Account on Connect Social. You’re being rewarded XX Connect Coins as a joining bonus. Also, when someone joins Connect Social through your referral link, you’re rewarded each time.<br>
                                             Join through the below referral link:<br>
-                                            <a href="{{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a><br>
+                                            <a href="{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a><br>
                                             As a merchant, you can list and sell your products on our marketplace. As an ambassador, you can refer other ambassadors and get as many reward coins as you want.<br>
                                             Ask us anything at abcxyz@gmail.com if you have any important queries.
                                         </p>
@@ -66,7 +66,7 @@
                                         {{auth()->user()->fullName()}} has sent you an invitation link to join Connect Social.<br>
 Now, you can register your Ambassador or Merchant Account on Connect Social. You’re being rewarded XX Connect Coins as a joining bonus. Also, when someone joins Connect Social through your referral link, you’re rewarded each time.<br>
 Join through the below referral link:<br>
-<a href="{{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a><br>
+<a href="{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a><br>
 As a merchant, you can list and sell your products on our marketplace. As an ambassador, you can refer other ambassadors and get as many reward coins as you want.<br>
 Ask us anything at abcxyz@gmail.com if you have any important queries.</textarea>
 

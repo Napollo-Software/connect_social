@@ -9,15 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class ReferralController extends Controller
 {
     public function referral_link($name,$id){
-        return view('referral',compact('name','id'));
-    }
-    public function join_as(Request $request){
-        if (!Auth::user()){
-            $referer=$request->referer;
-            $ref=User::find($referer);
-            return view('join_as',compact('ref'));
-        }
-        return redirect()->route('dashboard');
+        $ref=User::find($id);
+        return view('join_as',compact('ref'));
     }
 
     public function sign_up(Request $request){
@@ -28,6 +21,5 @@ class ReferralController extends Controller
             return view('sign_up',compact('referer','by','role'));
         }
         return redirect()->route('dashboard');
-
     }
 }
