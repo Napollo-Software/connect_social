@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('fname');
             $table->string('lname');
             $table->string('username');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('country_code');
             $table->string('phone');
             $table->timestamp('email_verified_at')->nullable();
@@ -30,7 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('profile')->nullable();
 
 
-            $table->string('email_token')->unique()->nullable();
+            $table->string('email_token')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

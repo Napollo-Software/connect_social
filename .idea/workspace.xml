@@ -54,17 +54,17 @@
           <entry key="env" value="61" />
           <entry key="html" value="1" />
           <entry key="js" value="1023" />
-          <entry key="php" value="13944" />
+          <entry key="php" value="13946" />
           <entry key="sql" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="7399" />
+          <entry key="Blade" value="7400" />
           <entry key="CSS" value="4" />
           <entry key="HTML" value="4" />
           <entry key="JavaScript" value="1023" />
-          <entry key="PHP" value="6542" />
+          <entry key="PHP" value="6543" />
           <entry key="PLAIN_TEXT" value="62" />
           <entry key="SQL" value="39" />
         </counts>
@@ -85,20 +85,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/join_as.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="89" column="74" selection-start-line="89" selection-start-column="74" selection-end-line="89" selection-end-column="74" />
+            <state relative-caret-position="119">
+              <caret line="88" column="74" selection-start-line="88" selection-start-column="74" selection-end-line="88" selection-end-column="74" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReferralController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+            <state relative-caret-position="170">
+              <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -231,8 +231,8 @@
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/invite.blade.php" />
         <option value="$PROJECT_DIR$/database/initial.sql" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/ReferralController.php" />
         <option value="$PROJECT_DIR$/resources/views/join_as.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ReferralController.php" />
       </list>
     </option>
   </component>
@@ -534,15 +534,15 @@
       <workItem from="1655120921943" duration="40908000" />
       <workItem from="1655293231143" duration="19269000" />
       <workItem from="1655316378249" duration="5814000" />
-      <workItem from="1655377778047" duration="17826000" />
+      <workItem from="1655377778047" duration="18511000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="91902000" />
+    <option name="totallyTimeSpent" value="92587000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.16414523" />
@@ -886,13 +886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReferralController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/auth/layouts/app.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -910,8 +903,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/join_as.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="89" column="74" selection-start-line="89" selection-start-column="74" selection-end-line="89" selection-end-column="74" />
+        <state relative-caret-position="119">
+          <caret line="88" column="74" selection-start-line="88" selection-start-column="74" selection-end-line="88" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReferralController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="12" column="46" selection-start-line="12" selection-start-column="46" selection-end-line="12" selection-end-column="46" />
         </state>
       </provider>
     </entry>
