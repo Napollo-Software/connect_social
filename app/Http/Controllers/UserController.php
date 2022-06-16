@@ -9,11 +9,6 @@ use Nexmo;
 
 class UserController extends Controller
 {
-    public function create(){
-        return view ('backend.user.create');
-
-    }
-
     public function store(Request $request) {
         $code = rand(1111, 9999);
 
@@ -26,13 +21,5 @@ class UserController extends Controller
 
         return redirect ('/verify');
 
-    }
-
-    public function Getverify(){
-        return view('backend.user.verify');
-    }
-
-    public function Postverify(){
-        return view('backend.user.verify');
     }
 }

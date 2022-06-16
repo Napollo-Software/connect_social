@@ -24,22 +24,14 @@ function submit(b,m,r,d,n) {
                     $('#modal').modal('hide');
                     $('#example').DataTable().ajax.reload();
                 }
+                if (n['type']=='next-route'){
+                    window.location.href=n['url'];
+                }
             });
         },
         error:function (xhr) {
             b.attr('disabled',null).html(previous);
-            var error = '';
-            $.each(xhr.responseJSON.errors,function (index,value) {
-                error += value[0]+' ';
-            });
-            if (n['message']=='modal'){
-               var modal= n['modal-target'];
-               modal.modal('show');
-               var message= modal.find('#message');
-               message.html(error);
-            }else{
-                swal("Failed!", error, "error");
-            }
+            erroralert(xhr);
         }
     });
 }
@@ -107,3 +99,14 @@ function cdelete(title, id, token, route,next=[]) {
     });
 }
 
+function erroralert(xhr) {
+    if (typeof  xhr.responseJSON.errors === 'object') {
+        var error = '';
+        $.each(xhr.responseJSON.errors, function (key, item) {
+            error += item;
+        });
+        swal("Failed", error, "error");
+    } else {
+        swal("Failed", xhr.responseJSON.message, "error");
+    }
+}
