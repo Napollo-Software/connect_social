@@ -54,7 +54,9 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/partials/super_ambassador.php'));
-
+            Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/partials/ambassador.php'));
 
         });
     }

@@ -20,9 +20,8 @@
                                     <div class="upload-profile-div">
                                         <div class="upload-profile-div-inner">
                                             <div class="upload-profile-image-div">
-                                                <img src="../assets/images/icons/user.png" alt="">
-                                                <div class="camera-icon" id="choose-pic-trigger"><img src="../assets/images/icons/camera.png"
-                                                                              alt=""></div>
+                                                <img src="{{url('assets/images/icons/user.png')}}" alt="">
+                                                <div class="camera-icon" id="choose-pic-trigger"><img src="{{url('assets/images/icons/camera.png')}}" alt=""></div>
                                             </div>
                                         </div>
                                     </div>

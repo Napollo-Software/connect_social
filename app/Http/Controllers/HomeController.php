@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -11,6 +11,9 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
     public function index(){
+        if (Auth::user()->roles->slug=='ambassador'){
+            return view('ambassador.profile');
+        }
         return view('admin.dashboard');
     }
 
