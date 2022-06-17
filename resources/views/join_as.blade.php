@@ -70,7 +70,7 @@
                                         @if($ref->profile)
                                         src="{{Storage::disk('local')->url('/profile/'.$ref->profile)}}"
                                         @else
-                                        src="{{url('assets/images/user-profile/user-01.png')}}"
+                                        src="admin_assets//images/avatars/avatar-2.png"
                                         @endif alt="">
                             </div>
                             <div class="user-profile-info-text">
