@@ -112,6 +112,7 @@
             });
             $(document).on('click','.create',function () {
                 $('#id').val(0);
+                $('#name').val('');
             });
             $(document).on('click','.delete',function () {
                 var id = $(this).attr('data-id');

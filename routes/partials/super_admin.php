@@ -8,10 +8,6 @@ use App\Http\Controllers\Admin\PermissionController;
 
 
 Route::middleware(['auth','can:super-admin-views','email-verification'])->group(function () {
-    Route::prefix('invite')->group(function () {
-        Route::get('/', [InviteController::class, 'index'])->name('invite');
-        Route::post('send', [InviteController::class, 'send'])->name('invite.send');
-    });
     Route::prefix('user')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('users');
         Route::post('fetch', [UserController::class, 'fetch'])->name('users.fetch');

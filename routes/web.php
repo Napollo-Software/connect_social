@@ -27,4 +27,5 @@ Route::get('resend-email-code', [VerifyCodeController::class, 'resend_code'])->n
 
 
 Route::get('/', [HomeController::class, 'index'])->middleware(['verified','email-verification'])->name('dashboard');
-Route::group([],__DIR__.'/admin/routes.php');
+Route::group([],__DIR__.'/partials/super_admin.php');
+Route::group([],__DIR__.'/partials/super_ambassador.php');
