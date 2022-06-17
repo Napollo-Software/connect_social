@@ -71,8 +71,7 @@
                                         src="{{Storage::disk('local')->url('/profile/'.$ref->profile)}}"
                                         @else
                                         src="{{url('assets/images/user-profile/user-01.png')}}"
-                                        @endif
-                                        alt="">
+                                        @endif alt="">
                             </div>
                             <div class="user-profile-info-text">
                                 <h2 class="user-profile-info-text-name">{{$ref->fullName()}}</h2>

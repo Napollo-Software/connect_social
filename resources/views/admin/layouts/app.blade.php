@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="{{url('admin_assets/css/header-colors.css')}}" />
     <title>Connect Social </title>
 </head>
-
 <body>
 	<!--wrapper-->
 	<div class="wrapper">
