@@ -121,12 +121,13 @@
                                             </div>
                                         </div>
                                         <div class="login-form-box">
-                                            <div class="login-form-box-title">
+                                            {{--<div class="login-form-box-title">
                                                 Log in to Admin Panel
                                             </div>
                                             <div class="login-form-box--bottom-title">
                                                 Enter your email and password to sign in
                                             </div>
+                                            --}}
                                             <div class="login-form-fields">
                                                 <form action="{{route('login')}}" method="post">
                                                     @csrf
