@@ -33,42 +33,42 @@
           <entry key="html" value="5" />
           <entry key="js" value="9" />
           <entry key="json" value="5" />
-          <entry key="php" value="381" />
-          <entry key="sql" value="18" />
+          <entry key="php" value="383" />
+          <entry key="sql" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="168" />
+          <entry key="Blade" value="169" />
           <entry key="CSS" value="5" />
           <entry key="HTML" value="5" />
           <entry key="JSON" value="5" />
           <entry key="JavaScript" value="9" />
-          <entry key="PHP" value="213" />
+          <entry key="PHP" value="214" />
           <entry key="PLAIN_TEXT" value="9" />
-          <entry key="SQL" value="18" />
+          <entry key="SQL" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="23" />
+          <entry key="css" value="57" />
           <entry key="dummy" value="1" />
           <entry key="env" value="94" />
           <entry key="html" value="1" />
           <entry key="js" value="1025" />
-          <entry key="php" value="16173" />
-          <entry key="sql" value="41" />
+          <entry key="php" value="16358" />
+          <entry key="sql" value="47" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="8362" />
-          <entry key="CSS" value="23" />
+          <entry key="Blade" value="8547" />
+          <entry key="CSS" value="57" />
           <entry key="HTML" value="4" />
           <entry key="JavaScript" value="1025" />
           <entry key="PHP" value="7808" />
           <entry key="PLAIN_TEXT" value="95" />
-          <entry key="SQL" value="41" />
+          <entry key="SQL" value="47" />
         </counts>
       </usages-collector>
     </session>
@@ -78,8 +78,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/invite.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="64" column="45" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="45" />
+            <state relative-caret-position="439">
+              <caret line="74" column="152" selection-start-line="74" selection-start-column="152" selection-end-line="74" selection-end-column="152" />
+              <folding>
+                <element signature="e#4101#4127#0#HTML" expanded="true" />
+                <element signature="e#4722#4743#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/initial.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="56" lean-forward="true" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="125" column="36" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -87,17 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/join_as.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="89" column="51" lean-forward="true" selection-start-line="89" selection-start-column="51" selection-end-line="89" selection-end-column="51" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/assets/css/forgot.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="239" column="25" selection-start-line="239" selection-start-column="25" selection-end-line="239" selection-end-column="25" />
+            <state relative-caret-position="211">
+              <caret line="88" column="78" selection-start-line="88" selection-start-column="78" selection-end-line="88" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -113,7 +126,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>text-sign-up</find>
       <find>logi</find>
       <find>exampleModalCenter</find>
       <find>assets/</find>
@@ -143,6 +155,7 @@
       <find>write some</find>
       <find>.login-form-outer {</find>
       <find>user-profile-btn-large</find>
+      <find>login</find>
     </findStrings>
     <replaceStrings>
       <replace>admin_assets/</replace>
@@ -169,7 +182,6 @@
         <option value="$PROJECT_DIR$/routes/admin/routes.php" />
         <option value="$PROJECT_DIR$/resources/views/auth/verify.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/VerifyCodeController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/invite.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_08_19_000000_create_failed_jobs_table.php" />
         <option value="$PROJECT_DIR$/public/index.js" />
@@ -198,15 +210,16 @@
         <option value="$PROJECT_DIR$/database/migrations/2022_06_17_183327_create_post_assets_table.php" />
         <option value="$PROJECT_DIR$/app/Models/User.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/top-nav.blade.php" />
-        <option value="$PROJECT_DIR$/database/initial.sql" />
         <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/login.css" />
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/header.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/nav.blade.php" />
         <option value="$PROJECT_DIR$/routes/partials/super_ambassador.php" />
         <option value="$PROJECT_DIR$/routes/partials/super_admin.php" />
-        <option value="$PROJECT_DIR$/resources/views/join_as.blade.php" />
         <option value="$PROJECT_DIR$/public/assets/css/forgot.css" />
+        <option value="$PROJECT_DIR$/resources/views/admin/invite.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/join_as.blade.php" />
+        <option value="$PROJECT_DIR$/database/initial.sql" />
       </list>
     </option>
   </component>
@@ -381,6 +394,27 @@
               <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
               <item name="connect_social" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
+              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
+              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Auth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
+              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -502,12 +536,12 @@
       <workItem from="1655377778047" duration="24255000" />
       <workItem from="1655463797465" duration="2593000" />
       <workItem from="1655476853055" duration="12499000" />
-      <workItem from="1655725897252" duration="7380000" />
+      <workItem from="1655725897252" duration="8594000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120803000" />
+    <option name="totallyTimeSpent" value="122017000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -689,13 +723,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/AmbassardorDetailsController.php" />
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-714">
-          <caret column="5" lean-forward="true" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -769,13 +796,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="13906">
           <caret line="818" column="66" selection-start-line="818" selection-start-column="66" selection-end-line="818" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/initial.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -876,24 +896,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/invite.blade.php">
+    <entry file="file://$PROJECT_DIR$/public/assets/css/forgot.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="64" column="45" selection-start-line="64" selection-start-column="37" selection-end-line="64" selection-end-column="45" />
+        <state relative-caret-position="296">
+          <caret line="240" column="37" selection-start-line="240" selection-start-column="37" selection-end-line="240" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/join_as.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="89" column="51" lean-forward="true" selection-start-line="89" selection-start-column="51" selection-end-line="89" selection-end-column="51" />
+        <state relative-caret-position="211">
+          <caret line="88" column="78" selection-start-line="88" selection-start-column="78" selection-end-line="88" selection-end-column="78" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/css/forgot.css">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="239" column="25" selection-start-line="239" selection-start-column="25" selection-end-line="239" selection-end-column="25" />
+        <state relative-caret-position="113">
+          <caret line="125" column="36" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/invite.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="74" column="152" selection-start-line="74" selection-start-column="152" selection-end-line="74" selection-end-column="152" />
+          <folding>
+            <element signature="e#4101#4127#0#HTML" expanded="true" />
+            <element signature="e#4722#4743#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/initial.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="56" lean-forward="true" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
         </state>
       </provider>
     </entry>

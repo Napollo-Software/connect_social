@@ -86,7 +86,7 @@
                                 Get Started & Join My Network!
                             </h4>
                             <div class="user-profile-info-action-buttons">
-                                <a href="{{url('sign-up?by='.$ref->id.'&role=5')}}"
+                                <a href="{{url('sign-up?by='.$ref->id.'&role=2')}}"
                                    class="user-profile-btn-large white mr-3">Join as Merchant</a>
                                 <a href="{{url('sign-up?by='.$ref->id.'&role=3')}}"
                                    class="user-profile-btn-large white">Join as Ambassador</a>
