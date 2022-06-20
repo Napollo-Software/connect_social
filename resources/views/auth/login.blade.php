@@ -159,7 +159,7 @@
                             <div class="login-image">
                                 <div class="login-image-inner">
                                     <div class="login-image-main">
-                                        <img src="{{url('assets/images/icons/coin.svg')}}" alt="">
+                                        <img src="{{url('assets/images/icons/coin.png')}}" alt="">
                                     </div>
                                 </div>
                             </div>
