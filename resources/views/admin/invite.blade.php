@@ -43,7 +43,7 @@
                                     <div class="form-group">
                                         <label for="subject">Subject</label>
                                         <input class="form-control mb-3" type="hidden" name="subject" value="Connect Social Invitation ">
-                                        <input class="form-control mb-3" type="text" id="subject" value="Join Through Referral Link " disabled readonly>
+                                        <input class="form-control mb-3" type="text" id="subject" value="Connect Social Invitation " disabled readonly>
                                     </div>
 
                                     <div class="form-group">
