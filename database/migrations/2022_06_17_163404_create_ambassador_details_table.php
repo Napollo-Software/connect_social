@@ -21,8 +21,10 @@ class CreateAmbassadorDetailsTable extends Migration
             $table->string('state')->default('YC');
             $table->string('relationship')->default('Single');
             $table->date('joining')->default('2020-01-28');
+            $table->string('high_school')->default('Lorem Ipsum');
             $table->string('workplace')->default('Lorem Ipsum');
             $table->string('hobbies')->default('Lorem Ipsum');
+            $table->string('cover_photo')->nullable();
             $table->timestamps();
         });
     }

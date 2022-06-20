@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
 use function Symfony\Component\Translation\t;
 
@@ -42,7 +43,14 @@ class User extends Authenticatable
     }
     public function details(){
         if ($this->roles->slug=='ambassador'){
-            return $this->belongsTo(AmbassadorDetails::class,'id','user_id');
+            return $this->belongsTo(AmbassadorDetails::class,'id','user_id')->withDefault();
         }
     }
+    public function profile_image(){
+        if($this->profile){
+            return Storage::disk('local')->url('/profile/'.$this->profile);
+        }
+        return "admin_assets//images/avatars/avatar-2.png";
+    }
+
 }

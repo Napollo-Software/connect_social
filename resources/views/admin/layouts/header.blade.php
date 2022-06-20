@@ -326,11 +326,7 @@
                     <div class="user-box dropdown">
                         <a class="d-flex align-items-center nav-link dropdown-toggle dropdown-toggle-nocaret" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <img
-                                    @if(auth()->user()->profile)
-                                    src="{{Storage::disk('local')->url('/profile/'.auth()->user()->profile)}}"
-                                    @else
-                                    src="admin_assets//images/avatars/avatar-2.png"
-                                    @endif
+                                    src="{{auth()->user()->profile_image()}}"
 
                                      class="user-img" alt="user avatar">
                             <div class="user-info ps-3">
