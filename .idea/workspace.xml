@@ -56,13 +56,13 @@
           <entry key="env" value="94" />
           <entry key="html" value="1" />
           <entry key="js" value="1025" />
-          <entry key="php" value="16381" />
+          <entry key="php" value="16415" />
           <entry key="sql" value="47" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="8570" />
+          <entry key="Blade" value="8604" />
           <entry key="CSS" value="57" />
           <entry key="HTML" value="4" />
           <entry key="JavaScript" value="1025" />
@@ -78,8 +78,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/invite.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="65" selection-start-line="65" selection-end-line="65" />
+            <state relative-caret-position="235">
+              <caret line="44" column="134" selection-start-line="44" selection-start-column="134" selection-end-line="44" selection-end-column="134" />
               <folding>
                 <element signature="e#4101#4127#0#HTML" expanded="true" />
                 <element signature="e#4722#4743#0#HTML" expanded="true" />
@@ -92,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/database/initial.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="56" lean-forward="true" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+              <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -101,7 +101,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/auth/verify.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="935">
-              <caret line="55" column="55" lean-forward="true" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
+              <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -583,12 +583,12 @@
       <workItem from="1655377778047" duration="24255000" />
       <workItem from="1655463797465" duration="2593000" />
       <workItem from="1655476853055" duration="12499000" />
-      <workItem from="1655725897252" duration="10458000" />
+      <workItem from="1655725897252" duration="11225000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123881000" />
+    <option name="totallyTimeSpent" value="124648000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -932,14 +932,14 @@
     <entry file="file://$PROJECT_DIR$/database/initial.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="56" lean-forward="true" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/auth/verify.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="935">
-          <caret line="55" column="55" lean-forward="true" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
+          <caret line="55" column="55" selection-start-line="55" selection-start-column="55" selection-end-line="55" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -976,8 +976,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/invite.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
+        <state relative-caret-position="235">
+          <caret line="44" column="134" selection-start-line="44" selection-start-column="134" selection-end-line="44" selection-end-column="134" />
           <folding>
             <element signature="e#4101#4127#0#HTML" expanded="true" />
             <element signature="e#4722#4743#0#HTML" expanded="true" />
