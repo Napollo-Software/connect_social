@@ -68,7 +68,7 @@
                             <div class="user-profile-info-image">
                                 <img
                                         @if($ref->profile)
-                                        src="{{auth()->user()->profile_image()}}"
+                                        src="{{--{{auth()->user()->profile_image()}}--}}"
                                         @else
                                         src="admin_assets//images/avatars/avatar-2.png"
                                         @endif alt="">
