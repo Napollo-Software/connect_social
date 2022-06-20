@@ -60,11 +60,10 @@
                                             <br>
                                             Referral link: <a href="{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a><br>
                                             <br>
+                                            If you have any questions, feel free to contact us at abcxyz@gmail.com.
                                             <br>
-                                            If you have any questions, feel free to contact us at mailto:abcxyz@gmail.com.
                                             <br>
-                                            <br>
-                                            Best Regards,
+                                            Best Regards,<br>
                                             Connect Social Team
                                         </p>
                                     </div>
