@@ -56,13 +56,13 @@
           <entry key="env" value="94" />
           <entry key="html" value="1" />
           <entry key="js" value="1025" />
-          <entry key="php" value="16135" />
+          <entry key="php" value="16144" />
           <entry key="sql" value="41" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="8325" />
+          <entry key="Blade" value="8334" />
           <entry key="CSS" value="4" />
           <entry key="HTML" value="4" />
           <entry key="JavaScript" value="1025" />
@@ -87,7 +87,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/initial.sql">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -96,11 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="141" column="167" selection-start-line="141" selection-start-column="167" selection-end-line="141" selection-end-column="167" />
+              <caret line="141" column="129" selection-start-line="141" selection-start-column="129" selection-end-line="141" selection-end-column="129" />
             </state>
           </provider>
         </entry>
@@ -558,12 +558,12 @@
       <workItem from="1655377778047" duration="24255000" />
       <workItem from="1655463797465" duration="2593000" />
       <workItem from="1655476853055" duration="12499000" />
-      <workItem from="1655725897252" duration="3737000" />
+      <workItem from="1655725897252" duration="4920000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117160000" />
+    <option name="totallyTimeSpent" value="118343000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -925,13 +925,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="141" column="167" selection-start-line="141" selection-start-column="167" selection-end-line="141" selection-end-column="167" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/ConnectSocialDesign/Profile/login.html">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -946,6 +939,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="141" column="129" selection-start-line="141" selection-start-column="129" selection-end-line="141" selection-end-column="129" />
         </state>
       </provider>
     </entry>
