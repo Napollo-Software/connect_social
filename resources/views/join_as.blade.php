@@ -20,7 +20,7 @@
                         <a href="javascript:void(0)" class="page-navigation-link">About</a>
                     </li>
                     <li class="page-navigation-li">
-                        <a href="javascript:void(0)" class="page-navigation-link">Consumer</a>
+                        <a href="javascript:void(0)" class="page-navigation-link">Ambassador</a>
                     </li>
                     <li class="page-navigation-li">
                         <a href="javascript:void(0)" class="page-navigation-link">Merchants</a>
@@ -33,7 +33,7 @@
                     </li>
                 </ul>
                 <div class="login-link">
-                    <a href="{{url('login')}}" class="page-navigation-link">Login</a>
+
                 </div>
             </div>
             <div class="navigation-in-mobile">
@@ -74,7 +74,8 @@
                                         @endif alt="">
                             </div>
                             <div class="user-profile-info-text">
-                                <h2 class="user-profile-info-text-name">{{$ref->fullName()}}</h2>
+                                <h2 class="user-profile-info-text-name">Referrer</h2>
+                                <h4 class="user-profile-info-text-name">{{$ref->fullName()}}</h4>
                                 <div class="user-profile-info-text-type"><i>{{$ref->roles->name}}</i></div>
                             </div>
                         </div>
@@ -88,7 +89,7 @@
                                 <a href="{{url('sign-up?by='.$ref->id.'&role=5')}}"
                                    class="user-profile-btn-large white mr-3">Join as Merchant</a>
                                 <a href="{{url('sign-up?by='.$ref->id.'&role=3')}}"
-                                   class="user-profile-btn-large black">Join as Ambassador</a>
+                                   class="user-profile-btn-large white">Join as Ambassador</a>
                             </div>
                         </div>
                     </div>
@@ -103,7 +104,7 @@
                 <div class="user-profile-about-main row">
                     <div class="user-profile-about-text col-md-5">
                         <h2 class="user-profile-about-title text-center">
-                            About Ambassador
+                            About {{$ref->fullName()}}
                         </h2>
                         <div class="user-profile-about-text-p">
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel

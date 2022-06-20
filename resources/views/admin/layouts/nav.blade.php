@@ -20,15 +20,14 @@
                         <div class="menu-title">Dashboard</div>
                     </a>
                 </li>
-                @can('super-ambassador-views')
-                <li>
+                @can('super-admin-views')
+                    <li>
                     <a href="{{route('invite')}}">
                         <div class="parent-icon"><i class='bx bx-send'></i></div>
                         <div class="menu-title">Invite</div>
                     </a>
                 </li>
-                @endcan
-                @can('super-admin-views')
+
                 <li>
                     <a href="{{route('users')}}">
                         <div class="parent-icon"><i class='bx bx-user'></i></div>

@@ -27,6 +27,9 @@ Route::middleware(['auth','can:super-admin-views','email-verification'])->group(
         Route::post('edit', [PermissionController::class, 'edit'])->name('permission.edit');
         Route::post('destroy', [PermissionController::class, 'destroy'])->name('permission.destroy');
     });
-
+    Route::prefix('invite')->group(function () {
+        Route::get('/', [InviteController::class, 'index'])->name('invite');
+        Route::post('send', [InviteController::class, 'send'])->name('invite.send');
+    });
 
 });
