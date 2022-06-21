@@ -66,12 +66,7 @@
                     <div class="col-md-6">
                         <div class="user-profile-info-inner">
                             <div class="user-profile-info-image">
-                                <img
-                                        @if($ref->profile)
-                                        src="{{--{{auth()->user()->profile_image()}}--}}"
-                                        @else
-                                        src="admin_assets//images/avatars/avatar-2.png"
-                                        @endif alt="">
+                                <img src="{{$ref->profile_image()}}" alt="">
                             </div>
                             <div class="user-profile-info-text">
                                 <h2 class="user-profile-info-text-name">Referrer</h2>
@@ -102,18 +97,13 @@
             <!-- <div class="container-fluid"> -->
             <div class="user-profile-about-inner">
                 <div class="user-profile-about-main row">
+                    @if($ref->roles->slug=='ambassador')
                     <div class="user-profile-about-text col-md-5">
                         <h2 class="user-profile-about-title text-center">
                             About {{$ref->fullName()}}
                         </h2>
                         <div class="user-profile-about-text-p">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel
-                                rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit
-                                orci sed vel rutrum aliquam.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel
-                                rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            <p>
-                            <p>Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet,</p>
+                            <p>{{$ref->details->about}}</p>
                         </div>
                         <div class="user-profile-social-info">
                             <div class="user-profile-social-info-title">
@@ -122,27 +112,27 @@
                                         <tbody>
                                         <tr>
                                             <td>City</td>
-                                            <td>NYC</td>
+                                            <td>{{$ref->details->city}}</td>
                                         </tr>
                                         <tr>
                                             <td>Current State</td>
-                                            <td>NY</td>
+                                            <td>{{$ref->details->state}}</td>
                                         </tr>
                                         <tr>
                                             <td>Relationship Status</td>
-                                            <td>Single</td>
+                                            <td>{{$ref->details->relationship}}</td>
                                         </tr>
                                         <tr>
                                             <td>Date of Joining</td>
-                                            <td>28 Jan 2020</td>
+                                            <td>{{$ref->details->joining}}</td>
                                         </tr>
                                         <tr>
                                             <td>Workplace</td>
-                                            <td>Lorem Ipsum</td>
+                                            <td>{{$ref->details->workplace}}</td>
                                         </tr>
                                         <tr>
                                             <td>High School</td>
-                                            <td>Lorem Ipsum</td>
+                                            <td>{{$ref->details->high_school}}</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -150,6 +140,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     <div class="user-profile-about-video col-md-6">
                         <h2 class="user-profile-about-title text-center">
                             About Connect Social

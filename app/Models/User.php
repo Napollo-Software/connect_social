@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Sanctum\HasApiTokens;
+use phpDocumentor\Reflection\Types\Void_;
 use function Symfony\Component\Translation\t;
 
 class User extends Authenticatable
