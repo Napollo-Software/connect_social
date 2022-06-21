@@ -46,7 +46,7 @@
                                                 </div>
                                                 <div class="content-card-content">
                                                     <div class="content-card-content-inner about-content">
-                                                        <p>
+                                                        <p id="about-text">
                                                             {{auth()->user()->details->about}}
                                                         </p>
                                                     </div>
@@ -74,7 +74,7 @@
                                                                 Social Information
                                                             </div>
                                                         </div>
-                                                        <div class="edit-button" data-toggle="modal" data-target="#update-socialinformation-modal">
+                                                        <div class="edit-button" data-toggle="modal" data-target="#update-social-info-modal">
                                                             <div class="edit-button-inner">
                                                                 <span class="icon"><span class="ti-pencil-alt"></span></span>
                                                             </div>
@@ -89,13 +89,13 @@
                                                                     <li class="social-info-editor-box-li">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
-                                                                                <div class="info-editor-box-title-text">
+                                                                                <div class="info-editor-box-title-text" >
                                                                                     City
                                                                                 </div>
                                                                             </div>
 
                                                                             <div class="info-editor-box-value">
-                                                                                <div class="info-editor-box-value-text">
+                                                                                <div class="info-editor-box-value-text" id="city-text">
                                                                                     {{auth()->user()->details->city}}
 
                                                                                 </div>
@@ -119,7 +119,7 @@
                                                                             </div>
 
                                                                             <div class="info-editor-box-value">
-                                                                                <div class="info-editor-box-value-text">
+                                                                                <div class="info-editor-box-value-text" id="state-text">
                                                                                     {{auth()->user()->details->state}}
 
                                                                                 </div>
@@ -143,7 +143,7 @@
                                                                             </div>
 
                                                                             <div class="info-editor-box-value">
-                                                                                <div class="info-editor-box-value-text">
+                                                                                <div class="info-editor-box-value-text" id="relationship-text">
                                                                                     {{auth()->user()->details->relationship}}
 
                                                                                 </div>
@@ -190,8 +190,8 @@
                                                                                 </div>
                                                                             </div>
 
-                                                                            <div class="info-editor-box-value">
-                                                                                <div class="info-editor-box-value-text">
+                                                                            <div class="info-editor-box-value" >
+                                                                                <div class="info-editor-box-value-text" id="workplace-text">
                                                                                     {{auth()->user()->details->workplace}}
 
                                                                                 </div>
@@ -215,7 +215,7 @@
                                                                             </div>
 
                                                                             <div class="info-editor-box-value">
-                                                                                <div class="info-editor-box-value-text">
+                                                                                <div class="info-editor-box-value-text" id="high_school-text">
                                                                                     {{auth()->user()->details->high_school}}
 
                                                                                 </div>
@@ -239,7 +239,7 @@
                                                                             </div>
 
                                                                             <div class="info-editor-box-value">
-                                                                                <div class="info-editor-box-value-text">
+                                                                                <div class="info-editor-box-value-text" id="hobbies-text">
                                                                                     {{auth()->user()->details->hobbies}}
 
                                                                                 </div>
@@ -311,7 +311,7 @@
                                                                             </div>
 
                                                                             <div class="info-editor-box-value">
-                                                                                <div class="info-editor-box-value-text">
+                                                                                <div class="info-editor-box-value-text" id="gender-text">
                                                                                     {{auth()->user()->gender}}
 
                                                                                 </div>
@@ -526,110 +526,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="update-name-modal" tabindex="-1" role="dialog" aria-labelledby="update-name-modalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="update-name-modalLabel">Update Name</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>First Name</label>
-                                <input type="text" class="form-control" value="Jhon">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Last Name</label>
-                                <input type="text" class="form-control" value="Doe">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Social Information -->
-    <div class="modal fade" id="update-socialinformation-modal" tabindex="-1" role="dialog" aria-labelledby="update-socialinformation-modalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="update-socialinformation-modalLabel">Update Social Information</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>City</label>
-                                <input type="text" class="form-control" value="NYC">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Current State</label>
-                                <input type="text" class="form-control" value="NY">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Relationship Status</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="" hidden>Select Status</option>
-                                    <option value="">Single</option>
-                                    <option value="">In Relation</option>
-                                    <option value="">Maried</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Workplace</label>
-                                <input type="text" class="form-control" value="Lorem Ipsum">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>High School</label>
-                                <input type="text" class="form-control" value="Lorem Ipsum">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Hobbies</label>
-                                <input type="text" class="form-control" value="Lorem Ipsum">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label>Gender</label>
-                                <select name="" id="" class="form-control">
-                                    <option value="" hidden>Select Gender</option>
-                                    <option value="">Male</option>
-                                    <option value="">Female</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
+
     <!-- Upload Photo -->
 
 
@@ -749,7 +647,7 @@
                     contentType: false,
                     cache: false,
                     success:function(data) {
-                        console.log(data);
+
                         var like=$('#likes-count-'+data.data.post_id);
                         var likescount=parseInt(like.text());
                         if (data.success == 'liked'){
@@ -766,6 +664,27 @@
                 });
 
             });
+            $(document).on('submit','#change_name_form',function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type:"POST",
+                    url:"{{route('ambassador.update.name')}}",
+                    data: new FormData(this),
+                    dataType:'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success:function(data) {
+                        $('#update-name-modal').modal('hide');
+                        $('#full-name-of-current-user').html(data.response.fname+' '+data.response.lname);
+                    },
+                    error:function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+
+            });
+
 
 
             $(document).on('click','.add-post-modal-show',function() {
@@ -826,7 +745,109 @@
                     });
             });
 
+            $(document).on('submit','#social_info_form',function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type:"POST",
+                    url:"{{route('ambassador.update.social.info')}}",
+                    data: new FormData(this),
+                    dataType:'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success:function(data) {
+                        console.log(data);
+                        $('#update-social-info-modal').modal('hide');
+                        $('#city-text').text(data.response.city);
+                        $('#gender-text').text(data.response.gender);
+                        $('#high_school-text').text(data.response.high_school);
+                        $('#hobbies-text').text(data.response.hobbies);
+                        $('#relationship-text').text(data.response.relationship);
+                        $('#state-text').text(data.response.state);
+                        $('#workplace-text').text(data.response.workplace);
+
+                    },
+                    error:function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+
+            });
 
         });
     </script>
+    <!-- Social Information -->
+    <div class="modal fade" id="update-social-info-modal" tabindex="-1" role="dialog" aria-labelledby="update-social-info-modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="update-social-info-modalLabel"><i class="ti-pencil"></i> Update Social Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="social_info_form">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" value="{{auth()->user()->details->city}}" name="city" id="city">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="state">Current State</label>
+                                    <input type="text" class="form-control" value="{{auth()->user()->details->state}}" name="state" id="state">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="relationship">Relationship Status</label>
+                                    <select name="relationship" id="relationship" class="form-control">
+                                        <option value="" hidden>Select Status</option>
+                                        <option value="single" {{auth()->user()->details->relationship=='single'?'selected':''}}>Single</option>
+                                        <option value="married" {{auth()->user()->details->relationship=='married'?'selected':''}}>Married</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="workplace">Workplace</label>
+                                    <input type="text" name="workplace" id="workplace" class="form-control" value="{{auth()->user()->details->workplace}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="high_school">High School</label>
+                                    <input type="text" name="high_school" id="high_school" class="form-control" value="{{auth()->user()->details->high_school}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="hobbies">Hobbies</label>
+                                    <input type="text" class="form-control" id="hobbies" name="hobbies" value="{{auth()->user()->details->city}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <select name="gender" id="gender" class="form-control">
+                                        <option value="" hidden>Select Gender</option>
+                                        <option value="male" {{auth()->user()->gender=='male'?'selected':''}}>Male</option>
+                                        <option value="female" {{auth()->user()->gender=='female'?'selected':''}}>Female</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer share-post-button">
+                        <button type="button" data-dismiss="modal">Close</button>
+                        <button type="submit" >Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endpush

@@ -19,7 +19,7 @@ class CreateAmbassadorDetailsTable extends Migration
             $table->string('about',2000)->default('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. ');
             $table->string('city')->default('NYC');
             $table->string('state')->default('YC');
-            $table->string('relationship')->default('Single');
+            $table->string('relationship')->default('single');
             $table->date('joining')->default('2020-01-28');
             $table->string('high_school')->default('Lorem Ipsum');
             $table->string('workplace')->default('Lorem Ipsum');
