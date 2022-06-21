@@ -40,17 +40,9 @@ class PostController extends Controller
                 $postAsset->file=$attachment;
             }
             $postAsset->type=$request->file_type;
-            if ($request->details){
-                $this->validate($request,[
-                    'details'=>'min:30',
-                ]);
-
-            }
         }else{
             $this->validate($request,[
-                'details'=>'required|min:30',
-            ],[
-                'details.min'=>'Post description filed must be at least 30 characters.'
+                'details'=>'required',
             ]);
         }
         $this->validate($request,[
@@ -67,6 +59,14 @@ class PostController extends Controller
             $postAsset->save();
         }
         return response()->json(['success'=>'Post added successfully']);
+    }
+    public function destroy(Request $request){
+        $post=Post::find($request->id);
+        $post->comments()->delete();
+        $post->likes()->delete();
+        $post->assets->delete();
+        $post->delete();
+        return response()->json(['success'=>'Deleted']);
     }
     //
 }

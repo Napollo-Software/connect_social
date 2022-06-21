@@ -699,7 +699,9 @@
                     cache: false,
                     success:function(data) {
                         button.attr('disabled',null).html(previous);
-                        swal("Success", data.success, "success");
+                        swal("Success", data.success, "success").then(function () {
+                            window.location.reload();
+                        });
                     },
                     error:function (xhr) {
                         button.attr('disabled',null).html(previous);
@@ -707,6 +709,64 @@
                     }
                 });
             });
+            $('.comment_form').submit(function (e) {
+                e.preventDefault();
+                var button = $(this).find('button[type=submit]');
+                var comment_input = $(this).find('textarea[id=comment]');
+                var post= button.attr('data-post-id');
+                var previous= button.text();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
+
+                $.ajax({
+                    type:"POST",
+                    url:"{{route('comments.store')}}",
+                    data: new FormData(this),
+                    dataType:'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success:function(data) {
+                        button.attr('disabled',null).html(previous);
+                        $(comment_input).val('');
+                        $('#comment-count-'+post).text(parseInt($('#comment-count-'+post).text())+1);
+                        $('#comment-box-'+post).closest('.all-comments-box-grid').prepend('<div class="singal-comment-row"><div class="singal-comment-row-inner"><div class="singal-comment-row-user-image"> <div class="singal-comment-row-user-image-inner"> <img src="{{auth()->user()->profile_image()}}" alt=""> </div> </div> <div class="singal-comment-row-comment-text">'+data.data.text+'</div> </div> </div>');
+                    },
+                    error:function (xhr) {
+                        button.attr('disabled',null).html(previous);
+                        erroralert(xhr);
+                    }
+                });
+
+            });
+            $(document).on('submit','.like-submit',function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type:"POST",
+                    url:"{{route('likes.store')}}",
+                    data: new FormData(this),
+                    dataType:'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success:function(data) {
+                        console.log(data);
+                        var like=$('#likes-count-'+data.data.post_id);
+                        var likescount=parseInt(like.text());
+                        if (data.success == 'liked'){
+                            like.text(likescount+1);
+                            $('.like-btn-'+data.data.post_id).addClass('text-primary');
+                        }else{
+                            like.text(likescount-1);
+                            $('.like-btn-'+data.data.post_id).removeClass('text-primary');
+                        }
+                    },
+                    error:function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+
+            });
+
 
             $(document).on('click','.add-post-modal-show',function() {
                 var type= $(this).attr('data-type');
@@ -734,6 +794,38 @@
                     $('#create-post-upload-file-modal').modal('hide');
                 }
             });
+
+
+            $(document).on('click', '.post-delete', function (e) {
+                var targetToRemove=$(this).closest('.content-card');
+                swal({
+                    title: "Are you sure to remove this post?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var id = $(this).attr('data-id');
+                            var token = '{{csrf_token()}}';
+                            e.preventDefault();
+
+                            $.ajax({
+                                url: "{{route('post.destroy')}}",
+                                data: {'id':id,_token:token},
+                                dataType: "JSON",
+                                type: "delete",
+                                success: function (data) {
+                                    targetToRemove.remove();
+                                },
+                                error: function (xhr) {
+                                    erroralert(xhr);
+                                },
+                            });
+                        }
+                    });
+            });
+
 
         });
     </script>

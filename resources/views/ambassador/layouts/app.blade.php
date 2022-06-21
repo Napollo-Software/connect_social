@@ -28,10 +28,7 @@
                 <div class="profile-box-main">
                     @include('ambassador.layouts.cover')
                     @include('ambassador.layouts.profile-navigation')
-                    <!-- Profile Navigation -->
-                    <!-- Content Cards -->
                     @yield('content')
-
                 </div>
             </div>
         </div>

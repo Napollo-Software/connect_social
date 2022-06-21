@@ -28,18 +28,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="singal-post-top-bar-options open-dropdown" data-target=".singal-post-top-bar-options-bar">
+                        <div class="singal-post-top-bar-options open-dropdown" data-target=".post-actions-{{$post->id}}">
                             <div class="icon">
                                 <span class="ti-angle-down"></span>
                             </div>
-                            <div class="singal-post-top-bar-options-bar" style="display: none;">
+                            <div class="singal-post-top-bar-options-bar post-actions-{{$post->id}}" style="display: none;">
                                 <div class="singal-post-top-bar-options-bar-inner">
                                     <ul class="singal-post-top-bar-options-ul">
                                         <li class="singal-post-top-bar-options-li">
                                             <a href="javascript:void(0)" class="singal-post-top-bar-options-link open-post-editor" data-target=".edit-post-box-{{$post->id}}" data-close=".single-post-{{$post->id}}">Edit</a>
                                         </li>
                                         <li class="singal-post-top-bar-options-li">
-                                            <a href="javascript:void(0)" class="singal-post-top-bar-options-link">Delete</a>
+                                            <a href="javascript:void(0)" class="singal-post-top-bar-options-link post-delete" data-id="{{$post->id}}">Delete</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -138,8 +138,6 @@
                                 <audio controls>
                                     <source src="{{$post->assets->data()}}">
                                 </audio>
-
-
                             @endif
                         @endif
 
@@ -148,11 +146,15 @@
                         <div class="like-comment-bar-inner">
                             <ul class="like-comment-bar-ul">
                                 <li class="like-comment-bar-li">
-                                    <div class="icon"><span class="ti-thumb-up"></span></div>
-                                    <div class="text">58.6K</div>
+                                    <div class="icon like-btn-{{$post->id}}" onclick="$('#like-submit-{{$post->id}}').submit()"><span class="ti-thumb-up"></span></div>
+                                    <form class="like-submit" id="like-submit-{{$post->id}}">
+                                        @csrf
+                                        <input type="hidden" value="{{$post->id}}" name="post">
+                                    </form>
+                                    <div class="text" id="likes-count-{{$post->id}}">{{$post->likes->count()}}</div>
                                 </li>
                                 <li class="like-comment-bar-li">
-                                    <div class="text">28 Comments</div>
+                                    <div class="text"><span id="comment-count-{{$post->id}}">{{$post->comments->count()}}</span> Comment{{$post->comments->count()>1?'s':''}}</div>
                                 </li>
                             </ul>
                         </div>
@@ -161,18 +163,19 @@
                         <div class="add-comment-input-bar-inner">
                             <div class="add-comment-input-bar-user-image">
                                 <div class="add-comment-input-bar-image-inner">
-                                    <img src="assets/images/user-profile/user-01.png" alt="">
+                                    <img src="{{auth()->user()->profile_image()}}" alt="">
                                 </div>
                             </div>
                             <div class="add-comment-input-bar-textarea">
                                 <div class="add-comment-input-bar-textarea-inner">
-                                    <form id="comment_box">
+                                    <form class="comment_form">
                                         @csrf
+                                        <input type="hidden" value="{{$post->id}}" name="post_id">
                                         <div class="add-comment-input-bar-textarea-main"><label for="comment"></label>
                                             <textarea name="comment" id="comment"></textarea>
                                         </div>
                                         <div class="add-button">
-                                            <button type="submit">Add</button>
+                                            <button type="submit" data-post-id="{{$post->id}}">Add</button>
                                         </div>
                                     </form>
                                 </div>
@@ -182,51 +185,31 @@
                     </div>
                     <div class="all-comments-box">
                         <div class="all-comments-box-inner">
-                            <div class="all-comments-box-grid">
+                            <div class="all-comments-box-grid" id="comment-box-{{$post->id}}">
+                                @foreach($post->comments as $comment)
                                 <div class="singal-comment-row">
                                     <div class="singal-comment-row-inner">
                                         <div class="singal-comment-row-user-image">
                                             <div class="singal-comment-row-user-image-inner">
-                                                <img src="assets/images/user-profile/user-01.png" alt="">
+                                                <img src="{{$comment->user->profile_image()}}" alt="">
                                             </div>
                                         </div>
                                         <div class="singal-comment-row-comment-text">
-                                            Is simply dummy text of the printing and typesetting.
+                                            {{$comment->text}}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="singal-comment-row">
-                                    <div class="singal-comment-row-inner">
-                                        <div class="singal-comment-row-user-image">
-                                            <div class="singal-comment-row-user-image-inner">
-                                                <img src="assets/images/user-profile/user-01.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="singal-comment-row-comment-text">
-                                            Is simply dummy text of the printing and typesetting.
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="singal-comment-row">
-                                    <div class="singal-comment-row-inner">
-                                        <div class="singal-comment-row-user-image">
-                                            <div class="singal-comment-row-user-image-inner">
-                                                <img src="assets/images/user-profile/user-01.png" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="singal-comment-row-comment-text">
-                                            Is simply dummy text of the printing and typesetting.
-                                        </div>
-                                    </div>
-                                </div>
+                                 @endforeach
                             </div>
                         </div>
                     </div>
+                    @if(count($post->comments)>5)
                     <div class="view-more-comments">
                         <div class="view-more-comments-inner">
                             <a href="javascript:void(0)">View more comments</a>
                         </div>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
