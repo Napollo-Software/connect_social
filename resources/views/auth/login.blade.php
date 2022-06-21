@@ -140,7 +140,7 @@
                                                             </div>
                                                             <div class="login-form-field-single">
                                                                 <label id="password">Password</label>
-                                                                <input type="password" placeholder="Email Address" name="password" id="password" value="{{old('password')}}">
+                                                                <input type="password" placeholder="Email Password" name="password" id="password" value="{{old('password')}}">
                                                                 <span class="text-danger">@error('password'){{$message}} @enderror</span>
                                                             </div>
                                                         </div>

@@ -36,3 +36,38 @@ function sendEmail($to,$from,$subject,$message){
         return response()->json(["error", "Message could not be sent."]);
     }
 }
+function dateFormat($date,$format){
+    $seconds= strtotime($date);
+    return date($format,$seconds);
+}
+class Privacy{
+    const PRIV_FRIENDS='friends';
+    const PRIV_PUBLIC='public';
+    const PRIV_CONNECTIONS='connections';
+    const PRIV_TIER_1='tier-1';
+    const PRIV_TIER_2='tier-2';
+}
+function getPrivacyDetails($slug){
+    $data=[];
+    if ($slug=='friends') {
+        $data['url'] = url('ambassador_assets/images/icons/users.svg');
+        $data['name'] = 'Friends';
+    }
+    if ($slug=='public') {
+        $data['url'] = url('ambassador_assets/images/icons/globe.svg');
+        $data['name'] = 'public';
+    }
+    if ($slug=='connections') {
+        $data['url'] = url('ambassador_assets/images/icons/connection.svg');
+        $data['name'] = 'Connections';
+    }
+    if ($slug=='tier-1') {
+        $data['url'] = url('ambassador_assets/images/icons/personal-network.svg');
+        $data['name'] = 'Personal Tier 01';
+    }
+    if ($slug=='tier-2') {
+        $data['url'] = url('ambassador_assets/images/icons/extended-network.svg');
+        $data['name'] = 'Extended Tier 02';
+    }
+    return $data;
+}

@@ -33,8 +33,8 @@ class AuthServiceProvider extends ServiceProvider
                 return false;
             }
         });
-        Gate::define('super-ambassador-views', function ($user) {
-            if ($user->roles->slug=='super-ambassador'){
+        Gate::define('ambassador-views', function ($user) {
+            if ($user->roles->slug=='ambassador'){
                 return true;
             }else{
                 return false;

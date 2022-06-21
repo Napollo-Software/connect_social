@@ -16,7 +16,7 @@ class CreateAmbassadorDetailsTable extends Migration
         Schema::create('ambassador_details', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->longText('about')->default('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. ');
+            $table->string('about',2000)->default('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. ');
             $table->string('city')->default('NYC');
             $table->string('state')->default('YC');
             $table->string('relationship')->default('Single');

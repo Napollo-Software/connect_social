@@ -16,7 +16,7 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->longText('details')->nullable();
+            $table->string('details',5000)->nullable();
             $table->string('privacy')->default('friends');
             $table->softDeletes();
             $table->timestamps();

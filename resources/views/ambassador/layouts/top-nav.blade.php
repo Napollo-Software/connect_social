@@ -5,7 +5,7 @@
                 <div class="profile-top-bar-wallete">
                     <div class="profile-top-bar-wallete-inner">
                         <div class="profile-wallete-coin-image">
-                            <img src="ambassador_assets/images/icons/coin.svg" alt="">
+                            <img src="{{url('assets/images/icons/coin.png')}}" alt="">
                         </div>
                         <div class="profile-wallete-text">
                             <div class="profile-wallete-top-text">
@@ -20,7 +20,7 @@
                 <div class="site-logo">
                     <div class="site-logo-inner">
                         <div class="site-logo-main">
-                            <img src="ambassador_assets/images/logo.png" alt="">
+                            <img src="{{url('assets/images/logo.png')}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -31,21 +31,39 @@
                                 <li class="profile-user-options-li">
                                     <div class="profile-user-options-inner">
                                         <div class="profile-user-options-icon">
-                                            <img src="ambassador_assets/images/icons/bell.svg" alt="">
+                                            <img src="{{url('ambassador_assets/images/icons/bell.svg')}}" alt="">
                                         </div>
                                     </div>
                                 </li>
                                 <li class="profile-user-options-li">
                                     <div class="profile-user-options-inner">
                                         <div class="profile-user-options-icon">
-                                            <img src="ambassador_assets/images/icons/info.svg" alt="">
+                                            <img src="{{url('ambassador_assets/images/icons/info.svg')}}" alt="">
                                         </div>
                                     </div>
                                 </li>
-                                <li class="profile-user-options-li user-pic">
+                                <li class="profile-user-options-li user-pic open-dropdown" data-target=".drop-00">
                                     <div class="profile-user-options-inner">
                                         <div class="profile-user-options-icon">
-                                            <img src="{{auth()->user()->profile_image()}}" alt="" style="width: 50px;height: 50px;">
+                                            <img src="{{auth()->user()->profile_image()}}" alt="">
+                                        </div>
+                                        <div class="user-dropdown-inner drop-00">
+                                            <ul class="user-dropdown-ul">
+                                                <li class="user-dropdown-li">
+                                                    <a href="javascript:void(0)">My Profile</a>
+                                                </li>
+                                                <li class="user-dropdown-li">
+                                                    <a href="javascript:void(0)">Settings</a>
+                                                </li>
+                                                <li class="user-dropdown-li">
+                                                    <a href="javascript:void(0)">Settings</a>
+                                                </li>
+                                                <li class="user-dropdown-li">
+                                                    <a ref="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Log out</a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </li>
@@ -57,3 +75,6 @@
         </div>
     </div>
 </div>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+    @csrf
+</form>
