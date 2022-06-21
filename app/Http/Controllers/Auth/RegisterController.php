@@ -76,7 +76,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
         $mobilecode=rand(100000,999999);
         $emailcode=rand(100000,999999);
         $message='<h6>Email Verification:</h6>
