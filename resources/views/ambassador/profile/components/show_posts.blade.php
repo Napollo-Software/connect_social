@@ -94,7 +94,7 @@
                             <div class="edit-post-box-inner">
                                 <div class="edit-post-box-main">
                                     <input type="hidden" value="{{$post->id}}" name="id">
-                                    <input type="hidden" value="{{$post->privacy}}" name="privacy" id="edit_post_privacy">
+                                    <input type="text" value="{{$post->privacy}}" name="privacy" id="edit_post_privacy">
                                     <textarea rows="{{$post->details?'10':'1'}}" name="details" style="height: auto!important;">{{$post->details}}</textarea>
                                 </div>
                                 @if($post->assets()->exists())
@@ -230,7 +230,7 @@
                             <div class="add-comment-input-bar-user-image">
                                 <div class="add-comment-input-bar-image-inner">
                                     <img src="{{auth()->user()->profile_image()}}" alt=""
-                                         style="width: 30px;height: 30px;object-fit: cover">
+                                         style="width: 30px;height: 30px;object-fit: cover" class="profile_photo_preview">
                                 </div>
                             </div>
                             <div class="add-comment-input-bar-textarea">
@@ -258,7 +258,7 @@
                                         <div class="singal-comment-row-inner">
                                             <div class="singal-comment-row-user-image">
                                                 <div class="singal-comment-row-user-image-inner">
-                                                    <img src="{{$comment->user->profile_image()}}" alt="">
+                                                    <img src="{{$comment->user->profile_image()}}" alt="" class="{{$comment->user->id==auth()->user()->id?'profile_photo_preview':''}}">
                                                 </div>
                                             </div>
                                             <div class="singal-comment-row-comment-text">
@@ -282,4 +282,164 @@
         </div>
     </div>
 @endforeach
+@push('subscripts')
+    <script>
+        $(function () {
+            $(document).on('click','.edit-post-close-btn',function () {
+                var id = $(this).attr('data-post');
+                $('#file_type'+id).val('');
+                $('#edit-post-upload-file-modal-'+id).modal('hide');
+            });
+            $(document).on('click','.edit-post-modal-show',function() {
+                var type= $(this).attr('data-type');
+                var id = $(this).attr('data-post');
+                if (type=='link'){
+                    $('.url-div').show();
+                    $('.file-div').hide();
+                } else{
+                    $('.url-div').hide();
+                    $('.file-div').show();
+                }
+                $('#file_type'+id).val(type);
+                $('#edit-post-upload-file-modal-'+id).attr('data-post',$(this).attr('data-post')).modal('show');
+            });
+            $(document).on('click','.edit-post-upload-btn',function () {
+                var id = $(this).attr('data-post');
 
+                if (($('#attachment'+id).val()== null || $('#attachment'+id).val()=='') && ($('#url'+id).val()==null || $('#url'+id).val()=='')){
+                    alert('Fields are required to continue...');
+                }
+                else{
+
+                    var modalfalse=$('#edit_post_form_'+id).find('.share-post-attachments-li.edit-post-modal-show');
+                    modalfalse.removeClass('edit-post-modal-show');
+                    $('#edit-post-upload-file-modal-'+id).modal('hide');
+                }
+            });
+            $(document).on('click', '.post-delete', function (e) {
+                var targetToRemove=$(this).closest('.content-card');
+                swal({
+                    title: "Are you sure to remove this post?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var id = $(this).attr('data-id');
+                            var token = '{{csrf_token()}}';
+                            e.preventDefault();
+
+                            $.ajax({
+                                url: "{{route('post.destroy')}}",
+                                data: {'id':id,_token:token},
+                                dataType: "JSON",
+                                type: "delete",
+                                success: function (data) {
+                                    targetToRemove.remove();
+                                },
+                                error: function (xhr) {
+                                    erroralert(xhr);
+                                },
+                            });
+                        }
+                    });
+            });
+            $(document).on('click', '.remove-post-attachment', function (e) {
+
+                swal({
+                    title: "Are you sure to remove?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var id = $(this).attr('data-id');
+                            var post = $(this).attr('data-post');
+
+                            var toEnableModal=$('.edit-post-attachment-enabler-'+post);
+                            var token = '{{csrf_token()}}';
+
+
+
+
+                            e.preventDefault();
+                            $.ajax({
+                                url: "{{route('post.asset.destroy')}}",
+                                data: {'id':id,_token:token},
+                                dataType: "JSON",
+                                type: "delete",
+                                success: function (data) {
+                                    $('#post-edit-photo-main-'+post).remove();
+                                    toEnableModal.addClass('edit-post-modal-show');
+                                },
+                                error: function (xhr) {
+                                    erroralert(xhr);
+                                },
+                            });
+                        }
+                    });
+            });
+            $('.comment_form').submit(function (e) {
+                e.preventDefault();
+                var button = $(this).find('button[type=submit]');
+                var comment_input = $(this).find('textarea[id=comment]');
+                var post= button.attr('data-post-id');
+                var previous= button.text();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
+
+                $.ajax({
+                    type:"POST",
+                    url:"{{route('comments.store')}}",
+                    data: new FormData(this),
+                    dataType:'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success:function(data) {
+                        button.attr('disabled',null).html(previous);
+                        $(comment_input).val('');
+                        $('#comment-count-'+post).text(parseInt($('#comment-count-'+post).text())+1);
+                        $('#comment-box-'+post).closest('.all-comments-box-grid').prepend('<div class="singal-comment-row"><div class="singal-comment-row-inner"><div class="singal-comment-row-user-image"> <div class="singal-comment-row-user-image-inner"> <img src="{{auth()->user()->profile_image()}}" alt=""> </div> </div> <div class="singal-comment-row-comment-text">'+data.data.text+'</div> </div> </div>');
+                    },
+                    error:function (xhr) {
+                        button.attr('disabled',null).html(previous);
+                        erroralert(xhr);
+                    }
+                });
+
+            });
+            $('.edit_post_form').submit(function (e) {
+                e.preventDefault();
+                var privacy = $(this).find('.set-privacy-dropdown-value').attr('data-value');
+                $('#edit_post_privacy').val(privacy);
+
+                var button = $(this).find('button[type=submit]');
+                var previous= button.text();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
+
+                $.ajax({
+                    type:"POST",
+                    url:"{{route('post.update')}}",
+                    data: new FormData(this),
+                    dataType:'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success:function(data) {
+                        button.attr('disabled',null).html(previous);
+                        swal("Success", data.success, "success").then(function () {
+                            window.location.reload();
+                        });
+                    },
+                    error:function (xhr) {
+                        button.attr('disabled',null).html(previous);
+                        erroralert(xhr);
+                    }
+                });
+            });
+        });
+    </script>
+@endpush

@@ -1,7 +1,5 @@
 @extends('ambassador.layouts.app')
-
 @section('content')
-
     <div class="profile-content">
         <div class="container">
             <div class="profile-content-inner">
@@ -29,17 +27,17 @@
                                                             <div class="social-dropdown-inner open-dropdown" data-target=".drop-01">
                                                                 <div class="social-dropdown-main">
                                                                     <div class="icon">
-                                                                        <img src="ambassador_assets/images/icons/users.svg" alt="">
+                                                                        <img src="{{getPrivacyDetails(getSocialPrivacy('about'))['url']}}" alt="">
                                                                     </div>
                                                                     <div class="text">
-                                                                        <i style="font-style: normal">Friends</i>
+                                                                        <i style="font-style: normal">{{getPrivacyDetails(getSocialPrivacy('about'))['name']}}</i>
                                                                     </div>
                                                                     <div class="drop-icon">
                                                                         <span class="ti-angle-down"></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="set-privacy-dropdown-inner drop-01">
+                                                            <div class="set-privacy-dropdown-inner social-privacy drop-01" data-key="about">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -102,9 +100,9 @@
                                                                                 </div>
                                                                                 <div class="set-privacy-dropdown">
                                                                                     <div class="set-privacy-dropdown-value open-dropdown" data-target=".drop-03">
-                                                                                        <img src="ambassador_assets/images/icons/users.svg" alt="">
+                                                                                        <img src="{{getPrivacyDetails(getSocialPrivacy('city'))['url']}}" alt="">
                                                                                     </div>
-                                                                                    <div class="set-privacy-dropdown-inner drop-03">
+                                                                                    <div class="set-privacy-dropdown-inner social-privacy drop-03" data-key="city">
 
                                                                                     </div>
                                                                                 </div>
@@ -126,9 +124,9 @@
                                                                                 </div>
                                                                                 <div class="set-privacy-dropdown">
                                                                                     <div class="set-privacy-dropdown-value open-dropdown" data-target=".drop-04">
-                                                                                        <img src="ambassador_assets/images/icons/users.svg" alt="">
+                                                                                        <img src="{{getPrivacyDetails(getSocialPrivacy('state'))['url']}}" alt="">
                                                                                     </div>
-                                                                                    <div class="set-privacy-dropdown-inner drop-04">
+                                                                                    <div class="set-privacy-dropdown-inner social-privacy drop-04" data-key="state">
 
                                                                                     </div>
                                                                                 </div>
@@ -150,9 +148,9 @@
                                                                                 </div>
                                                                                 <div class="set-privacy-dropdown">
                                                                                     <div class="set-privacy-dropdown-value open-dropdown" data-target=".drop-05">
-                                                                                        <img src="ambassador_assets/images/icons/users.svg" alt="">
+                                                                                        <img src="{{getPrivacyDetails(getSocialPrivacy('relationship'))['url']}}" alt="">
                                                                                     </div>
-                                                                                    <div class="set-privacy-dropdown-inner drop-05">
+                                                                                    <div class="set-privacy-dropdown-inner social-privacy drop-05" data-key="relationship">
 
                                                                                     </div>
                                                                                 </div>
@@ -174,9 +172,9 @@
                                                                                 </div>
                                                                                 <div class="set-privacy-dropdown">
                                                                                     <div class="set-privacy-dropdown-value open-dropdown" data-target=".drop-06">
-                                                                                        <img src="ambassador_assets/images/icons/users.svg" alt="">
+                                                                                        <img src="{{getPrivacyDetails(getSocialPrivacy('joining'))['url']}}" alt="">
                                                                                     </div>
-                                                                                    <div class="set-privacy-dropdown-inner drop-06">
+                                                                                    <div class="set-privacy-dropdown-inner social-privacy drop-06" data-key="joining">
 
                                                                                     </div>
                                                                                 </div>
@@ -198,9 +196,9 @@
                                                                                 </div>
                                                                                 <div class="set-privacy-dropdown">
                                                                                     <div class="set-privacy-dropdown-value open-dropdown" data-target=".drop-07">
-                                                                                        <img src="ambassador_assets/images/icons/users.svg" alt="">
+                                                                                        <img src="{{getPrivacyDetails(getSocialPrivacy('workplace'))['url']}}" alt="">
                                                                                     </div>
-                                                                                    <div class="set-privacy-dropdown-inner drop-07">
+                                                                                    <div class="set-privacy-dropdown-inner social-privacy drop-07" data-key="workplace">
 
                                                                                     </div>
                                                                                 </div>
@@ -222,9 +220,9 @@
                                                                                 </div>
                                                                                 <div class="set-privacy-dropdown">
                                                                                     <div class="set-privacy-dropdown-value open-dropdown" data-target=".drop-08">
-                                                                                        <img src="ambassador_assets/images/icons/users.svg" alt="">
+                                                                                        <img src="{{getPrivacyDetails(getSocialPrivacy('high_school'))['url']}}" alt="">
                                                                                     </div>
-                                                                                    <div class="set-privacy-dropdown-inner drop-08">
+                                                                                    <div class="set-privacy-dropdown-inner social-privacy drop-08" data-key="high_school">
 
                                                                                     </div>
                                                                                 </div>
@@ -242,13 +240,12 @@
                                                                             <div class="info-editor-box-value">
                                                                                 <div class="info-editor-box-value-text" id="hobbies-text">
                                                                                     {{auth()->user()->details->hobbies}}
-
                                                                                 </div>
                                                                                 <div class="set-privacy-dropdown">
                                                                                     <div class="set-privacy-dropdown-value open-dropdown" data-target=".drop-09">
-                                                                                        <img src="ambassador_assets/images/icons/users.svg" alt="">
+                                                                                        <img src="{{getPrivacyDetails(getSocialPrivacy('hobbies'))['url']}}" alt="">
                                                                                     </div>
-                                                                                    <div class="set-privacy-dropdown-inner drop-09">
+                                                                                    <div class="set-privacy-dropdown-inner social-privacy drop-09" data-key="hobbies">
 
                                                                                     </div>
                                                                                 </div>
@@ -270,9 +267,9 @@
                                                                                 </div>
                                                                                 <div class="set-privacy-dropdown">
                                                                                     <div class="set-privacy-dropdown-value open-dropdown" data-target=".drop-10">
-                                                                                        <img src="ambassador_assets/images/icons/users.svg" alt="">
+                                                                                        <img src="{{getPrivacyDetails(getSocialPrivacy('email'))['url']}}" alt="">
                                                                                     </div>
-                                                                                    <div class="set-privacy-dropdown-inner drop-10">
+                                                                                    <div class="set-privacy-dropdown-inner social-privacy drop-10" data-key="email">
 
                                                                                     </div>
                                                                                 </div>
@@ -294,9 +291,9 @@
                                                                                 </div>
                                                                                 <div class="set-privacy-dropdown">
                                                                                     <div class="set-privacy-dropdown-value open-dropdown" data-target=".drop-11">
-                                                                                        <img src="ambassador_assets/images/icons/users.svg" alt="">
+                                                                                        <img src="{{getPrivacyDetails(getSocialPrivacy('phone'))['url']}}" alt="">
                                                                                     </div>
-                                                                                    <div class="set-privacy-dropdown-inner drop-11">
+                                                                                    <div class="set-privacy-dropdown-inner social-privacy drop-11" data-key="phone">
 
                                                                                     </div>
                                                                                 </div>
@@ -318,9 +315,9 @@
                                                                                 </div>
                                                                                 <div class="set-privacy-dropdown">
                                                                                     <div class="set-privacy-dropdown-value open-dropdown" data-target=".drop-12">
-                                                                                        <img src="ambassador_assets/images/icons/users.svg" alt="">
+                                                                                        <img src="{{getPrivacyDetails(getSocialPrivacy('gender'))['url']}}" alt="">
                                                                                     </div>
-                                                                                    <div class="set-privacy-dropdown-inner drop-12">
+                                                                                    <div class="set-privacy-dropdown-inner social-privacy drop-12" data-key="gender">
 
                                                                                     </div>
                                                                                 </div>
@@ -527,12 +524,6 @@
             </div>
         </div>
     </div>
-
-
-    <!-- Upload Photo -->
-
-
-
     <div id="privacy_dropdown" style='display: none'>
         <ul class="set-privacy-dropdown-ul">
             <li class="set-privacy-dropdown-li" data-value="{{Privacy::PRIV_FRIENDS}}">
@@ -569,6 +560,7 @@
         $(function () {
             $('.set-privacy-dropdown-inner').html($('#privacy_dropdown').html());
             $('.set-privacy-dropdown-li').click(function () {
+                var dropdownContainer=$(this).closest('.set-privacy-dropdown-inner');
                 var icon=$(this).find('img');
                 var text=$(this).find('.text');
                 $(this).parent().parent().parent().find('.set-privacy-dropdown-value').attr('data-value',$(this).attr('data-value'));
@@ -577,94 +569,9 @@
                 $(next_icon).attr('src',$(icon).attr('src'));
                 $(next_text).html($(text).html());
                 $(this).parent().parent().hide();
-            });
-
-
-            $('#add_post').submit(function (e) {
-                e.preventDefault();
-                var privacy = $(this).find('.set-privacy-dropdown-value').attr('data-value');
-                $('#post_privacy').val(privacy);
-                var button = $(this).find('button[type=submit]');
-                var previous= button.text();
-                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
-
-                $.ajax({
-                    type:"POST",
-                    url:"{{route('post.store')}}",
-                    data: new FormData(this),
-                    dataType:'JSON',
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    success:function(data) {
-                        button.attr('disabled',null).html(previous);
-                        swal("Success", data.success, "success").then(function () {
-                            window.location.reload();
-                        });
-                    },
-                    error:function (xhr) {
-                        button.attr('disabled',null).html(previous);
-                        erroralert(xhr);
-                    }
-                });
-            });
-            $('.edit_post_form').submit(function (e) {
-                e.preventDefault();
-                var privacy = $(this).find('.set-privacy-dropdown-value').attr('data-value');
-                $('#edit_post_privacy').val(privacy);
-                var button = $(this).find('button[type=submit]');
-                var previous= button.text();
-                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
-
-                $.ajax({
-                    type:"POST",
-                    url:"{{route('post.update')}}",
-                    data: new FormData(this),
-                    dataType:'JSON',
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    success:function(data) {
-                        button.attr('disabled',null).html(previous);
-                        swal("Success", data.success, "success").then(function () {
-                            window.location.reload();
-                        });
-                    },
-                    error:function (xhr) {
-                        button.attr('disabled',null).html(previous);
-                        erroralert(xhr);
-                    }
-                });
-            });
-
-            $('.comment_form').submit(function (e) {
-                e.preventDefault();
-                var button = $(this).find('button[type=submit]');
-                var comment_input = $(this).find('textarea[id=comment]');
-                var post= button.attr('data-post-id');
-                var previous= button.text();
-                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
-
-                $.ajax({
-                    type:"POST",
-                    url:"{{route('comments.store')}}",
-                    data: new FormData(this),
-                    dataType:'JSON',
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    success:function(data) {
-                        button.attr('disabled',null).html(previous);
-                        $(comment_input).val('');
-                        $('#comment-count-'+post).text(parseInt($('#comment-count-'+post).text())+1);
-                        $('#comment-box-'+post).closest('.all-comments-box-grid').prepend('<div class="singal-comment-row"><div class="singal-comment-row-inner"><div class="singal-comment-row-user-image"> <div class="singal-comment-row-user-image-inner"> <img src="{{auth()->user()->profile_image()}}" alt=""> </div> </div> <div class="singal-comment-row-comment-text">'+data.data.text+'</div> </div> </div>');
-                    },
-                    error:function (xhr) {
-                        button.attr('disabled',null).html(previous);
-                        erroralert(xhr);
-                    }
-                });
-
+                if (dropdownContainer.hasClass('social-privacy')){
+                    changePrivacy($(dropdownContainer).attr('data-key'),$(this).attr('data-value'));
+                }
             });
             $(document).on('submit','.like-submit',function (e) {
                 e.preventDefault();
@@ -735,144 +642,6 @@
                 });
 
             });
-
-
-
-
-            $(document).on('click','.add-post-modal-show',function() {
-                var type= $(this).attr('data-type');
-                if (type=='link'){
-                    $('.url-div').show();
-                    $('.file-div').hide();
-                } else{
-                    $('.url-div').hide();
-                    $('.file-div').show();
-                }
-
-                $('#file_type').val(type);
-                $('#create-post-upload-file-modal').modal('show');
-            });
-
-
-            $('.add-post-close-btn').click(function () {
-               $('#file_type').val('');
-               $('#create-post-upload-file-modal').modal('hide');
-            });
-
-            $('.add-post-upload-btn').click(function () {
-                if (($('#attachment').val()== null || $('#attachment').val()=='') && ($('#url').val()==null || $('#url').val()=='')){
-                    alert('null');
-                }
-                else{
-                    $('.share-post-attachments-li.add-post-modal-show').removeClass('add-post-modal-show');
-                    $('#create-post-upload-file-modal').modal('hide');
-                }
-            });
-
-
-            $(document).on('click','.edit-post-close-btn',function () {
-                var id = $(this).attr('data-post');
-                $('#file_type'+id).val('');
-                $('#edit-post-upload-file-modal-'+id).modal('hide');
-            });
-            $(document).on('click','.edit-post-modal-show',function() {
-                var type= $(this).attr('data-type');
-                var id = $(this).attr('data-post');
-                if (type=='link'){
-                    $('.url-div').show();
-                    $('.file-div').hide();
-                } else{
-                    $('.url-div').hide();
-                    $('.file-div').show();
-                }
-                $('#file_type'+id).val(type);
-                $('#edit-post-upload-file-modal-'+id).attr('data-post',$(this).attr('data-post')).modal('show');
-            });
-            $(document).on('click','.edit-post-upload-btn',function () {
-                var id = $(this).attr('data-post');
-
-                if (($('#attachment'+id).val()== null || $('#attachment'+id).val()=='') && ($('#url'+id).val()==null || $('#url'+id).val()=='')){
-                    alert('Fields are required to continue...');
-                }
-                else{
-
-                    var modalfalse=$('#edit_post_form_'+id).find('.share-post-attachments-li.edit-post-modal-show');
-                    modalfalse.removeClass('edit-post-modal-show');
-                    $('#edit-post-upload-file-modal-'+id).modal('hide');
-                }
-            });
-
-
-
-
-            $(document).on('click', '.post-delete', function (e) {
-                var targetToRemove=$(this).closest('.content-card');
-                swal({
-                    title: "Are you sure to remove this post?",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            var id = $(this).attr('data-id');
-                            var token = '{{csrf_token()}}';
-                            e.preventDefault();
-
-                            $.ajax({
-                                url: "{{route('post.destroy')}}",
-                                data: {'id':id,_token:token},
-                                dataType: "JSON",
-                                type: "delete",
-                                success: function (data) {
-                                    targetToRemove.remove();
-                                },
-                                error: function (xhr) {
-                                    erroralert(xhr);
-                                },
-                            });
-                        }
-                    });
-            });
-            $(document).on('click', '.remove-post-attachment', function (e) {
-
-                swal({
-                    title: "Are you sure to remove?",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                })
-                    .then((willDelete) => {
-                        if (willDelete) {
-
-                            var id = $(this).attr('data-id');
-                            var post = $(this).attr('data-post');
-
-                            var toEnableModal=$('.edit-post-attachment-enabler-'+post);
-                            var token = '{{csrf_token()}}';
-
-
-
-
-                            e.preventDefault();
-                            $.ajax({
-                                url: "{{route('post.asset.destroy')}}",
-                                data: {'id':id,_token:token},
-                                dataType: "JSON",
-                                type: "delete",
-                                success: function (data) {
-                                    $('#post-edit-photo-main-'+post).remove();
-                                    toEnableModal.addClass('edit-post-modal-show');
-                                },
-                                error: function (xhr) {
-                                    erroralert(xhr);
-                                },
-                            });
-                        }
-                    });
-            });
-
-
             $(document).on('submit','#social_info_form',function (e) {
                 e.preventDefault();
                 $.ajax({
@@ -901,7 +670,6 @@
                 });
 
             });
-
             $(document).on('submit','#update_cover_photo_form',function (e) {
                 e.preventDefault();
                 swal({
@@ -960,81 +728,94 @@
                         }
                     });
             });
-
         });
+        function changePrivacy(key,value) {
+            $.ajax({
+                type:"POST",
+                url:"{{route('ambassador.update.privacy')}}",
+                dataType: "JSON",
+                data: {'key':key,'value':value,_token:'{{csrf_token()}}'},
+                success:function(data) {
+                },
+                error:function (xhr) {
+                    erroralert(xhr);
+                }
+            });
+
+        }
     </script>
-    <!-- Social Information -->
-    <div class="modal fade" id="update-social-info-modal" tabindex="-1" role="dialog" aria-labelledby="update-social-info-modalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content ">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="update-social-info-modalLabel"><i class="ti-pencil"></i> Update Social Information</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form id="social_info_form">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="city">City</label>
-                                    <input type="text" class="form-control" value="{{auth()->user()->details->city}}" name="city" id="city">
-                                </div>
+    @stack('subscripts')
+@endpush
+<div class="modal fade" id="update-social-info-modal" tabindex="-1" role="dialog" aria-labelledby="update-social-info-modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <h5 class="modal-title" id="update-social-info-modalLabel"><i class="ti-pencil"></i> Update Social Information</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="social_info_form">
+                @csrf
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" value="{{auth()->user()->details->city}}" name="city" id="city">
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="state">Current State</label>
-                                    <input type="text" class="form-control" value="{{auth()->user()->details->state}}" name="state" id="state">
-                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="state">Current State</label>
+                                <input type="text" class="form-control" value="{{auth()->user()->details->state}}" name="state" id="state">
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="relationship">Relationship Status</label>
-                                    <select name="relationship" id="relationship" class="form-control">
-                                        <option value="" hidden>Select Status</option>
-                                        <option value="single" {{auth()->user()->details->relationship=='single'?'selected':''}}>Single</option>
-                                        <option value="married" {{auth()->user()->details->relationship=='married'?'selected':''}}>Married</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="relationship">Relationship Status</label>
+                                <select name="relationship" id="relationship" class="form-control">
+                                    <option value="" hidden>Select Status</option>
+                                    <option value="single" {{auth()->user()->details->relationship=='single'?'selected':''}}>Single</option>
+                                    <option value="married" {{auth()->user()->details->relationship=='married'?'selected':''}}>Married</option>
+                                </select>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="workplace">Workplace</label>
-                                    <input type="text" name="workplace" id="workplace" class="form-control" value="{{auth()->user()->details->workplace}}">
-                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="workplace">Workplace</label>
+                                <input type="text" name="workplace" id="workplace" class="form-control" value="{{auth()->user()->details->workplace}}">
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="high_school">High School</label>
-                                    <input type="text" name="high_school" id="high_school" class="form-control" value="{{auth()->user()->details->high_school}}">
-                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="high_school">High School</label>
+                                <input type="text" name="high_school" id="high_school" class="form-control" value="{{auth()->user()->details->high_school}}">
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="hobbies">Hobbies</label>
-                                    <input type="text" class="form-control" id="hobbies" name="hobbies" value="{{auth()->user()->details->city}}">
-                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="hobbies">Hobbies</label>
+                                <input type="text" class="form-control" id="hobbies" name="hobbies" value="{{auth()->user()->details->city}}">
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="gender">Gender</label>
-                                    <select name="gender" id="gender" class="form-control">
-                                        <option value="" hidden>Select Gender</option>
-                                        <option value="male" {{auth()->user()->gender=='male'?'selected':''}}>Male</option>
-                                        <option value="female" {{auth()->user()->gender=='female'?'selected':''}}>Female</option>
-                                    </select>
-                                </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select name="gender" id="gender" class="form-control">
+                                    <option value="" hidden>Select Gender</option>
+                                    <option value="male" {{auth()->user()->gender=='male'?'selected':''}}>Male</option>
+                                    <option value="female" {{auth()->user()->gender=='female'?'selected':''}}>Female</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer share-post-button">
-                        <button type="button" data-dismiss="modal">Close</button>
-                        <button type="submit" >Save changes</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="modal-footer share-post-button">
+                    <button type="button" data-dismiss="modal">Close</button>
+                    <button type="submit" >Save changes</button>
+                </div>
+            </form>
         </div>
     </div>
-@endpush
+</div>

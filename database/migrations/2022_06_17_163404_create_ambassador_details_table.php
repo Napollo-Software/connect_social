@@ -25,6 +25,7 @@ class CreateAmbassadorDetailsTable extends Migration
             $table->string('workplace')->default('Lorem Ipsum');
             $table->string('hobbies')->default('Lorem Ipsum');
             $table->string('cover_photo')->nullable();
+            $table->string('privacy',2000)->nullable();
             $table->timestamps();
         });
     }

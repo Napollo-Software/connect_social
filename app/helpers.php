@@ -55,7 +55,7 @@ function getPrivacyDetails($slug){
     }
     if ($slug=='public') {
         $data['url'] = url('ambassador_assets/images/icons/globe.svg');
-        $data['name'] = 'public';
+        $data['name'] = 'Public';
     }
     if ($slug=='connections') {
         $data['url'] = url('ambassador_assets/images/icons/connection.svg');
@@ -71,6 +71,7 @@ function getPrivacyDetails($slug){
     }
     return $data;
 }
+
 function myLikeOnPost($post){
     $my=false;
     foreach ($post->likes as $like){
@@ -79,4 +80,17 @@ function myLikeOnPost($post){
         }
     }
     return $my;
+}
+function getSocialPrivacy($k){
+    $data=unserialize(auth()->user()->details->privacy);
+    $privacy='friends';
+    if ($data){
+        foreach ($data as $key=>$value){
+            if ($key==$k){
+                $privacy=$value;
+            }
+        }
+    }
+
+    return $privacy;
 }

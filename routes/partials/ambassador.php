@@ -20,6 +20,7 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
         Route::post('update-about', [UserController::class, 'update_about'])->name('ambassador.update.about');
         Route::post('update-cover', [UserController::class, 'update_cover'])->name('ambassador.update.cover');
         Route::post('update-profile', [UserController::class, 'update_profile'])->name('ambassador.update.profile');
+        Route::post('update-privacy', [UserController::class, 'update_privacy'])->name('ambassador.update.privacy');
         Route::post('update-social-info', [UserController::class, 'update_social_info'])->name('ambassador.update.social.info');
     });
 

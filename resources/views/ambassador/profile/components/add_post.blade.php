@@ -110,4 +110,63 @@
         </div>
     </div>
 </div>
+@push('subscripts')
+    <script>
+        $(function () {
+            $('#add_post').submit(function (e) {
+                e.preventDefault();
+                var privacy = $(this).find('.set-privacy-dropdown-value').attr('data-value');
+                $('#post_privacy').val(privacy);
+                var button = $(this).find('button[type=submit]');
+                var previous= button.text();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
 
+                $.ajax({
+                    type:"POST",
+                    url:"{{route('post.store')}}",
+                    data: new FormData(this),
+                    dataType:'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success:function(data) {
+                        button.attr('disabled',null).html(previous);
+                        swal("Success", data.success, "success").then(function () {
+                            window.location.reload();
+                        });
+                    },
+                    error:function (xhr) {
+                        button.attr('disabled',null).html(previous);
+                        erroralert(xhr);
+                    }
+                });
+            });
+            $('.add-post-close-btn').click(function () {
+                $('#file_type').val('');
+                $('#create-post-upload-file-modal').modal('hide');
+            });
+            $('.add-post-upload-btn').click(function () {
+                if (($('#attachment').val()== null || $('#attachment').val()=='') && ($('#url').val()==null || $('#url').val()=='')){
+                    alert('null');
+                }
+                else{
+                    $('.share-post-attachments-li.add-post-modal-show').removeClass('add-post-modal-show');
+                    $('#create-post-upload-file-modal').modal('hide');
+                }
+            });
+            $(document).on('click','.add-post-modal-show',function() {
+                var type= $(this).attr('data-type');
+                if (type=='link'){
+                    $('.url-div').show();
+                    $('.file-div').hide();
+                } else{
+                    $('.url-div').hide();
+                    $('.file-div').show();
+                }
+
+                $('#file_type').val(type);
+                $('#create-post-upload-file-modal').modal('show');
+            });
+        });
+    </script>
+@endpush

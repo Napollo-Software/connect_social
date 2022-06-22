@@ -105,4 +105,34 @@ class UserController extends Controller
         $detail->save();
         return response()->json(['success' => 'updated', 'response' => $request->all()]);
     }
+    public function update_privacy(Request $request){
+        $detail=AmbassadorDetails::find(auth()->user()->details->id);
+        if ($detail->privacy){
+            $data=unserialize($detail->privacy);
+        }else{
+            $data=[
+              'about'=>'friends',
+              'city'=>'friends',
+              'state'=>'friends',
+              'relationship'=>'friends',
+              'joining'=>'friends',
+              'high_school'=>'friends',
+              'workplace'=>'friends',
+              'hobbies'=>'friends',
+              'phone'=>'friends',
+            ];
+        }
+        if (array_key_exists($request->key,$data)){
+            foreach ($data as $key=>$value){
+                if ($key==$request->key){
+                    $data[$key]=$request->value;
+                }
+            }
+        }else{
+            $data+=[$request->key=>$request->value];
+        }
+        $detail->privacy=serialize($data);
+        $detail->save();
+        return response()->json(['success' => 'updated']);
+    }
 }

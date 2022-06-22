@@ -45,7 +45,7 @@
                                 <li class="profile-user-options-li user-pic open-dropdown" data-target=".drop-00">
                                     <div class="profile-user-options-inner">
                                         <div class="profile-user-options-icon">
-                                            <img src="{{auth()->user()->profile_image()}}" alt="">
+                                            <img src="{{auth()->user()->profile_image()}}" alt="" class="profile_photo_preview">
                                         </div>
                                         <div class="user-dropdown-inner drop-00">
                                             <ul class="user-dropdown-ul">
