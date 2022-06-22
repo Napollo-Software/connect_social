@@ -346,51 +346,13 @@
                                                     <div class="content-card-content-inner">
                                                         <div class="photo-galary-grid">
                                                             <div class="photo-galary-grid-inner">
+                                                                @foreach($images as $image)
                                                                 <div class="photo-grid-col">
                                                                     <div class="photo-grid-col-inner">
-                                                                        <img src="ambassador_assets/images/default/default-02.png" alt="">
+                                                                        <img src="{{$image}}" alt="">
                                                                     </div>
                                                                 </div>
-                                                                <div class="photo-grid-col">
-                                                                    <div class="photo-grid-col-inner">
-                                                                        <img src="ambassador_assets/images/default/default-02.png" alt="">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="photo-grid-col">
-                                                                    <div class="photo-grid-col-inner">
-                                                                        <img src="ambassador_assets/images/default/default-02.png" alt="">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="photo-grid-col">
-                                                                    <div class="photo-grid-col-inner">
-                                                                        <img src="ambassador_assets/images/default/default-02.png" alt="">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="photo-grid-col">
-                                                                    <div class="photo-grid-col-inner">
-                                                                        <img src="ambassador_assets/images/default/default-02.png" alt="">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="photo-grid-col">
-                                                                    <div class="photo-grid-col-inner">
-                                                                        <img src="ambassador_assets/images/default/default-02.png" alt="">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="photo-grid-col">
-                                                                    <div class="photo-grid-col-inner">
-                                                                        <img src="ambassador_assets/images/default/default-02.png" alt="">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="photo-grid-col">
-                                                                    <div class="photo-grid-col-inner">
-                                                                        <img src="ambassador_assets/images/default/default-02.png" alt="">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="photo-grid-col">
-                                                                    <div class="photo-grid-col-inner">
-                                                                        <img src="ambassador_assets/images/default/default-02.png" alt="">
-                                                                    </div>
-                                                                </div>
+                                                                @endforeach
                                                             </div>
                                                         </div>
                                                     </div>

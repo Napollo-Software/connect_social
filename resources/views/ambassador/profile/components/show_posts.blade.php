@@ -23,7 +23,7 @@
                                         </div>
                                         <div class="privacy-icon">
                                             <img src="{{getPrivacyDetails($post->privacy)['url']}}"
-                                                 alt="{{getPrivacyDetails($post->privacy)['name']}}">
+                                                 alt="{{getPrivacyDetails($post->privacy)['name']}}" title="{{getPrivacyDetails($post->privacy)['name']}}">
                                         </div>
                                     </div>
                                 </div>
@@ -94,7 +94,7 @@
                             <div class="edit-post-box-inner">
                                 <div class="edit-post-box-main">
                                     <input type="hidden" value="{{$post->id}}" name="id">
-                                    <input type="text" value="{{$post->privacy}}" name="privacy" id="edit_post_privacy">
+                                    <input type="hidden" value="{{$post->privacy}}" name="privacy" id="edit_post_privacy">
                                     <textarea rows="{{$post->details?'10':'1'}}" name="details" style="height: auto!important;">{{$post->details}}</textarea>
                                 </div>
                                 @if($post->assets()->exists())
@@ -218,7 +218,7 @@
                                     <div class="text" id="likes-count-{{$post->id}}">{{$post->likes->count()}}</div>
                                 </li>
                                 <li class="like-comment-bar-li">
-                                    <div class="text"><span
+                                    <div class="text {{$post->comments->count()>0?'':'d-none'}}"><span
                                                 id="comment-count-{{$post->id}}">{{$post->comments->count()}}</span>
                                         Comment{{$post->comments->count()>1?'s':''}}</div>
                                 </li>
@@ -402,6 +402,7 @@
                         button.attr('disabled',null).html(previous);
                         $(comment_input).val('');
                         $('#comment-count-'+post).text(parseInt($('#comment-count-'+post).text())+1);
+                        $('#comment-count-'+post).parent().removeClass('d-none');
                         $('#comment-box-'+post).closest('.all-comments-box-grid').prepend('<div class="singal-comment-row"><div class="singal-comment-row-inner"><div class="singal-comment-row-user-image"> <div class="singal-comment-row-user-image-inner"> <img src="{{auth()->user()->profile_image()}}" alt=""> </div> </div> <div class="singal-comment-row-comment-text">'+data.data.text+'</div> </div> </div>');
                     },
                     error:function (xhr) {

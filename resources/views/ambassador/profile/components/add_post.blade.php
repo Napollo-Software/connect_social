@@ -14,7 +14,7 @@
                             <input type="hidden" value="{{Privacy::PRIV_FRIENDS}}" name="privacy" id="post_privacy">
                             <div class="share-post-input-box">
                                 <div class="share-post-input-box-inner">
-                                    <textarea name="details" id="" cols="30" rows="10" placeholder="Write Something"></textarea>
+                                    <textarea class="form-control" name="details" id="" cols="30" rows="10" placeholder="Write Something"></textarea>
                                 </div>
                             </div>
                             <div class="share-post-box-main-bottom">
