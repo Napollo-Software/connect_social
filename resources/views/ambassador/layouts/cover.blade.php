@@ -2,9 +2,10 @@
 <div class="profile-box-cover">
     <div class="profile-box-cover-inner">
         <div class="profile-box-cover-image">
-            <img src="ambassador_assets/images/cover/cover-bg.svg" alt="">
+            <img src="{{auth()->user()->details->coverPhoto()}}" alt="" id="cover_photo_preview">
             <form id="update_cover_photo_form" enctype="multipart/form-data" class="d-none">
-                <input type="file" name="cover_photo" id="cover_photo_input">
+                @csrf
+                <input type="file" name="cover" id="cover_photo_input" onchange="$('#update_cover_photo_form').submit()">
             </form>
             <div class="edit-button upload-selector" data-target="#cover_photo_input">
                 <div class="edit-button-inner">
@@ -19,9 +20,10 @@
                         <div class="profile-box-photo-inner">
                             <div class="profile-box-photo-main">
                                 <div class="profile-box-photo-image">
-                                    <img src="{{auth()->user()->profile_image()}}" alt="">
+                                    <img src="{{auth()->user()->profile_image()}}" alt="" class="profile_photo_preview">
                                     <form id="update_profile_photo_form" enctype="multipart/form-data" class="d-none">
-                                        <input type="file" name="profile_photo" id="profile_photo_input">
+                                        @csrf
+                                        <input type="file" name="profile" id="profile_photo_input" onchange="$('#update_profile_photo_form').submit()">
                                     </form>
                                     <div class="edit-button upload-selector" data-target="#profile_photo_input">
                                         <div class="edit-button-inner">

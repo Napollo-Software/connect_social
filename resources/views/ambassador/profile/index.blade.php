@@ -52,12 +52,13 @@
                                                     </div>
                                                     <div class="abouy-text-editor"  style="display:none">
                                                         <div class="abouy-text-editor-inner">
-                                                            <form action="#">
+                                                            <form id="about_form">
+                                                                @csrf
                                                                 <div class="abouy-text-editor-textarea">
-                                                                                            <textarea name="about_info" rows="5">{{auth()->user()->details->about}}</textarea>
+                                                                    <textarea name="about" id="about" rows="5">{{auth()->user()->details->about}}</textarea>
                                                                 </div>
                                                                 <div class="abouy-text-editor-button">
-                                                                    <button>Save</button>
+                                                                    <button type="submit">Save</button>
                                                                 </div>
                                                             </form>
                                                         </div>
@@ -607,6 +608,35 @@
                     }
                 });
             });
+            $('.edit_post_form').submit(function (e) {
+                e.preventDefault();
+                var privacy = $(this).find('.set-privacy-dropdown-value').attr('data-value');
+                $('#edit_post_privacy').val(privacy);
+                var button = $(this).find('button[type=submit]');
+                var previous= button.text();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
+
+                $.ajax({
+                    type:"POST",
+                    url:"{{route('post.update')}}",
+                    data: new FormData(this),
+                    dataType:'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success:function(data) {
+                        button.attr('disabled',null).html(previous);
+                        swal("Success", data.success, "success").then(function () {
+                            window.location.reload();
+                        });
+                    },
+                    error:function (xhr) {
+                        button.attr('disabled',null).html(previous);
+                        erroralert(xhr);
+                    }
+                });
+            });
+
             $('.comment_form').submit(function (e) {
                 e.preventDefault();
                 var button = $(this).find('button[type=submit]');
@@ -684,6 +714,28 @@
                 });
 
             });
+            $(document).on('submit','#about_form',function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type:"POST",
+                    url:"{{route('ambassador.update.about')}}",
+                    data: new FormData(this),
+                    dataType:'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success:function(data) {
+                        $('.abouy-text-editor').hide();
+                        $('.about-content').show();
+                        $('#about-text').text(data.response.about);
+                    },
+                    error:function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+
+            });
+
 
 
 
@@ -700,10 +752,13 @@
                 $('#file_type').val(type);
                 $('#create-post-upload-file-modal').modal('show');
             });
+
+
             $('.add-post-close-btn').click(function () {
                $('#file_type').val('');
                $('#create-post-upload-file-modal').modal('hide');
             });
+
             $('.add-post-upload-btn').click(function () {
                 if (($('#attachment').val()== null || $('#attachment').val()=='') && ($('#url').val()==null || $('#url').val()=='')){
                     alert('null');
@@ -713,6 +768,41 @@
                     $('#create-post-upload-file-modal').modal('hide');
                 }
             });
+
+
+            $(document).on('click','.edit-post-close-btn',function () {
+                var id = $(this).attr('data-post');
+                $('#file_type'+id).val('');
+                $('#edit-post-upload-file-modal-'+id).modal('hide');
+            });
+            $(document).on('click','.edit-post-modal-show',function() {
+                var type= $(this).attr('data-type');
+                var id = $(this).attr('data-post');
+                if (type=='link'){
+                    $('.url-div').show();
+                    $('.file-div').hide();
+                } else{
+                    $('.url-div').hide();
+                    $('.file-div').show();
+                }
+                $('#file_type'+id).val(type);
+                $('#edit-post-upload-file-modal-'+id).attr('data-post',$(this).attr('data-post')).modal('show');
+            });
+            $(document).on('click','.edit-post-upload-btn',function () {
+                var id = $(this).attr('data-post');
+
+                if (($('#attachment'+id).val()== null || $('#attachment'+id).val()=='') && ($('#url'+id).val()==null || $('#url'+id).val()=='')){
+                    alert('Fields are required to continue...');
+                }
+                else{
+
+                    var modalfalse=$('#edit_post_form_'+id).find('.share-post-attachments-li.edit-post-modal-show');
+                    modalfalse.removeClass('edit-post-modal-show');
+                    $('#edit-post-upload-file-modal-'+id).modal('hide');
+                }
+            });
+
+
 
 
             $(document).on('click', '.post-delete', function (e) {
@@ -744,6 +834,44 @@
                         }
                     });
             });
+            $(document).on('click', '.remove-post-attachment', function (e) {
+
+                swal({
+                    title: "Are you sure to remove?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+
+                            var id = $(this).attr('data-id');
+                            var post = $(this).attr('data-post');
+
+                            var toEnableModal=$('.edit-post-attachment-enabler-'+post);
+                            var token = '{{csrf_token()}}';
+
+
+
+
+                            e.preventDefault();
+                            $.ajax({
+                                url: "{{route('post.asset.destroy')}}",
+                                data: {'id':id,_token:token},
+                                dataType: "JSON",
+                                type: "delete",
+                                success: function (data) {
+                                    $('#post-edit-photo-main-'+post).remove();
+                                    toEnableModal.addClass('edit-post-modal-show');
+                                },
+                                error: function (xhr) {
+                                    erroralert(xhr);
+                                },
+                            });
+                        }
+                    });
+            });
+
 
             $(document).on('submit','#social_info_form',function (e) {
                 e.preventDefault();
@@ -772,6 +900,65 @@
                     }
                 });
 
+            });
+
+            $(document).on('submit','#update_cover_photo_form',function (e) {
+                e.preventDefault();
+                swal({
+                    title: "Are you sure to change cover photo?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            $.ajax({
+                                url: "{{route('ambassador.update.cover')}}",
+                                data: new FormData(this),
+                                dataType: "JSON",
+                                type: "post",
+                                processData: false,
+                                contentType: false,
+                                cache: false,
+                                success: function (data) {
+                                    $('#cover_photo_preview').attr('src',data.response);
+                                    $('#cover_photo_input').val('');
+                                },
+                                error: function (xhr) {
+                                    erroralert(xhr);
+                                },
+                            });
+                        }
+                    });
+            });
+            $(document).on('submit','#update_profile_photo_form',function (e) {
+                e.preventDefault();
+                swal({
+                    title: "Are you sure to change profile photo?",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            $.ajax({
+                                url: "{{route('ambassador.update.profile')}}",
+                                data: new FormData(this),
+                                dataType: "JSON",
+                                type: "post",
+                                processData: false,
+                                contentType: false,
+                                cache: false,
+                                success: function (data) {
+                                    $('.profile_photo_preview').attr('src',data.response);
+                                    $('#profile_photo_input').val('');
+                                },
+                                error: function (xhr) {
+                                    erroralert(xhr);
+                                },
+                            });
+                        }
+                    });
             });
 
         });

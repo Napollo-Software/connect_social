@@ -104,7 +104,7 @@ Connect Social'
 
 
         $attachment = time() . $data['profile']->getClientOriginalName();
-        Storage::disk('local')->put('/public/profile/' . $attachment, File::get($data['profile']));
+        Storage::disk('local')->put('/public/profile/'.$data['email'].'/' . $attachment, File::get($data['profile']));
         sendEmail($data['email'],'connectsocial@napollo.net','Almost There! Confirm Your Email',$message);
 
         $user=User::create([

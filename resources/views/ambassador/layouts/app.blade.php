@@ -35,11 +35,8 @@
         <!-- </div> -->
     </div>
 </div>
-<!-- Jquery -->
 <script src="{{url('ambassador_assets/js/jquery.js')}}"></script>
-<!-- Bootstrap -->
 <script src="{{url('ambassador_assets/js/bootstrap.min.js')}}"></script>
-<!-- Script -->
 <script src="{{url('ambassador_assets/js/profile.js')}}"></script>
 @stack('scripts')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

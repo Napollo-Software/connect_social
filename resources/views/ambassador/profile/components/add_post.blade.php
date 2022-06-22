@@ -4,12 +4,11 @@
             <div class="share-post-box-inner">
                 <div class="share-post-user-image">
                     <div class="share-post-user-image-inner">
-                        <img src="{{auth()->user()->profile_image()}}" alt="">
+                        <img src="{{auth()->user()->profile_image()}}" alt="" style="width: 40px;height: 40px;object-fit: cover" class="profile_photo_preview">
                     </div>
                 </div>
                 <div class="share-post-box-main">
                     <form id="add_post">
-
                         <div class="share-post-box-main-inner">
                             @csrf
                             <input type="hidden" value="{{Privacy::PRIV_FRIENDS}}" name="privacy" id="post_privacy">

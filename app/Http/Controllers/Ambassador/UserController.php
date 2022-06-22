@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\AmbassadorDetails;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -24,6 +26,52 @@ class UserController extends Controller
         $user->save();
         return response()->json(['success' => 'updated', 'response' => $user]);
     }
+    public function update_about(Request $request)
+    {
+        $this->validate($request, [
+            'about' => 'required',
+        ], [
+            'about.required' => 'About field is required *',
+        ]);
+        $detail=AmbassadorDetails::find(auth()->user()->details->id);
+        $detail->about = $request->about;
+        $detail->save();
+        return response()->json(['success' => 'updated', 'response' => $detail]);
+    }
+    public function update_cover(Request $request)
+    {
+        $this->validate($request, [
+            'cover' => 'required|mimes:jpeg,png,jpg,gif,svg',
+        ], [
+            'cover.required' => 'About field is required *',
+        ]);
+        $attachment = time() . $request['cover']->getClientOriginalName();
+        Storage::disk('local')->put('/public/a/covers/'.auth()->user()->id.'/' . $attachment, File::get($request['cover']));
+        $detail=AmbassadorDetails::find(auth()->user()->details->id);
+        $detail->cover_photo = $attachment;
+        $detail->save();
+        $response=Storage::disk('local')->url('/a/covers/'.auth()->user()->id.'/'.$attachment);
+        return response()->json(['success' => 'updated', 'response' => $response]);
+    }
+    public function update_profile(Request $request)
+    {
+        $this->validate($request, [
+            'profile' => 'required|mimes:jpeg,png,jpg,gif,svg',
+        ], [
+            'profile.required' => 'Photo field is required *',
+        ]);
+        $attachment = time() . $request['profile']->getClientOriginalName();
+        Storage::disk('local')->put('/public/profile/'.auth()->user()->email.'/' . $attachment, File::get($request['profile']));
+        $user = User::find(auth()->user()->id);
+        $user->profile = $attachment;
+        $user->save();
+
+        $response=$user->profile_image();
+        return response()->json(['success' => 'updated', 'response' => $response]);
+    }
+
+
+
 
     public function update_social_info(Request $request)
     {
@@ -57,6 +105,4 @@ class UserController extends Controller
         $detail->save();
         return response()->json(['success' => 'updated', 'response' => $request->all()]);
     }
-
-    //
 }

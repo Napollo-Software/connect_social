@@ -71,3 +71,12 @@ function getPrivacyDetails($slug){
     }
     return $data;
 }
+function myLikeOnPost($post){
+    $my=false;
+    foreach ($post->likes as $like){
+        if ($like->user_id==auth()->user()->id){
+            $my=true;
+        }
+    }
+    return $my;
+}

@@ -39,7 +39,7 @@ Connect Social';
                 $user = User::find(auth()->user()->id);
                 $user->email_verified_at = date('Y-m-d H:i:s');
                 $user->save();
-                return response()->json(['success' => 'Your email address has successfully been verified.!']);
+                return response()->json(['success' => 'Your email address is verified successfully.!']);
             } else {
                 $response['message'] = ['Invalid OTP !'];
                 return response()->json([
