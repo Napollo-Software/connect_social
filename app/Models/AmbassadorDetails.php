@@ -11,9 +11,9 @@ class AmbassadorDetails extends Model
     use HasFactory;
     public function coverPhoto(){
         if ($this->cover_photo){
-             return Storage::disk('local')->url('/a/covers/'.$this->user_id.'/'.$this->cover_photo);
+             return Storage::disk('local')->url('a/covers/'.$this->user_id.'/'.$this->cover_photo);
 
         }
-        return 'ambassador_assets/images/cover/cover-bg.svg';
+        return url('ambassador_assets/images/cover/cover-bg.svg');
     }
 }

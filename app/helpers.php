@@ -47,6 +47,17 @@ class Privacy{
     const PRIV_TIER_1='tier-1';
     const PRIV_TIER_2='tier-2';
 }
+class Friends{
+    const STATUS_REQUEST_SENT=0;
+    const STATUS_APPROVED=1;
+    const STATUS_REJECTED=2;
+}
+class Connections{
+    const STATUS_REQUEST_SENT=0;
+    const STATUS_APPROVED=1;
+    const STATUS_REJECTED=2;
+}
+
 function getPrivacyDetails($slug){
     $data=[];
     if ($slug=='friends') {
@@ -93,4 +104,96 @@ function getSocialPrivacy($k){
     }
 
     return $privacy;
+}
+use App\Models\Friend;
+use App\Models\Connection;
+function friendRequestSent($to){
+    if (Friend::where('from',auth()->user()->id)->where('to',$to)->where('status',Friends::STATUS_REQUEST_SENT)->get()->count()==0){
+        return false;
+    }
+    return true;
+}function connectionRequestSent($to){
+    if (Connection::where('from',auth()->user()->id)->where('to',$to)->where('status',Connections::STATUS_REQUEST_SENT)->get()->count()==0){
+        return false;
+    }
+    return true;
+}
+function fOrCRequestSent($to){
+    $anyOne=false;
+    if (Connection::where('from',auth()->user()->id)->where('to',$to)->get()->count()>0){
+        $anyOne=true;
+    }
+    if (Friend::where('from',auth()->user()->id)->where('to',$to)->get()->count()>0){
+        $anyOne=true;
+    }
+    return $anyOne;
+}
+function receivedAnyPendingRequest($id){
+    $anyOne=false;
+    if (Friend::where('to',auth()->user()->id)->where('from',$id)->where('status',Friends::STATUS_REQUEST_SENT)->get()->count()){
+        $anyOne=true;
+    }
+    if (Connection::where('to',auth()->user()->id)->where('from',$id)->where('status',Connections::STATUS_REQUEST_SENT)->get()->count()){
+        $anyOne=true;
+    }
+    return $anyOne;
+}
+function receivedAnyApprovedRequest($id){
+
+    $anyOne=false;
+    if (Friend::where('to',auth()->user()->id)->where('from',$id)->where('status',Friends::STATUS_APPROVED)->get()->count()){
+        $anyOne=true;
+    }
+    if (Friend::where('to',$id)->where('from',auth()->user()->id)->where('status',Friends::STATUS_APPROVED)->get()->count()){
+        $anyOne=true;
+    }
+
+    if (Connection::where('to',auth()->user()->id)->where('from',$id)->where('status',Connections::STATUS_APPROVED)->get()->count()){
+        $anyOne=true;
+    }
+    if (Connection::where('to',$id)->where('from',auth()->user()->id)->where('status',Connections::STATUS_APPROVED)->get()->count()){
+        $anyOne=true;
+    }
+    return $anyOne;
+}
+function checkApprovedRequest($id){
+
+    $anyOne='';
+    if (Friend::where('to',auth()->user()->id)->where('from',$id)->where('status',Friends::STATUS_APPROVED)->get()->count()){
+        $anyOne='friends';
+    }
+    if (Friend::where('to',$id)->where('from',auth()->user()->id)->where('status',Friends::STATUS_APPROVED)->get()->count()){
+        $anyOne='friends';
+    }
+
+    if (Connection::where('to',auth()->user()->id)->where('from',$id)->where('status',Connections::STATUS_APPROVED)->get()->count()){
+        $anyOne='connections';
+    }
+    if (Connection::where('to',$id)->where('from',auth()->user()->id)->where('status',Connections::STATUS_APPROVED)->get()->count()){
+        $anyOne='connections';
+    }
+    return $anyOne;
+}
+
+function receivedFriendRequest($id){
+    if (Friend::where('to',auth()->user()->id)->where('from',$id)->where('status',Friends::STATUS_REQUEST_SENT)->get()->count()>0){
+        return true;
+    }
+    return false;
+}
+function receivedConnectionRequest($id){
+    if (Connection::where('to',auth()->user()->id)->where('from',$id)->where('status',Connections::STATUS_REQUEST_SENT)->get()->count()>0){
+        return true;
+    }
+    return false;
+}
+function getFriendDetails($f){
+    $friend=null;
+    if (auth()->user()->id==$f->from){
+        $friend=$f->user_to;
+    }
+    if (auth()->user()->id==$f->to){
+        $friend=$f->user_from;
+    }
+    return $friend;
 }

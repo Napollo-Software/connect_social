@@ -26,6 +26,6 @@ Route::post('verify-email-code', [VerifyCodeController::class, 'verify_code'])->
 Route::get('resend-email-code', [VerifyCodeController::class, 'resend_code'])->name('email.resend.code');
 
 
-Route::get('/', [HomeController::class, 'index'])->middleware(['email-verification','auth'])->name('dashboard');
+Route::get('/', [HomeController::class, 'index'])->middleware(['email-verification','auth'])->name('home');
 Route::group([],__DIR__.'/partials/super_admin.php');
 Route::group([],__DIR__.'/partials/ambassador.php');

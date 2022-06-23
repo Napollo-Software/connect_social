@@ -1,0 +1,154 @@
+@extends('ambassador.layouts.app')
+@section('content')
+    @include('ambassador.layouts.gallery-navigation')
+    <div class="gallary-grid">
+        <div class="gallary-grid-inner">
+            <div class="container">
+                <div class="gallary-top-bar">
+                    <div class="gallary-top-bar-inner">
+                        <div class="gallary-top-title">
+                            All Media
+                        </div>
+                        <div class="gallary-top-date">
+                            June 1, 2022
+                        </div>
+                        <div class="selection-icon">
+                            <span class="ti-more-alt"></span>
+                            <div class="selection-dropdown">
+                                <div class="selection-dropdown-inner">
+                                    <ul class="selection-dropdown-ul">
+                                        <li class="selection-dropdown-li gallary-sellect-bar-select-show">
+                                            Select
+                                        </li>
+                                        <li class="selection-dropdown-li gallary-sellect-bar-select-all">
+                                            Select All
+                                        </li>
+                                        <li class="selection-dropdown-li">
+                                            Delete
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @if($type=='audio')
+                    <div class="audio-grid-main">
+                        @foreach($assets as $asset)
+                            <div class="audio-grid-col">
+                                <div class="audio-grid-col-inner">
+                                    <div class="audio-file-name">
+                                        <div class="name">{{substr($asset['asset']['file'],10)}}</div>
+                                        <div class="date">{{$asset['asset']['created_at']->format('F d, Y')}}</div>
+                                    </div>
+                                    <div class="audio-grid-col-audio">
+                                        <audio controls>
+                                            <source src="{{$asset['url']}}" type="audio/mpeg">
+                                            No audio support.
+                                        </audio>
+                                        <div class="select-gallary-item">
+                                            <div class="select-gallary-item-inner">
+                                                <input type="checkbox">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                @else
+                    <div class="gallary-grid-main">
+
+                    @foreach($assets as $asset)
+                        <div class="gallary-grid-col">
+                            <div class="gallary-grid-col-inner">
+                                <div class="gallary-grid-col-image">
+                                    @if($asset['type']=='image')
+                                        <img src="{{$asset['url']}}" alt="">
+                                    @elseif($asset['type']=='video')
+                                        <video src="{{$asset['url']}}" style="width: 100%;height: 100%"></video>
+                                    @endif
+                                    <div class="select-gallary-item">
+                                        <div class="select-gallary-item-inner">
+                                            <input type="checkbox">
+                                        </div>
+                                    </div>
+                                    @if($asset['type']=='video')
+                                        <div class="play-video-icon">
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                        @endif
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div id="repeated-html" class="d-none">
+        <div class="friend-grid-col-options-dropdown-inner">
+            <div class="friend-grid-col-options-dropdown-main">
+                <ul class="friend-grid-col-options-dropdown-ul">
+                    <li class="friend-grid-col-options-dropdown-li">
+                        <a href="javascript:void(0)" class="friend-grid-col-options-dropdown-link">Remove Friend</a>
+                    </li>
+                    <li class="friend-grid-col-options-dropdown-li">
+                        <a href="javascript:void(0)" class="friend-grid-col-options-dropdown-link">Send Message</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="repeated-play-html" class="d-none">
+        <div class="play-video-icon-inner">
+            <div class="play-video-icon-main">
+                <img src="{{url('ambassador_assets/images/icons/play.png')}}" alt="">
+            </div>
+        </div>
+    </div>
+@endsection
+<script src="{{url('index.js')}}"></script>
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            var repeated_html = $("#repeated-html").html();
+            $(".friend-grid-col-options-dropdown").html(repeated_html);
+
+            var repeated_play_html = $("#repeated-play-html").html();
+            $(".play-video-icon").html(repeated_play_html);
+
+            // More Trigger
+            $(".friend-grid-col-options-icon").click(function () {
+                $(this).find(".friend-grid-col-options-dropdown").toggle()
+            });
+
+            // Select Items
+            $(".gallary-sellect-bar-select-show").click(function () {
+                $(".select-gallary-item").toggle();
+            });
+
+            $(".selection-icon").click(function () {
+                $(".selection-dropdown").toggle();
+            });
+
+            var select_count = 0;
+
+            $(".gallary-sellect-bar-select-all").click(function () {
+                $(".gallary-grid-main .select-gallary-item").show();
+                if (select_count == 0) {
+                    $(".gallary-grid-main .select-gallary-item input").prop('checked', true);
+                    select_count = 1;
+                } else {
+                    $(".gallary-grid-main .select-gallary-item input").prop('checked', false);
+                    select_count = 0;
+                }
+
+            });
+        })
+
+    </script>
+    @stack('subscripts')
+@endpush

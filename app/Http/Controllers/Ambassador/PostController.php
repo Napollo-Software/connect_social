@@ -61,6 +61,8 @@ class PostController extends Controller
         return response()->json(['success'=>'Post added successfully']);
     }
     public function update(Request $request){
+        $post= Post::find($request->id);
+
         if ($request->file_type){
             $postAsset=new PostAssets();
             if ($request->file_type=='link'){
@@ -90,16 +92,18 @@ class PostController extends Controller
             }
             $postAsset->type=$request->file_type;
         }else{
-            $this->validate($request,[
-                'details'=>'required',
-            ]);
+            if (!$post->assets()->exists()){
+                $this->validate($request,[
+                    'details'=>'required',
+                ]);
+            }
+
         }
 
         $this->validate($request,[
             'privacy'=>'required'
         ]);
 
-        $post= Post::find($request->id);
         $post->details=$request->details;
         $post->privacy=$request->privacy;
         $post->save();

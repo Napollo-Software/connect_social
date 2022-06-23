@@ -5,7 +5,7 @@
                 <li class="profile-site-navigation-li active">
                     <a href="javascript:void(0)" class="profile-site-navigation-link">
                                         <span class="icon">
-                                            <img src="ambassador_assets/images/nav-icon/social.png" alt="">
+                                            <img src="{{url('ambassador_assets/images/nav-icon/social.png')}}" alt="">
                                         </span>
                         <span class="text">
                                             Social
@@ -15,7 +15,7 @@
                 <li class="profile-site-navigation-li">
                     <a href="javascript:void(0)" class="profile-site-navigation-link">
                                         <span class="icon">
-                                            <img src="ambassador_assets/images/nav-icon/network.png" alt="">
+                                            <img src="{{url('ambassador_assets/images/nav-icon/network.png')}}" alt="">
                                         </span>
                         <span class="text">Network</span>
                     </a>
@@ -23,7 +23,7 @@
                 <li class="profile-site-navigation-li">
                     <a href="javascript:void(0)" class="profile-site-navigation-link">
                                         <span class="icon">
-                                            <img src="ambassador_assets/images/nav-icon/shop.png" alt="">
+                                            <img src="{{url('ambassador_assets/images/nav-icon/shop.png')}}" alt="">
                                         </span>
                         <span class="text">Shops</span>
                     </a>
@@ -31,7 +31,7 @@
                 <li class="profile-site-navigation-li">
                     <a href="javascript:void(0)" class="profile-site-navigation-link">
                                         <span class="icon">
-                                            <img src="ambassador_assets/images/nav-icon/receipts.png" alt="">
+                                            <img src="{{url('ambassador_assets/images/nav-icon/receipts.png')}}" alt="">
                                         </span>
                         <span class="text">Receipts</span>
                     </a>
@@ -39,7 +39,7 @@
                 <li class="profile-site-navigation-li">
                     <a href="javascript:void(0)" class="profile-site-navigation-link">
                                         <span class="icon">
-                                            <img src="ambassador_assets/images/nav-icon/incentive.png" alt="">
+                                            <img src="{{url('ambassador_assets/images/nav-icon/incentive.png')}}" alt="">
                                         </span>
                         <span class="text">Incentives</span>
                     </a>
@@ -47,7 +47,7 @@
                 <li class="profile-site-navigation-li">
                     <a href="javascript:void(0)" class="profile-site-navigation-link">
                                         <span class="icon">
-                                            <img src="ambassador_assets/images/nav-icon/wallet.png" alt="">
+                                            <img src="{{url('ambassador_assets/images/nav-icon/wallet.png')}}" alt="">
                                         </span>
                         <span class="text">Wallet</span>
                     </a>

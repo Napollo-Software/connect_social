@@ -7,7 +7,7 @@
                         <div class="singal-post-top-bar-user-info">
                             <div class="single-post-top-bar-photo">
                                 <div class="single-post-top-bar-photo-inner">
-                                    <img src="{{auth()->user()->profile_image()}}" alt="" class="profile_photo_preview">
+                                    <img src="{{$post->user->profile_image()}}" alt="" class="profile_photo_preview">
                                 </div>
                             </div>
                             <div class="singal-post-top-bar-post-detail">
@@ -29,6 +29,7 @@
                                 </div>
                             </div>
                         </div>
+                        @if($user->id==auth()->user()->id)
                         <div class="singal-post-top-bar-options open-dropdown"
                              data-target=".post-actions-{{$post->id}}">
                             <div class="icon">
@@ -53,6 +54,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                     <div class="edit-post-box edit-post-box-{{$post->id}}" style="display:none">
                         <form class="edit_post_form" id="edit_post_form_{{$post->id}}">
@@ -283,7 +285,8 @@
     </div>
 @endforeach
 @push('subscripts')
-    <script>
+    @if($user->id==auth()->user()->id)
+        <script>
         $(function () {
             $(document).on('click','.edit-post-close-btn',function () {
                 var id = $(this).attr('data-post');
@@ -443,4 +446,5 @@
             });
         });
     </script>
+    @endif
 @endpush

@@ -44,7 +44,7 @@
                 var route = '{{route('email.verify.code')}}';
                 var method = 'POST';
                 var data = new FormData(this);
-                var next = {'type': 'next-route','url':'{{route('dashboard')}}'};
+                var next = {'type': 'next-route','url':'{{route('home')}}'};
                 submit($(this).find('button[type=submit]'), method, route, data, next);
 
             });
@@ -52,7 +52,7 @@
                 e.preventDefault();
                 var route = '{{route('email.resend.code')}}';
                 var method = 'GET';
-                var next = {'type': 'next-route','url':'{{route('dashboard')}}'};
+                var next = {'type': 'next-route','url':'{{route('home')}}'};
                 var data = {_token:'{{csrf_token()}}'};
                 submit($(this), method, route, data, next);
             });
