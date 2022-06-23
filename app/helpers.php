@@ -36,3 +36,8 @@ function sendEmail($to,$from,$subject,$message){
         return response()->json(["error", "Message could not be sent."]);
     }
 }
+function dateFormat($date,$format){
+    $seconds= strtotime($date);
+    return date($format,$seconds);
+}
+

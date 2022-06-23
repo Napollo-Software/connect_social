@@ -1,0 +1,159 @@
+
+
+* {
+    transition: all .3s ease-in-out;
+}
+
+.login-screen-sides-inner {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-form {
+    flex: 0 0 50%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    background: #fcfcfc;
+}
+
+.login-image {
+    flex: 0 0 50%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-form-image-inner img {
+    width: 100%;
+    display: block;
+    margin: auto;
+}
+
+.login-image-main img {
+    width: 300px;
+}
+
+.login-form-image {
+    margin-bottom: 50px;
+}
+
+.login-form-outer {
+    width: 80%;
+    padding: 40px;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+.login-image-main img {
+    width: 70%;
+    display: block;
+    margin: auto;
+}
+
+.login-image-inner {
+    width: 100%;
+}
+
+.login-form-image {
+    margin-bottom: 30px;
+}
+
+.login-form-box-title {
+    margin-bottom: -10px;
+    font-size: 2em;
+    font-weight: 400;
+    text-align: center;
+}
+
+.login-form-box--bottom-title {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+.login-form-field-single {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.login-form-field-single label {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.login-form-field-single input {
+    padding: 8px 15px;
+}
+
+.forgot-password-link a {
+    color: #000;
+    text-decoration: none;
+}
+
+.forgot-password-link {
+    margin-bottom: 15px;
+    text-align: right;
+}
+
+.login-button button {
+    background: #000;
+    width: 100%;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+/* Effects */
+
+.forgot-password-link a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.login-button button:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Responsive */
+
+@media only screen and (max-width: 1000px) {
+    .login-image {
+        display: none;
+    }
+    .login-form {
+        flex: 0 0 100%;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    .login-image {
+        display: none;
+    }
+    .login-form {
+        flex: 0 0 100%;
+    }
+
+    .login-form-outer {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
+    .login-form-outer {
+        width: 90%;
+    }
+
+    .login-form-outer {
+        padding: 15px;
+    }
+}

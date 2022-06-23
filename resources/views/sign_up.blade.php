@@ -9,9 +9,10 @@
                         <div class="form-div-main">
                             <form id="register-form" enctype="multipart/form-data">
                                 @csrf
+
                                 <input type="hidden" value="{{$role}}" name="role">
                                 <input type="hidden" value="{{$by}}" name="referred_by">
-                                <input type="file" id="choose-pic-input" class='d-none' name="profile">
+                                <input type="file" onchange="document.getElementById('user-image').src = window.URL.createObjectURL(this.files[0])" id="choose-pic-input" class='d-none' name="profile">
 
                                 <div class="form-box text-center">
                                     <div class="form-sub-title">
@@ -20,9 +21,8 @@
                                     <div class="upload-profile-div">
                                         <div class="upload-profile-div-inner">
                                             <div class="upload-profile-image-div">
-                                                <img src="../assets/images/icons/user.png" alt="">
-                                                <div class="camera-icon" id="choose-pic-trigger"><img src="../assets/images/icons/camera.png"
-                                                                              alt=""></div>
+                                                <img src="{{url('assets/images/icons/user.png')}}" alt="" id="user-image">
+                                                <div class="camera-icon" id="choose-pic-trigger"><img src="{{url('assets/images/icons/camera.png')}}" alt=""></div>
                                             </div>
                                         </div>
                                     </div>
@@ -134,6 +134,12 @@
     <style>
         .iti{
             width: 100%;
+        }
+        #user-image {
+            width: 142px;
+            height: 142px;
+            border-radius: 50%;
+            object-fit: cover;
         }
     </style>
 @endsection

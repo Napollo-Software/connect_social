@@ -14,7 +14,7 @@
                                     </div>
                                     <div class="form-sub-title">
                                         <p class="mb-3">We have just sent you a verification code on
-                                            <b>xyz@gmail.com.</b>
+                                            <b>{{auth()->user()->email}}</b>
                                             Please enter your verification code to activate your account.
                                         </p>
                                     </div>

@@ -42,33 +42,36 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="subject">Subject</label>
-                                        <input class="form-control mb-3" type="hidden" name="subject" value="Join Through Referral Link ">
-                                        <input class="form-control mb-3" type="text" id="subject" value="Join Through Referral Link " disabled readonly>
+                                        <input class="form-control mb-3" type="hidden" name="subject" value="Connect Social Invitation ">
+                                        <input class="form-control mb-3" type="text" id="subject" value="Connect Social Invitation " disabled readonly>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="message">Message</label>
-                                        <p class="bg-light border rounded p-3">
-                                            Hi XXXXX,<br>
-                                            {{auth()->user()->fullName()}} has sent you an invitation link to join Connect Social.<br>
-                                            Now, you can register your Ambassador or Merchant Account on Connect Social. You’re being rewarded XX Connect Coins as a joining bonus. Also, when someone joins Connect Social through your referral link, you’re rewarded each time.<br>
-                                            Join through the below referral link:<br>
-                                            <a href="{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a><br>
-                                            As a merchant, you can list and sell your products on our marketplace. As an ambassador, you can refer other ambassadors and get as many reward coins as you want.<br>
-                                            Ask us anything at abcxyz@gmail.com if you have any important queries.
+                                        <p class="bg-light border rounded p-3 message-value">
+                                            Hi XXXXX,
+                                            <br>
+                                            <br>
+                                            {{auth()->user()->fullName()}} has sent you an invitation link to join Connect Social network.
+                                            <br>
+                                            <br>
+                                            You can use the below link to either join as Ambassador or Merchant on Connect Social network. You will be rewarded with XX Connect Coins as a welcome bonus after successful registration.
+                                            <br>
+                                            <br>
+                                            Referral link: <a href="{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a><br>
+                                            <br>
+                                            If you have any questions, feel free to contact us at abcxyz@gmail.com.
+                                            <br>
+                                            <br>
+                                            Best Regards,<br>
+                                            Connect Social Team
                                         </p>
                                     </div>
                                     <div class="form-group" style="text-align: right;">
                                         <button type="submit" class="btn btn-primary px-5 btn-sm">Send</button>
                                     </div>
 
-                                    <textarea class="form-control mb-3" name="message" id="message" placeholder="Message" rows="10" style="visibility:hidden" readonly>Hi XXXXX,<br>
-                                        {{auth()->user()->fullName()}} has sent you an invitation link to join Connect Social.<br>
-Now, you can register your Ambassador or Merchant Account on Connect Social. You’re being rewarded XX Connect Coins as a joining bonus. Also, when someone joins Connect Social through your referral link, you’re rewarded each time.<br>
-Join through the below referral link:<br>
-<a href="{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a><br>
-As a merchant, you can list and sell your products on our marketplace. As an ambassador, you can refer other ambassadors and get as many reward coins as you want.<br>
-Ask us anything at abcxyz@gmail.com if you have any important queries.</textarea>
+                                    <textarea class="form-control mb-3" name="message" id="message" placeholder="Message" rows="10" style="display: none"></textarea>
 
                                 </form>
                             </div>
@@ -87,6 +90,9 @@ Ask us anything at abcxyz@gmail.com if you have any important queries.</textarea
                 var next = {'type':'form-reset','target':$('#send-invite-form')};
                 submit($(this).find('button[type=submit]'),method,route,data,next);
             });
+            var message= $('.message-value').html();
+            message = message.substring(1)
+            $('#message').val(message);
         });
     </script>
 @endsection

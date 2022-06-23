@@ -20,7 +20,7 @@
                         <a href="javascript:void(0)" class="page-navigation-link">About</a>
                     </li>
                     <li class="page-navigation-li">
-                        <a href="javascript:void(0)" class="page-navigation-link">Consumer</a>
+                        <a href="javascript:void(0)" class="page-navigation-link">Ambassador</a>
                     </li>
                     <li class="page-navigation-li">
                         <a href="javascript:void(0)" class="page-navigation-link">Merchants</a>
@@ -33,7 +33,7 @@
                     </li>
                 </ul>
                 <div class="login-link">
-                    <a href="{{url('login')}}" class="page-navigation-link">Login</a>
+
                 </div>
             </div>
             <div class="navigation-in-mobile">
@@ -66,15 +66,11 @@
                     <div class="col-md-6">
                         <div class="user-profile-info-inner">
                             <div class="user-profile-info-image">
-                                <img
-                                        @if($ref->profile)
-                                        src="{{Storage::disk('local')->url('/profile/'.$ref->profile)}}"
-                                        @else
-                                        src="admin_assets//images/avatars/avatar-2.png"
-                                        @endif alt="">
+                                <img src="{{$ref->profile_image()}}" alt="">
                             </div>
                             <div class="user-profile-info-text">
-                                <h2 class="user-profile-info-text-name">{{$ref->fullName()}}</h2>
+                                <h2 class="user-profile-info-text-name">Referrer</h2>
+                                <h4 class="user-profile-info-text-name">{{$ref->fullName()}}</h4>
                                 <div class="user-profile-info-text-type"><i>{{$ref->roles->name}}</i></div>
                             </div>
                         </div>
@@ -85,10 +81,10 @@
                                 Get Started & Join My Network!
                             </h4>
                             <div class="user-profile-info-action-buttons">
-                                <a href="{{url('sign-up?by='.$ref->id.'&role=5')}}"
+                                <a href="{{url('sign-up?by='.$ref->id.'&role=2')}}"
                                    class="user-profile-btn-large white mr-3">Join as Merchant</a>
                                 <a href="{{url('sign-up?by='.$ref->id.'&role=3')}}"
-                                   class="user-profile-btn-large black">Join as Ambassador</a>
+                                   class="user-profile-btn-large white">Join as Ambassador</a>
                             </div>
                         </div>
                     </div>
@@ -101,18 +97,13 @@
             <!-- <div class="container-fluid"> -->
             <div class="user-profile-about-inner">
                 <div class="user-profile-about-main row">
+                    @if($ref->roles->slug=='ambassador')
                     <div class="user-profile-about-text col-md-5">
                         <h2 class="user-profile-about-title text-center">
-                            About Ambassador
+                            About {{$ref->fullName()}}
                         </h2>
                         <div class="user-profile-about-text-p">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel
-                                rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit
-                                orci sed vel rutrum aliquam.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel
-                                rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                            <p>
-                            <p>Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet,</p>
+                            <p>{{$ref->details->about}}</p>
                         </div>
                         <div class="user-profile-social-info">
                             <div class="user-profile-social-info-title">
@@ -121,27 +112,27 @@
                                         <tbody>
                                         <tr>
                                             <td>City</td>
-                                            <td>NYC</td>
+                                            <td>{{$ref->details->city}}</td>
                                         </tr>
                                         <tr>
                                             <td>Current State</td>
-                                            <td>NY</td>
+                                            <td>{{$ref->details->state}}</td>
                                         </tr>
                                         <tr>
                                             <td>Relationship Status</td>
-                                            <td>Single</td>
+                                            <td>{{$ref->details->relationship}}</td>
                                         </tr>
                                         <tr>
                                             <td>Date of Joining</td>
-                                            <td>28 Jan 2020</td>
+                                            <td>{{$ref->details->joining}}</td>
                                         </tr>
                                         <tr>
                                             <td>Workplace</td>
-                                            <td>Lorem Ipsum</td>
+                                            <td>{{$ref->details->workplace}}</td>
                                         </tr>
                                         <tr>
                                             <td>High School</td>
-                                            <td>Lorem Ipsum</td>
+                                            <td>{{$ref->details->high_school}}</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -149,6 +140,7 @@
                             </div>
                         </div>
                     </div>
+                    @endif
                     <div class="user-profile-about-video col-md-6">
                         <h2 class="user-profile-about-title text-center">
                             About Connect Social

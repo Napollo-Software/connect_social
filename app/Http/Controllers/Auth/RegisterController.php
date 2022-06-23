@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\AmbassadorDetails;
 use App\Models\Referral;
+use App\Models\Role;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -119,10 +121,25 @@ Connect Social'
             'phone_code'=>$mobilecode,
             'profile'=>$attachment,
         ]);
-        $referral = new Referral();
-        $referral->referred_by=$data['referred_by'];
-        $referral->referred_to=$user->id;
-        $referral->save();
+        $role=Role::find($data['role']);
+        if ($role->slug=='ambassador'){
+            $details=new AmbassadorDetails();
+        }
+        if ($role->slug=='merchant'){
+            //TODO: Pending till merchant details model is available
+        }
+        $details->user_id=$user->id;
+        $details->save();
+        $referrer=User::find($data['referred_by']);
+        if ($referrer){
+            if ($referrer->roles->slug=='ambassador' || $referrer->roles->slug=='merchant'){
+                $referral = new Referral();
+                $referral->referred_by=$data['referred_by'];
+                $referral->referred_to=$user->id;
+                $referral->save();
+            }
+        }
+
         return $user;
     }
 }
