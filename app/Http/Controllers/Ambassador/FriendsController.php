@@ -3,12 +3,27 @@
 namespace App\Http\Controllers\Ambassador;
 
 use App\Http\Controllers\Controller;
+use App\Models\Connection;
 use App\Models\Friend;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FriendsController extends Controller
 {
     //
+    public function show($id=null){
+        if ($id){
+            $user=User::find($id);
+
+        }else{
+            $id=auth()->user()->id;
+            $user=User::find($id);
+        }
+        $friends=Friend::where('from',$id)->where('status',\Friends::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Friends::STATUS_APPROVED)->get();
+        $connections=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
+        return view('ambassador.profile.friends-list', compact('friends','user','connections'));
+
+    }
     public function send_request(Request $request){
         if (Friend::where('from',auth()->user()->id)->where('to',$request->to)->get()->count()==0){
             $friends=new Friend();

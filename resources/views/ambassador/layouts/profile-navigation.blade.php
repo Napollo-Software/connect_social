@@ -9,7 +9,7 @@
                     
                     <li class="profile-navigation-li {{Route::currentRouteName()=='gallery'?'active':''}}"><a href="{{route('gallery')}}" class="profile-navigation-link">Gallery</a></li>
                     
-                    <li class="profile-navigation-li"><a href="javascript:void(0)" class="profile-navigation-link">Friends(28)</a></li>
+                    <li class="profile-navigation-li {{in_array(Route::currentRouteName(),['friends.show','connections.show'])?'active':''}}" ><a href="{{route('friends.show')}}" class="profile-navigation-link">Friends({{getFriendsList($user->id)->count()}})</a></li>
                 </ul>
             </div>
         </div>

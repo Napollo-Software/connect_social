@@ -447,7 +447,7 @@
                                                     <div class="content-top-bar-inner">
                                                         <div class="content-top-bar-title">
                                                             <div class="text">
-                                                                Friends (28)
+                                                                Friends ({{getFriendsList($user->id)->count()}})
                                                             </div>
                                                         </div>
                                                     </div>
@@ -456,25 +456,29 @@
                                                     <div class="content-card-content-inner">
                                                         <div class="friend-grid">
                                                             <div class="friend-grid-inner">
-                                                                @foreach($friends as $friend)
-                                                                <div class="friend-grid-col">
-                                                                    <div class="friend-grid-col-inner">
-                                                                        <div class="firend-grid-col-image">
-                                                                            <img src="{{getFriendDetails($friend)->profile_image()}}"
-                                                                                 alt="">
-                                                                        </div>
-                                                                        <div class="friend-grid-col-text">
-                                                                            {{getFriendDetails($friend)->fullName()}}
+                                                                @if(getFriendsList($user->id)->count()>0)
+                                                                    @foreach(getFriendsList($user->id) as $friend)
+                                                                    <div class="friend-grid-col">
+                                                                        <div class="friend-grid-col-inner">
+                                                                            <div class="firend-grid-col-image">
+                                                                                <img src="{{getFriendDetails($friend)->profile_image()}}"
+                                                                                     alt="">
+                                                                            </div>
+                                                                            <div class="friend-grid-col-text">
+                                                                                {{getFriendDetails($friend)->fullName()}}
+                                                                            </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                                @endforeach
+                                                                    @endforeach
+                                                                @else
+                                                                    <i class="text-muted ml-4">No friend</i>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="see-all">
                                                         <div class="see-all-inner">
-                                                            <a href="javascript:void(0)">See All</a>
+                                                            <a href="{{route('friends.show')}}">See All</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -727,7 +731,6 @@
         <script>
             $(function () {
                 showControls('{{$user->id}}');
-
                 $(document).on('click', '#add-as-friend', function () {
                     var to = $(this).attr('data-to');
                     $.ajax({
@@ -773,7 +776,6 @@
                         }
                     });
                 });
-
                 $(document).on('click', '.remove-friend', function () {
                     var id = $(this).attr('data-id');
                     $.ajax({
@@ -804,8 +806,6 @@
                         }
                     });
                 });
-
-
                 $(document).on('click', '.friend-request-sent', function () {
                     var id = $(this).attr('data-id');
                     var status = null;
@@ -852,7 +852,6 @@
                         }
                     });
                 });
-
                 $(document).on('click', '#add-as-connection', function () {
                     var to = $(this).attr('data-to');
                     $.ajax({

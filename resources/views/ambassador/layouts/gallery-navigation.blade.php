@@ -12,7 +12,7 @@
                                 <span class="text">All Media</span>
                             </a>
                         </li>
-                        <li class="inner-navigation-li {{Route::getCurrentRoute()->type=='images'?'active':''}}">
+                        <li class="inner-navigation-li {{Route::getCurrentRoute()->type=='image'?'active':''}}">
                             <a href="{{route('gallery',['image'])}}" class="inner-navigation-link">
                                                             <span class="icon">
                                                                 <span class="ti-gallery"></span>
@@ -20,7 +20,7 @@
                                 <span class="text">Photos</span>
                             </a>
                         </li>
-                        <li class="inner-navigation-li {{Route::getCurrentRoute()->type=='videos'?'active':''}}">
+                        <li class="inner-navigation-li {{Route::getCurrentRoute()->type=='video'?'active':''}}">
                             <a href="{{route('gallery',['video'])}}" class="inner-navigation-link">
                                                             <span class="icon">
                                                                 <span class="ti-control-play"></span>

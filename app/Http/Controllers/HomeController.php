@@ -39,8 +39,7 @@ class HomeController extends Controller
                     $images[] = Storage::disk('local')->url('/a/covers/' . $id . '/' . $file->getFilename());
                 }
             }
-            $friends=Friend::where('from',auth()->user()->id)->where('status',\Friends::STATUS_APPROVED)->orwhere('to',auth()->user()->id)->where('status',\Friends::STATUS_APPROVED)->get();
-            return view('ambassador.profile.index', compact('posts', 'images', 'user','friends'));
+            return view('ambassador.profile.index', compact('posts', 'images', 'user'));
         }
         return view('admin.dashboard');
     }

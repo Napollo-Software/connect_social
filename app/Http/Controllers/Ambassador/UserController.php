@@ -142,17 +142,15 @@ class UserController extends Controller
     public function show_control(Request $request){
         $from=auth()->user()->id;
         $to=$request->id;
-        $cancelConnectionRequest='<button class="black-button mr-2 cancel-connection-request">Cancel Connection Request</button>';
-
-        $sendMessage='            <button class="black-button mr-2">Send Message</button>';
-        $addAsFriend="            <button class='black-button mr-2 sent-request' id='add-as-friend' data-to='".$to."'>Add as Friend</button>";
-        $confirmFriendRequest='   <button class="black-button mr-2 friend-request-sent approve" data-id="'.$to.'">Confirm Friend Request</button>';
-        $rejectFriendRequest='    <button class="black-button mr-2 friend-request-sent decline" data-id="'.$to.'">Delete Friend Request</button>';
-        $cancelFriendRequest="    <button class='black-button mr-2 cancel-friend-request' data-id='".$to."'>Cancel Friend Request</button>";
-        $unfriend="               <button class='black-button mr-2 remove-friend' data-id='".$to."'>Unfriend</button>";
-
-        $addAsConnection="        <button class='black-button mr-2 sent-request' id='add-as-connection' data-to='".$to."'>Add as Connection</button>";
-        $cancelConnectionRequest='<button class="black-button mr-2 cancel-connection-request" data-id="'.$to.'">Cancel Connection Request</button>';
+        $cancelConnectionRequest='    <button class="black-button mr-2 cancel-connection-request">Cancel Connection Request</button>';
+        $sendMessage='                <button class="black-button mr-2">Send Message</button>';
+        $addAsFriend="                <button class='black-button mr-2 sent-request' id='add-as-friend' data-to='".$to."'>Add as Friend</button>";
+        $confirmFriendRequest='       <button class="black-button mr-2 friend-request-sent approve" data-id="'.$to.'">Confirm Friend Request</button>';
+        $rejectFriendRequest='        <button class="black-button mr-2 friend-request-sent decline" data-id="'.$to.'">Delete Friend Request</button>';
+        $cancelFriendRequest="        <button class='black-button mr-2 cancel-friend-request' data-id='".$to."'>Cancel Friend Request</button>";
+        $unfriend="                   <button class='black-button mr-2 remove-friend' data-id='".$to."'>Unfriend</button>";
+        $addAsConnection="            <button class='black-button mr-2 sent-request' id='add-as-connection' data-to='".$to."'>Add as Connection</button>";
+        $cancelConnectionRequest='    <button class="black-button mr-2 cancel-connection-request" data-id="'.$to.'">Cancel Connection Request</button>';
         $confirmConnectionRequest='   <button class="black-button mr-2 connection-request-sent approve" data-id="'.$to.'">Confirm Connection Request</button>';
         $rejectConnectionRequest='    <button class="black-button mr-2 connection-request-sent decline" data-id="'.$to.'">Delete Connection Request</button>';
         $unConnection="               <button class='black-button mr-2 remove-connection' data-id='".$to."'>Remove From Connection</button>";

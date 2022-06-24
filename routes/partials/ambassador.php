@@ -38,18 +38,17 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
         Route::post('store', [LikeController::class, 'store'])->name('likes.store');
     });
     Route::prefix('friends')->group(function () {
+        Route::get('list/{id?}', [FriendsController::class, 'show'])->name('friends.show');
         Route::post('send-request', [FriendsController::class, 'send_request'])->name('friends.send.request');
         Route::post('cancel-request', [FriendsController::class, 'cancel_request'])->name('friends.cancel.request');
         Route::post('remove-request', [FriendsController::class, 'remove_friend'])->name('friends.remove.friend');
         Route::post('action', [FriendsController::class, 'action'])->name('friends.action');
     });
     Route::prefix('connections')->group(function () {
+        Route::get('list/{id?}', [ConnectionsController::class, 'show'])->name('connections.show');
         Route::post('send-request', [ConnectionsController::class, 'send_request'])->name('connections.send.request');
         Route::post('action', [ConnectionsController::class, 'action'])->name('connections.action');
         Route::post('cancel-request', [ConnectionsController::class, 'cancel_request'])->name('connections.cancel.request');
         Route::post('remove-connection', [ConnectionsController::class, 'remove_connection'])->name('connections.remove.connection');
-
-
     });
-
 });

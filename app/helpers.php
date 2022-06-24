@@ -197,3 +197,21 @@ function getFriendDetails($f){
     }
     return $friend;
 }
+function getConnectionDetails($f){
+    $friend=null;
+    if (auth()->user()->id==$f->from){
+        $friend=$f->user_to;
+    }
+    if (auth()->user()->id==$f->to){
+        $friend=$f->user_from;
+    }
+    return $friend;
+}
+function getFriendsList($id){
+    $friends=Friend::where('from',$id)->where('status',\Friends::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Friends::STATUS_APPROVED)->get();
+    return $friends;
+}
+function getConnectionsList($id){
+    $connections=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
+    return $connections;
+}

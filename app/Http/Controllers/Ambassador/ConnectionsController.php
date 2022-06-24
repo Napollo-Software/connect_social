@@ -4,11 +4,24 @@ namespace App\Http\Controllers\Ambassador;
 
 use App\Http\Controllers\Controller;
 use App\Models\Connection;
+use App\Models\Friend;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ConnectionsController extends Controller
 {
     //
+    public function show($id=null){
+        if ($id){
+            $user=User::find($id);
+
+        }else{
+            $id=auth()->user()->id;
+            $user=User::find($id);
+        }
+        return view('ambassador.profile.connections-list', compact('user'));
+
+    }
     public function send_request(Request $request){
         if (Connection::where('from',auth()->user()->id)->where('to',$request->to)->get()->count()==0){
             $friends=new Connection();

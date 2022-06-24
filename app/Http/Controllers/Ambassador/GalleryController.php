@@ -13,13 +13,17 @@ class GalleryController extends Controller
     //
     public function index($type = 'all')
     {
+        $user=auth()->user();
         $assets = [];
         if ($type=='all' or $type=='image'){
-            foreach (File::files(public_path('storage/profile/' . auth()->user()->email)) as $file) {
+            if (File::isDirectory(public_path('storage/profile/' . auth()->user()->email))) {
+                foreach (File::files(public_path('storage/profile/' . auth()->user()->email)) as $file) {
                 $assets[] = ['type' => 'image', 'url' => Storage::disk('local')->url('/profile/' . auth()->user()->email . '/' . $file->getFilename()),];
-            }
-            foreach (File::files(public_path('storage/a/covers/' . auth()->user()->id)) as $file) {
-                $assets[] = ['type' => 'image', 'url' => Storage::disk('local')->url('/a/covers/' . auth()->user()->id . '/' . $file->getFilename())];
+            }}
+            if (File::isDirectory(public_path('storage/a/covers/' . auth()->user()->id))) {
+                foreach (File::files(public_path('storage/a/covers/' . auth()->user()->id)) as $file) {
+                    $assets[] = ['type' => 'image', 'url' => Storage::disk('local')->url('/a/covers/' . auth()->user()->id . '/' . $file->getFilename())];
+                }
             }
         }
         $posts = Post::where('user_id', auth()->user()->id)->get();
@@ -30,6 +34,6 @@ class GalleryController extends Controller
                 }
             }
         }
-        return view('ambassador.gallery.index', compact('assets','type'));
+        return view('ambassador.gallery.index', compact('assets','type','user'));
     }
 }
