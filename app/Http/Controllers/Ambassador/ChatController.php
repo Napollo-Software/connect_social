@@ -21,7 +21,10 @@ class ChatController extends Controller
         $role_slug=Role::where('slug','ambassador')->first();
         $role_slug=$role_slug->id;
         if ($request->search){
-            $data=User::where('role',$role_slug)->where('fname', 'like', '%'.$request->search.'%')->orwhere('lname', 'like', '%'.$request->search.'%')->where('id','!=',auth()->user()->id)->get();
+            $data=User::where('fname', 'like', '%'.$request->search.'%')->orwhere('lname', 'like', '%'.$request->search.'%')->get();
+            $data=$data->where('role',$role_slug);
+            $data=$data->where('id','!=',auth()->user()->id);
+
         }else{
             $data=User::where('id','!=',auth()->user()->id)->where('role',$role_slug)->get();
         }

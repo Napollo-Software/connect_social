@@ -9,17 +9,20 @@
                     <div class="chat-contacts-inner">
                         <div class="chat-contacts-main">
                             <div class="chat-contacts-filter custom-card custom-border custom-shadow custom-padding">
+                                <form id="search-form">
+                                    @csrf
+
                                 <div class="chat-contacts-field">
                                     <div class="chat-contacts-inner">
                                         <input type="text" class="chat-contact-field-input"
-                                               placeholder="Search with name">
+                                               placeholder="Search with name" id="search">
                                         <span class="icon"><span class="ti-search"></span></span>
                                     </div>
                                 </div>
                                 <div class="chat-contacts-field">
                                     <div class="chat-contacts-inner">
                                         <input type="input" class="chat-contact-field-input"
-                                               placeholder="Search with date">
+                                               placeholder="Search with date" >
                                         <input type="date" id="date-input" class="d-none">
                                         <span class="icon" id="trigger-date"><span class="ti-calendar"></span></span>
                                     </div>
@@ -35,6 +38,7 @@
                                         </select>
                                     </div>
                                 </div>
+                                </form>
                             </div>
                             <div class="chat-contacts-all custom-card custom-border custom-shadow margin-top">
                                 <div class="chat-contacts-all-inner">
@@ -175,6 +179,9 @@
                     });
                 });
 
+                $('#search').on("input", function () {
+                    search($('#search').val());
+                });
 
                 $('.btn-attachment').on('click', function () {
                     $('#file').click();
