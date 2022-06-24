@@ -9,6 +9,7 @@ use App\Http\Controllers\Ambassador\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Ambassador\FriendsController;
 use App\Http\Controllers\Ambassador\ConnectionsController;
+use App\Http\Controllers\Ambassador\ChatController;
 
 
 Route::middleware(['auth','can:ambassador-views','email-verification'])->group(function () {
@@ -51,4 +52,11 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
         Route::post('cancel-request', [ConnectionsController::class, 'cancel_request'])->name('connections.cancel.request');
         Route::post('remove-connection', [ConnectionsController::class, 'remove_connection'])->name('connections.remove.connection');
     });
+    Route::prefix('chat')->group(function () {
+        Route::get('', [ChatController::class, 'index'])->name('chat');
+        Route::post('fetch-users', [ChatController::class, 'fetch_users'])->name('chat.users');
+        Route::post('store', [ChatController::class, 'store'])->name('chat.store');
+        Route::post('fetch', [ChatController::class, 'fetch'])->name('chat.fetch');
+    });
+
 });

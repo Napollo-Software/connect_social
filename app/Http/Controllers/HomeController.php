@@ -25,9 +25,9 @@ class HomeController extends Controller
                 ($id == auth()->user()->id) ? ( $user = auth()->user() ) : ( $user = User::find($id) );
             } else {
                 $user = auth()->user();
+                $id=auth()->user()->id;
             }
-
-            $posts = Post::where('user_id', $id)->orderBy('created_at', 'DESC')->get();
+            $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
             $images = [];
             if (File::isDirectory(public_path('storage/profile/' . $user->email))) {
                 foreach (File::files(public_path('storage/profile/' . $user->email)) as $file) {
@@ -39,6 +39,7 @@ class HomeController extends Controller
                     $images[] = Storage::disk('local')->url('/a/covers/' . $id . '/' . $file->getFilename());
                 }
             }
+
             return view('ambassador.profile.index', compact('posts', 'images', 'user'));
         }
         return view('admin.dashboard');

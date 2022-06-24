@@ -385,36 +385,6 @@
                         }
                     });
             });
-            $('.comment_form').submit(function (e) {
-                e.preventDefault();
-                var button = $(this).find('button[type=submit]');
-                var comment_input = $(this).find('textarea[id=comment]');
-                var post= button.attr('data-post-id');
-                var previous= button.text();
-                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
-
-                $.ajax({
-                    type:"POST",
-                    url:"{{route('comments.store')}}",
-                    data: new FormData(this),
-                    dataType:'JSON',
-                    processData: false,
-                    contentType: false,
-                    cache: false,
-                    success:function(data) {
-                        button.attr('disabled',null).html(previous);
-                        $(comment_input).val('');
-                        $('#comment-count-'+post).text(parseInt($('#comment-count-'+post).text())+1);
-                        $('#comment-count-'+post).parent().removeClass('d-none');
-                        $('#comment-box-'+post).closest('.all-comments-box-grid').prepend('<div class="singal-comment-row"><div class="singal-comment-row-inner"><div class="singal-comment-row-user-image"> <div class="singal-comment-row-user-image-inner"> <img src="{{auth()->user()->profile_image()}}" alt=""> </div> </div> <div class="singal-comment-row-comment-text">'+data.data.text+'</div> </div> </div>');
-                    },
-                    error:function (xhr) {
-                        button.attr('disabled',null).html(previous);
-                        erroralert(xhr);
-                    }
-                });
-
-            });
             $('.edit_post_form').submit(function (e) {
                 e.preventDefault();
                 var privacy = $(this).find('.set-privacy-dropdown-value').attr('data-value');
@@ -447,4 +417,39 @@
         });
     </script>
     @endif
+    <script>
+        $(function () {
+            $('.comment_form').submit(function (e) {
+                e.preventDefault();
+                var button = $(this).find('button[type=submit]');
+                var comment_input = $(this).find('textarea[id=comment]');
+                var post= button.attr('data-post-id');
+                var previous= button.text();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
+
+                $.ajax({
+                    type:"POST",
+                    url:"{{route('comments.store')}}",
+                    data: new FormData(this),
+                    dataType:'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success:function(data) {
+                        button.attr('disabled',null).html(previous);
+                        $(comment_input).val('');
+                        $('#comment-count-'+post).text(parseInt($('#comment-count-'+post).text())+1);
+                        $('#comment-count-'+post).parent().removeClass('d-none');
+                        $('#comment-box-'+post).closest('.all-comments-box-grid').prepend('<div class="singal-comment-row"><div class="singal-comment-row-inner"><div class="singal-comment-row-user-image"> <div class="singal-comment-row-user-image-inner"> <img src="{{auth()->user()->profile_image()}}" alt=""> </div> </div> <div class="singal-comment-row-comment-text">'+data.data.text+'</div> </div> </div>');
+                    },
+                    error:function (xhr) {
+                        button.attr('disabled',null).html(previous);
+                        erroralert(xhr);
+                    }
+                });
+
+            });
+
+        });
+    </script>
 @endpush

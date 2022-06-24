@@ -50,7 +50,7 @@
                                         <div class="user-dropdown-inner drop-00">
                                             <ul class="user-dropdown-ul">
                                                 <li class="user-dropdown-li">
-                                                    <a href="javascript:void(0)">My Profile</a>
+                                                    <a href="{{url('')}}">My Profile</a>
                                                 </li>
                                                 <li class="user-dropdown-li">
                                                     <a href="javascript:void(0)">Settings</a>

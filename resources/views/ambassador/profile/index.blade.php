@@ -435,7 +435,7 @@
                                                     </div>
                                                     <div class="see-all">
                                                         <div class="see-all-inner">
-                                                            <a href="javascript:void(0)">See All</a>
+                                                            <a href="{{route('gallery')}}">See All</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -712,7 +712,6 @@
                         });
                 });
             });
-
             function changePrivacy(key, value) {
                 $.ajax({
                     type: "POST",

@@ -215,3 +215,55 @@ function getConnectionsList($id){
     $connections=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
     return $connections;
 }
+function getMessageHtml($chat){
+    if ($chat->from == auth()->user()->id){
+        $align='sent';
+        $profile=$chat->sender->profile_image();
+        $name=$chat->sender->fullName();
+    }else{
+        $align='received';
+        $name=$chat->sender->fullName();
+        $profile=$chat->sender->profile_image();
+    }
+    $singleMessageBody='<div class="single-message '.$align.'">
+                                                    <div class="single-message-profile">
+                                                        <div class="single-message-image">
+                                                            <img src="'.$profile.'" alt="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-chat-message-inner">
+                                                        <div class="single-message-chat-inner">
+                                                            <div class="single-chat-message-username">'.$name.'</div>
+                                                            ';
+    if ($chat->message){
+        $singleMessageBody.='<div class="single-chat-message-text-inner">
+                                                                <div class="single-chat-message-text">'.$chat->message.'</div>
+                                                            </div>';
+    }
+    $singleMessageBody.='
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-chat-message-attachment-time">
+                                                        <div class="single-chat-message-attachment-time-inner">
+                                                            ';
+    if ($chat->file){
+        $singleMessageBody.='<div class="single-chat-message-attachment open-file" data-url="'.Storage::disk('local')->url('/chat/'.$chat->from.'/'.$chat->file).'">
+                                                                <div class="single-chat-message-attachment-image">
+                                                                    <img src="'.url('ambassador_assets/images/icons/image-default.png').'" alt="">
+                                                                </div>
+                                                                <div class="single-chat-message-attachment-download">
+                                                                    <a download >Download</a>
+                                                                </div>
+                                                            </div>
+                                                            ';
+    }
+    $singleMessageBody.='
+                                                            <div class="single-chat-message-time">
+                                                                '.$chat->created_at->format('h:i A').'
+                                                           </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+';
+    return $singleMessageBody;
+}
