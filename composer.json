@@ -15,6 +15,7 @@
         "laravel/ui": "^3.4",
         "nexmo/laravel": "^3.0",
         "phpmailer/phpmailer": "^6.6",
+        "pusher/pusher-php-server": "^7.0",
         "vonage/client": "^3.0",
         "yajra/laravel-datatables-oracle": "~9.0"
     },

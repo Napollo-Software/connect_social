@@ -31,6 +31,7 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
     });
     Route::prefix('comments')->group(function () {
         Route::post('store', [CommentController::class, 'store'])->name('comments.store');
+        Route::post('show-more', [CommentController::class, 'show_more'])->name('comments.show.more');
     });
     Route::prefix('gallery')->group(function () {
         Route::get('{type?}', [GalleryController::class, 'index'])->name('gallery');
@@ -57,6 +58,7 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
         Route::post('fetch-users', [ChatController::class, 'fetch_users'])->name('chat.users');
         Route::post('store', [ChatController::class, 'store'])->name('chat.store');
         Route::post('fetch', [ChatController::class, 'fetch'])->name('chat.fetch');
+        Route::post('mark-as-read', [ChatController::class, 'mark_as_read'])->name('chat.mark.as.read');
     });
 
 });

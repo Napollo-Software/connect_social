@@ -53,5 +53,11 @@ class User extends Authenticatable
         }
         return "admin_assets//images/avatars/avatar-2.png";
     }
-
+    public function unread_messages($id){
+        $results=Chat::where('from',$id)->where('to',auth()->user()->id)->whereNull('read_at')->get()->count();
+        if ($results>0){
+            return $results;
+        }
+        return false;
+    }
 }

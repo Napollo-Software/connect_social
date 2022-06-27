@@ -7,13 +7,17 @@ use App\Models\Chat;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Env;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Pusher\Pusher;
 
 class ChatController extends Controller
 {
     public function index(){
         $user=auth()->user();
+
         return view('ambassador.chat',compact('user'));
     }
     public function fetch_users(Request $request)
@@ -21,10 +25,8 @@ class ChatController extends Controller
         $role_slug=Role::where('slug','ambassador')->first();
         $role_slug=$role_slug->id;
         if ($request->search){
-            $data=User::where('fname', 'like', '%'.$request->search.'%')->orwhere('lname', 'like', '%'.$request->search.'%')->get();
-            $data=$data->where('role',$role_slug);
-            $data=$data->where('id','!=',auth()->user()->id);
-
+            $key=$request->search;
+            $data=User::where('id','!=',auth()->user()->id)->where('role',$role_slug)->whereRaw('( fname LIKE "%'.$key.'%" or lname LIKE "%'.$key.'%" )')->get();
         }else{
             $data=User::where('id','!=',auth()->user()->id)->where('role',$role_slug)->get();
         }
@@ -34,6 +36,7 @@ class ChatController extends Controller
                 'id'=>$datum->id,
                 'name'=>$datum->fname.' '.$datum->lname,
                 'src'=>$datum->profile_image(),
+                'unread'=>$datum->unread_messages($datum->id)?$datum->unread_messages($datum->id):''
             ];
         }
 
@@ -69,12 +72,11 @@ class ChatController extends Controller
         if ($chat->from == auth()->user()->id){
             $align='sent';
             $profile=$chat->sender->profile_image();
-            $name=$chat->sender->fullName();
         }else{
             $align='received';
-            $name=$chat->sender->fullName();
             $profile=$chat->sender->profile_image();
         }
+        $name=$chat->sender->fullName();
         $singleMessageBody='                                                <div class="single-message '.$align.'">
                                                     <div class="single-message-profile">
                                                         <div class="single-message-image">
@@ -111,7 +113,20 @@ class ChatController extends Controller
                                                     </div>
                                                 </div>
 ';
-        return response()->json($singleMessageBody);
+
+
+
+        $options = array(
+            'cluster' => 'ap2',
+            'encrypted' => true
+        );
+        $pusher = new Pusher(
+            Env::get('PUSHER_APP_KEY'),
+            Env::get('PUSHER_APP_SECRET'),
+            Env::get('PUSHER_APP_ID'), $options
+        );
+        $pusher->trigger('channel-chat', 'App\Events\Chat', ['chat'=>$chat,'html'=>str_replace('single-message sent','single-message received',$singleMessageBody)]);
+        return response()->json(['html'=>$singleMessageBody,'remove_file'=>$chat->file?true:false]);
     }
     public function fetch(Request $request)
     {
@@ -119,15 +134,13 @@ class ChatController extends Controller
         $messages=[];
         $dates=[];
         foreach ($chat as $item) {
-
-
+            $item->read_at=date('Y-m-d H:i:s');
+            $item->save();
             $singleMessageBody=getMessageHtml($item);
-
             $messages[]=[
                 'date'=>$item->created_at->format('M d, Y'),
                 'body'=>$singleMessageBody,
             ];
-
             $dates[]=$item->created_at->format('M d, Y');
         }
         $dates=array_values(array_unique($dates));
@@ -140,29 +153,12 @@ class ChatController extends Controller
                 }
             }
         }
-
         return response()->json($data);
     }
-
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Chat  $chat
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Chat $chat)
     {
         //
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Chat  $chat
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Chat $chat)
     {
         //
@@ -178,6 +174,15 @@ class ChatController extends Controller
     {
         //
     }
+    public function mark_as_read(Request $request)
+    {
+        $chat=Chat::find($request->id);
+        $chat->read_at=date('Y-m-d H:i:s');
+        $chat->save();
+        return true;
+        //
+    }
+
 
     //
 }

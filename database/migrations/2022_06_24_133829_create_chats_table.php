@@ -19,6 +19,7 @@ class CreateChatsTable extends Migration
             $table->integer('to');
             $table->string('message',10000)->nullable();
             $table->string('file')->nullable();
+            $table->timestamp('read_at')->nullable();
             $table->timestamps();
         });
     }

@@ -219,12 +219,11 @@ function getMessageHtml($chat){
     if ($chat->from == auth()->user()->id){
         $align='sent';
         $profile=$chat->sender->profile_image();
-        $name=$chat->sender->fullName();
     }else{
         $align='received';
-        $name=$chat->sender->fullName();
         $profile=$chat->sender->profile_image();
     }
+    $name=$chat->sender->fullName();
     $singleMessageBody='<div class="single-message '.$align.'">
                                                     <div class="single-message-profile">
                                                         <div class="single-message-image">

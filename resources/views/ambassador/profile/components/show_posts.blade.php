@@ -220,9 +220,10 @@
                                     <div class="text" id="likes-count-{{$post->id}}">{{$post->likes->count()}}</div>
                                 </li>
                                 <li class="like-comment-bar-li">
-                                    <div class="text {{$post->comments->count()>0?'':'d-none'}}"><span
-                                                id="comment-count-{{$post->id}}">{{$post->comments->count()}}</span>
-                                        Comment{{$post->comments->count()>1?'s':''}}</div>
+                                    <div class="text {{$post->comments->count()>0?'':'d-none'}}">
+                                        <span id="comment-count-{{$post->id}}">{{$post->comments->count()}}</span>
+                                            Comment{{$post->comments->count()>1?'s':''}}
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -255,8 +256,8 @@
                     <div class="all-comments-box">
                         <div class="all-comments-box-inner">
                             <div class="all-comments-box-grid" id="comment-box-{{$post->id}}">
-                                @foreach($post->comments as $comment)
-                                    <div class="singal-comment-row">
+                                @foreach($post->comments->take(5) as $comment)
+                                    <div class="singal-comment-row" >
                                         <div class="singal-comment-row-inner">
                                             <div class="singal-comment-row-user-image">
                                                 <div class="singal-comment-row-user-image-inner">
@@ -275,7 +276,7 @@
                     @if(count($post->comments)>5)
                         <div class="view-more-comments">
                             <div class="view-more-comments-inner">
-                                <a href="javascript:void(0)">View more comments</a>
+                                <a href="javascript:void(0)" class="show-more-comments" data-post="{{$post->id}}">View more comments</a>
                             </div>
                         </div>
                     @endif
@@ -421,12 +422,11 @@
         $(function () {
             $('.comment_form').submit(function (e) {
                 e.preventDefault();
-                var button = $(this).find('button[type=submit]');
                 var comment_input = $(this).find('textarea[id=comment]');
+                var button = $(this).find('button[type=submit]');
                 var post= button.attr('data-post-id');
                 var previous= button.text();
                 button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
-
                 $.ajax({
                     type:"POST",
                     url:"{{route('comments.store')}}",
@@ -435,12 +435,17 @@
                     processData: false,
                     contentType: false,
                     cache: false,
-                    success:function(data) {
+                    success:function(response) {
                         button.attr('disabled',null).html(previous);
                         $(comment_input).val('');
-                        $('#comment-count-'+post).text(parseInt($('#comment-count-'+post).text())+1);
-                        $('#comment-count-'+post).parent().removeClass('d-none');
-                        $('#comment-box-'+post).closest('.all-comments-box-grid').prepend('<div class="singal-comment-row"><div class="singal-comment-row-inner"><div class="singal-comment-row-user-image"> <div class="singal-comment-row-user-image-inner"> <img src="{{auth()->user()->profile_image()}}" alt=""> </div> </div> <div class="singal-comment-row-comment-text">'+data.data.text+'</div> </div> </div>');
+                        $('#comment-count-'+post).text(parseInt($('#comment-count-'+post).text())+1).parent().removeClass('d-none');
+                        if (response.data.more_comments_toggle){
+                            $('#comment-box-'+post).closest('.all-comments-box').append(response.data.more_comments_html);
+                        }
+                        if (response.data.total_comments<=5){
+                            $('#comment-box-'+post).append(response.data.comment_html);
+                        }
+
                     },
                     error:function (xhr) {
                         button.attr('disabled',null).html(previous);
@@ -449,7 +454,27 @@
                 });
 
             });
-
+            $(document).on('click','.show-more-comments',function () {
+                var previousBtn=$(this);
+                var previousTxt=previousBtn.html();
+                previousBtn.html('<i class="spinner-border spinner-border-sm"></i> Loading more comments...');
+               var post= $(this).attr('data-post');
+               var total_comments=$('#comment-box-'+post).children().length;
+                $.ajax({
+                    type:"POST",
+                    url:"{{route('comments.show.more')}}",
+                    data: {'post':post,'previous':total_comments,'_token':'{{csrf_token()}}'},
+                    dataType:'JSON',
+                    success:function(response) {
+                        previousBtn.text(previousTxt);
+                        $('#comment-box-'+post).append(response);
+                    },
+                    error:function (xhr) {
+                        previousBtn.text(previousTxt);
+                        erroralert(xhr);
+                    }
+                });
+            });
         });
     </script>
 @endpush
