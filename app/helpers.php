@@ -266,3 +266,11 @@ function getMessageHtml($chat){
 ';
     return $singleMessageBody;
 }
+function getArrayFromKeyofEloquent($eloquent,$key){
+
+    $array=[];
+    foreach ($eloquent as $k=>$item) {
+        $array[]=$item[$key];
+    }
+    return $array;
+}

@@ -13,6 +13,28 @@ use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
 
+    public function index($id = null){
+        if ($id) {
+            ($id == auth()->user()->id) ? ( $user = auth()->user() ) : ( $user = User::find($id) );
+        } else {
+            $user = auth()->user();
+            $id=auth()->user()->id;
+        }
+        $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
+        $images = [];
+        if (File::isDirectory(public_path('storage/profile/' . $user->email))) {
+            foreach (File::files(public_path('storage/profile/' . $user->email)) as $file) {
+                $images[] = Storage::disk('local')->url('/profile/' . $user->email . '/' . $file->getFilename());
+            }
+        }
+        if (File::isDirectory(public_path('storage/a/covers/' . $id))) {
+            foreach (File::files(public_path('storage/a/covers/' . $id)) as $file) {
+                $images[] = Storage::disk('local')->url('/a/covers/' . $id . '/' . $file->getFilename());
+            }
+        }
+
+        return view('ambassador.profile.index', compact('posts', 'images', 'user'));
+    }
     public function update_name(Request $request)
     {
         $this->validate($request, [

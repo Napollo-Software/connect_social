@@ -17,7 +17,6 @@ class ChatController extends Controller
 {
     public function index(){
         $user=auth()->user();
-
         return view('ambassador.chat',compact('user'));
     }
     public function fetch_users(Request $request)

@@ -541,49 +541,6 @@
     @if($user->id==auth()->user()->id)
         <script>
             $(function () {
-                $('.set-privacy-dropdown-inner').html($('#privacy_dropdown').html());
-                $('.set-privacy-dropdown-li').click(function () {
-                    var dropdownContainer = $(this).closest('.set-privacy-dropdown-inner');
-                    var icon = $(this).find('img');
-                    var text = $(this).find('.text');
-                    $(this).parent().parent().parent().find('.set-privacy-dropdown-value').attr('data-value', $(this).attr('data-value'));
-                    var next_icon = $(this).parent().parent().siblings().find('img');
-                    var next_text = $(this).parent().parent().siblings().find('i');
-                    $(next_icon).attr('src', $(icon).attr('src'));
-                    $(next_text).html($(text).html());
-                    $(this).parent().parent().hide();
-                    if (dropdownContainer.hasClass('social-privacy')) {
-                        changePrivacy($(dropdownContainer).attr('data-key'), $(this).attr('data-value'));
-                    }
-                });
-                $(document).on('submit', '.like-submit', function (e) {
-                    e.preventDefault();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('likes.store')}}",
-                        data: new FormData(this),
-                        dataType: 'JSON',
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        success: function (data) {
-
-                            var like = $('#likes-count-' + data.data.post_id);
-                            var likescount = parseInt(like.text());
-                            if (data.success == 'liked') {
-                                like.text(likescount + 1);
-                                $('.like-btn-' + data.data.post_id).addClass('text-primary');
-                            } else {
-                                like.text(likescount - 1);
-                                $('.like-btn-' + data.data.post_id).removeClass('text-primary');
-                            }
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-
-                });
                 $(document).on('submit', '#change_name_form', function (e) {
                     e.preventDefault();
                     $.ajax({

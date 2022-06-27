@@ -25,7 +25,7 @@ class CommentController extends Controller
             'comment_html'=>$commentHtml,
             'more_comments_html'=>$showMoreCommentsHtml,
             'more_comments_toggle'=>$comment->post->comments->count()==6?true:false,
-            'total_comments'=> $comment->count()
+            'total_comments'=> $comment->post->comments->count()
         ];
         return response()->json(['success'=>'Added','data'=>$data]);
     }
