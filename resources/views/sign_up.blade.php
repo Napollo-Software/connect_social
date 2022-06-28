@@ -114,11 +114,30 @@
             $(document).on('submit', '#register-form', function (e) {
                 e.preventDefault();
                 $('#country_code').val($('.iti__selected-dial-code').text());
-                var route = '{{route('register')}}';
                 var method = 'POST';
-                var data = new FormData(this);
-                var next = {'type': 'next-route','url':'{{route('verification.notice')}}'};
-                submit($(this).find('button[type=submit]'), method, route, data, next);
+                var button=$(this).find('button[type=submit]');
+                var previous= button.text();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
+
+                $.ajax({
+                    type:method,
+                    url:'{{route('register')}}',
+                    data: new FormData(this),
+                    dataType:'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success:function(data) {
+                        button.attr('disabled',null).html(previous);
+                        swal("Success!", "Congratulations! You account has been successfully created!", "success").then(function () {
+                            window.location.href='{{route('home')}}';
+                        });
+                    },
+                    error:function (xhr) {
+                        button.attr('disabled',null).html(previous);
+                        erroralert(xhr);
+                    }
+                });
 
             });
         });
