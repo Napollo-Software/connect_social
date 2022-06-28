@@ -47,7 +47,8 @@
                         <a href="javascript:void(0)" class="friend-grid-col-options-dropdown-link remove-connection" >Remove Connection</a>
                     </li>
                     <li class="friend-grid-col-options-dropdown-li">
-                        <a href="javascript:void(0)" class="friend-grid-col-options-dropdown-link">Send Message</a>
+                        <a href="{{url('chat')}}" class="friend-grid-col-options-dropdown-link">Send Message</a>
+
                     </li>
                 </ul>
             </div>

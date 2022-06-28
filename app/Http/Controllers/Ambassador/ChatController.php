@@ -29,7 +29,8 @@ class ChatController extends Controller
         $role_slug=$role_slug->id;
         if ($request->search){
             $key=$request->search;
-            $data=User::where('id','!=',auth()->user()->id)->where('role',$role_slug)->whereRaw('( fname LIKE "%'.$key.'%" or lname LIKE "%'.$key.'%" )')->get();
+            $data=User::where('id','!=',auth()->user()->id)->where('role',$role_slug)
+                ->whereRaw('( fname LIKE "%'.$key.'%" or lname LIKE "%'.$key.'%" or concat(fname," ",lname) LIKE "%'.$key.'%" )')->get();
         }else{
             $data=User::where('id','!=',auth()->user()->id)->where('role',$role_slug)->get();
         }
