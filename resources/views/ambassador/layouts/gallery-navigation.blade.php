@@ -5,7 +5,7 @@
                 <div class="inner-navigation-main">
                     <ul class="inner-navigation-ul">
                         <li class="inner-navigation-li {{$type=='all'?'active':''}}">
-                            <a href class="gallery-link inner-navigation-link" data-type="all'">
+                            <a href class="gallery-link inner-navigation-link" data-type="all">
                                                             <span class="icon">
                                                                 <span class="ti-layout-grid3"></span>
                                                             </span>

@@ -18,7 +18,7 @@
                                             <span class="icon"><span class="ti-search"></span></span>
                                         </div>
                                     </div>
-                                    <div class="chat-contacts-field">
+                                    {{--<div class="chat-contacts-field">
                                         <div class="chat-contacts-inner">
                                             <input type="input" class="chat-contact-field-input"
                                                    placeholder="Search with date">
@@ -26,15 +26,15 @@
                                             <span class="icon" id="trigger-date"><span
                                                         class="ti-calendar"></span></span>
                                         </div>
-                                    </div>
+                                    </div>--}}
                                     <div class="chat-contacts-field">
                                         <div class="chat-contacts-inner">
-                                            <select name="" class="chat-contact-field-input">
-                                                <option value="1">Friends</option>
-                                                <option value="1">Connections</option>
-                                                <option value="1">Personal Network</option>
-                                                <option value="1">Extended Network</option>
-                                                <option value="1">Others</option>
+                                            <select name="network" id="network" class="chat-contact-field-input">
+                                                <option value="all">All</option>
+                                                <option value="friends">Friends</option>
+                                                <option value="connections">Connections</option>
+                                                <option value="tier-1">Personal Network</option>
+                                                <option value="tier-2">Extended Network</option>
                                             </select>
                                         </div>
                                     </div>
@@ -107,12 +107,12 @@
             @else
                 onetimechatopen = false;
             @endif
-            function search(search) {
+            function search(data) {
                 var user_container = $('.chat-contacts-all-inner');
                 $.ajax({
                     url: "{{route('chat.users')}}",
                     type: "POST",
-                    data: {'search': search, _token: '{{csrf_token()}}'},
+                    data: {'data': data, _token: '{{csrf_token()}}'},
                     dataType: "JSON",
                     beforeSend: function () {
                         user_container.empty().append('<div class="chat-contacts-single text-center"><span class="fa fa-spin fa-spinner"></span></div>');
@@ -210,8 +210,12 @@
                     });
                 });
                 $('#search').on("input", function () {
-                    search($('#search').val());
+                    search({'search':$('#search').val(),'network':$('#network').val()});
                 });
+                $('#network').on("change", function () {
+                    search({'search':$('#search').val(),'network':$('#network').val()});
+                });
+
                 $('.btn-attachment').on('click', function () {
                     $('#file').click();
                 });
@@ -256,13 +260,6 @@
                     if (data.chat['from'] == $('#to').val()) {
                         markAsRead(data.chat['id']);
                         $('.chat-bx-all-messages').append(data.html);
-                        scrollbottom();
-                        scrollbottom();
-                        scrollbottom();
-                        scrollbottom();
-                        scrollbottom();
-                        scrollbottom();
-                        scrollbottom();
                         scrollbottom();
                     } else {
                         var unread = $('#unread-' + data.chat['from']);

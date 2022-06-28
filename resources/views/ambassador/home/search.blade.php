@@ -77,7 +77,7 @@
                                                                             </div>
                                                                             <div class="search-result-box-profile-text">
                                                                                 <div class="user-name">
-                                                                                    {{$user->fullName()}}
+                                                                                    <a href="{{url('profile-view/'.$user->id)}}" class="text-decoration-none text-secondary">{{$user->fullName()}}</a>
                                                                                 </div>
                                                                                 <div class="user-relation">
                                                                                     @if(in_array($user->id,$friends))

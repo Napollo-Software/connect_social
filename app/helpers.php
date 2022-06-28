@@ -211,10 +211,29 @@ function getFriendsList($id){
     $friends=Friend::where('from',$id)->where('status',\Friends::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Friends::STATUS_APPROVED)->get();
     return $friends;
 }
+function getFriendsListUsers($id){
+    $friends=Friend::where('from',$id)->where('status',\Friends::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Friends::STATUS_APPROVED)->get();
+    $users=[];
+    foreach ($friends as $friend){
+        $users[]=getFriendDetails($friend);
+    }
+    return $users;
+}
+
+
 function getConnectionsList($id){
     $connections=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
     return $connections;
 }
+function getConnectionsListUsers($id){
+    $connections=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
+    $users=[];
+    foreach ($connections as $connection){
+        $users[]=getConnectionDetails($connection);
+    }
+    return $users;
+}
+
 function getMessageHtml($chat){
     if ($chat->from == auth()->user()->id){
         $align='sent';

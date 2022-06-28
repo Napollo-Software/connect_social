@@ -25,12 +25,38 @@ class ChatController extends Controller
     }
     public function fetch_users(Request $request)
     {
+
         $role_slug=Role::where('slug','ambassador')->first();
         $role_slug=$role_slug->id;
-        if ($request->search){
-            $key=$request->search;
-            $data=User::where('id','!=',auth()->user()->id)->where('role',$role_slug)
-                ->whereRaw('( fname LIKE "%'.$key.'%" or lname LIKE "%'.$key.'%" or concat(fname," ",lname) LIKE "%'.$key.'%" )')->get();
+        if ($request->data){
+            $key=$request->data['search'];
+            $network=$request->data['network'];
+            $us=User::where('id','!=',auth()->user()->id)->where('role',$role_slug)->whereRaw('( fname LIKE "%'.$key.'%" or lname LIKE "%'.$key.'%" or concat(fname," ",lname) LIKE "%'.$key.'%" )')->get();
+            if ($network=='all'){
+                $data=$us;
+            }elseif ($network=='friends'){
+                $allfriends=getFriendsListUsers(auth()->user()->id);
+                $allfriends=getArrayFromKeyofEloquent($allfriends,'id');
+                $frnds=[];
+                foreach ($us as $u){
+                    if (in_array($u->id,$allfriends)){
+                        $frnds[]=$u;
+                    }
+                }
+                $data=$frnds;
+            }elseif ($network=='connections'){
+                $allconnections=getConnectionsListUsers(auth()->user()->id);
+                $allconnections=getArrayFromKeyofEloquent($allconnections,'id');
+                $conctins=[];
+                foreach ($us as $u){
+                    if (in_array($u->id,$allconnections)){
+                        $conctins[]=$u;
+                    }
+                }
+                $data=$conctins;
+            }else{
+                $data=$us;
+            }
         }else{
             $data=User::where('id','!=',auth()->user()->id)->where('role',$role_slug)->get();
         }
@@ -43,9 +69,7 @@ class ChatController extends Controller
                 'unread'=>$datum->unread_messages($datum->id)?$datum->unread_messages($datum->id):''
             ];
         }
-
         return response()->json($users);
-        //
     }
     public function store(Request $request)
     {

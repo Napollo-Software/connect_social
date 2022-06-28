@@ -457,15 +457,23 @@
                                                         <div class="friend-grid">
                                                             <div class="friend-grid-inner">
                                                                 @if(getFriendsList($user->id)->count()>0)
-                                                                    @foreach(getFriendsList($user->id) as $friend)
+                                                                    @foreach(getFriendsListUsers($user->id) as $friend)
                                                                     <div class="friend-grid-col">
                                                                         <div class="friend-grid-col-inner">
                                                                             <div class="firend-grid-col-image">
-                                                                                <img src="{{getFriendDetails($friend)->profile_image()}}"
+                                                                                <img src="@php
+                                                                                    try{ $friend->profile_image(); }
+                                                                                    catch (Exception $exception){ dd($friend); } @endphp"
                                                                                      alt="">
                                                                             </div>
                                                                             <div class="friend-grid-col-text">
-                                                                                {{getFriendDetails($friend)->fullName()}}
+                                                                                @php
+                                                                                  try{
+                                                                                  $friend->fullName();
+                                                                                  }catch (Exception $exception){
+                                                                                  dd($friend);
+                                                                                  }
+                                                                                        @endphp
                                                                             </div>
                                                                         </div>
                                                                     </div>
