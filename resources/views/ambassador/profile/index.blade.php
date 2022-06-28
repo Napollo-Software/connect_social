@@ -486,7 +486,7 @@
                                                     </div>
                                                     <div class="see-all">
                                                         <div class="see-all-inner">
-                                                            <a href="{{route('friends.show')}}">See All</a>
+                                                            <a href="{{route('network',['friends'])}}">See All</a>
                                                         </div>
                                                     </div>
                                                 </div>
