@@ -18,6 +18,10 @@ ul {
     transition: all .3s ease-in;
 }
 
+i {
+    font-style: normal;
+}
+
 /* Components */
 
 /* Elements */
@@ -475,7 +479,7 @@ ul {
     border-radius: 8px;
     margin-bottom: 20px;
     background: #fff;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .content-top-bar-inner {
@@ -1777,6 +1781,10 @@ li.recent-search-li {
 .show-more-resuls a {
     color: #afafaf;
     text-decoration: none;
+}
+
+.set-privacy-dropdown-value .more-icon {
+    font-size: 12px;
 }
 
 

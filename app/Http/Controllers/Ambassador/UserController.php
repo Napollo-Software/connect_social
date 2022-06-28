@@ -32,7 +32,6 @@ class UserController extends Controller
                 $images[] = Storage::disk('local')->url('/a/covers/' . $id . '/' . $file->getFilename());
             }
         }
-
         return view('ambassador.profile.index', compact('posts', 'images', 'user'));
     }
     public function update_name(Request $request)

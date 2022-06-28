@@ -78,15 +78,13 @@ class RegisterController extends Controller
     {
         $mobilecode=rand(100000,999999);
         $emailcode=rand(100000,999999);
-        $message='<h6>Email Verification:</h6>
-Dear '.$data['fname'].' '.$data['lname'].',<br>
-Congrats! You are one step away to be our part!<br>
-You need to verify your email address to activate your account. Please use the following 5-digit One Time Password (OTP) to complete your sign-up procedure. <br>
-'.$emailcode.'<br>
-Do not provide this code to anyone else to keep your important data confidential. If you are receiving this email without registering, contact us.<br>
-For any help, seek our assistance at abcdef@gmail.com.<br>
+        $message='Dear '.$data['fname'].' '.$data['lname'].',<br><br>
+Congrats! You are one step away from joining our community! You need to verify your email address to activate your account. Please use the following 6-digit One Time Password (OTP) to complete your sign-up procedure. <br><br>
+'.$emailcode.'<br><br>
+Please do not provide this code to anyone else to keep your important data confidential. If you are receiving this email without registering on our platform, please contact us.<br><br>
+For any further help, you can email us at abcdef@gmail.com.<br><br>
 With Best Regards,<br>
-Connect Social';
+Connect Social Team';
 
 
 
@@ -139,7 +137,6 @@ Connect Social'
                 $referral->save();
             }
         }
-
         return $user;
     }
 }

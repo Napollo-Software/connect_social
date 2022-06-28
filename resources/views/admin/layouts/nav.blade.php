@@ -14,7 +14,7 @@
             <ul class="metismenu" id="menu">
                 <li class="menu-label">Menus</li>
                 <li>
-                    <a href="{{route('dashboard')}}">
+                    <a href="{{route('home')}}">
                         <div class="parent-icon"><i class='bx bx-cookie'></i>
                         </div>
                         <div class="menu-title">Dashboard</div>

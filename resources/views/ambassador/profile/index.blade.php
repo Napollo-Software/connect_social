@@ -435,7 +435,7 @@
                                                     </div>
                                                     <div class="see-all">
                                                         <div class="see-all-inner">
-                                                            <a href="{{route('gallery')}}">See All</a>
+                                                            <a href="{{route('gallery',['all'])}}">See All</a>
                                                         </div>
                                                     </div>
                                                 </div>

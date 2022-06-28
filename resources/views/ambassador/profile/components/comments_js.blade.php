@@ -26,6 +26,7 @@
                         $('#comment-box-'+post).append(response.data.comment_html);
                     }
 
+
                 },
                 error:function (xhr) {
                     button.attr('disabled',null).html(previous);
@@ -40,6 +41,8 @@
             previousBtn.html('<i class="spinner-border spinner-border-sm"></i> Loading more comments...');
             var post= $(this).attr('data-post');
             var total_comments=$('#comment-box-'+post).children().length;
+            var more_comment=$(this).parent().parent();
+
             $.ajax({
                 type:"POST",
                 url:"{{route('comments.show.more')}}",
@@ -47,7 +50,17 @@
                 dataType:'JSON',
                 success:function(response) {
                     previousBtn.text(previousTxt);
-                    $('#comment-box-'+post).append(response);
+                    $('#comment-box-'+post).append(response.html);
+
+                    if ($('#comment-box-'+post).children().length == response.total_comments){
+                        if ($('#comment-box-'+post).children().length >=15){
+                            more_comment.html(response.show_post);
+                        }else{
+                            more_comment.remove();
+                        }
+                    }
+
+
                 },
                 error:function (xhr) {
                     previousBtn.text(previousTxt);

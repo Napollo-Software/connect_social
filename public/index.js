@@ -19,7 +19,6 @@ function submit(b,m,r,d,n) {
             if (n['type']=='reload'){
                 window.location.reload();
             }
-
             swal("Success!", data.success, "success").then(function () {
                 if (n['type']=='data-table-modal'){
                     $('#modal').modal('hide');

@@ -7,7 +7,7 @@
                     
                     <li class="profile-navigation-li {{Route::currentRouteName()=='ambassador.profile'?'active':''}}"><a href="{{route('ambassador.profile')}}" class="profile-navigation-link">Social Information</a></li>
                     
-                    <li class="profile-navigation-li {{Route::currentRouteName()=='gallery'?'active':''}}"><a href="{{route('gallery')}}" class="profile-navigation-link">Gallery</a></li>
+                    <li class="profile-navigation-li {{Route::currentRouteName()=='gallery'?'active':''}}"><a href="{{route('gallery',['all'])}}" class="profile-navigation-link">Gallery</a></li>
                     
                     <li class="profile-navigation-li {{in_array(Route::currentRouteName(),['friends.show','connections.show'])?'active':''}}" ><a href="{{route('friends.show')}}" class="profile-navigation-link">Friends({{getFriendsList($user->id)->count()}})</a></li>
                 </ul>

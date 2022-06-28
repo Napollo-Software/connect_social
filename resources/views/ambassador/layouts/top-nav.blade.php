@@ -53,8 +53,12 @@
                                                     <a href="{{route('ambassador.profile')}}">My Profile</a>
                                                 </li>
                                                 <li class="user-dropdown-li">
+                                                    <a href="javascript:void(0)">Send Invite</a>
+                                                </li>
+                                                <li class="user-dropdown-li">
                                                     <a href="javascript:void(0)">Settings</a>
                                                 </li>
+
                                                 <li class="user-dropdown-li">
                                                     <a ref="{{ route('logout') }}"
                                                        onclick="event.preventDefault();

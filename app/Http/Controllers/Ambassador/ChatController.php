@@ -15,9 +15,13 @@ use Pusher\Pusher;
 
 class ChatController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+        $receiver=null;
+        if ($request['receiver']){
+            $receiver=$request['receiver'];
+        }
         $user=auth()->user();
-        return view('ambassador.chat',compact('user'));
+        return view('ambassador.chat',compact('user','receiver'));
     }
     public function fetch_users(Request $request)
     {

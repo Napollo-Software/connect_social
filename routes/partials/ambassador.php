@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ambassador\PostController;
 use App\Http\Controllers\Ambassador\CommentController;
@@ -10,7 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Ambassador\FriendsController;
 use App\Http\Controllers\Ambassador\ConnectionsController;
 use App\Http\Controllers\Ambassador\ChatController;
-
+use App\Http\Controllers\Ambassador\SearchController;
 
 Route::middleware(['auth','can:ambassador-views','email-verification'])->group(function () {
     Route::prefix('post')->group(function () {
@@ -36,11 +35,16 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
         Route::post('show-more', [CommentController::class, 'show_more'])->name('comments.show.more');
     });
     Route::prefix('gallery')->group(function () {
-        Route::get('{type?}', [GalleryController::class, 'index'])->name('gallery');
+        Route::get('{type}', [GalleryController::class, 'index'])->name('gallery');
+        Route::post('fetch', [GalleryController::class, 'fetch'])->name('gallery.fetch');
     });
     Route::prefix('likes')->group(function () {
         Route::post('store', [LikeController::class, 'store'])->name('likes.store');
     });
+    Route::prefix('search')->group(function () {
+        Route::get('', [SearchController::class, 'index'])->name('search');
+    });
+
     Route::prefix('friends')->group(function () {
         Route::get('list/{id?}', [FriendsController::class, 'show'])->name('friends.show');
         Route::post('send-request', [FriendsController::class, 'send_request'])->name('friends.send.request');
@@ -56,11 +60,10 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
         Route::post('remove-connection', [ConnectionsController::class, 'remove_connection'])->name('connections.remove.connection');
     });
     Route::prefix('chat')->group(function () {
-        Route::get('', [ChatController::class, 'index'])->name('chat');
+        Route::get('/{id?}', [ChatController::class, 'index'])->name('chat');
         Route::post('fetch-users', [ChatController::class, 'fetch_users'])->name('chat.users');
         Route::post('store', [ChatController::class, 'store'])->name('chat.store');
         Route::post('fetch', [ChatController::class, 'fetch'])->name('chat.fetch');
         Route::post('mark-as-read', [ChatController::class, 'mark_as_read'])->name('chat.mark.as.read');
     });
-
 });

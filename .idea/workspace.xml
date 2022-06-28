@@ -33,35 +33,35 @@
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.11" value="1" />
+          <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.3" value="1" />
-          <entry key="project.opened" value="11" />
+          <entry key="project.opened" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="14" />
+          <entry key="css" value="15" />
           <entry key="env" value="9" />
           <entry key="example" value="1" />
           <entry key="html" value="5" />
-          <entry key="js" value="21" />
+          <entry key="js" value="22" />
           <entry key="json" value="5" />
-          <entry key="php" value="743" />
-          <entry key="sql" value="23" />
+          <entry key="php" value="785" />
+          <entry key="sql" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="343" />
-          <entry key="CSS" value="14" />
+          <entry key="Blade" value="368" />
+          <entry key="CSS" value="15" />
           <entry key="HTML" value="5" />
           <entry key="JSON" value="5" />
-          <entry key="JavaScript" value="21" />
-          <entry key="PHP" value="400" />
+          <entry key="JavaScript" value="22" />
+          <entry key="PHP" value="417" />
           <entry key="PLAIN_TEXT" value="10" />
-          <entry key="SQL" value="23" />
+          <entry key="SQL" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -71,17 +71,17 @@
           <entry key="env" value="95" />
           <entry key="html" value="1" />
           <entry key="js" value="1190" />
-          <entry key="php" value="50938" />
+          <entry key="php" value="53943" />
           <entry key="sql" value="72" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="27448" />
+          <entry key="Blade" value="29109" />
           <entry key="CSS" value="78" />
-          <entry key="HTML" value="15" />
+          <entry key="HTML" value="16" />
           <entry key="JavaScript" value="1190" />
-          <entry key="PHP" value="23475" />
+          <entry key="PHP" value="24818" />
           <entry key="PLAIN_TEXT" value="96" />
           <entry key="SQL" value="72" />
         </counts>
@@ -91,108 +91,34 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/GalleryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="e#40#60#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="272" selection-start-line="272" selection-end-line="272" />
-              <folding>
-                <element signature="n#getMessageHtml#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="5" selection-start-column="5" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/index.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/layouts/navigation.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="89" column="130" lean-forward="true" selection-start-line="89" selection-start-column="130" selection-end-line="89" selection-end-column="130" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/partials/ambassador.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="895">
-              <caret line="58" column="31" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
-              <folding>
-                <element signature="e#7#44#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="283">
+              <caret line="71" selection-start-line="71" selection-end-line="71" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/components/show_posts.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/gallery/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="439">
-              <caret line="420" column="50" selection-start-line="420" selection-start-column="50" selection-end-line="420" selection-end-column="50" />
+            <state relative-caret-position="283">
+              <caret line="158" column="120" selection-start-line="158" selection-start-column="120" selection-end-line="158" selection-end-column="120" />
               <folding>
-                <element signature="e#20822#21002#0#HTML" />
-                <element signature="e#21075#21601#0#HTML" />
-                <element signature="e#21675#22271#0#HTML" />
-                <element signature="e#22339#23540#0#HTML" />
-                <element signature="e#23619#25009#0#HTML" />
-                <element signature="e#25065#26345#0#HTML" />
+                <element signature="e#233#1668#0#HTML" />
+                <element signature="e#0#7009#0#Blade" />
+                <element signature="e#0#7009#0#Blade" />
+                <element signature="e#5669#6958#0#HTML" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/ChatController.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/gallery-navigation.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/top-nav.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="52" column="88" selection-start-line="52" selection-start-column="88" selection-end-line="52" selection-end-column="88" />
+            <state relative-caret-position="-159">
+              <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -208,22 +134,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sned</find>
-      <find>form</find>
-      <find>remove-attachment</find>
-      <find>btn-msg-send</find>
-      <find>message-send-form</find>
-      <find>addClass</find>
-      <find>full-name</find>
-      <find>user-name</find>
-      <find>user-url</find>
-      <find>chat-bx-all-messages</find>
       <find>scrollbottom</find>
       <find>search</find>
       <find>singal-comment-row</find>
       <find>view-more-comments-</find>
       <find>comment</find>
-      <find>all-comments-box</find>
       <find>comment-count-</find>
       <find>all-comments-box-grid</find>
       <find>comment_input</find>
@@ -231,13 +146,24 @@
       <find>scrolling</find>
       <find>$name</find>
       <find>Y-m-d</find>
-      <find>user-of-chat-list</find>
       <find>chat-contacts-single-name</find>
       <find>file</find>
       <find>assets</find>
       <find>privacy_dropdown</find>
-      <find>comment-box-</find>
       <find>chat</find>
+      <find>comment-box-</find>
+      <find>all-comments-box</find>
+      <find>user-of-chat-list</find>
+      <find>route('das</find>
+      <find>route('dashboard'</find>
+      <find>route</find>
+      <find>route('gallery'</find>
+      <find>index</find>
+      <find>{{route('gallery')</find>
+      <find>ajax</find>
+      <find>inner-navigation-link</find>
+      <find>beforesend</find>
+      <find>spinner</find>
     </findStrings>
     <replaceStrings>
       <replace>admin_assets/</replace>
@@ -249,6 +175,7 @@
       <replace>$user</replace>
       <replace>merchants</replace>
       <replace>ambassador_assets</replace>
+      <replace>gallery-link inner-navigation-link</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -257,22 +184,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/navigation.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/PostController.php" />
-        <option value="$PROJECT_DIR$/resources/views/ambassador/profile/show.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/auth/verify.blade.php" />
-        <option value="$PROJECT_DIR$/app/Models/AmbassadorDetails.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2022_06_23_140815_create_friends_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2022_06_23_161104_create_connections_table.php" />
-        <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/cover.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Friend.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/friends.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/friends-navigaton.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/FriendsController.php" />
         <option value="$PROJECT_DIR$/app/Models/Connection.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/GalleryController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/ConnectionsController.php" />
-        <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/gallery-navigation.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/connections-list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/friends-list.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/friends-navigation.blade.php" />
@@ -287,27 +204,37 @@
         <option value="$PROJECT_DIR$/app/Events/Chat.php" />
         <option value="$PROJECT_DIR$/database/migrations/2022_06_24_133829_create_chats_table.php" />
         <option value="$PROJECT_DIR$/app/Models/User.php" />
-        <option value="$PROJECT_DIR$/resources/views/ambassador/chat.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/profile-navigation.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/home/layouts/alert.blade.php" />
-        <option value="$PROJECT_DIR$/public/ambassador_assets/css/profile.css" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/index.blade.php" />
         <option value="$PROJECT_DIR$/public/ambassador_assets/js/profile.js" />
-        <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/top-nav.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/ambassador/home/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/components/show_posts.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/home/components/show_posts.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/ambassador/profile/components/comments_js.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/CommentController.php" />
-        <option value="$PROJECT_DIR$/routes/partials/ambassador.php" />
         <option value="$USER_HOME$/Desktop/index.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php" />
         <option value="$PROJECT_DIR$/app/helpers.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/ChatController.php" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/home/layouts/navigation.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/SearchController.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/home/search.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/ChatController.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/home/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/chat.blade.php" />
+        <option value="$PROJECT_DIR$/public/ambassador_assets/css/profile.css" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/CommentController.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/profile/components/comments_js.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/layouts/nav.blade.php" />
+        <option value="$PROJECT_DIR$/public/index.js" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/ReferralController.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/profile-navigation.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/top-nav.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/app.blade.php" />
+        <option value="$PROJECT_DIR$/routes/partials/ambassador.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/GalleryController.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/gallery-navigation.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/gallery/index.blade.php" />
       </list>
     </option>
   </component>
@@ -453,8 +380,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
+    <option name="x" value="-194" />
+    <option name="y" value="90" />
     <option name="width" value="1346" />
     <option name="height" value="698" />
   </component>
@@ -467,6 +394,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -501,39 +429,10 @@
             <path>
               <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
               <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="ambassador_assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="ambassador_assets" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="ambassador_assets" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="ambassador_assets" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Ambassador" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
@@ -559,50 +458,7 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="ambassador" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="ambassador" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="ambassador" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="ambassador" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="ambassador" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="ambassador" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="gallery" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
@@ -687,7 +543,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -700,19 +555,19 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Program Files\xampp\htdocs\connect_social\resources\views\ambassador\home" />
+      <recent name="E:\Program Files\xampp\htdocs\connect_social\public\ambassador_assets\images" />
+      <recent name="E:\Program Files\xampp\htdocs\connect_social\resources\views\ambassador\home\layouts" />
+      <recent name="E:\Program Files\xampp\htdocs\connect_social\resources\views\ambassador\profile" />
+      <recent name="E:\Program Files\xampp\htdocs\connect_social\public\ambassador_assets\images\icons" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Program Files\xampp\htdocs\connect_social\resources\views\ambassador\home" />
       <recent name="E:\Program Files\xampp\htdocs\connect_social\resources\views\ambassador" />
       <recent name="E:\Program Files\xampp\htdocs\connect_social\resources\views\ambassador\profile" />
       <recent name="E:\Program Files\xampp\htdocs\connect_social\app\Http\Controllers\Admin" />
       <recent name="E:\Program Files\xampp\htdocs\connect_social\resources\views\admin\users" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Program Files\xampp\htdocs\connect_social\public\ambassador_assets\images" />
-      <recent name="E:\Program Files\xampp\htdocs\connect_social\resources\views\ambassador\home\layouts" />
-      <recent name="E:\Program Files\xampp\htdocs\connect_social\resources\views\ambassador\home" />
-      <recent name="E:\Program Files\xampp\htdocs\connect_social\resources\views\ambassador\profile" />
-      <recent name="E:\Program Files\xampp\htdocs\connect_social\public\ambassador_assets\images\icons" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -758,11 +613,12 @@
       <workItem from="1655476853055" duration="12499000" />
       <workItem from="1655725897252" duration="41629000" />
       <workItem from="1655896160295" duration="101319000" />
+      <workItem from="1656414445323" duration="11661000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256371000" />
+    <option name="totallyTimeSpent" value="268032000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -777,7 +633,7 @@
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2322239" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.19440243" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -828,72 +684,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/GalleryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="10" column="2" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/ConnectionsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="73" selection-start-line="21" selection-start-column="73" selection-end-line="21" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/connections-list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="90" column="65" lean-forward="true" selection-start-line="89" selection-end-line="90" selection-end-column="65" />
-          <folding>
-            <element signature="e#2886#3984#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/friends-navigation.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="122" selection-start-line="11" selection-start-column="122" selection-end-line="11" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/friends-list.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="94" column="41" selection-start-line="94" selection-start-column="28" selection-end-line="94" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/Access/AuthorizesRequests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="107" column="8" selection-start-line="105" selection-start-column="8" selection-end-line="107" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="111" column="5" selection-start-line="103" selection-start-column="4" selection-end-line="111" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/ambassador_assets/css/chat.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="284" column="4" selection-start-line="284" selection-start-column="4" selection-end-line="284" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Chat.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -943,13 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReferralController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Events/Chat.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
@@ -971,31 +754,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/chat2.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="57" column="38" lean-forward="true" selection-start-line="57" selection-start-column="38" selection-end-line="57" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/chat2.blade.php" />
     <entry file="file://$PROJECT_DIR$/app/Models/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="60" column="20" selection-start-line="60" selection-start-column="20" selection-end-line="60" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/chat.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="172" column="51" selection-start-line="172" selection-start-column="51" selection-end-line="172" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/sign_up.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="94" column="91" selection-start-line="94" selection-start-column="91" selection-end-line="94" selection-end-column="91" />
         </state>
       </provider>
     </entry>
@@ -1009,23 +772,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="29" column="56" lean-forward="true" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/components/add_post.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/ambassador_assets/css/profile.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="1980" column="1" selection-start-line="1980" selection-start-column="1" selection-end-line="1980" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/components/add_post.blade.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/app2.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
@@ -1040,13 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5464">
-          <caret line="543" selection-start-line="543" selection-end-line="543" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/layouts/alert.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -1054,49 +794,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/components/comments_js.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="24" column="52" selection-start-line="24" selection-start-column="52" selection-end-line="24" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/components/show_posts.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="130" column="50" lean-forward="true" selection-start-line="130" selection-start-column="50" selection-end-line="130" selection-end-column="50" />
-          <folding>
-            <element signature="e#680#1929#0#HTML" />
-            <element signature="e#2028#2998#0#HTML" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/CommentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/f_trader_animation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="7" lean-forward="true" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/Downloads/f_trader_animation.js" />
     <entry file="file://$USER_HOME$/Desktop/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/profile-navigation.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="93" selection-start-line="7" selection-start-column="93" selection-end-line="7" selection-end-column="93" />
         </state>
       </provider>
     </entry>
@@ -1107,96 +809,237 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/gallery-navigation.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="108" lean-forward="true" selection-start-line="14" selection-start-column="57" selection-end-line="14" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="272" selection-start-line="272" selection-end-line="272" />
-          <folding>
-            <element signature="n#getMessageHtml#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="5" selection-start-column="5" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/ChatController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#40#60#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/top-nav.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/components/show_posts.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="52" column="88" selection-start-line="52" selection-start-column="88" selection-end-line="52" selection-end-column="88" />
+        <state relative-caret-position="1989">
+          <caret line="117" column="49" lean-forward="true" selection-start-line="117" selection-start-column="49" selection-end-line="117" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/chat.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="108" column="18" selection-start-line="108" selection-start-column="18" selection-end-line="108" selection-end-column="18" />
+          <folding>
+            <element signature="e#7895#8872#0#HTML" />
+            <element signature="e#8909#9038#0#HTML" />
+            <element signature="e#9161#10938#0#HTML" />
+            <element signature="e#10994#11061#0#HTML" />
+            <element signature="e#11125#11184#0#HTML" />
+            <element signature="e#11249#11448#0#HTML" />
+            <element signature="e#11526#11752#0#HTML" />
+            <element signature="e#11832#11990#0#HTML" />
+            <element signature="e#12060#12171#0#HTML" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/layouts/navigation.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="89" column="130" lean-forward="true" selection-start-line="89" selection-start-column="130" selection-end-line="89" selection-end-column="130" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
+          <caret line="23" column="61" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="61" />
+          <folding>
+            <element signature="n#li#0;n#ul#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/partials/ambassador.php">
+    <entry file="file://$PROJECT_DIR$/public/ambassador_assets/css/profile.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="895">
-          <caret line="58" column="31" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
+        <state relative-caret-position="130">
+          <caret line="1964" lean-forward="true" selection-start-line="1964" selection-end-line="1964" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/search.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="97" column="126" selection-start-line="97" selection-start-column="126" selection-end-line="97" selection-end-column="126" />
           <folding>
-            <element signature="e#7#44#0#PHP" expanded="true" />
+            <element signature="e#766#3736#0#HTML" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/components/show_posts.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
+        <state relative-caret-position="561">
           <caret line="420" column="50" selection-start-line="420" selection-start-column="50" selection-end-line="420" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/SearchController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="30" column="91" selection-start-line="30" selection-start-column="91" selection-end-line="30" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/ChatController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="62" selection-start-line="23" selection-start-column="54" selection-end-line="23" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/CommentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="63" column="22" selection-start-line="63" selection-start-column="13" selection-end-line="63" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/initial.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="66" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/nav.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/partials/super_admin.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="45" column="63" selection-start-line="45" selection-start-column="63" selection-end-line="45" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="81" column="44" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/sign_up.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="119" column="77" selection-start-line="119" selection-start-column="65" selection-end-line="119" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="37" selection-start-line="15" selection-start-column="37" selection-end-line="15" selection-end-column="37" />
           <folding>
-            <element signature="e#20822#21002#0#HTML" />
-            <element signature="e#21075#21601#0#HTML" />
-            <element signature="e#21675#22271#0#HTML" />
-            <element signature="e#22339#23540#0#HTML" />
-            <element signature="e#23619#25009#0#HTML" />
-            <element signature="e#25065#26345#0#HTML" />
+            <element signature="n#getMessageHtml#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/components/comments_js.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ReferralController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="13" column="5" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/profile-navigation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="139" selection-start-line="9" selection-start-column="139" selection-end-line="9" selection-end-column="139" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/top-nav.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="81" selection-start-line="81" selection-end-line="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/GalleryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/partials/ambassador.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="38" column="59" lean-forward="true" selection-start-line="38" selection-start-column="59" selection-end-line="38" selection-end-column="59" />
+          <folding>
+            <element signature="e#6#43#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="839" column="19" lean-forward="true" selection-start-line="828" selection-start-column="16" selection-end-line="839" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/gallery-navigation.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-159">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/gallery/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="158" column="120" selection-start-line="158" selection-start-column="120" selection-end-line="158" selection-end-column="120" />
+          <folding>
+            <element signature="e#233#1668#0#HTML" />
+            <element signature="e#0#7009#0#Blade" />
+            <element signature="e#0#7009#0#Blade" />
+            <element signature="e#5669#6958#0#HTML" />
           </folding>
         </state>
       </provider>

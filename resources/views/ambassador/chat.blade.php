@@ -20,9 +20,11 @@
                                     </div>
                                     <div class="chat-contacts-field">
                                         <div class="chat-contacts-inner">
-                                            <input type="input" class="chat-contact-field-input" placeholder="Search with date">
+                                            <input type="input" class="chat-contact-field-input"
+                                                   placeholder="Search with date">
                                             <input type="date" id="date-input" class="d-none">
-                                            <span class="icon" id="trigger-date"><span class="ti-calendar"></span></span>
+                                            <span class="icon" id="trigger-date"><span
+                                                        class="ti-calendar"></span></span>
                                         </div>
                                     </div>
                                     <div class="chat-contacts-field">
@@ -97,7 +99,14 @@
     </div>
     @push('scripts')
         <script src="https://js.pusher.com/7.1/pusher.min.js"></script>
+
         <script>
+            var onetimechatopen = true;
+            @if($receiver)
+                onetimechatopen = true;
+            @else
+                onetimechatopen = false;
+            @endif
             function search(search) {
                 var user_container = $('.chat-contacts-all-inner');
                 $.ajax({
@@ -113,12 +122,20 @@
                         $.each(data, function (i, v) {
                             user_container.append('<div class="chat-contacts-single user-of-chat-list" data-id="' + v['id'] + '"><div class="chat-contacts-single-inner"><div class="chat-contacts-single-info"><div class="chat-contacts-single-image"><img src="' + v['src'] + '" alt=""></div><div class="chat-contacts-single-name-message"><div><span class="chat-contacts-single-name">' + v['name'] + '</span><span class="badge badge-primary float-right ml-1"  id="unread-' + v['id'] + '" data-user="' + v['id'] + '">' + v['unread'] + '</span></div><div class="chat-contacts-single-message"></div></div></div><div class="chat-contacts-single-time"><span class="time"></span></div></div></div>');
                         });
+                        if (onetimechatopen) {
+                            var user_to_chat = $('.user-of-chat-list[data-id="{{$receiver}}"]');
+                            user_to_chat.trigger('click');
+                            onetimechatopen = false;
+                        }
+
+
                     },
                     error: function (xhr) {
                         user_container.empty().append('<div class="chat-contacts-single text-center"><i>Empty</i></div>');
                     }
                 });
             }
+
             function getMessages(user) {
                 var container = $('.chat-bx-all-messages');
                 $.ajax({
@@ -142,6 +159,7 @@
                     },
                 });
             }
+
             function scrollbottom() {
                 var to_scroll = $('.chat-box-inner-div');
                 to_scroll.scrollTop(to_scroll.height())
@@ -152,7 +170,6 @@
 
                 $('#message-send-form').on("submit", function (e) {
                     e.preventDefault();
-
 
 
                     var container = $('.chat-bx-all-messages');
@@ -167,7 +184,7 @@
                         success: function (data) {
                             container.append(data.html);
                             $('#message').val('');
-                            if (data.remove_file){
+                            if (data.remove_file) {
                                 $('.btn-attachment').removeClass('text-primary h3').attr('title', '');
                                 $('a.remove-attachment').hide();
                                 $('#file').val('');
@@ -225,7 +242,7 @@
                     getMessages($(this).attr('data-id'));
                     $('.chat-box-top-bar').removeClass('border-0');
                     $('#message').focus();
-                    $('#unread-'+id).remove();
+                    $('#unread-' + id).remove();
                 });
 
             });
@@ -257,6 +274,7 @@
                     }
                 }
             });
+
             function markAsRead(id) {
                 $.ajax({
                     url: "{{route('chat.mark.as.read')}}",

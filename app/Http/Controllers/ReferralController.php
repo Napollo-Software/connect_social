@@ -12,7 +12,6 @@ class ReferralController extends Controller
         $ref=User::find($id);
         return view('join_as',compact('ref'));
     }
-
     public function sign_up(Request $request){
         if (!Auth::user()){
             $referer=$request->referer;
@@ -20,6 +19,6 @@ class ReferralController extends Controller
             $role=$request->role;
             return view('sign_up',compact('referer','by','role'));
         }
-        return redirect()->route('dashboard');
+        return redirect()->route('home');
     }
 }

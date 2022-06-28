@@ -32,7 +32,9 @@
                         </div>
                     </div>
                 </div>
-                @if($type=='audio')
+            </div>
+            <div class="container container-for-assets">
+           {{-- @if($type=='audio')
                     <div class="audio-grid-main">
                         @foreach($assets as $asset)
                             <div class="audio-grid-col">
@@ -58,32 +60,30 @@
                     </div>
                 @else
                     <div class="gallary-grid-main">
-
-                    @foreach($assets as $asset)
-                        <div class="gallary-grid-col">
-                            <div class="gallary-grid-col-inner">
-                                <div class="gallary-grid-col-image">
-                                    @if($asset['type']=='image')
-                                        <img src="{{$asset['url']}}" alt="">
-                                    @elseif($asset['type']=='video')
-                                        <video src="{{$asset['url']}}" style="width: 100%;height: 100%"></video>
-                                    @endif
-                                    <div class="select-gallary-item">
-                                        <div class="select-gallary-item-inner">
-                                            <input type="checkbox">
+                        @foreach($assets as $asset)
+                            <div class="gallary-grid-col">
+                                <div class="gallary-grid-col-inner">
+                                    <div class="gallary-grid-col-image">
+                                        @if($asset['type']=='image')
+                                            <img src="{{$asset['url']}}" alt="">
+                                        @elseif($asset['type']=='video')
+                                            <video src="{{$asset['url']}}" style="width: 100%;height: 100%"></video>
+                                        @endif
+                                        <div class="select-gallary-item">
+                                            <div class="select-gallary-item-inner">
+                                                <input type="checkbox">
+                                            </div>
                                         </div>
+                                        @if($asset['type']=='video')
+                                            <div class="play-video-icon">
+                                            </div>
+                                        @endif
                                     </div>
-                                    @if($asset['type']=='video')
-                                        <div class="play-video-icon">
-                                        </div>
-                                    @endif
                                 </div>
                             </div>
-                        </div>
-                    @endforeach
-                        @endif
-                </div>
-
+                        @endforeach
+                    </div>
+                @endif--}}
             </div>
         </div>
     </div>
@@ -101,7 +101,6 @@
             </div>
         </div>
     </div>
-
     <div id="repeated-play-html" class="d-none">
         <div class="play-video-icon-inner">
             <div class="play-video-icon-main">
@@ -147,8 +146,36 @@
                 }
 
             });
-        })
-
+        });
     </script>
-    @stack('subscripts')
+    <script>
+        function fetch(type){
+            $.ajax({
+                type: "POST",
+                url: "{{route('gallery.fetch')}}",
+                dataType: "JSON",
+                data: {'type': type, _token: '{{csrf_token()}}'},
+                beforeSend: function () {
+                    $('.container-for-assets').html('<div class="col-md-12 text-center"><img src="{{url('img/loading.gif')}}"></div>')
+                },
+                success: function (data) {
+                    $('.container-for-assets').html(data);
+                },
+                error: function (xhr) {
+                    erroralert(xhr);
+                }
+            });
+        }
+        $(function () {
+            fetch('{{$type}}');
+            $(document).on('click','.gallery-link',function (e) {
+                e.preventDefault();
+                $('.inner-navigation-li.active').removeClass('active');
+                $(this).parent().addClass('active');
+                var type= $(this).attr('data-type');
+                fetch(type);
+                window.history.pushState({}, null, '/gallery/'+type);
+            });
+        });
+    </script>
 @endpush

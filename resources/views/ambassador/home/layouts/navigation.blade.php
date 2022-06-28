@@ -17,50 +17,18 @@
                             <div class="recent-searches-box-inner">
                                 <div class="recent-searches-box-main">
                                     <div class="search-input-home-navigation-main">
-                                        <div class="back-btn close-recent-search" onclick="document.getElementById('recent-searches-box').style.display = 'none'">
-                                            <span class="ti-arrow-left"></span>
-                                        </div>
-                                        <input type='text' placeholder="Search by name">
-                                        <button class='search-btn black-button'><span class="ti-search"></span></button>
+                                        <form action="{{url('search')}}" method="get">
+                                            <div class="back-btn close-recent-search" onclick="document.getElementById('recent-searches-box').style.display = 'none'">
+                                                <span class="ti-arrow-left"></span>
+                                            </div>
+                                            <input type='text' placeholder="Search by name" name="key" id="key" required>
+                                            <button class='search-btn black-button' type="submit"><span class="ti-search"></span></button>
+                                        </form>
                                     </div>
                                     <div class="recent-search-box">
-                                        <div class="title">Recenet Sarchs</div>
+                                        <div class="title">Recent Searches</div>
                                         <div class="recent-search-list">
                                             <ul class="recent-search-ul">
-                                                <li class="recent-search-li">
-                                                    <div class="recent-search-list-div">
-                                                        <div class="recent-search-list-inner">
-                                                            <div class="recent-search-rofile">
-                                                                <div class="profile-image">
-                                                                    <img src="assets/images/user-profile/user-01.png" alt="">
-                                                                </div>
-                                                                <div class="profile-text">
-                                                                    <a href='javascript:void(0)'>User Name</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="remove-div">
-                                                                <span class="ti-close"></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <li class="recent-search-li">
-                                                    <div class="recent-search-list-div">
-                                                        <div class="recent-search-list-inner">
-                                                            <div class="recent-search-rofile">
-                                                                <div class="profile-image">
-                                                                    <img src="assets/images/user-profile/user-01.png" alt="">
-                                                                </div>
-                                                                <div class="profile-text">
-                                                                    <a href='javascript:void(0)'>User Name</a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="remove-div">
-                                                                <span class="ti-close"></span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
                                                 <li class="recent-search-li">
                                                     <div class="recent-search-list-div">
                                                         <div class="recent-search-list-inner">
