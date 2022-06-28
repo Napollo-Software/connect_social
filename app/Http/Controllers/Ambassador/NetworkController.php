@@ -43,7 +43,7 @@ class NetworkController extends Controller
                                         </div>
                                         <div class="friend-grid-col-profile-text">
                                             <div class="friend-grid-col-profile-text-top">
-                                                '.$detail->fullName().'
+                                                <a href="'.url('profile-view/'.$detail->id).'" class="text-decoration-none text-secondary">'.$detail->fullName().'</a>
                                             </div>
                                             <div class="friend-grid-col-profile-text-bottom">
                                                 '.ucfirst($type).'

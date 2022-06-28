@@ -178,4 +178,9 @@
             });
         });
     </script>
+    <style>
+        .container-for-assets{
+            min-height: 400px;
+        }
+    </style>
 @endpush

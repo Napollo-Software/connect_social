@@ -138,6 +138,9 @@
                     url: "{{route('network.fetch')}}",
                     dataType: "JSON",
                     data: {'type': type,'user': user, _token: '{{csrf_token()}}'},
+                    beforeSend: function () {
+                        $('.friends-grid-main').html('<div class="col-md-12 text-center"><img src="{{url('img/loading.gif')}}"></div>')
+                    },
                     success: function (data) {
                         $('.friends-grid-main').html(data);
                         var repeated_html = $("#repeated-html").html();
@@ -150,5 +153,10 @@
             }
         </script>
     @endpush
+    <style>
+        .friends-grid-main{
+            min-height: 300px;
+        }
+    </style>
 @endsection
 
