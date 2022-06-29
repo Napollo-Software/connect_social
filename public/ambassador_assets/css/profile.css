@@ -335,6 +335,14 @@ i {
     cursor: pointer;
 }
 
+.edit-button.with-bg {
+    background: #fff;
+    color: #000;
+    padding: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
 
 .inner-navigation-sub-menu-li-profile {
     position: relative;
@@ -1834,6 +1842,46 @@ li.recent-search-li {
     font-size: 12px;
 }
 
+/* Mobile  Navigation */
+
+.mobile-menu-icon {
+    display: none;
+}
+
+.mobile-menu-icon-inner {
+    padding: 0;
+    font-size: 20px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.mobile-menu-icon-inner:hover {
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 17%);
+}
+
+/* Aniation */
+
+.like-animation {
+    animation: LikeAnimation 1.5s ease-in-out;
+}
+
+
+@keyframes LikeAnimation{
+    0%{transform: scale(1);}
+    50% {transform: scale(1.5);}
+    100%{transform: scale(1);}
+}
+.my-div{
+    animation: animatename 1s linear infinite;
+    /* animation shorthand */
+    animation: animation-name animation-duration animation-direction animation-iteration-count
+  }
+
 
 /* Customization */
 
@@ -1868,6 +1916,56 @@ li.recent-search-li {
 
     .friend-grid-col {
         flex: 0 0 48%;
+    }
+
+    .profile-navigation-ul-box {
+        display: none;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+
+    .profile-navigation-nav {
+        justify-content: space-between;
+    }
+
+    .inner-navigation-logo {
+        order: 2;
+    }
+
+    .profile-navigation-ul-outer {
+        order: 1;
+        position: relative;
+    }
+
+    .profile-navigation-ul-box {
+        position: absolute;
+        display: block;
+        /* background: #fff; */
+        top: 30px;
+        /* box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 17%); */
+        left: 5px;
+    }
+
+    .profile-navigation-ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 17%);
+        flex-direction: column;
+    }
+
+    .profile-navigation-li {
+        padding: 7px;
+        font-size: 13px;
+        min-width: 150px;
+    }
+
+    .inner-navigation-sub-menu {
+        order: 3;
     }
 }
 

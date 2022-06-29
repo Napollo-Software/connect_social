@@ -4,15 +4,24 @@
             <div class="profile-navigation-nav">
                 <div class="inner-navigation-logo to-show-sticky">
                     <div class="inner-navigation-logo-image">
-                        <img src="assets/images/logo.png" alt="">
+                        <img src="{{asset('ambassador_assets/images/logo.png')}}" alt="">
                     </div>
                 </div>
-                <ul class="profile-navigation-ul">
-                    <li class="profile-navigation-li {{Route::currentRouteName()=='home'?'active':''}}"><a href="{{route('home')}}" class="profile-navigation-link">Home</a></li>
-                    <li class="profile-navigation-li {{Route::currentRouteName()=='ambassador.profile'?'active':''}}"><a href="{{route('ambassador.profile')}}" class="profile-navigation-link">Social Information</a></li>
-                    <li class="profile-navigation-li {{Route::currentRouteName()=='gallery'?'active':''}}"><a href="{{route('gallery',['all'])}}" class="profile-navigation-link">Gallery</a></li>
-                    <li class="profile-navigation-li {{in_array(Route::currentRouteName(),['friends.show','connections.show'])?'active':''}}" ><a href="{{route('network',['type'=>'friend'])}}" class="profile-navigation-link">Friends({{getFriendsList($user->id)->count()}})</a></li>
-                </ul>
+                <div class="profile-navigation-ul-outer">
+                    <div class="profile-navigation-ul-box">
+                        <ul class="profile-navigation-ul">
+                            <li class="profile-navigation-li {{Route::currentRouteName()=='home'?'active':''}}"><a href="{{route('home')}}" class="profile-navigation-link">Home</a></li>
+                            <li class="profile-navigation-li {{Route::currentRouteName()=='ambassador.profile'?'active':''}}"><a href="{{route('ambassador.profile')}}" class="profile-navigation-link">Social Information</a></li>
+                            <li class="profile-navigation-li {{Route::currentRouteName()=='gallery'?'active':''}}"><a href="{{route('gallery',['all'])}}" class="profile-navigation-link">Gallery</a></li>
+                            <li class="profile-navigation-li {{in_array(Route::currentRouteName(),['friends.show','connections.show'])?'active':''}}" ><a href="{{route('network',['type'=>'friend'])}}" class="profile-navigation-link">Friends({{getFriendsList($user->id)->count()}})</a></li>
+                        </ul>
+                    </div>
+                    <div class="mobile-menu-icon">
+                        <div class="mobile-menu-icon-inner">
+                            <span class="ti-menu"></span>
+                        </div>
+                    </div>
+                </div>
                 <div class="inner-navigation-sub-menu to-show-sticky">
                     <div class="inner-navigation-sub-menu-inner">
                         <div class="inner-navigation-sub-menu-main"></div>
@@ -26,7 +35,7 @@
                                             <li class="inner-mega-navigation-li black-bg">
                                                 <a href="javascript:void(0)" class="inner-mega-navigation-link">
                                                     <span class="icon">
-                                                        <img src="assets/images/icons/coin.svg" alt="">
+                                                        <img src="{{asset('ambassador_assets/images/icons/coin.svg')}}" alt="">
                                                     </span>
                                                     <span class="text">$100</span>
                                                 </a>
@@ -34,7 +43,7 @@
                                             <li class="inner-mega-navigation-li active">
                                                 <a href="javascript:void(0)" class="inner-mega-navigation-link">
                                                     <span class="icon">
-                                                        <img src="assets/images/nav-icon/black-social.png" alt="">
+                                                        <img src="{{asset('ambassador_assets/images/nav-icon/black-social.png')}}" alt="">
                                                     </span>
                                                     <span class="text">
                                                         Social
@@ -44,7 +53,7 @@
                                             <li class="inner-mega-navigation-li">
                                                 <a href="javascript:void(0)" class="inner-mega-navigation-link">
                                                     <span class="icon">
-                                                        <img src="assets/images/nav-icon/black-network.png" alt="">
+                                                        <img src="{{asset('ambassador_assets/images/nav-icon/black-network.png')}}" alt="">
                                                     </span>
                                                     <span class="text">Network</span>
                                                 </a>
@@ -52,7 +61,7 @@
                                             <li class="inner-mega-navigation-li">
                                                 <a href="javascript:void(0)" class="inner-mega-navigation-link">
                                                     <span class="icon">
-                                                        <img src="assets/images/nav-icon/black-shop.png" alt="">
+                                                        <img src="{{asset('ambassador_assets/images/nav-icon/black-shop.png')}}" alt="">
                                                     </span>
                                                     <span class="text">Shops</span>
                                                 </a>
@@ -60,7 +69,7 @@
                                             <li class="inner-mega-navigation-li">
                                                 <a href="javascript:void(0)" class="inner-mega-navigation-link">
                                                     <span class="icon">
-                                                        <img src="assets/images/nav-icon/black-bill.png" alt="">
+                                                        <img src="{{asset('ambassador_assets/images/nav-icon/black-bill.png')}}" alt="">
                                                     </span>
                                                     <span class="text">Receipts</span>
                                                 </a>
@@ -68,7 +77,7 @@
                                             <li class="inner-mega-navigation-li">
                                                 <a href="javascript:void(0)" class="inner-mega-navigation-link">
                                                     <span class="icon">
-                                                        <img src="assets/images/nav-icon/black-incentive.png" alt="">
+                                                        <img src="{{asset('ambassador_assets/images/nav-icon/black-incentive.png')}}" alt="">
                                                     </span>
                                                     <span class="text">Incentives</span>
                                                 </a>
@@ -82,7 +91,7 @@
                             <li class="inner-navigation-sub-menu-li">
                                 <div class="inner-navigation-sub-menu-li-profile  open-dropdown" data-target=".drop-0012">
                                     <div class="profile-user-options-icon">
-                                        <img src="assets/images/user-profile/user-01.png" alt="">
+                                        <img src="{{asset('ambassador_assets/images/user-profile/user-01.png')}}" alt="">
                                     </div>
                                     <div class="user-dropdown-inner drop-0012">
                                         <ul class="user-dropdown-ul">
