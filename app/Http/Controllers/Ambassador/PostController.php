@@ -5,12 +5,19 @@ namespace App\Http\Controllers\Ambassador;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\PostAssets;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
+    public function fetch(Request $request){
+        $posts = Post::where('user_id', auth()->user()->id)->orderBy('created_at', 'DESC')->skip($request->n*2)->take(2)->get();
+        $user=User::find($request->user);
+        $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
+        return response()->json($viewRender);
+    }
     public function store(Request $request){
         if ($request->file_type){
             $postAsset=new PostAssets();
@@ -113,7 +120,6 @@ class PostController extends Controller
         }
         return response()->json(['success'=>'Post updated successfully']);
     }
-
     public function destroy(Request $request){
         $post=Post::find($request->id);
         $post->comments()->delete();
@@ -130,6 +136,4 @@ class PostController extends Controller
         $asset->delete();
         return response()->json(['success'=>'Deleted']);
     }
-
-    //
 }
