@@ -1,5 +1,8 @@
 <div class="load-posts"></div>
-<h4 id="scroll-to">Show more</h4>
+<center>
+    <button id="scroll-to">Show more posts</button>
+
+</center>
 <input type="hidden" value="0" id="increment">
 @push('subscripts')
     @if($user->id==auth()->user()->id)
@@ -157,13 +160,35 @@
                 });
             });
 
-            $(window).scroll(function() {
-                if($(window).scrollTop() + $(window).height() == $(document).height()) {
-                    alert("bottom!");
-                }
+            $('.page-wrapper').scroll(function() {
+
+                var currY = $(this).scrollTop();
+                var postHeight = $(this).height();
+                var scrollHeight = $('.page-wrapper').height();
+
+
+
+                // Current percentual position
+                var scrollPercent = (currY / (scrollHeight - postHeight)) * 100;
+
+                console.log(scrollPercent);
+
             });
         </script>
     @endif
     @include('ambassador.profile.components.comments_js')
     @include('ambassador.profile.components.likes_js')
+
+    <style>
+        body{
+            overflow: hidden;
+        }
+        .page-wrapper{
+            overflow: hidden;
+            overflow-y: scroll;
+            height: 100vh;
+        }
+    </style>
+
+
 @endpush
