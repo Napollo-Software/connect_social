@@ -499,9 +499,8 @@
                                         @if($user->id==auth()->user()->id)
                                             @include('ambassador.profile.components.add_post')
                                         @endif
-                                        @include('ambassador.profile.components.show_posts')
-
                                     </div>
+                                    @include('ambassador.profile.components.show_posts')
                                 </div>
                             </div>
                         </div>

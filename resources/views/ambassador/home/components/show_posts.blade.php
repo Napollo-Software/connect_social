@@ -1,3 +1,6 @@
+<div class="content-cards load-posts">
+</div>
+{{--
 @foreach($posts as $post)
     <div class="content-card">
         <div class="content-card-inner">
@@ -127,7 +130,53 @@
         </div>
     </div>
 @endforeach
+--}}
+<div class="text-center col-md-12">
+    <button id="scroll-to" class="black-button">Show more posts</button>
+</div>
 @push('subscripts')
+    <script>
+        function fetch_post(n){
+            $.ajax({
+                type: "POST",
+                url: "{{route('post.fetch.all')}}",
+                dataType: "JSON",
+                data: {'n':n,'user':'{{$user->id}}',_token: '{{csrf_token()}}'},
+                beforeSend: function () {
+                    $('.load-posts').append('<div class="col-md-12 text-center spinner-gif"><img src="{{url('img/loading.gif')}}"></div>');
+                },
+                success: function (data) {
+                    $('.spinner-gif').remove();
+                    if (data){
+                        $('.load-posts').append(data);
+                        $('#increment').val(n+1);
+                    } else{
+                        $('#scroll-to').attr('disabled','disabled').text('No more posts').removeClass('black-button').addClass('white-button');
+                    }
+                },
+                error: function (xhr) {
+                    erroralert(xhr);
+                }
+            });
+        }
+        $(function () {
+            var page=0;
+            fetch_post(page);
+            $(document).on('click','#scroll-to',function () {
+                page++;
+                fetch_post(page);
+            });
+        });
+
+    </script>
+    <script>
+        // Open Target
+        $(document).on("click",".open-target",function() {
+            var targeted_div = $(this).attr("data-target");
+            console.log(targeted_div)
+            $(targeted_div).toggle();
+        });
+    </script>
     @include('ambassador.profile.components.comments_js')
     @include('ambassador.profile.components.likes_js')
 @endpush

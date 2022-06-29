@@ -15,6 +15,7 @@ use App\Http\Controllers\Ambassador\NetworkController;
 Route::middleware(['auth','can:ambassador-views','email-verification'])->group(function () {
     Route::prefix('post')->group(function () {
         Route::post('fetch', [PostController::class, 'fetch'])->name('post.fetch');
+        Route::post('fetch-all', [PostController::class, 'fetch_all'])->name('post.fetch.all');
         Route::post('store', [PostController::class, 'store'])->name('post.store');
         Route::post('update', [PostController::class, 'update'])->name('post.update');
         Route::delete('destroy', [PostController::class, 'destroy'])->name('post.destroy');

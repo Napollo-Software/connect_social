@@ -18,6 +18,13 @@ class PostController extends Controller
         $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
         return response()->json($viewRender);
     }
+    public function fetch_all(Request $request){
+        $posts = Post::orderBy('created_at', 'DESC')->skip($request->n*2)->take(2)->get();
+        $user=User::find($request->user);
+        $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
+        return response()->json($viewRender);
+    }
+
     public function store(Request $request){
         if ($request->file_type){
             $postAsset=new PostAssets();
