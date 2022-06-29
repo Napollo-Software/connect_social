@@ -15,10 +15,13 @@
                     var likescount = parseInt(like.text());
                     if (data.success == 'liked') {
                         like.text(likescount + 1);
-                        $('.like-btn-' + data.data.post_id).addClass('text-primary');
+                        $('.like-btn-' + data.data.post_id).addClass('text-primary like-animation');
+                        var obj = document.createElement('audio');
+                        obj.src = '{{url("ambassador_assets/music/like-music.mp3")}}';
+                        obj.play();
                     } else {
                         like.text(likescount - 1);
-                        $('.like-btn-' + data.data.post_id).removeClass('text-primary');
+                        $('.like-btn-' + data.data.post_id).removeClass('text-primary like-animation');
                     }
                 },
                 error: function (xhr) {
