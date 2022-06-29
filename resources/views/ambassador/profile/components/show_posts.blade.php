@@ -13,15 +13,15 @@
                     dataType: "JSON",
                     data: {'n':n,'user':'{{$user->id}}',_token: '{{csrf_token()}}'},
                     beforeSend: function () {
-                        $('.load-posts').append('<div class="col-md-12 text-center spinner-gif"><img src="{{url('img/loading.gif')}}"></div>');
+                        $('#scroll-to').attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm"></span> Processing ...');
                     },
                     success: function (data) {
-                        $('.spinner-gif').remove();
+
                         if (data){
                             $('.load-posts').append(data);
-                            $('#increment').val(n+1);
+                            $('#scroll-to').attr('disabled',null).text('Show more posts');
                         } else{
-                            $('#scroll-to').attr('disabled','disabled').text('No more posts').removeClass('black-button').addClass('white-button');
+                            $('#scroll-to').text('No more posts').removeClass('black-button').addClass('white-button');
                         }
                     },
                     error: function (xhr) {

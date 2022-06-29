@@ -1868,20 +1868,16 @@ li.recent-search-li {
 /* Aniation */
 
 .like-animation {
-    animation: LikeAnimation 1.5s ease-in-out;
+    animation: LikeAnimation 1s ease-in-out;
 }
 
 
 @keyframes LikeAnimation{
     0%{transform: scale(1);}
-    50% {transform: scale(1.5);}
+    50% {transform: scale(1.7);}
     100%{transform: scale(1);}
 }
-.my-div{
-    animation: animatename 1s linear infinite;
-    /* animation shorthand */
-    animation: animation-name animation-duration animation-direction animation-iteration-count
-  }
+
 
 
 /* Customization */
