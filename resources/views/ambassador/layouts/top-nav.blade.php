@@ -31,14 +31,14 @@
                                 <li class="profile-user-options-li">
                                     <div class="profile-user-options-inner">
                                         <div class="profile-user-options-icon">
-                                            <img src="{{url('ambassador_assets/images/icons/bell.svg')}}" alt="">
+                                            <span class="ti-bell"></span>
                                         </div>
                                     </div>
                                 </li>
                                 <li class="profile-user-options-li">
                                     <div class="profile-user-options-inner">
                                         <div class="profile-user-options-icon">
-                                            <img src="{{url('ambassador_assets/images/icons/info.svg')}}" alt="">
+                                            <span class="ti-help-alt"></span>
                                         </div>
                                     </div>
                                 </li>

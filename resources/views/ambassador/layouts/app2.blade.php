@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{url('ambassador_assets/css/profile.css')}}">
     <!-- Icons -->
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/icons/themify-icons.css')}}">
+    <link rel="stylesheet" href="{{url('assets/css/all.css')}}">
 </head>
 <body>
 <div class="page-wrapper">

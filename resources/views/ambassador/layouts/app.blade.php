@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{url('ambassador_assets/css/profile.css')}}">
     <!-- Icons -->
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/icons/themify-icons.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="page-wrapper">
@@ -40,5 +41,18 @@
 <script src="{{url('ambassador_assets/js/profile.js')}}"></script>
 @stack('scripts')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+    setInterval(function(){
+                    offset = $(".profile-navigation").offset();
+                    var w = $(window);
+                    if(offset.top-w.scrollTop() == 0) {
+                        $(".to-show-sticky").show();
+                        $('.profile-navigation-nav').removeClass('aligned')
+                    } else {
+                        $(".to-show-sticky").hide();
+                        $('.profile-navigation-nav').addClass('aligned')
+                    }
+                }, 100);
+</script>
 </body>
 </html>

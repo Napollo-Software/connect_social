@@ -2,15 +2,111 @@
     <div class="container">
         <div class="profile-navigation-inner">
             <div class="profile-navigation-nav">
+                <div class="inner-navigation-logo to-show-sticky">
+                    <div class="inner-navigation-logo-image">
+                        <img src="assets/images/logo.png" alt="">
+                    </div>
+                </div>
                 <ul class="profile-navigation-ul">
                     <li class="profile-navigation-li {{Route::currentRouteName()=='home'?'active':''}}"><a href="{{route('home')}}" class="profile-navigation-link">Home</a></li>
-                    
                     <li class="profile-navigation-li {{Route::currentRouteName()=='ambassador.profile'?'active':''}}"><a href="{{route('ambassador.profile')}}" class="profile-navigation-link">Social Information</a></li>
-                    
                     <li class="profile-navigation-li {{Route::currentRouteName()=='gallery'?'active':''}}"><a href="{{route('gallery',['all'])}}" class="profile-navigation-link">Gallery</a></li>
                     <li class="profile-navigation-li {{in_array(Route::currentRouteName(),['friends.show','connections.show'])?'active':''}}" ><a href="{{route('network',['type'=>'friend'])}}" class="profile-navigation-link">Friends({{getFriendsList($user->id)->count()}})</a></li>
                 </ul>
+                <div class="inner-navigation-sub-menu to-show-sticky">
+                    <div class="inner-navigation-sub-menu-inner">
+                        <div class="inner-navigation-sub-menu-main"></div>
+                        <ul class="inner-navigation-sub-menu-ul">
+                            <li class="inner-navigation-sub-menu-li hover position  open-dropdown" data-target=".drop-00124">
+                                <span class="nav-icon"><span class="ti-layout-grid4-alt"></span></span>
+                                <div class="inner-mega-menu drop-00124">
+                                    <div class="inner-mega-menu-inner">
+                                        <div class="inner-mega-menu-main">
+                                        <ul class="inner-mega-navigation-ul">
+                                            <li class="inner-mega-navigation-li black-bg">
+                                                <a href="javascript:void(0)" class="inner-mega-navigation-link">
+                                                    <span class="icon">
+                                                        <img src="assets/images/icons/coin.svg" alt="">
+                                                    </span>
+                                                    <span class="text">$100</span>
+                                                </a>
+                                            </li>
+                                            <li class="inner-mega-navigation-li active">
+                                                <a href="javascript:void(0)" class="inner-mega-navigation-link">
+                                                    <span class="icon">
+                                                        <img src="assets/images/nav-icon/black-social.png" alt="">
+                                                    </span>
+                                                    <span class="text">
+                                                        Social
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="inner-mega-navigation-li">
+                                                <a href="javascript:void(0)" class="inner-mega-navigation-link">
+                                                    <span class="icon">
+                                                        <img src="assets/images/nav-icon/black-network.png" alt="">
+                                                    </span>
+                                                    <span class="text">Network</span>
+                                                </a>
+                                            </li>
+                                            <li class="inner-mega-navigation-li">
+                                                <a href="javascript:void(0)" class="inner-mega-navigation-link">
+                                                    <span class="icon">
+                                                        <img src="assets/images/nav-icon/black-shop.png" alt="">
+                                                    </span>
+                                                    <span class="text">Shops</span>
+                                                </a>
+                                            </li>
+                                            <li class="inner-mega-navigation-li">
+                                                <a href="javascript:void(0)" class="inner-mega-navigation-link">
+                                                    <span class="icon">
+                                                        <img src="assets/images/nav-icon/black-bill.png" alt="">
+                                                    </span>
+                                                    <span class="text">Receipts</span>
+                                                </a>
+                                            </li>
+                                            <li class="inner-mega-navigation-li">
+                                                <a href="javascript:void(0)" class="inner-mega-navigation-link">
+                                                    <span class="icon">
+                                                        <img src="assets/images/nav-icon/black-incentive.png" alt="">
+                                                    </span>
+                                                    <span class="text">Incentives</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="inner-navigation-sub-menu-li hover"><span class="nav-icon"><span class="ti-bell"></span></span></li>
+                            <li class="inner-navigation-sub-menu-li">
+                                <div class="inner-navigation-sub-menu-li-profile  open-dropdown" data-target=".drop-0012">
+                                    <div class="profile-user-options-icon">
+                                        <img src="assets/images/user-profile/user-01.png" alt="">
+                                    </div>
+                                    <div class="user-dropdown-inner drop-0012">
+                                        <ul class="user-dropdown-ul">
+                                            <li class="user-dropdown-li">
+                                                <a href="{{route('ambassador.profile')}}">My Profile</a>
+                                            </li>
+                                            <li class="user-dropdown-li">
+                                                <a href="javascript:void(0)">Settings</a>
+                                            </li>
+                                            <li class="user-dropdown-li">
+                                                <a ref="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">Log out
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+

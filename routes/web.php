@@ -7,6 +7,7 @@ use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\Auth\VerifyCodeController;
+use App\Http\Controllers\FrontEnd;
 
 Auth::routes(['verify' => true]);
 
@@ -29,3 +30,5 @@ Route::get('resend-email-code', [VerifyCodeController::class, 'resend_code'])->n
 Route::get('/', [HomeController::class, 'index'])->middleware(['email-verification','auth'])->name('home');
 Route::group([],__DIR__.'/partials/super_admin.php');
 Route::group([],__DIR__.'/partials/ambassador.php');
+
+Route::get('/front-end', [FrontEnd::class, 'index']);

@@ -11,7 +11,7 @@
                                     <div class="content-cards">
                                         <div class="content-card">
                                             <div class="content-card-inner">
-                                                <div class="content-top-bar">
+                                                <div class="content-top-bar custom-padding">
                                                     <div class="content-top-bar-inner">
                                                         <div class="content-top-bar-title">
                                                             <div class="text">
@@ -53,14 +53,14 @@
                                                     </div>
                                                 </div>
                                                 <div class="content-card-content">
-                                                    <div class="content-card-content-inner about-content">
+                                                    <div class="content-card-content-inner about-content custom-padding">
                                                         <p id="about-text">
                                                             {{auth()->user()->details->about}}
                                                         </p>
                                                     </div>
                                                     @if($user->id==auth()->user()->id)
 
-                                                        <div class="abouy-text-editor" style="display:none">
+                                                        <div class="abouy-text-editor custom-padding" style="display:none">
                                                             <div class="abouy-text-editor-inner">
                                                                 <form id="about_form">
                                                                     @csrf
@@ -68,7 +68,7 @@
                                                                         <textarea name="about" id="about"
                                                                                   rows="5">{{auth()->user()->details->about}}</textarea>
                                                                     </div>
-                                                                    <div class="abouy-text-editor-button">
+                                                                    <div class="abouy-text-editor-button mt-2">
                                                                         <button type="submit">Save</button>
                                                                     </div>
                                                                 </form>
@@ -80,7 +80,7 @@
                                         </div>
                                         <div class="content-card">
                                             <div class="content-card-inner">
-                                                <div class="content-top-bar">
+                                                <div class="content-top-bar custom-padding">
                                                     <div class="content-top-bar-inner">
                                                         <div class="content-top-bar-title">
                                                             <div class="text">
@@ -99,11 +99,11 @@
                                                     </div>
                                                 </div>
                                                 <div class="content-card-content">
-                                                    <div class="content-card-content-inner">
+                                                    <div class="content-card-content-inner custom-padding">
                                                         <div class="social-info-editor-box">
                                                             <div class="social-info-editor-box-inner">
                                                                 <ul class="social-info-editor-box-ul">
-                                                                    <li class="social-info-editor-box-li">
+                                                                    <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
                                                                                 <div class="info-editor-box-title-text">
@@ -132,7 +132,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
-                                                                    <li class="social-info-editor-box-li">
+                                                                    <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
                                                                                 <div class="info-editor-box-title-text">
@@ -163,7 +163,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
-                                                                    <li class="social-info-editor-box-li">
+                                                                    <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
                                                                                 <div class="info-editor-box-title-text">
@@ -194,7 +194,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
-                                                                    <li class="social-info-editor-box-li">
+                                                                    <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
                                                                                 <div class="info-editor-box-title-text">
@@ -224,7 +224,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
-                                                                    <li class="social-info-editor-box-li">
+                                                                    <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
                                                                                 <div class="info-editor-box-title-text">
@@ -254,7 +254,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
-                                                                    <li class="social-info-editor-box-li">
+                                                                    <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
                                                                                 <div class="info-editor-box-title-text">
@@ -284,7 +284,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
-                                                                    <li class="social-info-editor-box-li">
+                                                                    <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
                                                                                 <div class="info-editor-box-title-text">
@@ -313,7 +313,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
-                                                                    <li class="social-info-editor-box-li">
+                                                                    <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
                                                                                 <div class="info-editor-box-title-text">
@@ -342,7 +342,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
-                                                                    <li class="social-info-editor-box-li">
+                                                                    <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
                                                                                 <div class="info-editor-box-title-text">
@@ -371,7 +371,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
-                                                                    <li class="social-info-editor-box-li">
+                                                                    <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
                                                                                 <div class="info-editor-box-title-text">
@@ -410,7 +410,7 @@
                                         </div>
                                         <div class="content-card">
                                             <div class="content-card-inner">
-                                                <div class="content-top-bar">
+                                                <div class="content-top-bar custom-padding">
                                                     <div class="content-top-bar-inner">
                                                         <div class="content-top-bar-title">
                                                             <div class="text">
@@ -433,7 +433,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="see-all">
+                                                    <div class="see-all custom-padding">
                                                         <div class="see-all-inner">
                                                             <a href="{{route('gallery',['all'])}}">See All</a>
                                                         </div>
@@ -443,7 +443,7 @@
                                         </div>
                                         <div class="content-card">
                                             <div class="content-card-inner">
-                                                <div class="content-top-bar">
+                                                <div class="content-top-bar custom-padding">
                                                     <div class="content-top-bar-inner">
                                                         <div class="content-top-bar-title">
                                                             <div class="text">
@@ -484,7 +484,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="see-all">
+                                                    <div class="see-all custom-padding">
                                                         <div class="see-all-inner">
                                                             <a href="{{route('network',['friends'])}}">See All</a>
                                                         </div>
@@ -833,6 +833,7 @@
                 });
 
             });
+
             function showControls(id) {
                 $.ajax({
                     type: "POST",

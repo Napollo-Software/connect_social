@@ -36,7 +36,7 @@ i {
 
 .custom-shadow {box-shadow: 0 1px 2px rgb(0 0 0 / 20%);}
 
-.custom-padding {padding: 10px;}
+.custom-padding {padding: 15px !important;}
 
 /* Page Style */
 /* Top-Bar */
@@ -308,7 +308,7 @@ i {
 .profile-navigation-nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .inner-navigation-logo-image img {
@@ -608,7 +608,7 @@ i {
 
 .see-all-inner a {
     font-size: 12px;
-    font-style: italic;
+    font-style: normal;
     color: #A6A6A6;
 }
 
@@ -712,6 +712,7 @@ i {
     align-items: center;
     margin-right: 10px;
     cursor: pointer;
+    border-radius: 50%;
 }
 
 .set-privacy-share {
@@ -780,12 +781,13 @@ i {
 
 .singal-post-content p {
     margin: 0;
-    padding: 10px;
+    padding: 15px;
+    word-break: break-word;
 }
 
 .like-comment-bar {
     margin-bottom: 10px;
-    padding: 10px 0;
+    padding: 15px;
     border-bottom: 1px solid #dedede;
     border-top: 1px solid #dedede;
 }
@@ -805,6 +807,25 @@ i {
     align-items: center;
 }
 
+.like-comment-bar-li {  
+    padding: 5px 7px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comment-outer {
+    display: flex;
+    align-items: center;
+}
+
+.comment-outer .comment-text {
+    margin-right: 10px;
+}
+
+.like-comment-bar-li:hover {
+    background: #efefef;
+}
+
 .like-comment-bar-li .icon {
     margin-right: 10px;
 }
@@ -815,6 +836,29 @@ i {
 
 .all-comments-box {
     padding: 10px;
+    display: none;
+}
+
+
+.add-comment-outer-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-comment-input-bar-textarea-main {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.add-comment-input {
+    width: 100%;
+    /* margin-right: 10px; */
+    border: 1px solid #dedede;
+    padding: 7px 15px;
+    background: #efefef;
+    outline: none;
+    border-radius: 50px;
 }
 
 .view-more-comments {
@@ -824,6 +868,7 @@ i {
 
 .add-comment-input-bar-inner {
     display: flex;
+    align-items: center;
 }
 
 .add-comment-input-bar-user-image {
@@ -853,12 +898,13 @@ i {
 }
 
 .add-button button {
-    padding: 5px 10px;
+    padding: 6px 10px;
     background: #000;
     color: #fff;
     border-radius: 3px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     cursor: pointer;
+    border-radius: 50px;
 }
 
 .add-comment-input-bar-image-inner img {
@@ -1310,6 +1356,7 @@ i {
     padding: 10px;
     border-radius: 6px;
     font-size: 12px;
+    word-break: break-word;
 }
 
 /* Gallary */

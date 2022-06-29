@@ -3,7 +3,7 @@
         <div class="content-card-inner">
             <div class="single-podt-box">
                 <div class="single-podt-box-inner">
-                    <div class="singal-post-top-bar">
+                    <div class="singal-post-top-bar custom-padding">
                         <div class="singal-post-top-bar-user-info">
                             <div class="single-post-top-bar-photo">
                                 <div class="single-post-top-bar-photo-inner">
@@ -206,13 +206,14 @@
                         @endif
 
                     </div>
-                    <div class="like-comment-bar">
+                    <div class="like-comment-bar custom-padding">
                         <div class="like-comment-bar-inner">
                             <ul class="like-comment-bar-ul">
                                 <li class="like-comment-bar-li">
                                     <div class="icon like-btn-{{$post->id}} {{myLikeOnPost($post)?'text-primary':''}}"
-                                         onclick="$('#like-submit-{{$post->id}}').submit()"><span
-                                                class="ti-thumb-up"></span></div>
+                                         onclick="$('#like-submit-{{$post->id}}').submit()">
+                                         <i class="fa fa-thumbs-up"></i>
+                                            </div>
                                     <form class="like-submit" id="like-submit-{{$post->id}}">
                                         @csrf
                                         <input type="hidden" value="{{$post->id}}" name="post">
@@ -220,15 +221,16 @@
                                     <div class="text" id="likes-count-{{$post->id}}">{{$post->likes->count()}}</div>
                                 </li>
                                 <li class="like-comment-bar-li">
-                                    <div class="text {{$post->comments->count()>0?'':'d-none'}}">
+                                    <div class="text comment-outer {{$post->comments->count()>0?'':'d-none'}}  open-target" data-target=".single-post-comments-{{$post->id}}">
+                                        <span class="icon"><span class="ti-comment"></span></span>
+                                        <span class="comment-text">Comment{{$post->comments->count()>1?'s':''}}</span>
                                         <span id="comment-count-{{$post->id}}">{{$post->comments->count()}}</span>
-                                            Comment{{$post->comments->count()>1?'s':''}}
                                     </div>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="add-comment-input-bar">
+                    <div class="add-comment-input-bar custom-padding">
                         <div class="add-comment-input-bar-inner">
                             <div class="add-comment-input-bar-user-image">
                                 <div class="add-comment-input-bar-image-inner">
@@ -238,14 +240,18 @@
                             </div>
                             <div class="add-comment-input-bar-textarea">
                                 <div class="add-comment-input-bar-textarea-inner">
-                                    <form class="comment_form">
+                                    <form class="comment_form m-0">
                                         @csrf
                                         <input type="hidden" value="{{$post->id}}" name="post_id">
-                                        <div class="add-comment-input-bar-textarea-main"><label for="comment"></label>
-                                            <textarea name="comment" id="comment"></textarea>
-                                        </div>
-                                        <div class="add-button">
-                                            <button type="submit" data-post-id="{{$post->id}}">Add</button>
+                                        <div class="add-comment-outer-div">
+                                            <div class="add-comment-input-bar-textarea-main">
+                                                <input type="text" name="comment" id="comment" class="add-comment-input" placeholder="Write something">
+                                                <!-- <button type="submit" data-post-id="{{$post->id}}">Add</button> -->
+                                                    <!-- <textarea name="comment" id="comment"></textarea> -->
+                                            </div>
+                                            <div class="add-button">
+                                                <button type="submit" data-post-id="{{$post->id}}">Add</button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -253,7 +259,7 @@
 
                         </div>
                     </div>
-                    <div class="all-comments-box">
+                    <div class="all-comments-box single-post-comments-{{$post->id}}">
                         <div class="all-comments-box-inner">
                             <div class="all-comments-box-grid" id="comment-box-{{$post->id}}">
                                 @foreach($post->comments->take(5) as $comment)
@@ -264,7 +270,7 @@
                                                     <img src="{{$comment->user->profile_image()}}" alt="" class="{{$comment->user->id==auth()->user()->id?'profile_photo_preview':''}}">
                                                 </div>
                                             </div>
-                                            <div class="singal-comment-row-comment-text">
+                                            <div class="singal-comment-row-comment-text custom-padding">
                                                 {{$comment->text}}
                                             </div>
                                         </div>
@@ -420,4 +426,12 @@
     @endif
     @include('ambassador.profile.components.comments_js')
     @include('ambassador.profile.components.likes_js')
+    <script>
+         // Open Target
+        $(document).on("click",".open-target",function() {
+            var targeted_div = $(this).attr("data-target");
+            console.log(targeted_div)
+            $(targeted_div).toggle();
+        });
+</script>
 @endpush
