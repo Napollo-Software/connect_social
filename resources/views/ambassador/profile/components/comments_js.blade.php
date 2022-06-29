@@ -1,6 +1,6 @@
 <script>
     $(function () {
-        $('.comment_form').submit(function (e) {
+        $(document).on('submit','.comment_form',function (e) {
             e.preventDefault();
             var comment_input = $(this).find('textarea[id=comment]');
             var button = $(this).find('button[type=submit]');
@@ -25,8 +25,6 @@
                     if (response.data.total_comments<=5){
                         $('#comment-box-'+post).append(response.data.comment_html);
                     }
-
-
                 },
                 error:function (xhr) {
                     button.attr('disabled',null).html(previous);

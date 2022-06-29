@@ -11,7 +11,6 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-
     public function index($type=null)
     {
         if (Auth::user()->roles->slug == 'ambassador') {
@@ -43,6 +42,5 @@ class HomeController extends Controller
         }
         return view('admin.dashboard');
     }
-
 
 }

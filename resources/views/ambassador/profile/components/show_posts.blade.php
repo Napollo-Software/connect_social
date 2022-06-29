@@ -1,8 +1,8 @@
-<div class="load-posts"></div>
-<center>
+<div class="content-cards load-posts">
+</div>
+<div class="text-center col-md-12">
     <button id="scroll-to" class="black-button">Show more posts</button>
-</center>
-<input type="hidden" value="0" id="increment">
+</div>
 @push('subscripts')
     @if($user->id==auth()->user()->id)
         <script>
@@ -21,7 +21,7 @@
                             $('.load-posts').append(data);
                             $('#increment').val(n+1);
                         } else{
-                            $('#scroll-to').attr('disabled','disabled').text('No more posts').removeClass('black-button').addClass('');
+                            $('#scroll-to').attr('disabled','disabled').text('No more posts').removeClass('black-button').addClass('white-button');
                         }
                     },
                     error: function (xhr) {
