@@ -48,12 +48,19 @@
                     var w = $(window);
                     if(offset.top-w.scrollTop() == 0) {
                         $(".to-show-sticky").show();
-                        $('.profile-navigation-nav').removeClass('aligned')
+                        $('.profile-navigation-ul-outer').removeClass("full-show")
+                        $('.profile-navigation-nav').addClass('aligned');
                     } else {
                         $(".to-show-sticky").hide();
-                        $('.profile-navigation-nav').addClass('aligned')
+                        $('.profile-navigation-nav').removeClass('aligned');
+                        $('.profile-navigation-ul-outer').addClass("full-show");
                     }
                 }, 100);
+
+    $(".top-open-menu").click(function() {
+        var data_menu_class = $(this).attr("data-target");
+        $(data_menu_class).toggle();
+    });
 </script>
 </body>
 </html>

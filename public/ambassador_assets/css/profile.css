@@ -294,7 +294,7 @@ i {
     /* position: static; */
     top: 0;
     background: #fff;
-    z-index: 999999999999999999;
+    z-index: 10;
 }
 
 .to-show-sticky {
@@ -324,6 +324,7 @@ i {
 .inner-navigation-sub-menu-li img {
     width: 30px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .inner-navigation-sub-menu-li .nav-icon {
@@ -354,7 +355,7 @@ i {
 
 .profile-navigation-nav.aligned {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .inner-navigation-sub-menu-li.hover .nav-icon {
@@ -1932,6 +1933,7 @@ li.recent-search-li {
 
     .inner-navigation-logo {
         order: 2;
+        flex-grow: 1;
     }
 
     .profile-navigation-ul-outer {
@@ -1941,9 +1943,9 @@ li.recent-search-li {
 
     .profile-navigation-ul-box {
         position: absolute;
-        display: block;
+        /* display: block; */
         /* background: #fff; */
-        top: 30px;
+        top: 35px;
         /* box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 17%); */
         left: 5px;
     }
@@ -2091,8 +2093,8 @@ li.recent-search-li {
     }
 
     .profile-navigation-li {
-        padding: 0 5px;
-        font-size: 12px;
+        padding: 7px;
+        font-size: 15px;
     }
 
     .profile-wallete-coin-image img {
@@ -2100,7 +2102,7 @@ li.recent-search-li {
     }
 
     .profile-user-options-icon img {
-        height: 20px;
+        height: 30px;
     }
 
     .profile-user-options-li.user-pic img {
@@ -2131,4 +2133,26 @@ li.recent-search-li {
     .profile-box-user-info {
         margin-top: -200px;
     }
+}
+
+.profile-navigation-ul-outer.full-show .mobile-menu-icon {
+    display: none;
+}
+
+.profile-navigation-ul-outer.full-show .profile-navigation-ul-box {
+    display: block;
+}
+
+.profile-navigation-ul-outer.full-show .profile-navigation-ul-box {
+    display: block;
+    position: unset;
+}
+
+.profile-navigation-ul-outer.full-show .profile-navigation-ul {
+    flex-direction : row;
+    box-shadow : unset;
+}
+
+.profile-navigation-ul-outer.full-show .profile-navigation-li {
+    min-width: unset;
 }
