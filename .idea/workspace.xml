@@ -75,13 +75,13 @@
           <entry key="env" value="95" />
           <entry key="html" value="321" />
           <entry key="js" value="1190" />
-          <entry key="php" value="59903" />
+          <entry key="php" value="59986" />
           <entry key="sql" value="72" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="31900" />
+          <entry key="Blade" value="31983" />
           <entry key="CSS" value="82" />
           <entry key="HTML" value="392" />
           <entry key="JavaScript" value="1190" />
@@ -94,14 +94,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/components/show_posts.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="175" column="9" lean-forward="true" selection-start-line="168" selection-start-column="4" selection-end-line="175" selection-end-column="9" />
-              <folding>
-                <element signature="e#226#1291#0#HTML" />
-              </folding>
+            <state relative-caret-position="340">
+              <caret line="23" column="119" selection-start-line="23" selection-start-column="119" selection-end-line="23" selection-end-column="119" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/components/show_posts.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" selection-start-line="22" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/components/partial/posts_html.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -128,24 +143,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/components/partial/posts_html.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/components/show_posts.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="178" column="13" selection-start-line="178" selection-start-column="13" selection-end-line="178" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1156">
@@ -166,7 +163,6 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>beforesend</find>
-      <find>spinner</find>
       <find>home/social</find>
       <find>search</find>
       <find>friends/</find>
@@ -195,6 +191,7 @@
       <find>@elseif</find>
       <find>comment_form</find>
       <find>$user</find>
+      <find>spinner</find>
     </findStrings>
     <replaceStrings>
       <replace>admin_assets/</replace>
@@ -269,11 +266,11 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
         <option value="$USER_HOME$/Desktop/testin.html" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/components/comments_js.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/ambassador/profile/components/show_posts.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/index.blade.php" />
         <option value="$PROJECT_DIR$/routes/partials/ambassador.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/PostController.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/home/components/show_posts.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/profile/components/show_posts.blade.php" />
       </list>
     </option>
   </component>
@@ -639,12 +636,12 @@
       <workItem from="1655896160295" duration="101319000" />
       <workItem from="1656414445323" duration="15190000" />
       <workItem from="1656436225907" duration="9704000" />
-      <workItem from="1656501041836" duration="23756000" />
+      <workItem from="1656501041836" duration="24526000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="305021000" />
+    <option name="totallyTimeSpent" value="305791000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -998,13 +995,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/components/partial/posts_html.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/partials/ambassador.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -1022,20 +1012,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/components/show_posts.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/components/partial/posts_html.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="175" column="9" lean-forward="true" selection-start-line="168" selection-start-column="4" selection-end-line="175" selection-end-column="9" />
-          <folding>
-            <element signature="e#226#1291#0#HTML" />
-          </folding>
+        <state relative-caret-position="211">
+          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/components/show_posts.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="178" column="13" selection-start-line="178" selection-start-column="13" selection-end-line="178" selection-end-column="13" />
+        <state relative-caret-position="374">
+          <caret line="22" selection-start-line="22" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/components/show_posts.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="23" column="119" selection-start-line="23" selection-start-column="119" selection-end-line="23" selection-end-column="119" />
         </state>
       </provider>
     </entry>

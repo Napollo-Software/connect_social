@@ -15,6 +15,7 @@
     <!-- Icons -->
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/icons/themify-icons.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/all.css')}}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="page-wrapper">

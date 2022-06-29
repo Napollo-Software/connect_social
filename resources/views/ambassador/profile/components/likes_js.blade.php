@@ -11,7 +11,6 @@
                 contentType: false,
                 cache: false,
                 success: function (data) {
-
                     var like = $('#likes-count-' + data.data.post_id);
                     var likescount = parseInt(like.text());
                     if (data.success == 'liked') {
