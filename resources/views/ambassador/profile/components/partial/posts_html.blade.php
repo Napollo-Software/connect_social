@@ -278,14 +278,14 @@
                                 @endforeach
                             </div>
                         </div>
-                    </div>
-                    @if(count($post->comments)>5)
+                        @if(count($post->comments)>5)
                         <div class="view-more-comments">
                             <div class="view-more-comments-inner">
                                 <a href="javascript:void(0)" class="show-more-comments" data-post="{{$post->id}}">View more comments</a>
                             </div>
                         </div>
                     @endif
+                    </div>
                 </div>
             </div>
         </div>
