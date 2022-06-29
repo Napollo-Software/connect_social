@@ -1,7 +1,6 @@
 <div class="load-posts"></div>
 <center>
-    <button id="scroll-to">Show more posts</button>
-
+    <button id="scroll-to" class="black-button">Show more posts</button>
 </center>
 <input type="hidden" value="0" id="increment">
 @push('subscripts')
@@ -17,13 +16,12 @@
                         $('.load-posts').append('<div class="col-md-12 text-center spinner-gif"><img src="{{url('img/loading.gif')}}"></div>');
                     },
                     success: function (data) {
+                        $('.spinner-gif').remove();
                         if (data){
-                            $('.spinner-gif').remove();
                             $('.load-posts').append(data);
                             $('#increment').val(n+1);
-
                         } else{
-                            //remove function to load more
+                            $('#scroll-to').attr('disabled','disabled').text('No more posts').removeClass('black-button').addClass('');
                         }
                     },
                     error: function (xhr) {
@@ -34,6 +32,10 @@
             $(document).ready(function () {
                 var page=0;
                 fetch_post(page);
+                $(document).on('click','#scroll-to',function () {
+                    page++;
+                    fetch_post(page);
+                });
                 $(document).on('click', '.edit-post-close-btn', function () {
                     var id = $(this).attr('data-post');
                     $('#file_type' + id).val('');
@@ -160,20 +162,6 @@
                 });
             });
 
-            $('.page-wrapper').scroll(function() {
-
-                var currY = $(this).scrollTop();
-                var postHeight = $(this).height();
-                var scrollHeight = $('.page-wrapper').height();
-
-
-
-                // Current percentual position
-                var scrollPercent = (currY / (scrollHeight - postHeight)) * 100;
-
-                console.log(scrollPercent);
-
-            });
         </script>
     @endif
     @include('ambassador.profile.components.comments_js')
