@@ -14,7 +14,7 @@
             $(popover_class).show();
             setTimeout(function() {
                 $(popover_class).hide();
-            },200);
+            },500);
         })
     })
 </script>
