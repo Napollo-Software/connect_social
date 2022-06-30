@@ -8,7 +8,7 @@
                     </div>
                 </div>
                 <div class="profile-navigation-ul-outer">
-                    <div class="profile-navigation-ul-box">
+                    <div class="profile-navigation-ul-box to-show-menu-01">
                         <ul class="profile-navigation-ul">
                             <li class="profile-navigation-li {{Route::currentRouteName()=='home'?'active':''}}"><a href="{{route('home')}}" class="profile-navigation-link">Home</a></li>
                             <li class="profile-navigation-li {{Route::currentRouteName()=='ambassador.profile'?'active':''}}"><a href="{{route('ambassador.profile')}}" class="profile-navigation-link">Social Information</a></li>
@@ -16,7 +16,7 @@
                             <li class="profile-navigation-li {{in_array(Route::currentRouteName(),['friends.show','connections.show'])?'active':''}}" ><a href="{{route('network',['type'=>'friend'])}}" class="profile-navigation-link">Friends({{getFriendsList($user->id)->count()}})</a></li>
                         </ul>
                     </div>
-                    <div class="mobile-menu-icon">
+                    <div class="mobile-menu-icon top-open-menu" data-target=".to-show-menu-01">
                         <div class="mobile-menu-icon-inner">
                             <span class="ti-menu"></span>
                         </div>
