@@ -39,6 +39,7 @@
     </div>
 </div>
 @include('ambassador.layouts.modals')
+@include('ambassador.layouts.single-post')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script src="{{url('ambassador_assets/js/bootstrap.min.js')}}"></script>

@@ -40,6 +40,7 @@
     </div>
 </div>
 @include('ambassador.layouts.modals')
+@include('ambassador.layouts.single-post')
 <script src="{{url('ambassador_assets/js/jquery.js')}}"></script>
 <script src="{{url('ambassador_assets/js/bootstrap.min.js')}}"></script>
 <script src="{{url('ambassador_assets/js/profile.js')}}"></script>

@@ -9,34 +9,24 @@
                 </button>
             </div>
             <div class="modal-body">
-<<<<<<< Updated upstream
-                <input type="hidden" class="form-control" name="file_type" id="file_type">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="referel-link-outer">
-                            <input type="text" class="referel-link-input show-popover" data-popover=".popover-01" value="https://anylink.com?v=1" readonly>
-                            <div class="copy-popover popover-01">
-                                <div class="copy-popover-text">
-                                    Link Coppied!
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <div>Add Email (Press enter ro add more)</div>
-                            <input type="text" class="form-control pt-1 pb-3" name="emails" id="email-tags" placeholder="Add Emails">
-=======
-                <h6>{{auth()->user()->invite()}}</h6>
                 <form id="send-invite-form">
                     @csrf
                     <div class="row">
+                        <div class="col-md-12">
+                            <div class="referel-link-outer">
+                                <input type="text" class="referel-link-input show-popover" data-popover=".popover-01" value="{{auth()->user()->invite()}}" readonly>
+                                <div class="copy-popover popover-01">
+                                    <div class="copy-popover-text">
+                                        Link Coppied!
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <div>Add Email (Press enter to add more)</div>
                                 <input type="text" class="form-control pt-1 pb-3" name="emails" id="email-tags" placeholder="Add Emails">
                             </div>
->>>>>>> Stashed changes
                         </div>
                     </div>
                 </form>
