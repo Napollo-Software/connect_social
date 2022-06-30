@@ -14,8 +14,6 @@ class HomeController extends Controller
     }
     public function index($type=null)
     {
-
-
         if (Auth::user()->roles->slug == 'ambassador') {
             if ($type){
                 if ($type=='friends'){

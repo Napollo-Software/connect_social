@@ -60,4 +60,12 @@ class User extends Authenticatable
         }
         return false;
     }
+    public function invite(){
+        $explode=explode('@',$this->email);
+        $username=$explode[0];
+        return url('referral-link/join-as/'.$username.'/'.$this->id);
+    }
+    public function tier_1(){
+        return $this->hasMany(Referral::class,'referred_by');
+    }
 }
