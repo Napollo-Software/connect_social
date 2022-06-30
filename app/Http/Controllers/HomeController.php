@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Department;
 use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,6 +14,8 @@ class HomeController extends Controller
     }
     public function index($type=null)
     {
+
+
         if (Auth::user()->roles->slug == 'ambassador') {
             if ($type){
                 if ($type=='friends'){

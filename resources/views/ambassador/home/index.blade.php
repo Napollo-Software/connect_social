@@ -88,6 +88,8 @@
         </ul>
     </div>
     @push('scripts')
+        <script src="{{url('index.js')}}"></script>
+
         <script>
             setInterval(function(){
                 offset = $(".profile-navigation").offset();
