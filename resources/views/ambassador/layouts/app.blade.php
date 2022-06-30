@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/tags/tags.css')}}">
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/tags/tagsify.css')}}">
 </head>
-<body class="show-post">
+<body>
 <div class="page-wrapper">
     <div class="page-wrapper-inner">
         <!-- <div class="container"> -->
