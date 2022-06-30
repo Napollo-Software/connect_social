@@ -1891,10 +1891,16 @@ input.referel-link-input {
     margin-bottom: 15px;
     border: 0;
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
     cursor: pointer;
     outline: none;
+    font-weight: 500;
 }
+input.referel-link-input::selection {
+    color: black;
+    background: white;
+}
+
 
 .referel-link-outer {
     position: relative;
