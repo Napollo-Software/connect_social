@@ -1886,10 +1886,44 @@ li.recent-search-li {
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 17%);
 }
 
+
+input.referel-link-input {
+    margin-bottom: 15px;
+    border: 0;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+}
+
+.referel-link-outer {
+    position: relative;
+}
+
+.copy-popover {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.copy-popover-text {
+    padding: 5px 8px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    font-size: 12px;
+}
+
 /* Aniation */
 
 .like-animation {
     animation: LikeAnimation 1s ease-in-out;
+}
+
+.popover-animation {
+    animation: PopoverAnimation 1.4s ease-in-out;
 }
 
 
@@ -1898,6 +1932,17 @@ li.recent-search-li {
     50% {transform: scale(1.7);}
     100%{transform: scale(1);}
 }
+
+@keyframes PopoverAnimation{
+    0%{opacity: 0 ; display: none;}
+    25%{opacity: .4 ; display: block;}
+    30%{opacity: 1 ;}
+    50% {transform: scale(.8);}
+    50% {transform: scale(1.2);}
+    750%{opacity: .4;}
+    100%{display:none}
+}
+
 
 
 

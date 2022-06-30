@@ -7,5 +7,14 @@
     // init Tagify
     $(document).ready(function() {
         $('#email-tags').tagsinput({});
+
+        // Show PopOver
+        $(document).on('click','.show-popover',function() {
+            var popover_class = $(this).attr('data-popover');
+            $(popover_class).show();
+            setTimeout(function() {
+                $(popover_class).hide();
+            },200);
+        })
     })
 </script>
