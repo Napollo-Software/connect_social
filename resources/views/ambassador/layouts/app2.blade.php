@@ -16,11 +16,14 @@
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/icons/themify-icons.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/all.css')}}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{url('ambassador_assets/lib/tags/tags.css')}}">
+    <link rel="stylesheet" href="{{url('ambassador_assets/lib/tags/tagsify.css')}}">
 </head>
 <body>
 <div class="page-wrapper">
     <div class="page-wrapper-inner">
         <!-- <div class="container"> -->
+        @include('ambassador.home.layouts.alert')
         @include('ambassador.layouts.top-nav')
         <!-- Site Navigation -->
         @include('ambassador.layouts.navigation')
@@ -36,10 +39,14 @@
         <!-- </div> -->
     </div>
 </div>
+@include('ambassador.layouts.modals')
 <script src="{{url('ambassador_assets/js/jquery.js')}}"></script>
 <script src="{{url('ambassador_assets/js/bootstrap.min.js')}}"></script>
 <script src="{{url('ambassador_assets/js/profile.js')}}"></script>
 @stack('scripts')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="{{url('ambassador_assets/lib/tags/tags.js')}}"></script>
+<script src="{{url('ambassador_assets/lib/tags/tags-prety.js')}}"></script>
+@include('ambassador.scripts.universal')
 </body>
 </html>

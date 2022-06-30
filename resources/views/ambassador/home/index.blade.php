@@ -1,6 +1,5 @@
 @extends('ambassador.layouts.app2')
 @section('content')
-    @include('ambassador.home.layouts.alert')
     @include('ambassador.home.layouts.navigation')
     <div class="profile-content">
         <div class="container">
@@ -59,30 +58,30 @@
         <ul class="set-privacy-dropdown-ul">
             <li class="set-privacy-dropdown-li" data-value="{{Privacy::PRIV_FRIENDS}}">
                 <div class="set-privacy-dropdown-icon">
-                    <img src="{{url('ambassador_ambassador_assets/images/icons/users.svg')}}" alt=""> <span
+                    <img src="{{asset('ambassador_assets/images/icons/users.svg')}}" alt=""> <span
                             class="text">Friends</span>
                 </div>
             </li>
             <li class="set-privacy-dropdown-li" data-value="{{Privacy::PRIV_PUBLIC}}">
                 <div class="set-privacy-dropdown-icon">
-                    <img src="{{url('ambassador_ambassador_assets/images/icons/globe.svg')}}" alt=""> <span
+                    <img src="{{asset('ambassador_assets/images/icons/globe.svg')}}" alt=""> <span
                             class="text">Public</span>
                 </div>
             </li>
             <li class="set-privacy-dropdown-li" data-value="{{Privacy::PRIV_CONNECTIONS}}">
                 <div class="set-privacy-dropdown-icon">
-                    <img src="{{url('ambassador_ambassador_assets/images/icons/connection.svg')}}" alt=""> <span class="text">Connections</span>
+                    <img src="{{asset('ambassador_assets/images/icons/connection.svg')}}" alt=""> <span class="text">Connections</span>
                 </div>
             </li>
             <li class="set-privacy-dropdown-li" data-value="{{Privacy::PRIV_TIER_1}}">
                 <div class="set-privacy-dropdown-icon">
-                    <img src="{{url('ambassador_ambassador_assets/images/icons/personal-network.svg')}}" alt=""> <span
+                    <img src="{{asset('ambassador_assets/images/icons/personal-network.svg')}}" alt=""> <span
                             class="text">Personal Tier 01</span>
                 </div>
             </li>
             <li class="set-privacy-dropdown-li" data-value="{{Privacy::PRIV_TIER_2}}">
                 <div class="set-privacy-dropdown-icon">
-                    <img src="{{url('ambassador_ambassador_assets/images/icons/extended-network.svg')}}" alt=""> <span
+                    <img src="{{asset('ambassador_assets/images/icons/extended-network.svg')}}" alt=""> <span
                             class="text">Extended Tier 02</span>
                 </div>
             </li>

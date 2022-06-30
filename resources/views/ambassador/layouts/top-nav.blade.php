@@ -53,7 +53,7 @@
                                                     <a href="{{route('ambassador.profile')}}">My Profile</a>
                                                 </li>
                                                 <li class="user-dropdown-li">
-                                                    <a href="javascript:void(0)">Send Invite</a>
+                                                    <a href="javascript:void(0)" class="open-modal" data-modal="#Send-InvitationModal">Send Invite</a>
                                                 </li>
                                                 <li class="user-dropdown-li">
                                                     <a href="javascript:void(0)">Settings</a>

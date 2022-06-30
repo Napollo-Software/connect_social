@@ -38,6 +38,27 @@ i {
 
 .custom-padding {padding: 15px !important;}
 
+.hover-button {
+    color: #000;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    background: #fff;
+    border: 0;
+}
+
+.hover-button:hover {
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    color: #000;
+}
+
+.search-input-home-navigation {
+    margin-left: 10px;
+}
 /* Page Style */
 /* Top-Bar */
 
