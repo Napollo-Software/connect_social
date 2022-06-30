@@ -6,18 +6,22 @@
 </div>
 @push('subscripts')
     <script>
-        function fetch_post(n){
+        function fetch_post(n,t){
+            if (n == 0){
+                $('.load-posts').empty();
+            }
             $.ajax({
                 type: "POST",
                 url: "{{route('post.fetch.all')}}",
                 dataType: "JSON",
-                data: {'n':n,'user':'{{$user->id}}',_token: '{{csrf_token()}}'},
+                data: {'n':n,'type':t,'user':'{{$user->id}}',_token: '{{csrf_token()}}'},
                 beforeSend: function () {
                     $('#scroll-to').attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm"></span> Processing ...');
                 },
                 success: function (data) {
                     if (data){
                         $('#scroll-to').attr('disabled',null).text('Show more posts');
+
                         $('.load-posts').append(data);
                     } else{
                         $('#scroll-to').text('No more posts').removeClass('black-button').addClass('white-button');
@@ -30,11 +34,19 @@
         }
         $(function () {
             var page=0;
-            fetch_post(page);
+            var type='all';
+            fetch_post(page,type);
             $(document).on('click','#scroll-to',function () {
                 page++;
-                fetch_post(page);
+                fetch_post(page,type);
             });
+            $(document).on('click','.home-posts',function (e) {
+                e.preventDefault();
+                type=$(this).attr('data-type');
+                page=0;
+                fetch_post(page,type);
+            });
+
         });
 
     </script>

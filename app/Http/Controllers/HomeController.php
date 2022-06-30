@@ -16,24 +16,7 @@ class HomeController extends Controller
     {
         if (Auth::user()->roles->slug == 'ambassador') {
             if ($type){
-                if ($type=='friends'){
-                    $friends=getFriendsList(auth()->user()->id);
-                    $us=[];
-                    foreach ($friends as $friend){
-                        $us[]=getFriendDetails($friend);
-                    }
-                    $friends=getArrayFromKeyofEloquent($us,'id');
-                    $posts = Post::whereIn('user_id',$friends)->orderBy('created_at', 'DESC')->get();
-                }
-                if ($type=='connections'){
-                    $friends=getConnectionsList(auth()->user()->id);
-                    $us=[];
-                    foreach ($friends as $friend){
-                        $us[]=getConnectionDetails($friend);
-                    }
-                    $friends=getArrayFromKeyofEloquent($us,'id');
-                    $posts = Post::whereIn('user_id',$friends)->orderBy('created_at', 'DESC')->get();
-                }
+
 
             }else{
                 $posts = Post::orderBy('created_at', 'DESC')->get();

@@ -19,7 +19,36 @@ class PostController extends Controller
         return response()->json($viewRender);
     }
     public function fetch_all(Request $request){
-        $posts = Post::orderBy('created_at', 'DESC')->skip($request->n*2)->take(2)->get();
+        $type=$request->type;
+        if ($type=='all'){
+            $posts = Post::orderBy('created_at', 'DESC')->skip($request->n*2)->take(2)->get();
+        }
+        if ($type=='friends'){
+            $friends=getFriendsList(auth()->user()->id);
+            $us=[];
+            foreach ($friends as $friend){
+                $us[]=getFriendDetails($friend);
+            }
+            $friends=getArrayFromKeyofEloquent($us,'id');
+            $posts = Post::whereIn('user_id',$friends)->orderBy('created_at', 'DESC')->get();
+        }
+        if ($type=='connections'){
+            $friends=getConnectionsList(auth()->user()->id);
+            $us=[];
+            foreach ($friends as $friend){
+                $us[]=getConnectionDetails($friend);
+            }
+            $friends=getArrayFromKeyofEloquent($us,'id');
+            $posts = Post::whereIn('user_id',$friends)->orderBy('created_at', 'DESC')->get();
+        }
+        if ($type=='tier-1'){
+            $us=[];
+            foreach (auth()->user()->tier_1 as $tier){
+                $us[]=$tier->referred_to_details->id;
+            }
+            $posts = Post::whereIn('user_id',$us)->orderBy('created_at', 'DESC')->get();
+        }
+
         $user=User::find($request->user);
         $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
         return response()->json($viewRender);

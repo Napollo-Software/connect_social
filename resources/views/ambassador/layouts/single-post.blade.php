@@ -2,7 +2,7 @@
     <div class="single-post-pop-up-outer">
         <div class="single-post-pop-up-inner">
             <div class="single-post-pop-up-content">
-Hey
+                Hey
             </div>
             <div class="single-post-pop-up-comment">
 

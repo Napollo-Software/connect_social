@@ -28,7 +28,6 @@ class NetworkController extends Controller
         if ($type=='tier-1'){
             $data=auth()->user()->tier_1;
         }
-
         foreach ($data as $friend){
             if ($type=='friend'){
                 $detail=getFriendDetails($friend);
