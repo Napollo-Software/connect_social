@@ -25,6 +25,9 @@ class NetworkController extends Controller
         if ($type=='connection'){
             $data=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
         }
+        if ($type=='tier-1'){
+            $data=auth()->user()->tier_1;
+        }
 
         foreach ($data as $friend){
             if ($type=='friend'){
@@ -33,8 +36,12 @@ class NetworkController extends Controller
             if ($type=='connection'){
                 $detail=getConnectionDetails($friend);
             }
+            if ($type=='tier-1'){
+                $detail=$friend->referred_to_details;
+            }
 
-            $html.='                        <div class="friend-grid-col">
+
+            $html.='<div class="friend-grid-col">
                             <div class="friend-grid-col-inner-div">
                                 <div class="friend-grid-col-profile">
                                     <div class="friend-grid-col-profile-inner">

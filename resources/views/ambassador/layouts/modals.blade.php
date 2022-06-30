@@ -9,6 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
+<<<<<<< Updated upstream
                 <input type="hidden" class="form-control" name="file_type" id="file_type">
                 <div class="row">
                     <div class="col-md-12">
@@ -25,9 +26,20 @@
                         <div class="form-group">
                             <div>Add Email (Press enter ro add more)</div>
                             <input type="text" class="form-control pt-1 pb-3" name="emails" id="email-tags" placeholder="Add Emails">
+=======
+                <h6>{{auth()->user()->invite()}}</h6>
+                <form id="send-invite-form">
+                    @csrf
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <div>Add Email (Press enter to add more)</div>
+                                <input type="text" class="form-control pt-1 pb-3" name="emails" id="email-tags" placeholder="Add Emails">
+                            </div>
+>>>>>>> Stashed changes
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary add-post-close-btn"  data-dismiss="modal" aria-label="Close">Close</button>
@@ -36,3 +48,10 @@
         </div>
     </div>
 </div>
+<script>
+    $(function () {
+        $(document).on('submit','#send-invite-form',function () {
+           //
+        });
+    });
+</script>

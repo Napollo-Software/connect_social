@@ -5,38 +5,7 @@
         <div class="friends-grid-inner">
             <div class="container">
                 <div class="friends-grid-main">
-                    {{--@foreach($friends as $friend)
-                        <div class="friend-grid-col">
-                            <div class="friend-grid-col-inner-div">
-                                <div class="friend-grid-col-profile">
-                                    <div class="friend-grid-col-profile-inner">
-                                        <div class="friend-grid-col-profile-image">
-                                            <img src="{{getFriendDetails($friend)->profile_image()}}" alt="">
-                                        </div>
-                                        <div class="friend-grid-col-profile-text">
-                                            <div class="friend-grid-col-profile-text-top">
-                                                {{getFriendDetails($friend)->fullName()}}
-                                            </div>
-                                            <div class="friend-grid-col-profile-text-bottom">
-                                                Friend
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="friend-grid-col-options">
-                                    <div class="friend-grid-col-options-inner">
-                                        <div class="friend-grid-col-options-icon">
-                                            <span class="ti-more-alt"></span>
-                                            <div class="friend-grid-col-options-dropdown" data-id="{{getFriendDetails($friend)->id}}">
 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                    --}}
                 </div>
             </div>
         </div>
@@ -129,8 +98,6 @@
                     window.history.pushState({}, null, '/network/'+type);
                 });
 
-
-
             });
             function fetch(type,user) {
                 $.ajax({
@@ -145,6 +112,11 @@
                         $('.friends-grid-main').html(data);
                         var repeated_html = $("#repeated-html").html();
                         $(".friend-grid-col-options-dropdown").html(repeated_html);
+                        if (type=='tier-1' || type=='tier-2'){
+                            $(".friend-grid-col-options-dropdown").find($('.remove-'+type).hide());
+                        }else{
+                            $(".friend-grid-col-options-dropdown").find($('.remove-'+type).show());
+                        }
                     },
                     error: function (xhr) {
                         console.log(xhr);
