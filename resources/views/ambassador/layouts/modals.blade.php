@@ -9,39 +9,29 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="send-invite-form">
-                    @csrf
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="referel-link-outer">
-                                <input type="text" class="referel-link-input show-popover" data-popover=".popover-01" value="{{auth()->user()->invite()}}" readonly>
-                                <div class="copy-popover popover-01">
-                                    <div class="copy-popover-text">
-                                        Link Coppied!
-                                    </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="referel-link-outer">
+                            <input type="text" class="referel-link-input show-popover" id="referral-link-text" data-popover=".popover-01" value="{{auth()->user()->invite()}}" readonly>
+                            <div class="copy-popover popover-01">
+                                <div class="copy-popover-text">
+                                    Link Coppied!
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <div>Add Email (Press enter to add more)</div>
-                                <input type="text" class="form-control pt-1 pb-3" name="emails" id="email-tags" placeholder="Add Emails">
-                            </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <div>Add Email (Press enter to add more)</div>
+                            <input type="text" class="form-control pt-1 pb-3" name="emails" id="email-tags" placeholder="Add Emails">
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary add-post-close-btn"  data-dismiss="modal" aria-label="Close">Close</button>
-                <button type="button" class="btn btn-primary add-post-upload-btn">Send</button>
+                <button type="button" class="btn btn-secondary"  data-dismiss="modal" aria-label="Close">Close</button>
+                <button type="button" class="btn btn-primary" id="send-invite-link-btn">Send</button>
             </div>
         </div>
     </div>
 </div>
-<script>
-    $(function () {
-        $(document).on('submit','#send-invite-form',function () {
-           //
-        });
-    });
-</script>

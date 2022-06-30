@@ -11,6 +11,7 @@ use App\Http\Controllers\Ambassador\ConnectionsController;
 use App\Http\Controllers\Ambassador\ChatController;
 use App\Http\Controllers\Ambassador\SearchController;
 use App\Http\Controllers\Ambassador\NetworkController;
+use App\Http\Controllers\Ambassador\SendInviteController;
 
 Route::middleware(['auth','can:ambassador-views','email-verification'])->group(function () {
     Route::prefix('post')->group(function () {
@@ -47,6 +48,8 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
     Route::prefix('search')->group(function () {
         Route::get('', [SearchController::class, 'index'])->name('search');
     });
+
+
     Route::prefix('network')->group(function () {
         Route::get('{type}/{id?}', [NetworkController::class, 'index'])->name('network');
         Route::post('', [NetworkController::class, 'fetch'])->name('network.fetch');
@@ -74,4 +77,8 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
         Route::post('fetch', [ChatController::class, 'fetch'])->name('chat.fetch');
         Route::post('mark-as-read', [ChatController::class, 'mark_as_read'])->name('chat.mark.as.read');
     });
+    Route::prefix('send-invite-email')->group(function () {
+        Route::post('for-referral', [SendInviteController::class, 'send_invite'])->name('send.invite.for.referral');
+    });
+
 });

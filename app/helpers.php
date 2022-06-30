@@ -293,3 +293,25 @@ function getArrayFromKeyofEloquent($eloquent,$key){
     }
     return $array;
 }
+function invite_email_text($name){
+    $html='<p class="bg-light border rounded p-3 message-value">
+              Hi XXXXX,
+              <br>
+              <br>
+              '.auth()->user()->fullName().' has sent you an invitation link to join Connect Social network.
+              <br>
+              <br>
+              You can use the below link to either join as Ambassador or Merchant on Connect Social network. You will be rewarded with XX Connect Coins as a welcome bonus after successful registration.
+              <br>
+              <br>
+              Referral link: <a href="'.auth()->user()->invite().'">'.auth()->user()->invite().'</a><br>
+              <br>
+              If you have any questions, feel free to contact us at abcxyz@gmail.com.
+              <br>
+              <br>
+              Best Regards,<br>
+              Connect Social Team
+    </p>';
+    $message=str_replace('XXXXX',$name,$html);
+    return $message;
+}

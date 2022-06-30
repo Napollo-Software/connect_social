@@ -28,7 +28,6 @@
                     erroralert(xhr);
                 }
             });
-
         });
     });
 </script>
