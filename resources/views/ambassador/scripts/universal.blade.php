@@ -9,6 +9,23 @@
     });
     $(function () {
         $('#email-tags').tagsinput({});
+
+        // Show Post
+        $(document).on('click','.show-post-pop-up',function() {
+            $('body').addClass('show-post');
+            $('.single-post-pop-up').show(500);
+        })
+        // Close PopUp
+        $(document).on('click','.close-post-popup',function() {
+            $('body').removeClass('show-post');
+            $('.single-post-pop-up').hide(500);
+        })
+
+        // Show DropDown
+        $(document).on('click','.open-dropdown',function() {
+            var dropdown_class = $(this).attr('data-target')
+            $(dropdown_class).toggle();
+        })
         // Show PopOver
         $(document).on('click','.show-popover',function() {
             var popover_class = $(this).attr('data-popover');

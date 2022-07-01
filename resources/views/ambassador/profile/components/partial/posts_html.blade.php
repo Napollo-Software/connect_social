@@ -188,7 +188,7 @@
 
                         </form>
                     </div>
-                    <div class="singal-post-content single-post-{{$post->id}}">
+                    <div class="singal-post-content single-post-{{$post->id}} show-post-pop-up">
                         <p>{{$post->details}}</p>
                         @if($post->assets()->exists())
                             @if($post->assets->type=='link')
