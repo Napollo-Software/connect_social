@@ -25,11 +25,11 @@ $(document).ready(function(){
 
     // Open Post Editor
 
-    $('.open-post-editor').click(function() {
+    $(document).on('click','.open-post-editor',function() {
         var target = $(this).attr("data-target");
         var hide_close = $(this).attr("data-close");
-        $(hide_close).hide();
-        $(target).show();
+        $(hide_close).toggle();
+        $(target).toggle();
     });
 
     // $("#exampleModal").modal('show',true);

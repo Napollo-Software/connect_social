@@ -461,19 +461,10 @@
                                                                     <div class="friend-grid-col">
                                                                         <div class="friend-grid-col-inner">
                                                                             <div class="firend-grid-col-image">
-                                                                                <img src="@php
-                                                                                    try{ $friend->profile_image(); }
-                                                                                    catch (Exception $exception){ dd($friend); } @endphp"
-                                                                                     alt="">
+                                                                                <img src="{{$friend->profile_image()}}" alt="">
                                                                             </div>
                                                                             <div class="friend-grid-col-text">
-                                                                                @php
-                                                                                  try{
-                                                                                  $friend->fullName();
-                                                                                  }catch (Exception $exception){
-                                                                                  dd($friend);
-                                                                                  }
-                                                                                        @endphp
+                                                                                <a href="{{url('profile-view/'.$friend->id)}}" class="text-decoration-none text-muted">{{$friend->fullName()}}</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>

@@ -11,18 +11,7 @@
         </div>
     </div>
     <div id="repeated-html" class="d-none">
-        <div class="friend-grid-col-options-dropdown-inner">
-            <div class="friend-grid-col-options-dropdown-main">
-                <ul class="friend-grid-col-options-dropdown-ul">
-                    <li class="friend-grid-col-options-dropdown-li">
-                        <a href="javascript:void(0)" class="friend-grid-col-options-dropdown-link remove-{{$type}}">Remove {{ucfirst($type)}}</a>
-                    </li>
-                    <li class="friend-grid-col-options-dropdown-li">
-                        <a href="{{url('chat')}}" class="friend-grid-col-options-dropdown-link">Send Message</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        {{$repeated_html}}
     </div>
 
     <div class="modal fade show" id="exampleFullScreenModal" tabindex="-1" style=";" aria-modal="true" role="dialog">
@@ -44,8 +33,6 @@
 
         <script>
             $(document).ready(function() {
-
-
                 $(document).on('click',".friend-grid-col-options-icon",function() {
                     $(this).find(".friend-grid-col-options-dropdown").toggle()
                 });
@@ -85,10 +72,7 @@
                         }
                     });
                 });
-
-
                 fetch('{{$type}}','{{$user->id}}');
-
                 $(document).on('click','.network-link',function (e) {
                     e.preventDefault();
                     $('.inner-navigation-li.active').removeClass('active');
@@ -110,14 +94,8 @@
 
                     },
                     success: function (data) {
-                        $('.friends-grid-main').html(data);
-                        var repeated_html = $("#repeated-html").html();
-                        $(".friend-grid-col-options-dropdown").html(repeated_html);
-                        if (type=='tier-1' || type=='tier-2'){
-                            $(".friend-grid-col-options-dropdown").find($('.remove-'+type).hide());
-                        }else{
-                            $(".friend-grid-col-options-dropdown").find($('.remove-'+type).show());
-                        }
+                        $('.friends-grid-main').html(data.html);
+                        $(".friend-grid-col-options-dropdown").html(data.repeated_html);
                     },
                     error: function (xhr) {
                         console.log(xhr);

@@ -10,11 +10,6 @@
     $(function () {
         $('#email-tags').tagsinput({});
 
-        // Show Post
-        $(document).on('click','.show-post-pop-up',function() {
-            $('body').addClass('show-post');
-            $('.single-post-pop-up').show(500);
-        });
         // Close PopUp
         $(document).on('click','.close-post-popup',function() {
             $('body').removeClass('show-post');

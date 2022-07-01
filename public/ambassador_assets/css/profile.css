@@ -1941,7 +1941,7 @@ input.referel-link-input::selection {
     left: 0;
     background: #fff;
     width: 100%;
-    z-index: 100000;
+    z-index: 10;
     display: none;
 }
 

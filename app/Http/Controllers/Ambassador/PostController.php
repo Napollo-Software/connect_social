@@ -21,26 +21,24 @@ class PostController extends Controller
     public function fetch_all(Request $request){
         $type=$request->type;
         if ($type=='all'){
-            $posts = Post::orderBy('created_at', 'DESC')->where('user_id',auth()->user()->my_network())->skip($request->n*2)->take(2)->get();
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',auth()->user()->my_network())->skip($request->n*2)->take(2)->get();
         }
         if ($type=='friends'){
-            $friends=getArrayFromKeyofEloquent(getFriendsListUsers(auth()->user()->ud),'id');
-            $posts = Post::orderBy('created_at', 'DESC')->where('user_id',$friends)->skip($request->n*2)->take(2)->get();
+            $friends=getArrayFromKeyofEloquent(getFriendsListUsers(auth()->user()->id),'id');
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$friends)->skip($request->n*2)->take(2)->get();
         }
         if ($type=='connections'){
-            $connections=getArrayFromKeyofEloquent(getConnectionsListUsers(auth()->user()->ud),'id');
-            $posts = Post::orderBy('created_at', 'DESC')->where('user_id',$connections)->skip($request->n*2)->take(2)->get();
+            $connections=getArrayFromKeyofEloquent(getConnectionsListUsers(auth()->user()->id),'id');
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$connections)->skip($request->n*2)->take(2)->get();
         }
         if ($type=='tier-1'){
             $tier1=getArrayFromKeyofEloquent(auth()->user()->tier_1(),'id');
-            $posts = Post::orderBy('created_at', 'DESC')->where('user_id',$tier1)->skip($request->n*2)->take(2)->get();
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$tier1)->skip($request->n*2)->take(2)->get();
         }
         if ($type=='tier-2'){
             $tier1=getArrayFromKeyofEloquent(auth()->user()->tier_2(),'id');
-            $posts = Post::orderBy('created_at', 'DESC')->where('user_id',$tier1)->skip($request->n*2)->take(2)->get();
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$tier1)->skip($request->n*2)->take(2)->get();
         }
-
-
         $user=User::find($request->user);
         $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
         return response()->json($viewRender);
@@ -95,6 +93,7 @@ class PostController extends Controller
         return response()->json(['success'=>'Post added successfully']);
     }
     public function update(Request $request){
+        dd($request->all());
         $post= Post::find($request->id);
 
         if ($request->file_type){
@@ -162,5 +161,10 @@ class PostController extends Controller
         }
         $asset->delete();
         return response()->json(['success'=>'Deleted']);
+    }
+    public function popup(Request $request){
+        $post=Post::find($request->id);
+        $viewRender = view('ambassador.profile.components.partial.post_popup_html',compact('post'))->render();
+        return response()->json($viewRender);
     }
 }
