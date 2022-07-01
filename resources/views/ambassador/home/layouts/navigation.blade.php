@@ -8,18 +8,10 @@
                     </div>
                 </div>
                 <ul class="home-navigation-ul">
-<<<<<<< Updated upstream
-                    <li class="home-navigation-li home-posts" data-type="all"><a href="{{url('home')}}" class="home-navigation-link">All</a></li>
-                    <li class="home-navigation-li home-posts" data-type="friends"><a href="{{url('home/friends')}}" class="home-navigation-link">Friends</a></li>
-                    <li class="home-navigation-li home-posts" data-type="connections"><a href="{{url('home/connections')}}" class="home-navigation-link">Connections</a></li>
-                    <li class="home-navigation-li home-posts" data-type="tier-1"><a href="javascript:void(0)" class="home-navigation-link">Personal Network (<small>Tier 01</small>)</a></li>
-                    <li class="home-navigation-li home-posts" data-type="tier-2"><a href="javascript:void(0)" class="home-navigation-link">Extended Network (<small>Tier 02</small>)</a></li>
-=======
                     <li class="home-navigation-li {{Route::getCurrentRoute()->type=='friends'?'active':''}}"><a href="{{url('home/friends')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/users.svg')}}" alt=""></span> <span class="text">Friends</span></a></li>
                     <li class="home-navigation-li {{Route::getCurrentRoute()->type=='connections'?'active':''}}"><a href="{{url('home/connections')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/connection.svg')}}" alt=""></span> <span class="text">Connections</span></a></li>
                     <li class="home-navigation-li"><a href="javascript:void(0)" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/personal-network.svg')}}" alt=""></span> <span class="text">Personal Network (<small>TR 01</small>)</span></a></li>
                     <li class="home-navigation-li"><a href="javascript:void(0)" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/extended-network.svg')}}" alt=""></span> <span class="text">Extended Network (<small>TR 02</small>)</span></a></li>
->>>>>>> Stashed changes
                 </ul>
                 <div class="message-button">
                     <div class="message-button-inner">
