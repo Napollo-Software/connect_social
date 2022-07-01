@@ -1697,7 +1697,7 @@ li.recent-search-li {
 .recent-searches-box {
     position: absolute;
     top: 0;
-    left: 0;
+    left: -170px;
     /* padding: 10px; */
     background: #fff;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 17%);
