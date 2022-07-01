@@ -65,15 +65,21 @@ class User extends Authenticatable
         $username=$explode[0];
         return url('referral-link/join-as/'.$username.'/'.$this->id);
     }
-    public function tier_1(){
+    public function tier1(){
         return $this->hasMany(Referral::class,'referred_by');
+    }
+    public function tier_1(){
+        $tier_1=[];
+        foreach ($this->tier1 as $item){
+            $tier_1[]=$item->referred_to;
+        }
+        return User::whereIn('id',$tier_1)->get();
     }
     public function tier_2(){
         $tier_2=[];
-        foreach ($this->tier_1 as $tier_1){
-            $users=$tier_1->referred_to_details->tier_1;
-            foreach ($users as $user){
-                $tier_2[]=$user->referred_to;
+        foreach ($this->tier_1() as $tier_1){
+            foreach ($tier_1->tier_1() as $user){
+                $tier_2[]=$user->id;
             }
         }
         return User::whereIn('id',$tier_2)->get();

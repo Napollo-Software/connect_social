@@ -20,31 +20,19 @@ class NetworkController extends Controller
         $data=null;
         $html='';
         if ($type=='friend'){
-            $data=Friend::where('from',$id)->where('status',\Friends::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Friends::STATUS_APPROVED)->get();
+            $data=getFriendsListUsers(auth()->user()->id);
         }
         if ($type=='connection'){
-            $data=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
+            $data=getConnectionsListUsers(auth()->user()->id);
         }
         if ($type=='tier-1'){
-            $data=auth()->user()->tier_1;
+            $data=auth()->user()->tier_1();
         }
         if ($type=='tier-2'){
             $data=auth()->user()->tier_2();
         }
 
-        foreach ($data as $friend){
-            if ($type=='friend'){
-                $detail=getFriendDetails($friend);
-            }
-            if ($type=='connection'){
-                $detail=getConnectionDetails($friend);
-            }
-            if ($type=='tier-1'){
-                $detail=$friend->referred_to_details;
-            }
-            if ($type=='tier-2'){
-                $detail=$friend;
-            }
+        foreach ($data as $detail){
             $html.='<div class="friend-grid-col">
                             <div class="friend-grid-col-inner-div">
                                 <div class="friend-grid-col-profile">
@@ -73,8 +61,7 @@ class NetworkController extends Controller
                                     </div>
                                 </div>
                             </div>
-                        </div>
-';
+                        </div>';
         }
 
         return response()->json($html);

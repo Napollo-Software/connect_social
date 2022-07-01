@@ -44,10 +44,10 @@
 <script src="{{url('ambassador_assets/js/jquery.js')}}"></script>
 <script src="{{url('ambassador_assets/js/bootstrap.min.js')}}"></script>
 <script src="{{url('ambassador_assets/js/profile.js')}}"></script>
+@include('ambassador.scripts.universal')
 @stack('scripts')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="{{url('ambassador_assets/lib/tags/tags.js')}}"></script>
 <script src="{{url('ambassador_assets/lib/tags/tags-prety.js')}}"></script>
-@include('ambassador.scripts.universal')
 </body>
 </html>

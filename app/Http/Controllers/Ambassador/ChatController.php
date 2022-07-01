@@ -54,7 +54,25 @@ class ChatController extends Controller
                     }
                 }
                 $data=$conctins;
-            }else{
+            }
+            elseif ($network=='tier-1'){
+                $us=[];
+                $tier_1=auth()->user()->tier_1;
+                foreach ($tier_1 as $tier1){
+                    $us[]=$tier1->referred_to_details;
+                }
+                $data=$us;
+            }
+            elseif ($network=='tier-2'){
+                $us=[];
+                $tier_1=auth()->user()->tier_2();
+                foreach ($tier_1 as $tier1){
+                    $us[]=$tier1->referred_to_details;
+                }
+                $data=$us;
+            }
+
+            else{
                 $data=$us;
             }
         }else{

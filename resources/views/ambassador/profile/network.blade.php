@@ -106,7 +106,8 @@
                     dataType: "JSON",
                     data: {'type': type,'user': user, _token: '{{csrf_token()}}'},
                     beforeSend: function () {
-                        $('.friends-grid-main').html('<div class="col-md-12 text-center"><img src="{{url('img/loading.gif')}}"></div>')
+                        $('.friends-grid-main').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>')
+
                     },
                     success: function (data) {
                         $('.friends-grid-main').html(data);
@@ -128,6 +129,17 @@
     <style>
         .friends-grid-main{
             min-height: 300px;
+        }
+        .spinner-border-large{
+            display: inline-block;
+            width: 5rem;
+            height: 5rem;
+            vertical-align: -.125em;
+            border: .15em solid #007bff;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: .75s linear infinite spinner-border;
+            animation: .75s linear infinite spinner-border;
         }
     </style>
 @endsection
