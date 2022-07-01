@@ -13,12 +13,12 @@
                     <li class="home-navigation-li"><a href="javascript:void(0)" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/personal-network.svg')}}" alt=""></span> <span class="text">Personal Network (<small>TR 01</small>)</span></a></li>
                     <li class="home-navigation-li"><a href="javascript:void(0)" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/extended-network.svg')}}" alt=""></span> <span class="text">Extended Network (<small>TR 02</small>)</span></a></li>
                 </ul>
-                <div class="message-button">
+                <div class="message-button to-hide-sticky">
                     <div class="message-button-inner">
                         <a href="{{url('chat')}}" class='text-decoration-none hover-button'><span class="ti-comment-alt"></span></a>
                     </div>
                 </div>
-                <div class="search-input-home-navigation">
+                <div class="search-input-home-navigation to-hide-sticky">
                     <div class="search-input-home-navigation-inner">
                         <div class="search-input-home-navigation-main">
                             <!-- <input type='text' placeholder="Search by name" id='input-trigger-div'> -->
@@ -131,6 +131,62 @@
                                 </div>
                             </li>
                             <li class="inner-navigation-sub-menu-li hover"><span class="nav-icon"><span class="ti-bell"></span></span></li>
+                            <li class="innwe-navigation-sub-menu-li hover">
+                                <div class="message-button">
+                                    <div class="message-button-inner">
+                                        <a href="{{url('chat')}}" class='text-decoration-none hover-button'><span class="ti-comment-alt"></span></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="innwe-navigation-sub-menu-li hover">
+                                <div class="search-input-home-navigation">
+                                    <div class="search-input-home-navigation-inner">
+                                        <div class="search-input-home-navigation-main">
+                                            <!-- <input type='text' placeholder="Search by name" id='input-trigger-div'> -->
+                                            <button class='hover-button open-dropdown' data-target=".search-menu-01"><span class="ti-search"></span></button>
+                                        </div>
+                                        <div class="recent-searches-box search-menu-01" id="recent-searches-box">
+                                            <div class="recent-searches-box-inner">
+                                                <div class="recent-searches-box-main">
+                                                    <div class="search-input-home-navigation-main">
+                                                        <form action="{{url('search')}}" method="get">
+                                                            <div class="back-btn close-recent-search" onclick="document.getElementById('recent-searches-box').style.display = 'none'">
+                                                                <span class="ti-arrow-left"></span>
+                                                            </div>
+                                                            <input type='text' placeholder="Search by name" name="key" id="key" required>
+                                                            <button class='search-btn black-button' type="submit"><span class="ti-search"></span></button>
+                                                        </form>
+                                                    </div>
+                                                    <div class="recent-search-box">
+                                                        <div class="title">Recent Searches</div>
+                                                        <div class="recent-search-list">
+                                                            <ul class="recent-search-ul">
+                                                                <li class="recent-search-li">
+                                                                    <div class="recent-search-list-div">
+                                                                        <div class="recent-search-list-inner">
+                                                                            <div class="recent-search-rofile">
+                                                                                <div class="profile-image">
+                                                                                    <img src="{{asset('ambassador_assets/images/user-profile/user-01.png')}}" alt="">
+                                                                                </div>
+                                                                                <div class="profile-text">
+                                                                                    <a href='javascript:void(0)'>User Name</a>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="remove-div">
+                                                                                <span class="ti-close"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
                             <li class="inner-navigation-sub-menu-li">
                                 <div class="inner-navigation-sub-menu-li-profile  open-dropdown" data-target=".drop-0012">
                                     <div class="profile-user-options-icon">

@@ -103,9 +103,8 @@ i {
     font-size: 11px;
 }
 
-.profile-user-options-li {
+.profile-user-options-li.user-pic {
     margin-left: 10px;
-    cursor: pointer;
 }
 
 .profile-user-options-li.user-pic img {
@@ -892,7 +891,7 @@ i {
 }
 
 .view-more-comments {
-    padding: 10px;
+    /* padding: 10px; */
     text-align: center;
 }
 
@@ -973,7 +972,7 @@ i {
 }
 
 .view-more-comments {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     text-align: center;
 }
 

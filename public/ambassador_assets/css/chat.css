@@ -12,7 +12,7 @@
 
 .custom-shadow {box-shadow: 0 1px 2px rgb(0 0 0 / 20%);}
 
-.custom-padding {padding: 10px;}
+.custom-padding {padding: 15px;}
 
 /* CSS */
 
@@ -57,13 +57,19 @@
 }
 
 .chat-contacts-single {
-    padding: 10px;
+    padding: 15px;
     border-bottom: 1px solid #dedede;
     cursor: pointer;
 }
 
 .chat-contacts-single:hover {
     background-color: #efefef;
+}
+
+.chat-contacts-all {
+    max-height: 525px;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .chat-contacts-single-inner {
@@ -110,7 +116,7 @@
 
 .chat-box-top-bar {
     border-bottom: 1px solid #dedede;
-    padding: 10px;
+    padding: 15px;
 }
 
 .chat-box-top-bar .user-name {
@@ -130,7 +136,7 @@
 }
 
 .chat-box-inner-div {
-    padding: 10px;
+    padding: 15px;
     height: 500px;
     overflow: hidden;
     overflow-y: auto;
@@ -176,10 +182,12 @@
     background: #dedede;
     width: auto;
     flex-grow: 0;
+    display: inline-block;
+    border-radius: 3px;
 }
 
 .single-chat-message-username {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 500;
 }
 
@@ -220,7 +228,7 @@
 
 .sned-message-chat {
     border-top: 1px solid #dedede;
-    padding: 10px;
+    padding: 15px;
     display: flex;
     align-items: center;
 }
@@ -257,6 +265,12 @@
 
 .single-message.sent .single-chat-message-attachment-time {
     order: 1;
+    flex-grow: 1;
+    min-width: 70px;
+}
+
+.single-message {
+    margin: 15px 0;
 }
 
 .single-message-chat-inner {
@@ -283,3 +297,39 @@
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 } */
+
+.chat-box-inner-div::-webkit-scrollbar {
+    width: 5px;
+}
+
+.chat-box-inner-div::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #fff;
+}
+
+.chat-box-inner-div::-webkit-scrollbar-thumb {
+    background-color: #dedede;
+    outline: 1px solid slategrey;
+    background: #555;
+}
+
+.chat-contacts-all::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 3px;
+}
+
+.chat-contacts-all::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #fff;
+}
+
+.chat-contacts-all::-webkit-scrollbar-thumb {
+    background-color: #dedede;
+    outline: 1px solid slategrey;
+    background: #555;
+}
+
+@media only screen and (max-width: 768px) {
+    .chat-contacts {
+        width: 40%;
+        padding-right: 20px;
+    }
+}

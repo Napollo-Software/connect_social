@@ -21,6 +21,10 @@
             var dropdown_class = $(this).attr('data-target')
             $(dropdown_class).show();
         })
+        // Hide Search
+        $(document).on('click','.close-recent-search',function() {
+            $(".recent-searches-box").hide();
+        })
         // Show PopOver
         $(document).on('click','.show-popover',function() {
             var popover_class = $(this).attr('data-popover');
@@ -58,10 +62,12 @@
         var w = $(window);
         if (offset.top - w.scrollTop() == 0) {
             $(".to-show-sticky").show();
+            $(".to-hide-sticky").hide();
             $('.profile-navigation-ul-outer').removeClass("full-show");
             $('.profile-navigation-nav').addClass('aligned');
         } else {
             $(".to-show-sticky").hide();
+            $(".to-hide-sticky").show();
             $('.profile-navigation-nav').removeClass('aligned');
             $('.profile-navigation-ul-outer').addClass("full-show");
         }
