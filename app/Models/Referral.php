@@ -16,6 +16,6 @@ class Referral extends Model
           'referred_by', 'referred_to',
     ];
     public function referred_to_details(){
-        return $this->belongsTo(User::class,'referred_to');
+        return $this->belongsTo(User::class,'referred_to')->withDefault();
     }
 }

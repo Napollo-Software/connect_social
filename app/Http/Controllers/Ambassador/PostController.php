@@ -53,7 +53,6 @@ class PostController extends Controller
         $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
         return response()->json($viewRender);
     }
-
     public function store(Request $request){
         if ($request->file_type){
             $postAsset=new PostAssets();

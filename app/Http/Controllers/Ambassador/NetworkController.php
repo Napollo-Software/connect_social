@@ -28,6 +28,10 @@ class NetworkController extends Controller
         if ($type=='tier-1'){
             $data=auth()->user()->tier_1;
         }
+        if ($type=='tier-2'){
+            $data=auth()->user()->tier_2();
+        }
+
         foreach ($data as $friend){
             if ($type=='friend'){
                 $detail=getFriendDetails($friend);
@@ -38,8 +42,9 @@ class NetworkController extends Controller
             if ($type=='tier-1'){
                 $detail=$friend->referred_to_details;
             }
-
-
+            if ($type=='tier-2'){
+                $detail=$friend;
+            }
             $html.='<div class="friend-grid-col">
                             <div class="friend-grid-col-inner-div">
                                 <div class="friend-grid-col-profile">

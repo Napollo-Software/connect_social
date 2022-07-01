@@ -68,4 +68,15 @@ class User extends Authenticatable
     public function tier_1(){
         return $this->hasMany(Referral::class,'referred_by');
     }
+    public function tier_2(){
+        $tier_2=[];
+        foreach ($this->tier_1 as $tier_1){
+            $users=$tier_1->referred_to_details->tier_1;
+            foreach ($users as $user){
+                $tier_2[]=$user->referred_to;
+            }
+        }
+        return User::whereIn('id',$tier_2)->get();
+    }
+
 }

@@ -91,7 +91,7 @@
                             <li class="inner-navigation-sub-menu-li">
                                 <div class="inner-navigation-sub-menu-li-profile  open-dropdown" data-target=".drop-0012">
                                     <div class="profile-user-options-icon">
-                                        <img src="{{asset('ambassador_assets/images/user-profile/user-01.png')}}" alt="">
+                                        <img src="{{auth()->user()->profile_image()}}" alt="">
                                     </div>
                                     <div class="user-dropdown-inner drop-0012">
                                         <ul class="user-dropdown-ul">

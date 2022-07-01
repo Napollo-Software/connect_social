@@ -8,6 +8,7 @@
                     </div>
                 </div>
                 <ul class="home-navigation-ul">
+                    <li class="home-navigation-li home-posts" data-type="all"><a href="{{url('home')}}" class="home-navigation-link">All</a></li>
                     <li class="home-navigation-li home-posts" data-type="friends"><a href="{{url('home/friends')}}" class="home-navigation-link">Friends</a></li>
                     <li class="home-navigation-li home-posts" data-type="connections"><a href="{{url('home/connections')}}" class="home-navigation-link">Connections</a></li>
                     <li class="home-navigation-li home-posts" data-type="tier-1"><a href="javascript:void(0)" class="home-navigation-link">Personal Network (<small>Tier 01</small>)</a></li>
