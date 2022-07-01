@@ -93,6 +93,7 @@ class PostController extends Controller
         return response()->json(['success'=>'Post added successfully']);
     }
     public function update(Request $request){
+        dd($request->all());
         $post= Post::find($request->id);
 
         if ($request->file_type){
@@ -160,5 +161,10 @@ class PostController extends Controller
         }
         $asset->delete();
         return response()->json(['success'=>'Deleted']);
+    }
+    public function popup(Request $request){
+        $post=Post::find($request->id);
+        $viewRender = view('ambassador.profile.components.partial.post_popup_html',compact('post'))->render();
+        return response()->json($viewRender);
     }
 }

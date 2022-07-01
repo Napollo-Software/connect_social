@@ -19,6 +19,7 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
         Route::post('fetch-all', [PostController::class, 'fetch_all'])->name('post.fetch.all');
         Route::post('store', [PostController::class, 'store'])->name('post.store');
         Route::post('update', [PostController::class, 'update'])->name('post.update');
+        Route::post('pop-up', [PostController::class, 'popup'])->name('post.popup');
         Route::delete('destroy', [PostController::class, 'destroy'])->name('post.destroy');
         Route::delete('asset-destroy', [PostController::class, 'asset_destroy'])->name('post.asset.destroy');
     });

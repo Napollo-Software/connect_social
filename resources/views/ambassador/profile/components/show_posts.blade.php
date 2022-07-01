@@ -3,24 +3,25 @@
 <div class="text-center col-md-12">
     <button id="scroll-to" class="black-button">Show more posts</button>
 </div>
+@include('ambassador.profile.components.post_popup')
 @push('subscripts')
     @if($user->id==auth()->user()->id)
         <script>
-            function fetch_post(n){
+            function fetch_post(n) {
                 $.ajax({
                     type: "POST",
                     url: "{{route('post.fetch')}}",
                     dataType: "JSON",
-                    data: {'n':n,'user':'{{$user->id}}',_token: '{{csrf_token()}}'},
+                    data: {'n': n, 'user': '{{$user->id}}', _token: '{{csrf_token()}}'},
                     beforeSend: function () {
-                        $('#scroll-to').attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm"></span> Processing ...');
+                        $('#scroll-to').attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm"></span> Processing ...');
                     },
                     success: function (data) {
 
-                        if (data){
+                        if (data) {
                             $('.load-posts').append(data);
-                            $('#scroll-to').attr('disabled',null).text('Show more posts');
-                        } else{
+                            $('#scroll-to').attr('disabled', null).text('Show more posts');
+                        } else {
                             $('#scroll-to').text('No more posts').removeClass('black-button').addClass('white-button');
                         }
                     },
@@ -29,10 +30,11 @@
                     }
                 });
             }
+
             $(document).ready(function () {
-                var page=0;
+                var page = 0;
                 fetch_post(page);
-                $(document).on('click','#scroll-to',function () {
+                $(document).on('click', '#scroll-to', function () {
                     page++;
                     fetch_post(page);
                 });
@@ -51,6 +53,7 @@
                         $('.url-div').hide();
                         $('.file-div').show();
                     }
+                    $('#file_type_popup' + id).val(type);
                     $('#file_type' + id).val(type);
                     $('#edit-post-upload-file-modal-' + id).attr('data-post', $(this).attr('data-post')).modal('show');
                 });
@@ -61,8 +64,7 @@
                         alert('Fields are required to continue...');
                     }
                     else {
-
-                        var modalfalse = $('#edit_post_form_' + id).find('.share-post-attachments-li.edit-post-modal-show');
+                        var modalfalse = $('.edit_post_form_' + id).find('.share-post-attachments-li.edit-post-modal-show');
                         modalfalse.removeClass('edit-post-modal-show');
                         $('#edit-post-upload-file-modal-' + id).modal('hide');
                     }
@@ -97,7 +99,6 @@
                         });
                 });
                 $(document).on('click', '.remove-post-attachment', function (e) {
-
                     swal({
                         title: "Are you sure to remove?",
                         icon: "warning",
@@ -121,7 +122,7 @@
                                     dataType: "JSON",
                                     type: "delete",
                                     success: function (data) {
-                                        $('#post-edit-photo-main-' + post).remove();
+                                        $('.post-edit-photo-main-' + post).remove();
                                         toEnableModal.addClass('edit-post-modal-show');
                                     },
                                     error: function (xhr) {
@@ -131,7 +132,7 @@
                             }
                         });
                 });
-                $('.edit_post_form').submit(function (e) {
+                $(document).on('submit', '.edit_post_form', function (e) {
                     e.preventDefault();
                     var privacy = $(this).find('.set-privacy-dropdown-value').attr('data-value');
                     $('#edit_post_privacy').val(privacy);
@@ -160,6 +161,22 @@
                         }
                     });
                 });
+                $(document).on('click', '.show-post-pop-up', function () {
+                    $('body').addClass('show-post');
+                    var id = $(this).attr('data-id');
+                    $.ajax({
+                        url: "{{route('post.popup')}}",
+                        data: {'id': id, _token: '{{csrf_token()}}'},
+                        dataType: "JSON",
+                        type: "POST",
+                        success: function (data) {
+                            $('.single-post-pop-up').html(data).show(500);
+                        },
+                        error: function (xhr) {
+                            erroralert(xhr);
+                        },
+                    });
+                });
             });
 
         </script>
@@ -167,11 +184,15 @@
     @include('ambassador.profile.components.comments_js')
     @include('ambassador.profile.components.likes_js')
     <script>
-         // Open Target
-        $(document).on("click",".open-target",function() {
+        // Open Target
+        $(document).on("click", ".open-target", function () {
             var targeted_div = $(this).attr("data-target");
-            console.log(targeted_div)
             $(targeted_div).toggle();
         });
-</script>
+    </script>
+    <style>
+        .swal-overlay--show-modal {
+            z-index: 99999999;
+        }
+    </style>
 @endpush

@@ -26,9 +26,7 @@ Route::post('forget-password/change-password', [ForgotPasswordController::class,
 Route::post('verify-email-code', [VerifyCodeController::class, 'verify_code'])->name('email.verify.code');
 Route::get('resend-email-code', [VerifyCodeController::class, 'resend_code'])->name('email.resend.code');
 
-
 Route::get('/', [HomeController::class, 'index'])->middleware(['email-verification','auth'])->name('home');
 Route::group([],__DIR__.'/partials/super_admin.php');
 Route::group([],__DIR__.'/partials/ambassador.php');
-
 Route::get('/front-end', [FrontEnd::class, 'index']);

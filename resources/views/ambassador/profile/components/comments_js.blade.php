@@ -66,5 +66,45 @@
                 }
             });
         });
+        $(document).on('submit','.comment_form_popup',function (e) {
+            e.preventDefault();
+            var comment_input = $(this).find('input[id=comment]');
+            var button = $(this).find('button[type=submit]');
+            var post= button.attr('data-post-id');
+            var previous= button.text();
+            button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>');
+            $.ajax({
+                type:"POST",
+                url:"{{route('comments.store')}}",
+                data: new FormData(this),
+                dataType:'JSON',
+                processData: false,
+                contentType: false,
+                cache: false,
+                success:function(response) {
+                    button.attr('disabled',null).html(previous);
+
+                    var html='<div class="singal-comment-row custom-padding" >\n' +
+                        '        <div class="singal-comment-row-inner">\n' +
+                        '           <div class="singal-comment-row-user-image">\n' +
+                        '              <div class="singal-comment-row-user-image-inner">\n' +
+                        '                  <img src="{{auth()->user()->profile_image()}}" alt="" class="">\n' +
+                        '              </div>\n' +
+                        '           </div>\n' +
+                        '           <div class="singal-comment-row-comment-text bg-white">'+comment_input.val()+'</div>\n' +
+                        '        </div>\n' +
+                        '</div>';
+                        $('.comment-box-'+post).append(html);
+                        comment_input.val('');
+                        $('.all-comment-box-'+post).scrollTop($('.all-comment-box-'+post).height())
+                },
+                error:function (xhr) {
+                    button.attr('disabled',null).html(previous);
+                    erroralert(xhr);
+                }
+            });
+
+        });
+
     });
 </script>

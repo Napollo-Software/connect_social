@@ -12,7 +12,25 @@ class NetworkController extends Controller
 {
     public function index($type,$id=null){
         if ($id){ $user=User::find($id); }else{ $id=auth()->user()->id; $user=User::find($id); }
-        return view('ambassador.profile.network',compact('type','user'));
+
+
+        $repeated_html='<div class="friend-grid-col-options-dropdown-inner">
+            <div class="friend-grid-col-options-dropdown-main">
+                <ul class="friend-grid-col-options-dropdown-ul">';
+        if ($type=='friend' or $type=='connection'){
+            $repeated_html.='                    <li class="friend-grid-col-options-dropdown-li network-dropdown-option-in-options">
+                        <a href="javascript:void(0)" class="friend-grid-col-options-dropdown-link remove-'.$type.'">Remove '.ucfirst($type).'</a>
+                    </li>';
+        }
+
+        $repeated_html.='            <li class="friend-grid-col-options-dropdown-li">
+                        <a href="'.url('chat').'" class="friend-grid-col-options-dropdown-link">Send Message</a>
+                    </li>
+                </ul>
+            </div>
+        </div>';
+
+        return view('ambassador.profile.network',compact('type','user','repeated_html'));
     }
     public function fetch(Request $request){
         $type=$request->type;
@@ -63,8 +81,22 @@ class NetworkController extends Controller
                             </div>
                         </div>';
         }
+        $repeated_html='<div class="friend-grid-col-options-dropdown-inner">
+            <div class="friend-grid-col-options-dropdown-main">
+                <ul class="friend-grid-col-options-dropdown-ul">';
+        if ($type=='friend' or $type=='connection'){
+            $repeated_html.='                    <li class="friend-grid-col-options-dropdown-li network-dropdown-option-in-options">
+                        <a href="javascript:void(0)" class="friend-grid-col-options-dropdown-link remove-'.$type.'">Remove '.ucfirst($type).'</a>
+                    </li>';
+        }
 
-        return response()->json($html);
+        $repeated_html.='            <li class="friend-grid-col-options-dropdown-li">
+                        <a href="'.url('chat').'" class="friend-grid-col-options-dropdown-link">Send Message</a>
+                    </li>
+                </ul>
+            </div>
+        </div>';
+        return response()->json(['repeated_html'=>$repeated_html,'html'=>$html]);
 
     }
 }
