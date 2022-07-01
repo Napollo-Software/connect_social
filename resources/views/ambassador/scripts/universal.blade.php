@@ -23,9 +23,9 @@
 
         // Show DropDown
         $(document).on('click','.open-dropdown',function() {
-            var dropdown_class = $(this).attr('data-target');
-            $(dropdown_class).toggle();
-        });
+            var dropdown_class = $(this).attr('data-target')
+            $(dropdown_class).show();
+        })
         // Show PopOver
         $(document).on('click','.show-popover',function() {
             var popover_class = $(this).attr('data-popover');
