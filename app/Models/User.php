@@ -84,5 +84,11 @@ class User extends Authenticatable
         }
         return User::whereIn('id',$tier_2)->get();
     }
-
+    public function my_network(){
+        $u=getArrayFromKeyofEloquent($this->tier_1(),'id');
+        $u=array_merge($u,getArrayFromKeyofEloquent($this->tier_2(),'id'));
+        $u=array_merge($u,getArrayFromKeyofEloquent(getFriendsListUsers($this->id),'id'));
+        $u=array_merge($u,getArrayFromKeyofEloquent(getConnectionsListUsers($this->id),'id'));
+        return $u;
+    }
 }

@@ -15,14 +15,8 @@ class HomeController extends Controller
     public function index($type=null)
     {
         if (Auth::user()->roles->slug == 'ambassador') {
-            if ($type){
-
-
-            }else{
-                $posts = Post::orderBy('created_at', 'DESC')->get();
-            }
             $user = auth()->user();
-            return view('ambassador.home.index', compact( 'user','posts'));
+            return view('ambassador.home.index', compact( 'user'));
         }
         return view('admin.dashboard');
     }

@@ -21,33 +21,25 @@ class PostController extends Controller
     public function fetch_all(Request $request){
         $type=$request->type;
         if ($type=='all'){
-            $posts = Post::orderBy('created_at', 'DESC')->skip($request->n*2)->take(2)->get();
+            $posts = Post::orderBy('created_at', 'DESC')->where('user_id',auth()->user()->my_network())->skip($request->n*2)->take(2)->get();
         }
         if ($type=='friends'){
-            $friends=getFriendsList(auth()->user()->id);
-            $us=[];
-            foreach ($friends as $friend){
-                $us[]=getFriendDetails($friend);
-            }
-            $friends=getArrayFromKeyofEloquent($us,'id');
-            $posts = Post::whereIn('user_id',$friends)->orderBy('created_at', 'DESC')->get();
+            $friends=getArrayFromKeyofEloquent(getFriendsListUsers(auth()->user()->ud),'id');
+            $posts = Post::orderBy('created_at', 'DESC')->where('user_id',$friends)->skip($request->n*2)->take(2)->get();
         }
         if ($type=='connections'){
-            $friends=getConnectionsList(auth()->user()->id);
-            $us=[];
-            foreach ($friends as $friend){
-                $us[]=getConnectionDetails($friend);
-            }
-            $friends=getArrayFromKeyofEloquent($us,'id');
-            $posts = Post::whereIn('user_id',$friends)->orderBy('created_at', 'DESC')->get();
+            $connections=getArrayFromKeyofEloquent(getConnectionsListUsers(auth()->user()->ud),'id');
+            $posts = Post::orderBy('created_at', 'DESC')->where('user_id',$connections)->skip($request->n*2)->take(2)->get();
         }
         if ($type=='tier-1'){
-            $us=[];
-            foreach (auth()->user()->tier_1 as $tier){
-                $us[]=$tier->referred_to_details->id;
-            }
-            $posts = Post::whereIn('user_id',$us)->orderBy('created_at', 'DESC')->get();
+            $tier1=getArrayFromKeyofEloquent(auth()->user()->tier_1(),'id');
+            $posts = Post::orderBy('created_at', 'DESC')->where('user_id',$tier1)->skip($request->n*2)->take(2)->get();
         }
+        if ($type=='tier-2'){
+            $tier1=getArrayFromKeyofEloquent(auth()->user()->tier_2(),'id');
+            $posts = Post::orderBy('created_at', 'DESC')->where('user_id',$tier1)->skip($request->n*2)->take(2)->get();
+        }
+
 
         $user=User::find($request->user);
         $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
