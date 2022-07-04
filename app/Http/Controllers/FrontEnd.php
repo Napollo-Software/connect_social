@@ -10,4 +10,10 @@ class FrontEnd extends Controller
     {
         echo "Hello World";
     }
+
+    public function under_construction()
+    {
+        $data['title'] = 'Under Construction';
+        return view('default.construction');
+    }
 }
