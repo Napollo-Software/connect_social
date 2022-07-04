@@ -81,7 +81,6 @@
                     fetch(type,'{{$user->id}}');
                     window.history.pushState({}, null, '/network/'+type);
                 });
-
             });
             function fetch(type,user) {
                 $.ajax({
@@ -90,7 +89,7 @@
                     dataType: "JSON",
                     data: {'type': type,'user': user, _token: '{{csrf_token()}}'},
                     beforeSend: function () {
-                        $('.friends-grid-main').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>')
+                        $('.friends-grid-main').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>');
 
                     },
                     success: function (data) {
