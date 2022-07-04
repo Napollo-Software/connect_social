@@ -522,13 +522,13 @@
             <li class="set-privacy-dropdown-li" data-value="{{Privacy::PRIV_TIER_1}}">
                 <div class="set-privacy-dropdown-icon">
                     <img src="{{url('ambassador_assets/images/icons/personal-network.svg')}}" alt=""> <span
-                            class="text">Personal Tier 01</span>
+                            class="text">Personal TR 01</span>
                 </div>
             </li>
             <li class="set-privacy-dropdown-li" data-value="{{Privacy::PRIV_TIER_2}}">
                 <div class="set-privacy-dropdown-icon">
                     <img src="{{url('ambassador_assets/images/icons/extended-network.svg')}}" alt=""> <span
-                            class="text">Extended Tier 02</span>
+                            class="text">Extended TR 02</span>
                 </div>
             </li>
         </ul>

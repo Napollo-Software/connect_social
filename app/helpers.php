@@ -258,12 +258,6 @@ function getMessageHtml($chat){
                                                                 <div class="single-chat-message-text">'.$chat->message.'</div>
                                                             </div>';
     }
-    $singleMessageBody.='
-                                                        </div>
-                                                    </div>
-                                                    <div class="single-chat-message-attachment-time">
-                                                        <div class="single-chat-message-attachment-time-inner">
-                                                            ';
     if ($chat->file){
         $singleMessageBody.='<div class="single-chat-message-attachment open-file" data-url="'.Storage::disk('local')->url('/chat/'.$chat->from.'/'.$chat->file).'">
                                                                 <div class="single-chat-message-attachment-image">
@@ -275,6 +269,12 @@ function getMessageHtml($chat){
                                                             </div>
                                                             ';
     }
+    $singleMessageBody.='
+                                                        </div>
+                                                    </div>
+                                                    <div class="single-chat-message-attachment-time">
+                                                        <div class="single-chat-message-attachment-time-inner">
+                                                            ';
     $singleMessageBody.='
                                                             <div class="single-chat-message-time">
                                                                 '.$chat->created_at->format('h:i A').'
