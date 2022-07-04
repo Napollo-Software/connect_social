@@ -42,12 +42,12 @@
                                         </div>
                                     </div>
                                 </li>
-                                <li class="profile-user-options-li user-pic open-dropdown" data-target=".drop-00">
+                                <li class="profile-user-options-li user-pic open-dropdown dropdown-box" data-target=".drop-00">
                                     <div class="profile-user-options-inner">
                                         <div class="profile-user-options-icon">
                                             <img src="{{auth()->user()->profile_image()}}" alt="" class="profile_photo_preview">
                                         </div>
-                                        <div class="user-dropdown-inner drop-00">
+                                        <div class="user-dropdown-inner drop-00 custom-dropdown left-dropdown">
                                             <ul class="user-dropdown-ul">
                                                 <li class="user-dropdown-li">
                                                     <a href="{{route('ambassador.profile')}}">My Profile</a>

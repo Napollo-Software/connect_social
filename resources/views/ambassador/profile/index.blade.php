@@ -30,7 +30,7 @@
                                                         </div>
                                                         @if($user->id==auth()->user()->id)
                                                             <div class="social-dropdown">
-                                                                <div class="social-dropdown-inner open-dropdown"
+                                                                <div class="social-dropdown-inner open-dropdown dropdown-box"
                                                                      data-target=".drop-01">
                                                                     <div class="social-dropdown-main">
                                                                         <div class="icon">
@@ -45,7 +45,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="set-privacy-dropdown-inner social-privacy drop-01"
+                                                                <div class="set-privacy-dropdown-inner social-privacy custom-dropdown custom-dropdown drop-01"
                                                                      data-key="about">
                                                                 </div>
                                                             </div>
@@ -118,12 +118,12 @@
                                                                                 </div>
                                                                                 @if($user->id==auth()->user()->id)
                                                                                     <div class="set-privacy-dropdown">
-                                                                                        <div class="set-privacy-dropdown-value open-dropdown"
+                                                                                        <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                                                              data-target=".drop-03">
                                                                                             <img src="{{getPrivacyDetails(getSocialPrivacy('city'))['url']}}"
                                                                                                  alt="">
                                                                                         </div>
-                                                                                        <div class="set-privacy-dropdown-inner social-privacy drop-03"
+                                                                                        <div class="set-privacy-dropdown-inner social-privacy custom-dropdown drop-03"
                                                                                              data-key="city">
 
                                                                                         </div>
@@ -149,12 +149,12 @@
                                                                                 @if($user->id==auth()->user()->id)
 
                                                                                     <div class="set-privacy-dropdown">
-                                                                                        <div class="set-privacy-dropdown-value open-dropdown"
+                                                                                        <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                                                              data-target=".drop-04">
                                                                                             <img src="{{getPrivacyDetails(getSocialPrivacy('state'))['url']}}"
                                                                                                  alt="">
                                                                                         </div>
-                                                                                        <div class="set-privacy-dropdown-inner social-privacy drop-04"
+                                                                                        <div class="set-privacy-dropdown-inner social-privacy custom-dropdown drop-04"
                                                                                              data-key="state">
 
                                                                                         </div>
@@ -180,12 +180,12 @@
                                                                                 @if($user->id==auth()->user()->id)
 
                                                                                     <div class="set-privacy-dropdown">
-                                                                                        <div class="set-privacy-dropdown-value open-dropdown"
+                                                                                        <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                                                              data-target=".drop-05">
                                                                                             <img src="{{getPrivacyDetails(getSocialPrivacy('relationship'))['url']}}"
                                                                                                  alt="">
                                                                                         </div>
-                                                                                        <div class="set-privacy-dropdown-inner social-privacy drop-05"
+                                                                                        <div class="set-privacy-dropdown-inner social-privacy custom-dropdown drop-05"
                                                                                              data-key="relationship">
 
                                                                                         </div>
@@ -210,12 +210,12 @@
                                                                                 @if($user->id==auth()->user()->id)
 
                                                                                     <div class="set-privacy-dropdown">
-                                                                                        <div class="set-privacy-dropdown-value open-dropdown"
+                                                                                        <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                                                              data-target=".drop-06">
                                                                                             <img src="{{getPrivacyDetails(getSocialPrivacy('joining'))['url']}}"
                                                                                                  alt="">
                                                                                         </div>
-                                                                                        <div class="set-privacy-dropdown-inner social-privacy drop-06"
+                                                                                        <div class="set-privacy-dropdown-inner social-privacy custom-dropdown drop-06"
                                                                                              data-key="joining">
 
                                                                                         </div>
@@ -240,12 +240,12 @@
                                                                                 </div>
                                                                                 @if($user->id==auth()->user()->id)
                                                                                     <div class="set-privacy-dropdown">
-                                                                                        <div class="set-privacy-dropdown-value open-dropdown"
+                                                                                        <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                                                              data-target=".drop-07">
                                                                                             <img src="{{getPrivacyDetails(getSocialPrivacy('workplace'))['url']}}"
                                                                                                  alt="">
                                                                                         </div>
-                                                                                        <div class="set-privacy-dropdown-inner social-privacy drop-07"
+                                                                                        <div class="set-privacy-dropdown-inner social-privacy custom-dropdown drop-07"
                                                                                              data-key="workplace">
 
                                                                                         </div>
@@ -270,12 +270,12 @@
                                                                                 </div>
                                                                                 @if($user->id==auth()->user()->id)
                                                                                     <div class="set-privacy-dropdown">
-                                                                                        <div class="set-privacy-dropdown-value open-dropdown"
+                                                                                        <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                                                              data-target=".drop-08">
                                                                                             <img src="{{getPrivacyDetails(getSocialPrivacy('high_school'))['url']}}"
                                                                                                  alt="">
                                                                                         </div>
-                                                                                        <div class="set-privacy-dropdown-inner social-privacy drop-08"
+                                                                                        <div class="set-privacy-dropdown-inner social-privacy custom-dropdown drop-08"
                                                                                              data-key="high_school">
 
                                                                                         </div>
@@ -299,12 +299,12 @@
                                                                                 </div>
                                                                                 @if($user->id==auth()->user()->id)
                                                                                     <div class="set-privacy-dropdown">
-                                                                                        <div class="set-privacy-dropdown-value open-dropdown"
+                                                                                        <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                                                              data-target=".drop-09">
                                                                                             <img src="{{getPrivacyDetails(getSocialPrivacy('hobbies'))['url']}}"
                                                                                                  alt="">
                                                                                         </div>
-                                                                                        <div class="set-privacy-dropdown-inner social-privacy drop-09"
+                                                                                        <div class="set-privacy-dropdown-inner social-privacy custom-dropdown drop-09"
                                                                                              data-key="hobbies">
 
                                                                                         </div>
@@ -328,12 +328,12 @@
                                                                                 </div>
                                                                                 @if($user->id==auth()->user()->id)
                                                                                     <div class="set-privacy-dropdown">
-                                                                                        <div class="set-privacy-dropdown-value open-dropdown"
+                                                                                        <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                                                              data-target=".drop-10">
                                                                                             <img src="{{getPrivacyDetails(getSocialPrivacy('email'))['url']}}"
                                                                                                  alt="">
                                                                                         </div>
-                                                                                        <div class="set-privacy-dropdown-inner social-privacy drop-10"
+                                                                                        <div class="set-privacy-dropdown-inner social-privacy custom-dropdown drop-10"
                                                                                              data-key="email">
 
                                                                                         </div>
@@ -357,12 +357,12 @@
                                                                                 </div>
                                                                                 @if($user->id==auth()->user()->id)
                                                                                     <div class="set-privacy-dropdown">
-                                                                                        <div class="set-privacy-dropdown-value open-dropdown"
+                                                                                        <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                                                              data-target=".drop-11">
                                                                                             <img src="{{getPrivacyDetails(getSocialPrivacy('phone'))['url']}}"
                                                                                                  alt="">
                                                                                         </div>
-                                                                                        <div class="set-privacy-dropdown-inner social-privacy drop-11"
+                                                                                        <div class="set-privacy-dropdown-inner social-privacy custom-dropdown drop-11"
                                                                                              data-key="phone">
 
                                                                                         </div>
@@ -387,12 +387,12 @@
                                                                                 </div>
                                                                                 @if($user->id==auth()->user()->id)
                                                                                     <div class="set-privacy-dropdown">
-                                                                                        <div class="set-privacy-dropdown-value open-dropdown"
+                                                                                        <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                                                              data-target=".drop-12">
                                                                                             <img src="{{getPrivacyDetails(getSocialPrivacy('gender'))['url']}}"
                                                                                                  alt="">
                                                                                         </div>
-                                                                                        <div class="set-privacy-dropdown-inner social-privacy drop-12"
+                                                                                        <div class="set-privacy-dropdown-inner social-privacy custom-dropdown drop-12"
                                                                                              data-key="gender">
 
                                                                                         </div>

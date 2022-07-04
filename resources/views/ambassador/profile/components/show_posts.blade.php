@@ -17,13 +17,14 @@
                         $('#scroll-to').attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm"></span> Processing ...');
                     },
                     success: function (data) {
-
+                        
                         if (data) {
                             $('.load-posts').append(data);
                             $('#scroll-to').attr('disabled', null).text('Show more posts');
                         } else {
                             $('#scroll-to').text('No more posts').removeClass('black-button').addClass('white-button');
                         }
+                        $('.set-privacy-dropdown-inner').html($('#privacy_dropdown').html());
                     },
                     error: function (xhr) {
                         erroralert(xhr);

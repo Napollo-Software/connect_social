@@ -3,10 +3,10 @@
        var modal_id = $(this) .attr('data-modal');
        $(modal_id).modal('show',true);
     });
-    $(".top-open-menu").click(function () {
-        var data_menu_class = $(this).attr("data-target");
-        $(data_menu_class).toggle();
-    });
+    // $(".top-open-menu").click(function () {
+    //     var data_menu_class = $(this).attr("data-target");
+    //     $(data_menu_class).toggle();
+    // });
     $(function () {
         $('#email-tags').tagsinput({});
 
@@ -17,10 +17,10 @@
         });
 
         // Show DropDown
-        $(document).on('click','.open-dropdown',function() {
-            var dropdown_class = $(this).attr('data-target')
-            $(dropdown_class).show();
-        })
+        // $(document).on('click','.open-dropdown',function() {
+        //     var dropdown_class = $(this).attr('data-target')
+        //     $(dropdown_class).show();
+        // })
         // Hide Search
         $(document).on('click','.close-recent-search',function() {
             $(".recent-searches-box").hide();

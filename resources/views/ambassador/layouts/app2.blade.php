@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{url('ambassador_assets/css/bootstrap.min.css')}}">
     <!-- Custom -->
     <link rel="stylesheet" href="{{url('ambassador_assets/css/profile.css')}}">
+    <link rel="stylesheet" href="{{url('ambassador_assets/css/app.css')}}">
     <!-- Icons -->
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/icons/themify-icons.css')}}">
     <link rel="stylesheet" href="{{url('assets/css/all.css')}}">
@@ -43,6 +44,7 @@
 <script src="{{url('ambassador_assets/js/jquery.js')}}"></script>
 <script src="{{url('ambassador_assets/js/bootstrap.min.js')}}"></script>
 <script src="{{url('ambassador_assets/js/profile.js')}}"></script>
+<script src="{{url('ambassador_assets/js/app.js')}}"></script>
 @include('ambassador.scripts.universal')
 @stack('scripts')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>

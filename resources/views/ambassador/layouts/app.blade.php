@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{url('ambassador_assets/css/bootstrap.min.css')}}">
     <!-- Custom -->
     <link rel="stylesheet" href="{{url('ambassador_assets/css/profile.css')}}">
+    <link rel="stylesheet" href="{{url('ambassador_assets/css/app.css')}}">
     <!-- Icons -->
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/icons/themify-icons.css')}}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
@@ -48,6 +49,7 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="{{url('ambassador_assets/lib/tags/tags.js')}}"></script>
 <script src="{{url('ambassador_assets/lib/tags/tags-prety.js')}}"></script>
+<script src="{{url('ambassador_assets/js/app.js')}}"></script>
 @include('ambassador.scripts.universal')
 <script>
 

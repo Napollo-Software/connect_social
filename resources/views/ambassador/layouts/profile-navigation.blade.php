@@ -26,9 +26,9 @@
                     <div class="inner-navigation-sub-menu-inner">
                         <div class="inner-navigation-sub-menu-main"></div>
                         <ul class="inner-navigation-sub-menu-ul">
-                            <li class="inner-navigation-sub-menu-li hover position  open-dropdown" data-target=".drop-00124">
+                            <li class="inner-navigation-sub-menu-li hover position dropdown-box  open-dropdown" data-target=".drop-00124">
                                 <span class="nav-icon"><span class="ti-layout-grid4-alt"></span></span>
-                                <div class="inner-mega-menu drop-00124">
+                                <div class="inner-mega-menu custom-dropdown drop-00124">
                                     <div class="inner-mega-menu-inner">
                                         <div class="inner-mega-menu-main">
                                         <ul class="inner-mega-navigation-ul">
@@ -89,11 +89,11 @@
                             </li>
                             <li class="inner-navigation-sub-menu-li hover"><span class="nav-icon"><span class="ti-bell"></span></span></li>
                             <li class="inner-navigation-sub-menu-li">
-                                <div class="inner-navigation-sub-menu-li-profile  open-dropdown" data-target=".drop-0012">
+                                <div class="inner-navigation-sub-menu-li-profile dropdown-box  open-dropdown" data-target=".drop-0012">
                                     <div class="profile-user-options-icon">
                                         <img src="{{auth()->user()->profile_image()}}" alt="">
                                     </div>
-                                    <div class="user-dropdown-inner drop-0012">
+                                    <div class="user-dropdown-inner custom-dropdown left-dropdown drop-0012">
                                         <ul class="user-dropdown-ul">
                                             <li class="user-dropdown-li">
                                                 <a href="{{route('ambassador.profile')}}">My Profile</a>

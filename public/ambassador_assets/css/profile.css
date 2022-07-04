@@ -814,6 +814,10 @@ i {
     word-break: break-word;
 }
 
+.singal-post-content audio {
+    margin: 10px;
+}
+
 .like-comment-bar {
     margin-bottom: 10px;
     padding: 15px;
@@ -978,6 +982,7 @@ i {
 
 .singal-post-top-bar-options {
     position: relative;
+    cursor: pointer;
 }
 
 .singal-post-top-bar-options-bar {
@@ -1095,7 +1100,7 @@ i {
 
 .user-dropdown-inner {
     position: absolute;
-    top: 55px;
+    top: 45px;
     right: 50%;
     background: #fff;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 17%);
@@ -1105,7 +1110,7 @@ i {
     min-width: 100px;
     text-align: center;
     font-size: 14px;
-    z-index: 9999;
+    z-index: 15;
     transform: translate(50%);
 }
 
@@ -1131,7 +1136,7 @@ i {
     text-decoration: none;
 }
 
-.user-dropdown-inner::before {
+/* .user-dropdown-inner::before {
     content: "";
     width: 10px;
     height: 10px;
@@ -1141,7 +1146,7 @@ i {
     left: 50%;
     transform: translate(-50%,-50%) rotate(313deg);
     border-radius: 2px;
-}
+} */
 
 .profile-user-options-inner {
     position: relative;
@@ -2194,6 +2199,12 @@ input.referel-link-input::selection {
 
     a.home-navigation-link {
         font-size: 10px;
+    }
+
+    .home-navigation-li a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 

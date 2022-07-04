@@ -19,12 +19,12 @@
                     </div>
                 </div>
                 <div class="search-input-home-navigation to-hide-sticky">
-                    <div class="search-input-home-navigation-inner">
+                    <div class="search-input-home-navigation-inner dropdown-box">
                         <div class="search-input-home-navigation-main">
                             <!-- <input type='text' placeholder="Search by name" id='input-trigger-div'> -->
-                            <button class='hover-button open-dropdown' data-target=".search-menu"><span class="ti-search"></span></button>
+                            <button class='hover-button open-dropdown' data-target=".search-menu-01"><span class="ti-search"></span></button>
                         </div>
-                        <div class="recent-searches-box search-menu" id="recent-searches-box">
+                        <div class="recent-searches-box custom-dropdown search-menu-01" id="recent-searches-box">
                             <div class="recent-searches-box-inner">
                                 <div class="recent-searches-box-main">
                                     <div class="search-input-home-navigation-main">
@@ -69,9 +69,9 @@
                     <div class="inner-navigation-sub-menu-inner">
                         <div class="inner-navigation-sub-menu-main"></div>
                         <ul class="inner-navigation-sub-menu-ul">
-                            <li class="inner-navigation-sub-menu-li hover position  open-dropdown" data-target=".drop-00124">
+                            <li class="inner-navigation-sub-menu-li hover position dropdown-box  open-dropdown" data-target=".drop-00124">
                                 <span class="nav-icon"><span class="ti-layout-grid4-alt"></span></span>
-                                <div class="inner-mega-menu drop-00124">
+                                <div class="inner-mega-menu custom-dropdown drop-00124">
                                     <div class="inner-mega-menu-inner">
                                         <div class="inner-mega-menu-main">
                                             <ul class="inner-mega-navigation-ul">
@@ -140,12 +140,12 @@
                             </li>
                             <li class="innwe-navigation-sub-menu-li hover">
                                 <div class="search-input-home-navigation">
-                                    <div class="search-input-home-navigation-inner">
+                                    <div class="search-input-home-navigation-inner dropdown-box">
                                         <div class="search-input-home-navigation-main">
                                             <!-- <input type='text' placeholder="Search by name" id='input-trigger-div'> -->
                                             <button class='hover-button open-dropdown' data-target=".search-menu-01"><span class="ti-search"></span></button>
                                         </div>
-                                        <div class="recent-searches-box search-menu-01" id="recent-searches-box">
+                                        <div class="recent-searches-box custom-dropdown search-menu-01" id="recent-searches-box">
                                             <div class="recent-searches-box-inner">
                                                 <div class="recent-searches-box-main">
                                                     <div class="search-input-home-navigation-main">
@@ -188,11 +188,11 @@
                                 </div>
                             </li>
                             <li class="inner-navigation-sub-menu-li">
-                                <div class="inner-navigation-sub-menu-li-profile  open-dropdown" data-target=".drop-0012">
+                                <div class="inner-navigation-sub-menu-li-profile dropdown-box  open-dropdown" data-target=".drop-0012">
                                     <div class="profile-user-options-icon">
                                         <img src="{{asset('ambassador_assets/images/user-profile/user-01.png')}}" alt="">
                                     </div>
-                                    <div class="user-dropdown-inner drop-0012">
+                                    <div class="user-dropdown-inner custom-dropdown left-dropdown drop-0012">
                                         <ul class="user-dropdown-ul">
                                             <li class="user-dropdown-li">
                                                 <a href="{{route('ambassador.profile')}}">My Profile</a>

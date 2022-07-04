@@ -31,11 +31,11 @@
                             </div>
                         </div>
                         @if($user->id==auth()->user()->id)
-                            <div class="singal-post-top-bar-options open-dropdown" data-target=".post-actions-{{$post->id}}">
+                            <div class="singal-post-top-bar-options open-dropdown dropdown-box" data-target=".post-actions-{{$post->id}}">
                                 <div class="icon">
                                     <span class="ti-angle-down"></span>
                                 </div>
-                                <div class="singal-post-top-bar-options-bar post-actions-{{$post->id}}"
+                                <div class="singal-post-top-bar-options-bar custom-dropdown post-actions-{{$post->id}}"
                                      style="display: none;">
                                     <div class="singal-post-top-bar-options-bar-inner">
                                         <ul class="singal-post-top-bar-options-ul">
@@ -187,7 +187,7 @@
                                             <div class="set-privacy-share">
                                                 <div class="set-privacy-share-inner">
                                                     <div class="set-privacy-dropdown">
-                                                        <div class="set-privacy-dropdown-value open-dropdown"
+                                                        <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                              data-target=".drop-002" data-value="{{$post->privacy}}">
                                                             <img src="{{getPrivacyDetails($post->privacy)['url']}}"
                                                                  alt="">
@@ -195,7 +195,7 @@
                                                             <span class="more-icon"><span
                                                                         class="ti-angle-down"></span></span>
                                                         </div>
-                                                        <div class="set-privacy-dropdown-inner drop-002">
+                                                        <div class="set-privacy-dropdown-inner drop-002 custom-dropdown">
 
                                                         </div>
                                                     </div>

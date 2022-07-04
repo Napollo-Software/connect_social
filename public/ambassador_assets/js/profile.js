@@ -16,10 +16,10 @@ $(document).ready(function(){
     });
 
     // Will Open all Privacy DropDown
-    $('.open-dropdown').click(function () {
-        var target = $(this).attr('data-target');
-        $(target).toggle();
-    });
+    // $('.open-dropdown').click(function () {
+    //     var target = $(this).attr('data-target');
+    //     $(target).toggle();
+    // });
 
 
 
@@ -35,7 +35,7 @@ $(document).ready(function(){
     // $("#exampleModal").modal('show',true);
 
     $('.set-privacy-dropdown-inner').html($('#privacy_dropdown').html());
-    $('.set-privacy-dropdown-li').click(function () {
+    $(document).on('click','.set-privacy-dropdown-li',function () {
         var dropdownContainer = $(this).closest('.set-privacy-dropdown-inner');
         var icon = $(this).find('img');
         var text = $(this).find('.text');
@@ -44,7 +44,7 @@ $(document).ready(function(){
         var next_text = $(this).parent().parent().siblings().find('i');
         $(next_icon).attr('src', $(icon).attr('src'));
         $(next_text).html($(text).html());
-        $(this).parent().parent().hide();
+        $(this).parent().parent().removeClass('active');
         if (dropdownContainer.hasClass('social-privacy')) {
             changePrivacy($(dropdownContainer).attr('data-key'), $(this).attr('data-value'));
         }
