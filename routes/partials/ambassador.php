@@ -49,13 +49,10 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
     Route::prefix('search')->group(function () {
         Route::get('', [SearchController::class, 'index'])->name('search');
     });
-
-
     Route::prefix('network')->group(function () {
         Route::get('{type}/{id?}', [NetworkController::class, 'index'])->name('network');
         Route::post('', [NetworkController::class, 'fetch'])->name('network.fetch');
     });
-
     Route::prefix('friends')->group(function () {
         Route::get('list/{id?}', [FriendsController::class, 'show'])->name('friends.show');
         Route::post('send-request', [FriendsController::class, 'send_request'])->name('friends.send.request');
@@ -70,7 +67,6 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
         Route::post('cancel-request', [ConnectionsController::class, 'cancel_request'])->name('connections.cancel.request');
         Route::post('remove-connection', [ConnectionsController::class, 'remove_connection'])->name('connections.remove.connection');
     });
-
     Route::prefix('chat')->group(function () {
         Route::get('/{id?}', [ChatController::class, 'index'])->name('chat');
         Route::post('fetch-users', [ChatController::class, 'fetch_users'])->name('chat.users');
@@ -81,5 +77,4 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
     Route::prefix('send-invite-email')->group(function () {
         Route::post('for-referral', [SendInviteController::class, 'send_invite'])->name('send.invite.for.referral');
     });
-
 });

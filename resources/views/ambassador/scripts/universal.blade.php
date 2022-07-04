@@ -24,7 +24,7 @@
         // Hide Search
         $(document).on('click','.close-recent-search',function() {
             $(".recent-searches-box").hide();
-        })
+        });
         // Show PopOver
         $(document).on('click','.show-popover',function() {
             var popover_class = $(this).attr('data-popover');
