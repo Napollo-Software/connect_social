@@ -271,6 +271,28 @@ i {
     font-weight: 500;
 }
 
+.custom-width {
+    width: 60%;
+    margin: auto;
+}
+
+.padding-div {
+    margin: 0;
+    padding: 50px;
+}
+
+.text-area-input {
+    height: 200px;
+    margin-bottom: 40px;
+}
+
+.row-flexed {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 1200px) {

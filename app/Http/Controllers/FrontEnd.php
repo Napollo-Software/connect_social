@@ -21,4 +21,9 @@ class FrontEnd extends Controller
     {
         return view('kyc.form.index');
     }
+
+    public function kyc_response()
+    {
+        return view('kyc.response.index');
+    }
 }
