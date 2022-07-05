@@ -56,7 +56,7 @@
                             </div>
                         @endif
                     </div>
-                    <div class="edit-post-box edit-post-box-{{$post->id}}" style="display:none">
+                    <div class="edit-post-box custom-padding edit-post-box-{{$post->id}}" style="display:none">
                         <form class="edit_post_form edit_post_form_{{$post->id}}" id="edit_post_form_{{$post->id}}">
                             @csrf
                             <div class="modal fade" id="edit-post-upload-file-modal-{{$post->id}}" data-post=""
