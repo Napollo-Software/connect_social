@@ -329,7 +329,12 @@
 
 @media only screen and (max-width: 768px) {
     .chat-contacts {
-        width: 40%;
-        padding-right: 20px;
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .chat-box {
+        display: none;
+        width: 100%;
     }
 }

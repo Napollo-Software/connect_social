@@ -249,6 +249,10 @@
                     $('.chat-box-top-bar').removeClass('border-0');
                     $('#message').focus();
                     $('#unread-' + id).remove();
+                    if (window.innerWidth <= 768) {
+                        $('.chat-contacts').hide();
+                        $('.chat-box').show();
+                    }
                 });
 
             });
