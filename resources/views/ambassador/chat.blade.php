@@ -16,7 +16,7 @@
                                     <div class="chat-contacts-field">
                                         <div class="chat-contacts-inner">
                                             <input type="text" class="chat-contact-field-input"
-                                                   placeholder="Search with name" id="search">
+                                                   placeholder="Search with name" id="search" autocomplete="off">
                                             <span class="icon"><span class="ti-search"></span></span>
                                         </div>
                                     </div>

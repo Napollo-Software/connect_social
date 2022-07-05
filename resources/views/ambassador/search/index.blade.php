@@ -110,11 +110,13 @@
                     }
                 });
             }
+
             $(function () {
-                search($('{{$key}}');
+                search('{{$key}}');
                 $(document).on('input paste','#key',function () {
                     search($(this).val());
                 });
+
             });
         </script>
     @endpush

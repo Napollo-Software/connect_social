@@ -32,15 +32,15 @@
                                             <div class="back-btn close-recent-search" onclick="document.getElementById('recent-searches-box').style.display = 'none'">
                                                 <span class="ti-arrow-left"></span>
                                             </div>
-                                            <input type='text' placeholder="Search by name" name="key" id="key" required autocomplete="off">
+                                            <input type='text' placeholder="Search by name" name="key" class="key-drop-down" id="key-dropdown" required autocomplete="off">
                                             <button class='search-btn black-button' type="submit"><span class="ti-search"></span></button>
                                         </form>
                                     </div>
                                     <div class="recent-search-box">
-                                        <div class="title">Recent Searches</div>
+                                        <div class="title">Search Results</div>
                                         <div class="recent-search-list">
                                             <ul class="recent-search-ul">
-                                                <li class="recent-search-li">
+                                                {{--<li class="recent-search-li">
                                                     <div class="recent-search-list-div">
                                                         <div class="recent-search-list-inner">
                                                             <div class="recent-search-rofile">
@@ -56,7 +56,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </li>
+                                                </li>--}}
                                             </ul>
                                         </div>
                                     </div>

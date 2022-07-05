@@ -50,7 +50,7 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
         Route::prefix('search')->group(function () {
             Route::get('', [SearchController::class, 'index'])->name('search');
             Route::post('fetch', [SearchController::class, 'fetch'])->name('search.fetch');
-            Route::post('fetch', [SearchController::class, 'fetch'])->name('search.dropdown');
+            Route::post('fetch-dropdown', [SearchController::class, 'fetch_dropdown'])->name('search.dropdown');
         });
         Route::prefix('network')->group(function () {
             Route::get('{type}/{id?}', [NetworkController::class, 'index'])->name('network');
