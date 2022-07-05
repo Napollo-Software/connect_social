@@ -1,4 +1,7 @@
 @extends('ambassador.layouts.app')
+@section('title')
+<title>Profile</title>
+@endsection
 @section('content')
     <div class="profile-content">
         <div class="container">
