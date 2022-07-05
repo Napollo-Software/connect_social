@@ -14,6 +14,7 @@ use App\Http\Controllers\Ambassador\NetworkController;
 use App\Http\Controllers\Ambassador\SendInviteController;
 
 Route::middleware(['auth','can:ambassador-views','email-verification'])->group(function () {
+
     Route::middleware('under-construction')->group(function(){
         Route::prefix('post')->group(function () {
             Route::post('fetch', [PostController::class, 'fetch'])->name('post.fetch');
