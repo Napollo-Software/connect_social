@@ -29,7 +29,7 @@
         <!-- Site Navigation -->
         @include('ambassador.layouts.navigation')
 
-    <!-- Profile Information -->
+    <!-- Profile Information --> 
         <div class="profile-box">
             <div class="profile-box-inner">
                 <div class="profile-box-main">
@@ -51,4 +51,4 @@
 <script src="{{url('ambassador_assets/lib/tags/tags.js')}}"></script>
 <script src="{{url('ambassador_assets/lib/tags/tags-prety.js')}}"></script>
 </body>
-</html>
+</html> 
