@@ -327,9 +327,38 @@
     background: #555;
 }
 
+.chat-box-top-bar-inner {
+    display: flex;
+    align-items: center;
+}
+
+.chat-box-top-bar-inner .back-btn {
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    border-radius: 50%;
+    display: none;
+}
+
+.chat-box-top-bar-inner .back-btn:hover {
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 17%);
+}
+
 @media only screen and (max-width: 768px) {
     .chat-contacts {
-        width: 40%;
-        padding-right: 20px;
+        width: 100%;
+        padding-right: 0;
+    }
+
+    .chat-box {
+        display: none;
+        width: 100%;
+    }
+
+    .chat-box-top-bar-inner .back-btn {
+        display: flex;
     }
 }

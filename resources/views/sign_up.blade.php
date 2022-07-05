@@ -6,7 +6,7 @@
             <div class="form-div-inner">
                 <div class="form-div-main-upper">
                     <div class="col-md-9">
-                        <div class="form-div-main">
+                        <div class="form-div-main custom-card custom-border custom-shadow">
                             <form id="register-form" enctype="multipart/form-data">
                                 @csrf
 
