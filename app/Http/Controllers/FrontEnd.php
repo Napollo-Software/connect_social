@@ -19,6 +19,6 @@ class FrontEnd extends Controller
 
     public function kyc_submit()
     {
-        return view('default.construction');
+        return view('kyc.form.index');
     }
 }

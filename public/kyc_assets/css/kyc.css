@@ -36,7 +36,7 @@ i {
 
 .custom-shadow {box-shadow: 0 1px 2px rgb(0 0 0 / 20%);}
 
-.custom-padding {padding: 10px;}
+.custom-padding {padding: 15px;}
 
 .border-bottom {border: 1px solid #dedede;}
 
@@ -74,11 +74,11 @@ i {
 }
 
 .form-card-div {
-    padding: 50px 0;
+    margin: 50px;
 }
 
 .form-card-div-inner {
-    width: 50%;
+    width: 100%;
     margin: auto;
 }
 
@@ -118,8 +118,8 @@ i {
 }
 
 .form-card-div-coin-image-inner img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -240,11 +240,93 @@ i {
     font-size: 12px;
 }
 
+.form-card-image-div {
+    height: 100vh;
+    position: relative;
+    width: 40%;
+}
+
+.form-card-spliter-inner {
+    display: flex;
+}
+
+.form-card-image-div-inner {
+    height: 100vh;
+    background: #fff;
+    position: fixed;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-card-spliter-main {
+    flex: 0 0 60%;
+    width: 60%;
+}
+
+.card-title {
+    margin-bottom: .75rem;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+
 /* Responsive */
+
+@media only screen and (max-width: 1200px) {
+    .form-card-div-inner {
+        width: 90%;
+        margin: auto;
+    }
+
+    .custom-row {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .form-card-image-div-inner {
+        width: 30%;
+    }
+
+    .form-card-image-div {
+        width: 30%;
+    }
+
+    .form-card-image-div-main {
+        padding: 40px;
+        text-align: center;
+    }
+
+    .form-card-spliter-main {
+        flex: 0 0 70%;
+        width: 70%;
+    }
+}
 
 @media only screen and (max-width: 800px) {
     .form-card-div-inner {
         width: 90%;
         margin: auto;
+    }
+
+    .form-card-image-div {
+        display: none;
+    }
+
+    .form-card-spliter-main {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .form-card-div {
+        margin: 10px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .form-card-profile-input-inner {
+        flex-direction: column;
     }
 }
