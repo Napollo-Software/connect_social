@@ -8,7 +8,7 @@ class FrontEnd extends Controller
 {
     public function index()
     {
-        echo "Hello World";
+        echo "Hello World";  
     }
 
     public function under_construction()

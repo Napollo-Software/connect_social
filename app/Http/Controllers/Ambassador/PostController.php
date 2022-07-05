@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace App\Http\Controllers\Ambassador;
 
 use App\Http\Controllers\Controller;
@@ -40,6 +40,7 @@ class PostController extends Controller
             $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$tier1)->skip($request->n*2)->take(2)->get();
         }
         $user=User::find($request->user);
+        //dd($posts);
         $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
         return response()->json($viewRender);
     }

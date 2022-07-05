@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                         </div>
-                        @if($user->id==auth()->user()->id)
+                        @if($post->user_id==auth()->user()->id)
                             <div class="singal-post-top-bar-options open-dropdown dropdown-box" data-target=".post-actions-{{$post->id}}">
                                 <div class="icon">
                                     <span class="ti-angle-down"></span>

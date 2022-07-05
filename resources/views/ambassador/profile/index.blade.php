@@ -301,7 +301,7 @@
                                                                                     <div class="set-privacy-dropdown">
                                                                                         <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                                                              data-target=".drop-09">
-                                                                                            <img src="{{getPrivacyDetails(getSocialPrivacy('hobbies'))['url']}}"
+                                                                                            <img src="{{getPrivacyDetails(getSocialPrivacy('Hobbies'))['url']}}"
                                                                                                  alt="">
                                                                                         </div>
                                                                                         <div class="set-privacy-dropdown-inner social-privacy custom-dropdown drop-09"
