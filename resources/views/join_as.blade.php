@@ -92,7 +92,7 @@
             </div>
         </div>
     </div>
-    <div class="user-profile-about">
+    <div class="user-profile-about bg-custom">
         <div class="container">
             <!-- <div class="container-fluid"> -->
             <div class="user-profile-about-inner">

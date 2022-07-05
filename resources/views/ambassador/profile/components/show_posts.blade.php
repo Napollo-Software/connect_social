@@ -5,40 +5,45 @@
 </div>
 @include('ambassador.profile.components.post_popup')
 @push('subscripts')
+    <script>
+        function fetch_post(n) {
+            $.ajax({
+                type: "POST",
+                url: "{{route('post.fetch')}}",
+                dataType: "JSON",
+                data: {'n': n, 'user': '{{$user->id}}', _token: '{{csrf_token()}}'},
+                beforeSend: function () {
+                    $('#scroll-to').attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm"></span> Processing ...');
+                },
+                success: function (data) {
+
+                    if (data) {
+                        $('.load-posts').append(data);
+                        $('#scroll-to').attr('disabled', null).text('Show more posts');
+                    } else {
+                        $('#scroll-to').text('No more posts').removeClass('black-button').addClass('white-button');
+                    }
+                    $('.set-privacy-dropdown-inner').html($('#privacy_dropdown').html());
+                },
+                error: function (xhr) {
+                    erroralert(xhr);
+                }
+            });
+        }
+        $(document).ready(function () {
+            var page = 0;
+            fetch_post(page);
+            $(document).on('click', '#scroll-to', function () {
+                page++;
+                fetch_post(page);
+            });
+        });
+    </script>
     @if($user->id==auth()->user()->id)
         <script>
-            function fetch_post(n) {
-                $.ajax({
-                    type: "POST",
-                    url: "{{route('post.fetch')}}",
-                    dataType: "JSON",
-                    data: {'n': n, 'user': '{{$user->id}}', _token: '{{csrf_token()}}'},
-                    beforeSend: function () {
-                        $('#scroll-to').attr('disabled', 'disabled').html('<span class="spinner-border spinner-border-sm"></span> Processing ...');
-                    },
-                    success: function (data) {
-                        
-                        if (data) {
-                            $('.load-posts').append(data);
-                            $('#scroll-to').attr('disabled', null).text('Show more posts');
-                        } else {
-                            $('#scroll-to').text('No more posts').removeClass('black-button').addClass('white-button');
-                        }
-                        $('.set-privacy-dropdown-inner').html($('#privacy_dropdown').html());
-                    },
-                    error: function (xhr) {
-                        erroralert(xhr);
-                    }
-                });
-            }
 
             $(document).ready(function () {
-                var page = 0;
-                fetch_post(page);
-                $(document).on('click', '#scroll-to', function () {
-                    page++;
-                    fetch_post(page);
-                });
+
                 $(document).on('click', '.edit-post-close-btn', function () {
                     var id = $(this).attr('data-post');
                     $('#file_type' + id).val('');
@@ -179,7 +184,6 @@
                     });
                 });
             });
-
         </script>
     @endif
     @include('ambassador.profile.components.comments_js')

@@ -28,55 +28,48 @@ class ChatController extends Controller
 
         $role_slug=Role::where('slug','ambassador')->first();
         $role_slug=$role_slug->id;
+
+
         if ($request->data){
             $key=$request->data['search'];
-            $network=$request->data['network'];
             $us=User::where('id','!=',auth()->user()->id)->where('role',$role_slug)->whereRaw('( fname LIKE "%'.$key.'%" or lname LIKE "%'.$key.'%" or concat(fname," ",lname) LIKE "%'.$key.'%" )')->get();
+            $us=getArrayFromKeyofEloquent($us,'id');
+
+            $network=$request->data['network'];
+
+
             if ($network=='all'){
-                $data=$us;
-            }elseif ($network=='friends'){
+                $data=User::whereIn('id',auth()->user()->my_network())->get();
+            }
+            elseif ($network=='friends'){
                 $allfriends=getFriendsListUsers(auth()->user()->id);
-                $allfriends=getArrayFromKeyofEloquent($allfriends,'id');
-                $frnds=[];
-                foreach ($us as $u){
-                    if (in_array($u->id,$allfriends)){
-                        $frnds[]=$u;
-                    }
-                }
-                $data=$frnds;
-            }elseif ($network=='connections'){
+                $data=$allfriends;
+            }
+            elseif ($network=='connections'){
                 $allconnections=getConnectionsListUsers(auth()->user()->id);
-                $allconnections=getArrayFromKeyofEloquent($allconnections,'id');
-                $conctins=[];
-                foreach ($us as $u){
-                    if (in_array($u->id,$allconnections)){
-                        $conctins[]=$u;
-                    }
-                }
-                $data=$conctins;
+                $data=$allconnections;
             }
             elseif ($network=='tier-1'){
-                $us=[];
-                $tier_1=auth()->user()->tier_1;
-                foreach ($tier_1 as $tier1){
-                    $us[]=$tier1->referred_to_details;
-                }
-                $data=$us;
+                $tier_1=auth()->user()->tier_1();
+                $data=$tier_1;
             }
             elseif ($network=='tier-2'){
-                $us=[];
-                $tier_1=auth()->user()->tier_2();
-                foreach ($tier_1 as $tier1){
-                    $us[]=$tier1->referred_to_details;
-                }
-                $data=$us;
+                $tier_2=auth()->user()->tier_2();
+                $data=$tier_2;
             }
 
-            else{
-                $data=$us;
+            if ($key){
+                $temp=[];
+                foreach ($data as $datum){
+                    if (in_array($datum->id,$us)){
+                        $temp[]=$datum;
+                    }
+                }
+                $data=$temp;
             }
+
         }else{
-            $data=User::where('id','!=',auth()->user()->id)->where('role',$role_slug)->get();
+            $data=User::whereIn('id',auth()->user()->my_network())->get();
         }
         $users=[];
         foreach ($data as $datum){

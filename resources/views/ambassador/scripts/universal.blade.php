@@ -56,6 +56,11 @@
                 }
             }) ;
         });
+
+
+        $(document).on('input paste','.key-drop-down',function () {
+            search_dropdown($(this).val());
+        });
     });
     setInterval(function () {
         offset = $(".profile-navigation").offset();
@@ -72,5 +77,27 @@
             $('.profile-navigation-ul-outer').addClass("full-show");
         }
     }, 100);
+
+    function search_dropdown(key) {
+        $.ajax({
+            type: "POST",
+            url: "{{route('search.dropdown')}}",
+            dataType: "JSON",
+            data: {'key': key, _token: '{{csrf_token()}}'},
+            beforeSend: function () {
+                $('.recent-search-ul').html('<div class="col-md-12 text-center"><i class="spinner-border"></i></div>');
+            },
+            success: function (data) {
+                if (key){
+                    $('.recent-search-ul').html(data);
+                } else{
+                    $('.recent-search-ul').html('');
+                }
+            },
+            error: function (xhr) {
+                console.log(xhr);
+            }
+        });
+    }
 
 </script>

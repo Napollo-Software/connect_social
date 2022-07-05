@@ -3,10 +3,22 @@
     transition: all .3s ease-in;
 }
 
+.section-padding {padding: 30px 0;}
+
+.bg-custom {background-color: #F0F2F5  !important;}
+
+.custom-card {background-color: #ffffff;margin-bottom: 20px !important;}
+
+.custom-border {border-radius: 8px;}
+
+.custom-shadow {box-shadow: 0 1px 2px rgb(0 0 0 / 20%);}
+
+.custom-padding {padding: 15px !important;}
+
 /*  Forgot Password  */
 
 .action-div {
-    background: #f0f0f0;
+    background: #fff;
 }
 
 .action-div-logo-inner img {
@@ -16,15 +28,15 @@
 }
 
 .form-div {
-    background: rgb(249 249 249 / 44%);
+    background: #F0F2F5;
 }
 
 .form-div-main {
     padding: 60px;
     /* box-shadow: rgb(100 100 111 / 10%) 0px 7px 18px 2px; */
-    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-    border: 1px solid #f0f0f0;
-    border-radius: 8px;
+    /* box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%); */
+    /* border: 1px solid #f0f0f0; */
+    /* border-radius: 8px; */
     background: #fff;
     margin: 60px 0;
 }
