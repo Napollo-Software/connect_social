@@ -16,4 +16,9 @@ class FrontEnd extends Controller
         $data['title'] = 'Under Construction';
         return view('default.construction');
     }
+
+    public function kyc_submit()
+    {
+        return view('default.construction');
+    }
 }

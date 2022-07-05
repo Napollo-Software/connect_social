@@ -108,10 +108,10 @@ i {
 }
 
 .profile-user-options-li.user-pic img {
-    width: 50px;
+    width: 30px;
     border-radius: 50%;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-    height: 50px;
+    height: 30px;
     object-fit: cover;
 }
 
@@ -2359,8 +2359,8 @@ input.referel-link-input::selection {
     }
 
     .profile-user-options-li.user-pic img {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
     }
 
     .profile-wallete-top-text {

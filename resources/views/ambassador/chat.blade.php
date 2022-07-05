@@ -53,10 +53,19 @@
                     <div class="chat-box-inner custom-card custom-border custom-shadow margin-top">
                         <div class="chat-box-main">
                             <div class="chat-box-top-bar border-0">
-                                <div class="user-name" id="user-name"></div>
-                                <div class="view-profile"><a href="javascript:void(0)" target="_blank"
-                                                             id="user-url"></a></div>
-                                <div class="date-time"></div>
+                                <div class="chat-box-top-bar-inner">
+                                    <div class="back-btn close-chat-box" >
+                                        <div class="back-btn-icon">
+                                            <span class="ti-arrow-left"></span>
+                                        </div>
+                                    </div>
+                                    <div class="user-info-bar">
+                                        <div class="user-name" id="user-name"></div>
+                                        <div class="view-profile"><a href="javascript:void(0)" target="_blank"
+                                                                    id="user-url"></a></div>
+                                        <div class="date-time"></div>
+                                    </div>
+                                </div>
                             </div>
                             <div class="chat-box-inner-main">
                                 <div class="chat-box-inner-div">
@@ -220,6 +229,11 @@
 
                 $('.btn-attachment').on('click', function () {
                     $('#file').click();
+                });
+
+                $(document).on('click','.close-chat-box',function() {
+                    $(".chat-box").hide();
+                    $(".chat-contacts").show();
                 });
                 $(document).on('change', '#file', function () {
                     $('.btn-attachment').addClass('text-primary h3').attr('title', $('#file').val().replace(/.*(\/|\\)/, ''));
