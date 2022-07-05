@@ -49,7 +49,7 @@
                                                     <div class="search-page-input-inner">
                                                         <div class="search-page-input-main">
                                                             <form action="{{url('search')}}" method="get">
-                                                                <input type="text" value="{{$key}}" name="key" required>
+                                                                <input type="text" value="{{$key}}" name="key" id="key" required autocomplete="off">
                                                                 <button class='search-page-button black-button' type="submit"><span class="ti-search"></span></button>
                                                             </form>
 
@@ -68,39 +68,7 @@
                                                                 Search Results
                                                             </div>
                                                             <div class="search-result-box-all">
-                                                                @foreach($results as $user)
-                                                                <div class="search-result-box-single custom-padding">
-                                                                    <div class="search-result-box-single-inner">
-                                                                        <div class="search-result-box-profile-info">
-                                                                            <div class="search-result-box-profile-image">
-                                                                                <img src="{{$user->profile_image()}}" alt="">
-                                                                            </div>
-                                                                            <div class="search-result-box-profile-text">
-                                                                                <div class="user-name">
-                                                                                    <a href="{{url('profile-view/'.$user->id)}}" class="text-decoration-none text-secondary">{{$user->fullName()}}</a>
-                                                                                </div>
-                                                                                <div class="user-relation">
-                                                                                    @if(in_array($user->id,$friends))
-                                                                                    Friends
-                                                                                    @elseif(in_array($user->id,$connections))
-                                                                                    Connections
-                                                                                    @endif
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="search-result-box-profile-actions">
-                                                                            <div class="search-result-box-profile-buttons">
-                                                                                @if(in_array($user->id,$friends))
-                                                                                    <button class='black-button'>Remove Friend</button>
-                                                                                @elseif(in_array($user->id,$connections))
-                                                                                    <button class='black-button'>Remove Connection</button>
-                                                                                @endif
-                                                                                <a href="{{route('chat',['receiver'=>$user->id])}}" class='black-button text-decoration-none py-2'>Send Message</a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                @endforeach
+
                                                             </div>
                                                             <div class="show-more-resuls custom-padding text-center">
                                                                 <a href='javascript:void(0)'>Show more results</a>
@@ -119,8 +87,52 @@
             </div>
         </div>
     </div>
-
     @push('scripts')
+        <script>
+            function search(key) {
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('search.fetch')}}",
+                    dataType: "JSON",
+                    data: {'key': key, _token: '{{csrf_token()}}'},
+                    beforeSend: function () {
+                        $('.search-result-box-all').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>');
+                    },
+                    success: function (data) {
+                        if (key){
+                            $('.search-result-box-all').html(data);
+                        } else{
+                            $('.search-result-box-all').html('');
+                        }
+                    },
+                    error: function (xhr) {
+                        console.log(xhr);
+                    }
+                });
+            }
+            $(function () {
+                search($('{{$key}}');
+                $(document).on('input paste','#key',function () {
+                    search($(this).val());
+                });
+            });
+        </script>
     @endpush
+    <style>
+        .friends-grid-main{
+            min-height: 300px;
+        }
+        .spinner-border-large{
+            display: inline-block;
+            width: 5rem;
+            height: 5rem;
+            vertical-align: -.125em;
+            border: .15em solid #007bff;
+            border-right-color: transparent;
+            border-radius: 50%;
+            -webkit-animation: .75s linear infinite spinner-border;
+            animation: .75s linear infinite spinner-border;
+        }
+    </style>
 @endsection
 

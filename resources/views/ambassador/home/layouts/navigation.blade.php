@@ -32,7 +32,7 @@
                                             <div class="back-btn close-recent-search" onclick="document.getElementById('recent-searches-box').style.display = 'none'">
                                                 <span class="ti-arrow-left"></span>
                                             </div>
-                                            <input type='text' placeholder="Search by name" name="key" id="key" required>
+                                            <input type='text' placeholder="Search by name" name="key" id="key" required autocomplete="off">
                                             <button class='search-btn black-button' type="submit"><span class="ti-search"></span></button>
                                         </form>
                                     </div>
@@ -219,5 +219,4 @@
             </div>
         </div>
     </div>
-
 </div>

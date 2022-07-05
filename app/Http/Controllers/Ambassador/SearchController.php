@@ -10,11 +10,14 @@ use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
-    //
     public function index(Request $request){
         $this->validate($request,[
             'key'=>'required'
         ]);
+        $key=$request->key;
+        return view('ambassador.search.index',compact('key'));
+    }
+    public function fetch(Request $request){
         $key=$request->key;
         $role_slug=Role::where('slug','ambassador')->first();
         $role_slug=$role_slug->id;
@@ -24,6 +27,9 @@ class SearchController extends Controller
 
         $friends=getArrayFromKeyofEloquent(getFriendsListUsers(auth()->user()->id),'id');
         $connections=getArrayFromKeyofEloquent(getConnectionsListUsers(auth()->user()->id),'id');
-        return view('ambassador.home.search',compact('results','key','friends','connections'));
+
+        $viewRender = view('ambassador.search.components.search_html',compact('results','friends','connections'))->render();
+
+        return response()->json($viewRender);
     }
 }
