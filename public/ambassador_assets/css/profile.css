@@ -2047,6 +2047,9 @@ input.referel-link-input::selection {
 .coment-top-title {
     padding-bottom: 10px;
     border-bottom: 1px solid #dedede;
+    min-height: 73px;
+    display: flex;
+    align-items: center;
 }
 
 .single-post-pop-up-comment-all .all-comments-box::-webkit-scrollbar {

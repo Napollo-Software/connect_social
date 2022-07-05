@@ -29,9 +29,10 @@ Route::get('resend-email-code', [VerifyCodeController::class, 'resend_code'])->n
 Route::get('/', [HomeController::class, 'index'])->middleware(['email-verification','auth'])->name('home');
 Route::group([],__DIR__.'/partials/super_admin.php');
 Route::group([],__DIR__.'/partials/ambassador.php');
+
+// Frontend Routes
 Route::get('/front-end', [FrontEnd::class, 'index']);
 Route::get('/under-construction', [FrontEnd::class, 'under_construction']);
-
 Route::prefix('kyc')->group(function () {
     Route::get('submit', [FrontEnd::class, 'kyc_submit'])->name('kyc.submit.form');
     Route::get('response', [FrontEnd::class, 'kyc_response'])->name('kyc.response');
