@@ -153,7 +153,7 @@
                                                             <div class="back-btn close-recent-search" onclick="document.getElementById('recent-searches-box').style.display = 'none'">
                                                                 <span class="ti-arrow-left"></span>
                                                             </div>
-                                                            <input type='text' placeholder="Search by name" name="key" id="key" required>
+                                                            <input type='text' placeholder="Search by name" name="key" class="key-drop-down" id="key-dropdown" required autocomplete="off">
                                                             <button class='search-btn black-button' type="submit"><span class="ti-search"></span></button>
                                                         </form>
                                                     </div>
@@ -164,14 +164,14 @@
                                                                 <li class="recent-search-li">
                                                                     <div class="recent-search-list-div">
                                                                         <div class="recent-search-list-inner">
-                                                                            <div class="recent-search-rofile">
+                                                                            {{-- <div class="recent-search-rofile">
                                                                                 <div class="profile-image">
                                                                                     <img src="{{asset('ambassador_assets/images/user-profile/user-01.png')}}" alt="">
                                                                                 </div>
                                                                                 <div class="profile-text">
                                                                                     <a href='javascript:void(0)'>User Name</a>
                                                                                 </div>
-                                                                            </div>
+                                                                            </div> --}}
                                                                             <div class="remove-div">
                                                                                 <span class="ti-close"></span>
                                                                             </div>
