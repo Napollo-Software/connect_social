@@ -7,7 +7,7 @@
 @push('subscripts')
     <script>
         function fetch_post(n,t){
-            if (n == 0){
+            if (n == 0){ 
                 $('.load-posts').empty();
             }
             $.ajax({

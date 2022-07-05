@@ -32,7 +32,8 @@ Route::group([],__DIR__.'/partials/ambassador.php');
 
 // Frontend Routes
 Route::get('/front-end', [FrontEnd::class, 'index']);
-Route::get('/under-construction', [FrontEnd::class, 'under_construction']);
+
+Route::get('/under-construction', [FrontEnd::class, 'under_construction'])->name('site.under.construction');
 Route::prefix('kyc')->group(function () {
     Route::get('submit', [FrontEnd::class, 'kyc_submit'])->name('kyc.submit.form');
     Route::get('response', [FrontEnd::class, 'kyc_response'])->name('kyc.response');

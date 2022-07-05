@@ -32,4 +32,5 @@ Route::middleware(['auth','can:super-admin-views','email-verification'])->group(
         Route::post('send', [InviteController::class, 'send'])->name('invite.send');
     });
 
+    
 });

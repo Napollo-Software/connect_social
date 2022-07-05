@@ -304,7 +304,7 @@
                                                                                     <div class="set-privacy-dropdown">
                                                                                         <div class="set-privacy-dropdown-value open-dropdown dropdown-box"
                                                                                              data-target=".drop-09">
-                                                                                            <img src="{{getPrivacyDetails(getSocialPrivacy('hobbies'))['url']}}"
+                                                                                            <img src="{{getPrivacyDetails(getSocialPrivacy('Hobbies'))['url']}}"
                                                                                                  alt="">
                                                                                         </div>
                                                                                         <div class="set-privacy-dropdown-inner social-privacy custom-dropdown drop-09"
@@ -536,6 +536,92 @@
             </li>
         </ul>
     </div>
+    <div class="modal fade" id="update-social-info-modal" tabindex="-1" role="dialog"
+         aria-labelledby="update-social-info-modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="update-social-info-modalLabel"><i class="ti-pencil"></i> Update Social
+                        Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="social_info_form">
+                    @csrf
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" value="{{auth()->user()->details->city}}"
+                                           name="city" id="city">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="state">Current State</label>
+                                    <input type="text" class="form-control" value="{{auth()->user()->details->state}}"
+                                           name="state" id="state">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="relationship">Relationship Status</label>
+                                    <select name="relationship" id="relationship" class="form-control">
+                                        <option value="" hidden>Select Status</option>
+                                        <option value="single" {{auth()->user()->details->relationship=='single'?'selected':''}}>
+                                            Single
+                                        </option>
+                                        <option value="married" {{auth()->user()->details->relationship=='married'?'selected':''}}>
+                                            Married
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="workplace">Workplace</label>
+                                    <input type="text" name="workplace" id="workplace" class="form-control"
+                                           value="{{auth()->user()->details->workplace}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="high_school">High School</label>
+                                    <input type="text" name="high_school" id="high_school" class="form-control"
+                                           value="{{auth()->user()->details->high_school}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="hobbies">Hobbies</label>
+                                    <input type="text" class="form-control" id="hobbies" name="hobbies"
+                                           value="{{auth()->user()->details->city}}">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="gender">Gender</label>
+                                    <select name="gender" id="gender" class="form-control">
+                                        <option value="" hidden>Select Gender</option>
+                                        <option value="male" {{auth()->user()->gender=='male'?'selected':''}}>Male
+                                        </option>
+                                        <option value="female" {{auth()->user()->gender=='female'?'selected':''}}>Female
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer share-post-button">
+                        <button type="button" data-dismiss="modal">Close</button>
+                        <button type="submit">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection
 <script src="{{url('index.js')}}"></script>
 @push('scripts')
@@ -684,252 +770,7 @@
                 });
             }
         </script>
-    @else
-        <script>
-            $(function () {
-                showControls('{{$user->id}}');
-                $(document).on('click', '#add-as-friend', function () {
-                    var to = $(this).attr('data-to');
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('friends.send.request')}}",
-                        dataType: "JSON",
-                        data: {'to': to, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '.cancel-friend-request', function () {
-                    var id = $(this).attr('data-id');
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('friends.cancel.request')}}",
-                        dataType: "JSON",
-                        data: {'id': id, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '.cancel-connection-request', function () {
-                    var id = $(this).attr('data-id');
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('connections.cancel.request')}}",
-                        dataType: "JSON",
-                        data: {'id': id, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '.remove-friend', function () {
-                    var id = $(this).attr('data-id');
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('friends.remove.friend')}}",
-                        dataType: "JSON",
-                        data: {'id': id, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '.remove-connection', function () {
-                    var id = $(this).attr('data-id');
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('connections.remove.connection')}}",
-                        dataType: "JSON",
-                        data: {'id': id, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '.friend-request-sent', function () {
-                    var id = $(this).attr('data-id');
-                    var status = null;
-                    if($(this).hasClass('approve')){
-                        status='{{Friends::STATUS_APPROVED}}'
-                    }
-                    if($(this).hasClass('decline')){
-                        status='{{Friends::STATUS_REJECTED}}'
-                    }
 
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('friends.action')}}",
-                        dataType: "JSON",
-                        data: {'id': id,'status': status, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '.connection-request-sent', function () {
-                    var id = $(this).attr('data-id');
-                    var status = null;
-                    if($(this).hasClass('approve')){
-                        status='{{Connections::STATUS_APPROVED}}'
-                    }
-                    if($(this).hasClass('decline')){
-                        status='{{Connections::STATUS_REJECTED}}'
-                    }
-
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('connections.action')}}",
-                        dataType: "JSON",
-                        data: {'id': id,'status': status, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '#add-as-connection', function () {
-                    var to = $(this).attr('data-to');
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('connections.send.request')}}",
-                        dataType: "JSON",
-                        data: {'to': to, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-
-            });
-
-            function showControls(id) {
-                $.ajax({
-                    type: "POST",
-                    url: "{{route('ambassador.show.control')}}",
-                    dataType: "JSON",
-                    data: {'id': id, _token: '{{csrf_token()}}'},
-                    success: function (data) {
-                        $('.profile-action-btns-inner').html(data);
-                    },
-                    error: function (xhr) {
-                        erroralert(xhr);
-                    }
-                });
-            }
-        </script>
     @endif
     @stack('subscripts')
 @endpush
-@if($user->id==auth()->user()->id)
-    <div class="modal fade" id="update-social-info-modal" tabindex="-1" role="dialog"
-         aria-labelledby="update-social-info-modalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content ">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="update-social-info-modalLabel"><i class="ti-pencil"></i> Update Social
-                        Information</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form id="social_info_form">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="city">City</label>
-                                    <input type="text" class="form-control" value="{{auth()->user()->details->city}}"
-                                           name="city" id="city">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="state">Current State</label>
-                                    <input type="text" class="form-control" value="{{auth()->user()->details->state}}"
-                                           name="state" id="state">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="relationship">Relationship Status</label>
-                                    <select name="relationship" id="relationship" class="form-control">
-                                        <option value="" hidden>Select Status</option>
-                                        <option value="single" {{auth()->user()->details->relationship=='single'?'selected':''}}>
-                                            Single
-                                        </option>
-                                        <option value="married" {{auth()->user()->details->relationship=='married'?'selected':''}}>
-                                            Married
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="workplace">Workplace</label>
-                                    <input type="text" name="workplace" id="workplace" class="form-control"
-                                           value="{{auth()->user()->details->workplace}}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="high_school">High School</label>
-                                    <input type="text" name="high_school" id="high_school" class="form-control"
-                                           value="{{auth()->user()->details->high_school}}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="hobbies">Hobbies</label>
-                                    <input type="text" class="form-control" id="hobbies" name="hobbies"
-                                           value="{{auth()->user()->details->city}}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="gender">Gender</label>
-                                    <select name="gender" id="gender" class="form-control">
-                                        <option value="" hidden>Select Gender</option>
-                                        <option value="male" {{auth()->user()->gender=='male'?'selected':''}}>Male
-                                        </option>
-                                        <option value="female" {{auth()->user()->gender=='female'?'selected':''}}>Female
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer share-post-button">
-                        <button type="button" data-dismiss="modal">Close</button>
-                        <button type="submit">Save changes</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-@endif

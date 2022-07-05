@@ -30,7 +30,7 @@
                                 </div>
                             </div>
                         </div>
-                        @if($user->id==auth()->user()->id)
+                        @if($post->user_id==auth()->user()->id)
                             <div class="singal-post-top-bar-options open-dropdown dropdown-box" data-target=".post-actions-{{$post->id}}">
                                 <div class="icon">
                                     <span class="ti-angle-down"></span>
@@ -239,6 +239,7 @@
                                     </div>
                                     <form class="like-submit" id="like-submit-{{$post->id}}">
                                         @csrf
+                                        <input type="hidden" name="user" value="{{$user->id}}">
                                         <input type="hidden" value="{{$post->id}}" name="post">
                                     </form>
                                     <div class="text" id="likes-count-{{$post->id}}">{{$post->likes->count()}}</div>
@@ -293,7 +294,7 @@
                                         <div class="singal-comment-row-inner">
                                             <div class="singal-comment-row-user-image">
                                                 <div class="singal-comment-row-user-image-inner">
-                                                    <img src="{{$comment->user->profile_image()}}" alt=""
+                                                    <img src="{{$comment->user->profile_image()}}" title="{{$comment->user->fullName()}}" alt=""
                                                          class="{{$comment->user->id==auth()->user()->id?'profile_photo_preview':''}}">
                                                 </div>
                                             </div>
