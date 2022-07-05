@@ -21,6 +21,8 @@
                 }
                 $('#p-file_type_popup' + id).val(type);
                 $('#p-edit-post-upload-file-modal-' + id).attr('data-post', $(this).attr('data-post')).modal('show');
+                $('.single-post-pop-up').hide();
+                $('.modal-backdrop.fade.show').hide();
             });
         });
     </script>

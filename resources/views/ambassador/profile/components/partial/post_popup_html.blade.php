@@ -31,11 +31,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="singal-post-top-bar-options open-dropdown" data-target=".post-actions-{{$post->id}}">
+                        <div class="singal-post-top-bar-options d-none open-dropdown dropdown-box" data-target=".post-actions-{{$post->id}}">
                             <div class="icon">
                                 <span class="ti-angle-down"></span>
                             </div>
-                            <div class="singal-post-top-bar-options-bar post-actions-{{$post->id}}" style="display: none;">
+                            <div class="singal-post-top-bar-options-bar custom-dropdown post-actions-{{$post->id}}" style="display: none;">
                                 <div class="singal-post-top-bar-options-bar-inner">
                                     <ul class="singal-post-top-bar-options-ul">
                                         <li class="singal-post-top-bar-options-li">
@@ -168,7 +168,7 @@
                                                     <ul class="share-post-attachments">
                                                         <li class="edit-post-attachment-enabler-{{$post->id}} share-post-attachments-li {{!$post->assets()->exists()?'p-edit-post-modal-show':''}}"
                                                             data-post="{{$post->id}}" data-type="image"
-                                                            data-modal="#upload-file-modal">
+                                                            data-modal="#p-edit-post-upload-file-modal-{{$post->id}}">
                                                             <div class="attachment-option">
                                                                 <div class="attachment-icon">
                                                                     <span class="ti-camera"></span>
@@ -177,7 +177,7 @@
                                                         </li>
                                                         <li class="edit-post-attachment-enabler-{{$post->id}} share-post-attachments-li {{!$post->assets()->exists()?'p-edit-post-modal-show':''}}"
                                                             data-post="{{$post->id}}" data-type="video"
-                                                            data-modal="#upload-file-modal">
+                                                            data-modal="#p-edit-post-upload-file-modal-{{$post->id}}">
                                                             <div class="attachment-option">
                                                                 <div class="attachment-icon">
                                                                     <span class="ti-control-play"></span>
@@ -186,7 +186,7 @@
                                                         </li>
                                                         <li class="edit-post-attachment-enabler-{{$post->id}} share-post-attachments-li {{!$post->assets()->exists()?'p-edit-post-modal-show':''}}"
                                                             data-post="{{$post->id}}" data-type="audio"
-                                                            data-modal="#upload-file-modal">
+                                                            data-modal="#p-edit-post-upload-file-modal-{{$post->id}}">
                                                             <div class="attachment-option">
                                                                 <div class="attachment-icon">
                                                                     <span class="ti-microphone"></span>
@@ -207,7 +207,7 @@
                                             </div>
                                             <div class="set-privacy-share">
                                                 <div class="set-privacy-share-inner">
-                                                    <div class="set-privacy-dropdown">
+                                                    <div class="set-privacy-dropdown dropdown-box">
                                                         <div class="set-privacy-dropdown-value open-dropdown"
                                                              data-target=".drop-002" data-value="{{$post->privacy}}">
                                                             <img src="{{getPrivacyDetails($post->privacy)['url']}}"
@@ -216,7 +216,7 @@
                                                             <span class="more-icon"><span
                                                                         class="ti-angle-down"></span></span>
                                                         </div>
-                                                        <div class="set-privacy-dropdown-inner drop-002">
+                                                        <div class="set-privacy-dropdown-inner custom-dropdown drop-002">
 
                                                         </div>
                                                     </div>
