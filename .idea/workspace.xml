@@ -73,7 +73,7 @@
           <entry key="env" value="186" />
           <entry key="html" value="321" />
           <entry key="js" value="1222" />
-          <entry key="php" value="69447" />
+          <entry key="php" value="69532" />
           <entry key="sql" value="103" />
         </counts>
       </usages-collector>
@@ -83,7 +83,7 @@
           <entry key="CSS" value="114" />
           <entry key="HTML" value="412" />
           <entry key="JavaScript" value="1222" />
-          <entry key="PHP" value="34217" />
+          <entry key="PHP" value="34302" />
           <entry key="PLAIN_TEXT" value="187" />
           <entry key="SQL" value="103" />
         </counts>
@@ -92,20 +92,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="39" column="33" lean-forward="true" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+            <state relative-caret-position="238">
+              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
+            <state relative-caret-position="381">
+              <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -230,8 +230,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/NetworkController.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/friends-navigation.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/network/network.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php" />
         <option value="$PROJECT_DIR$/app/Models/User.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php" />
       </list>
     </option>
   </component>
@@ -793,12 +793,12 @@
       <workItem from="1656600442421" duration="3927000" />
       <workItem from="1656673971449" duration="22574000" />
       <workItem from="1656944349278" duration="12539000" />
-      <workItem from="1657019708999" duration="26812000" />
+      <workItem from="1657019708999" duration="27052000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="389056000" />
+    <option name="totallyTimeSpent" value="389296000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1208,17 +1208,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="39" column="33" lean-forward="true" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
+        <state relative-caret-position="381">
+          <caret line="73" column="20" selection-start-line="73" selection-start-column="20" selection-end-line="73" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="69" column="23" selection-start-line="69" selection-start-column="23" selection-end-line="69" selection-end-column="23" />
+        <state relative-caret-position="238">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
         </state>
       </provider>
     </entry>
