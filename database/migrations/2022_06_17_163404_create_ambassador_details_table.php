@@ -25,7 +25,8 @@ class CreateAmbassadorDetailsTable extends Migration
             $table->string('workplace')->default('Lorem Ipsum');
             $table->string('hobbies')->default('Lorem Ipsum');
             $table->string('cover_photo')->nullable();
-            $table->string('privacy',2000)->nullable();
+            $table->string('privacy',2000)->nullable()->default('a:9:{s:5:"about";s:7:"friends";s:4:"city";s:7:"friends";s:5:"state";s:7:"friends";s:12:"relationship";s:7:"friends";s:7:"joining";s:7:"friends";s:11:"high_school";s:7:"friends";s:9:"workplace";s:7:"friends";s:7:"hobbies";s:7:"friends";s:5:"phone";s:7:"friends";}');
+            $table->string('network_privacy')->default('a:2:{s:7:"friends";s:7:"friends";s:11:"connections";s:7:"friends";}');
             $table->timestamps();
         });
     }

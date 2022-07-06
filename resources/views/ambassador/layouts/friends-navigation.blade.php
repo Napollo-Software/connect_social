@@ -4,17 +4,17 @@
             <div class="inner-navigation-inner">
                 <div class="inner-navigation-main">
                     <ul class="inner-navigation-ul">
-                        <li class="inner-navigation-li {{$type=='friend'?'active':''}}">
-                            <a href data-type="friend" class="inner-navigation-link network-link">
+                        <li class="inner-navigation-li {{$type=='friends'?'active':''}}">
+                            <a href data-type="friends" class="inner-navigation-link network-link">
                                 <span class="icon">
                                     <img src="{{url('ambassador_assets/images/icons/users.svg')}}" alt="">
                                 </span>
                                 <span class="text">Friends <span id="total-friends">{{getFriendsList($user->id)->count()}}</span> </span>
                             </a>
                         </li>
-                        <li class="inner-navigation-li {{$type=='connection'?'active':''}}">
+                        <li class="inner-navigation-li {{$type=='connections'?'active':''}}">
 
-                            <a href data-type="connection" class="inner-navigation-link network-link">
+                            <a href data-type="connections" class="inner-navigation-link network-link">
                                 <span class="icon">
                                     <img src="{{url('ambassador_assets/images/icons/connection.svg')}}" alt="">
                                 </span>

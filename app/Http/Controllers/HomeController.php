@@ -11,8 +11,13 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
     public function index($type=null)
-    {   
-        if (Auth::user()->roles->slug == 'ambassador') {          
+    {
+        $data=[
+          'friends'=>'friends',
+          'connections'=>'friends',
+        ];
+        dd(\Opis\Closure\serialize($data));
+        if (Auth::user()->roles->slug == 'ambassador') {
             $user = auth()->user();
             return view('ambassador.home.index', compact( 'user','type'));
         }

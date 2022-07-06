@@ -61,6 +61,7 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
         Route::prefix('network')->group(function () {
             Route::get('{type}/{id?}', [NetworkController::class, 'index'])->name('network');
             Route::post('', [NetworkController::class, 'fetch'])->name('network.fetch');
+            Route::post('change-privacy', [NetworkController::class, 'change_privacy'])->name('network.change.privacy');
         });
         Route::prefix('friends')->group(function () {
             Route::get('list/{id?}', [FriendsController::class, 'show'])->name('friends.show');
