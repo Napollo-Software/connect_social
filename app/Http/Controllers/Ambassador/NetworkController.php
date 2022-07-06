@@ -14,8 +14,8 @@ class NetworkController extends Controller
 {
     public function network($id, $type)
     {
-        
-        $user = User::find($id); 
+
+        $user = User::find($id);
         $repeated_html = '<div class="friend-grid-col-options-dropdown-inner">
             <div class="friend-grid-col-options-dropdown-main">
                 <ul class="friend-grid-col-options-dropdown-ul">';
@@ -77,29 +77,30 @@ class NetworkController extends Controller
         } else {
             $showRemove = false;
         }
-
-
         if ($type == 'friends') {
-            $data = getFriendsListUsers($id);
-            $privacy=unserialize($user->details->network_privacy);
-           //dd($privacy['friends']);
-            dd(checkPrivacyInNetwork($privacy['friends'],$id));
+            $privacy = unserialize($user->details->network_privacy);
+            //dd($privacy['friends']);
+            $data = [];
+            if (checkPrivacyInNetwork($privacy['friends'], $id)) {
+                $data = getFriendsListUsers($id);
+            }
         }
         if ($type == 'connections') {
-            $data = getConnectionsListUsers($id);
-            $privacy=unserialize($user->details->network_privacy);
-           // dd($privacy['connections']);
+            $data = [];
+            $privacy = unserialize($user->details->network_privacy);
+            if (checkPrivacyInNetwork($privacy['friends'], $id)) {
+                $data = getConnectionsListUsers($id);
+            }
         }
         if ($type == 'tier-1') {
             $data = $user->tier_1();
-            $privacy='tier-1';
+            $privacy = 'tier-1';
         }
         if ($type == 'tier-2') {
             $data = $user->tier_2();
-            $privacy='tier-2';
+            $privacy = 'tier-2';
         }
         foreach ($data as $detail) {
-            if($id==auth()->user()->id){
                 $html .= '<div class="friend-grid-col">
                 <div class="friend-grid-col-inner-div">
                     <div class="friend-grid-col-profile">
@@ -129,41 +130,8 @@ class NetworkController extends Controller
                     </div>
                 </div>
             </div>';
-            }else{
-                dd($type,strtolower($privacy['name']));
-                    if($type==strtolower($privacy['name'])){
-            $html .= '<div class="friend-grid-col">
-                            <div class="friend-grid-col-inner-div">
-                                <div class="friend-grid-col-profile">
-                                    <div class="friend-grid-col-profile-inner">
-                                        <div class="friend-grid-col-profile-image">
-                                            <img src="' . $detail->profile_image() . '" alt="">
-                                        </div>
-                                        <div class="friend-grid-col-profile-text">
-                                            <div class="friend-grid-col-profile-text-top">
-                                                <a href="' . url('profile-view/' . $detail->id) . '" class="text-decoration-none text-secondary">' . $detail->fullName() . '</a>
-                                            </div>
-                                            <div class="friend-grid-col-profile-text-bottom">
-                                                ' . ucfirst($type) . '
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="friend-grid-col-options">
-                                    <div class="friend-grid-col-options-inner">
-                                        <div class="friend-grid-col-options-icon">
-                                            <span class="ti-more-alt"></span>
-                                            <div class="friend-grid-col-options-dropdown" data-id="' . $detail->id . '">
-                                            
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>';
-        } 
-    }
-}
+
+        }
         $repeated_html = '<div class="friend-grid-col-options-dropdown-inner">
             <div class="friend-grid-col-options-dropdown-main">
                 <ul class="friend-grid-col-options-dropdown-ul">';
@@ -183,18 +151,18 @@ class NetworkController extends Controller
             </div>
         </div>';
 
-        if (in_array($type,['friends','connections'])){
-            $show_privacy=true;
-            $privacies=getNetworkPrivacy($type);
-        }else{
-            $show_privacy=false;
-            $privacies=[];
+        if (in_array($type, ['friends', 'connections'])) {
+            $show_privacy = true;
+            $privacies = getNetworkPrivacy($type);
+        } else {
+            $show_privacy = false;
+            $privacies = [];
         }
-        $p=[
-            'show_privacy'=>$show_privacy,
-            'privacy'=>$privacies,
+        $p = [
+            'show_privacy' => $show_privacy,
+            'privacy' => $privacies,
         ];
-        return response()->json(['repeated_html' => $repeated_html, 'html' => $html,'p'=>$p]);
+        return response()->json(['repeated_html' => $repeated_html, 'html' => $html, 'p' => $p]);
 
     }
 
@@ -206,14 +174,14 @@ class NetworkController extends Controller
                 $data[$key] = $request->privacy;
             }
         }
-        $userDetails=AmbassadorDetails::find(auth()->user()->details->id);
-        $userDetails->network_privacy=serialize($data);
+        $userDetails = AmbassadorDetails::find(auth()->user()->details->id);
+        $userDetails->network_privacy = serialize($data);
         $userDetails->save();
-        $d=[
-          'name'=>getPrivacyDetails($request->privacy)['name'],
-          'url'=>getPrivacyDetails($request->privacy)['url'],
+        $d = [
+            'name' => getPrivacyDetails($request->privacy)['name'],
+            'url' => getPrivacyDetails($request->privacy)['url'],
         ];
-        return response()->json(['success'=>'updated','data'=>$d]);
+        return response()->json(['success' => 'updated', 'data' => $d]);
 
     }
 }

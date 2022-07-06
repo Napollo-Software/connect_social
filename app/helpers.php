@@ -340,6 +340,37 @@ function getNetworkPrivacy($type){
 
 function checkPrivacyInNetwork($privacy,$other_network_id)
 {
-    if($privacy==Privacy::PRIV_PUBLIC)
-
+    if($privacy==Privacy::PRIV_PUBLIC){
+        if (in_array($other_network_id,auth()->user()->my_network())){
+            return true;
+        }
+    }
+    if($privacy==Privacy::PRIV_CONNECTIONS){
+        $all_IDS=getArrayFromKeyofEloquent(getConnectionsList(auth()->user()->id),'id');
+        if (in_array($other_network_id,$all_IDS)){
+            return true;
+        }
+    }
+    if($privacy==Privacy::PRIV_FRIENDS){
+        $all_IDS=getArrayFromKeyofEloquent(getFriendsListUsers(auth()->user()->id),'id');
+        if (in_array($other_network_id,$all_IDS)){
+            return true;
+        }
+    }
+    if($privacy==Privacy::PRIV_TIER_1){
+        $all_IDS=getArrayFromKeyofEloquent(auth()->user()->tier_1(),'id');
+        if (in_array($other_network_id,$all_IDS)){
+            return true;
+        }
+    }
+    if($privacy==Privacy::PRIV_TIER_2){
+        $all_IDS=getArrayFromKeyofEloquent(auth()->user()->tier_2(),'id');
+        if (in_array($other_network_id,$all_IDS)){
+            return true;
+        }
+    }
+    if ($other_network_id==auth()->user()->id){
+        return true;
+    }
+    return false;
 }
