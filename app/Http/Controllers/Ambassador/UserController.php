@@ -34,7 +34,7 @@ class UserController extends Controller
         }
 
         $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
-        return view('ambassador.profile.network.profile', compact('posts', 'images', 'user'));
+        return view('ambassador.profile.index', compact('posts', 'images', 'user'));
     }
 
     public function update_name(Request $request)
