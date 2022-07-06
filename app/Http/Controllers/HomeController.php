@@ -12,11 +12,6 @@ class HomeController extends Controller
     }
     public function index($type=null)
     {
-        $data=[
-          'friends'=>'friends',
-          'connections'=>'friends',
-        ];
-        dd(\Opis\Closure\serialize($data));
         if (Auth::user()->roles->slug == 'ambassador') {
             $user = auth()->user();
             return view('ambassador.home.index', compact( 'user','type'));
