@@ -16,11 +16,6 @@ class HomeController extends Controller
         if (Auth::user()->roles->slug == 'ambassador') {          
 =======
     {
-        $data=[
-          'friends'=>'friends',
-          'connections'=>'friends',
-        ];
-        dd(\Opis\Closure\serialize($data));
         if (Auth::user()->roles->slug == 'ambassador') {
 >>>>>>> a52a0794b709810eb12797a00e166e35d68153b6
             $user = auth()->user();
