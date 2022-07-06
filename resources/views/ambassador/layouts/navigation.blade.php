@@ -51,7 +51,7 @@
                                         </span>
                         <span class="text">Wallet</span>
                     </a>
-                </li>
+                </li> 
             </ul>
         </div>
     </div>
