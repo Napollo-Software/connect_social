@@ -8,11 +8,11 @@
                     </div>
                 </div>
                 <ul class="home-navigation-ul">
-                <li class="home-navigation-li {{Route::getCurrentRoute()->type=='friends'?'active':''}}"><a href="{{url('home/friends')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/globe.svg')}}" alt=""></span> <span class="text">Everyone</span></a></li>
+                <li class="home-navigation-li {{Route::getCurrentRoute()->type=='all'?'active':''}}"><a href="{{url('home/all')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/globe.svg')}}" alt=""></span> <span class="text">Everyone</span></a></li>
                     <li class="home-navigation-li {{Route::getCurrentRoute()->type=='friends'?'active':''}}"><a href="{{url('home/friends')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/users.svg')}}" alt=""></span> <span class="text">Friends</span></a></li>
                     <li class="home-navigation-li {{Route::getCurrentRoute()->type=='connections'?'active':''}}"><a href="{{url('home/connections')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/connection.svg')}}" alt=""></span> <span class="text">Connections</span></a></li>
-                    <li class="home-navigation-li"><a href="javascript:void(0)" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/personal-network.svg')}}" alt=""></span> <span class="text">Personal Network</span></a></li>
-                    <li class="home-navigation-li"><a href="javascript:void(0)" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/extended-network.svg')}}" alt=""></span> <span class="text">Extended Network</span></a></li>
+                    <li class="home-navigation-li {{Route::getCurrentRoute()->type=='tier-1'?'active':''}}"><a href="{{url('home/tier-1')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/personal-network.svg')}}" alt=""></span> <span class="text">Personal Network</span></a></li>
+                    <li class="home-navigation-li {{Route::getCurrentRoute()->type=='tier-2'?'active':''}}"><a href="{{url('home/tier-2')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/extended-network.svg')}}" alt=""></span> <span class="text">Extended Network</span></a></li>
                 </ul>
                 <div class="message-button to-hide-sticky">
                     <div class="message-button-inner">

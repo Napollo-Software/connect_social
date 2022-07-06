@@ -19,6 +19,7 @@ class PostController extends Controller
         return response()->json($viewRender);
     }
     public function fetch_all(Request $request){
+        
         $type=$request->type;
         if ($type=='all'){
             $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',auth()->user()->my_network())->skip($request->n*2)->take(2)->get();
@@ -28,6 +29,7 @@ class PostController extends Controller
             $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$friends)->skip($request->n*2)->take(2)->get();
         }
         if ($type=='connections'){
+            
             $connections=getArrayFromKeyofEloquent(getConnectionsListUsers(auth()->user()->id),'id');
             $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$connections)->skip($request->n*2)->take(2)->get();
         }
@@ -36,11 +38,10 @@ class PostController extends Controller
             $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$tier1)->skip($request->n*2)->take(2)->get();
         }
         if ($type=='tier-2'){
-            $tier1=getArrayFromKeyofEloquent(auth()->user()->tier_2(),'id');
-            $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$tier1)->skip($request->n*2)->take(2)->get();
+            $tier2=getArrayFromKeyofEloquent(auth()->user()->tier_2(),'id');
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$tier2)->skip($request->n*2)->take(2)->get();
         }
         $user=User::find($request->user);
-        //dd($posts);
         $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
         return response()->json($viewRender);
     }

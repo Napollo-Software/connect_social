@@ -7,7 +7,7 @@ use App\Http\Controllers\Ambassador\LikeController;
 use App\Http\Controllers\Ambassador\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Ambassador\FriendsController;
-use App\Http\Controllers\Ambassador\ConnectionsController;
+use App\Http\Controllers\Ambassador\ConnectionsController; 
 use App\Http\Controllers\Ambassador\ChatController;
 use App\Http\Controllers\Ambassador\SearchController;
 use App\Http\Controllers\Ambassador\NetworkController;

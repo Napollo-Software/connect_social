@@ -5,7 +5,7 @@ Profile
 @section('content')
     @include('ambassador.home.layouts.navigation')
     <div class="profile-content">
-        <div class="container">
+        <div class="container"> 
             <div class="profile-content-inner">
                 <div class="profile-content-boxs">
                     <div class="profile-content-boxs-single social-information-content-box">

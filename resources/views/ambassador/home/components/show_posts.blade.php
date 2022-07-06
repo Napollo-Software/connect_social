@@ -34,7 +34,7 @@
         }
         $(function () {
             var page=0;
-            var type='all';
+            var type='<?= $type ?>';
             fetch_post(page,type);
             $(document).on('click','#scroll-to',function () {
                 page++;
