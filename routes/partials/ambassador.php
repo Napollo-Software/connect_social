@@ -1,4 +1,5 @@
 <?php
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Ambassador\PostController;
 use App\Http\Controllers\Ambassador\CommentController;
@@ -7,16 +8,21 @@ use App\Http\Controllers\Ambassador\LikeController;
 use App\Http\Controllers\Ambassador\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Ambassador\FriendsController;
-use App\Http\Controllers\Ambassador\ConnectionsController; 
+use App\Http\Controllers\Ambassador\ConnectionsController;
 use App\Http\Controllers\Ambassador\ChatController;
 use App\Http\Controllers\Ambassador\SearchController;
 use App\Http\Controllers\Ambassador\NetworkController;
 use App\Http\Controllers\Ambassador\SendInviteController;
 
-Route::middleware(['auth','can:ambassador-views','email-verification'])->group(function () {
+Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group(function () {
 
-    Route::middleware('under-construction')->group(function(){
-        Route::prefix('post')->group(function () { 
+    Route::middleware('under-construction')->group(function () {
+        Route::get('home/{type?}', [HomeController::class, 'index'])->name('ambassador.home');
+        Route::prefix('profile-view')->group(function () {
+            Route::get('{id?}', [UserController::class, 'index'])->name('network.profile');
+            Route::get('network/{id}/{type}', [NetworkController::class, 'network'])->name('network.list');
+        });
+        Route::prefix('post')->group(function () {
             Route::post('fetch', [PostController::class, 'fetch'])->name('post.fetch');
             Route::post('fetch-all', [PostController::class, 'fetch_all'])->name('post.fetch.all');
             Route::post('store', [PostController::class, 'store'])->name('post.store');
@@ -24,12 +30,6 @@ Route::middleware(['auth','can:ambassador-views','email-verification'])->group(f
             Route::post('pop-up', [PostController::class, 'popup'])->name('post.popup');
             Route::delete('destroy', [PostController::class, 'destroy'])->name('post.destroy');
             Route::delete('asset-destroy', [PostController::class, 'asset_destroy'])->name('post.asset.destroy');
-        });
-        Route::get('home/{type?}', [HomeController::class, 'index'])->name('ambassador.home');
-        Route::prefix('profile-view')->group(function () {
-            Route::get('{id?}', [UserController::class, 'index'])->name('network.profile');
-            Route::get('network/{id}/{type}', [NetworkController::class, 'network'])->name('network.list');
-
         });
 
         Route::prefix('ambassador')->group(function () {
