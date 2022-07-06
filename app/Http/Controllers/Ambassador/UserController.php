@@ -36,6 +36,7 @@ class UserController extends Controller
         $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
         return view('ambassador.profile.network.profile', compact('posts', 'images', 'user'));
     }
+
     public function update_name(Request $request)
     {
         $this->validate($request, [
@@ -162,6 +163,7 @@ class UserController extends Controller
         $detail->save();
         return response()->json(['success' => 'updated']);
     }
+
     public function show_control(Request $request){
         $from=auth()->user()->id;
         $to=$request->id;

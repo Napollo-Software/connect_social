@@ -215,7 +215,13 @@ function getFriendsListUsers($id){
     $friends=Friend::where('from',$id)->where('status',\Friends::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Friends::STATUS_APPROVED)->get();
     $users=[];
     foreach ($friends as $friend){
-        $users[]=getFriendDetails($friend);
+        if ($id==$friend->from){
+            $user=$friend->user_to;
+        }
+        if ($id==$friend->to){
+            $user=$friend->user_from;
+        }
+        $users[]=$user;
     }
     return $users;
 }
@@ -229,7 +235,17 @@ function getConnectionsListUsers($id){
     $connections=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
     $users=[];
     foreach ($connections as $connection){
-        $users[]=getConnectionDetails($connection);
+
+        if ($id==$connection->from){
+            $user=$connection->user_to;
+        }
+        if ($id==$connection->to){
+            $user=$connection->user_from;
+        }
+        $users[]=$user;
+
+
+
     }
     return $users;
 }

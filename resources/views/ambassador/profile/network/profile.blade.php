@@ -279,7 +279,7 @@
                                                         <div class="friend-grid">
                                                             <div class="friend-grid-inner">
                                                                 @if(getFriendsList($user->id)->count()>0)
-                                                                    @foreach(getFriendsListUsers($user->id) as $friend)
+                                                                    @foreach(getFriendsListUsers(auth()->user()->id) as $friend)
                                                                         <div class="friend-grid-col">
                                                                             <div class="friend-grid-col-inner">
                                                                                 <div class="firend-grid-col-image">
