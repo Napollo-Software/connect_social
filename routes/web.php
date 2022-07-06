@@ -6,7 +6,7 @@ use App\Http\Controllers\SmsController;
 use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\ProfilesController;
-use App\Http\Controllers\Auth\VerifyCodeController;
+use App\Http\Controllers\Auth\VerifyCodeController; 
 use App\Http\Controllers\FrontEnd;
 
 Auth::routes(['verify' => true]);

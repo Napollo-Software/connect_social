@@ -11,7 +11,7 @@
                                 </span>
                                 <span class="text">Friends <span id="total-friends">{{getFriendsList($user->id)->count()}}</span> </span>
                             </a>
-                        </li>
+                        </li> 
                         <li class="inner-navigation-li {{$type=='connections'?'active':''}}">
 
                             <a href data-type="connections" class="inner-navigation-link network-link">

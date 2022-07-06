@@ -14,7 +14,8 @@ class NetworkController extends Controller
 {
     public function network($id, $type)
     {
-        $user = User::find($id);
+        
+        $user = User::find($id); 
         $repeated_html = '<div class="friend-grid-col-options-dropdown-inner">
             <div class="friend-grid-col-options-dropdown-main">
                 <ul class="friend-grid-col-options-dropdown-ul">';
@@ -80,18 +81,57 @@ class NetworkController extends Controller
 
         if ($type == 'friends') {
             $data = getFriendsListUsers($id);
+            $privacy=unserialize($user->details->network_privacy);
+           //dd($privacy['friends']);
+            dd(checkPrivacyInNetwork($privacy['friends'],$id));
         }
         if ($type == 'connections') {
             $data = getConnectionsListUsers($id);
+            $privacy=unserialize($user->details->network_privacy);
+           // dd($privacy['connections']);
         }
         if ($type == 'tier-1') {
             $data = $user->tier_1();
+            $privacy='tier-1';
         }
         if ($type == 'tier-2') {
             $data = $user->tier_2();
+            $privacy='tier-2';
         }
         foreach ($data as $detail) {
-
+            if($id==auth()->user()->id){
+                $html .= '<div class="friend-grid-col">
+                <div class="friend-grid-col-inner-div">
+                    <div class="friend-grid-col-profile">
+                        <div class="friend-grid-col-profile-inner">
+                            <div class="friend-grid-col-profile-image">
+                                <img src="' . $detail->profile_image() . '" alt="">
+                            </div>
+                            <div class="friend-grid-col-profile-text">
+                                <div class="friend-grid-col-profile-text-top">
+                                    <a href="' . url('profile-view/' . $detail->id) . '" class="text-decoration-none text-secondary">' . $detail->fullName() . '</a>
+                                </div>
+                                <div class="friend-grid-col-profile-text-bottom">
+                                    ' . ucfirst($type) . '
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="friend-grid-col-options">
+                        <div class="friend-grid-col-options-inner">
+                            <div class="friend-grid-col-options-icon">
+                                <span class="ti-more-alt"></span>
+                                <div class="friend-grid-col-options-dropdown" data-id="' . $detail->id . '">
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>';
+            }else{
+                dd($type,strtolower($privacy['name']));
+                    if($type==strtolower($privacy['name'])){
             $html .= '<div class="friend-grid-col">
                             <div class="friend-grid-col-inner-div">
                                 <div class="friend-grid-col-profile">
@@ -121,7 +161,9 @@ class NetworkController extends Controller
                                 </div>
                             </div>
                         </div>';
-        }
+        } 
+    }
+}
         $repeated_html = '<div class="friend-grid-col-options-dropdown-inner">
             <div class="friend-grid-col-options-dropdown-main">
                 <ul class="friend-grid-col-options-dropdown-ul">';

@@ -337,3 +337,9 @@ function getNetworkPrivacy($type){
     $privacy=$all[$type];
     return getPrivacyDetails($privacy);
 }
+
+function checkPrivacyInNetwork($privacy,$other_network_id)
+{
+    if($privacy==Privacy::PRIV_PUBLIC)
+
+}
