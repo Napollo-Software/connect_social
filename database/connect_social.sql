@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2022 at 07:27 PM
+-- Generation Time: Jul 06, 2022 at 01:01 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -65,7 +65,7 @@ CREATE TABLE `ambassador_details` (
 --
 
 INSERT INTO `ambassador_details` (`id`, `user_id`, `about`, `city`, `state`, `relationship`, `joining`, `high_school`, `workplace`, `hobbies`, `cover_photo`, `privacy`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. ', 'NYC', 'YC', 'single', '2020-01-28', 'Lorem Ipsum', 'Lorem Ipsum', 'NYC', '1656703476vid.jpg', 'a:10:{s:5:\"about\";s:7:\"friends\";s:4:\"city\";s:11:\"connections\";s:5:\"state\";s:6:\"tier-1\";s:12:\"relationship\";s:6:\"tier-2\";s:7:\"joining\";s:6:\"public\";s:11:\"high_school\";s:6:\"public\";s:9:\"workplace\";s:7:\"friends\";s:7:\"hobbies\";s:6:\"tier-1\";s:5:\"phone\";s:7:\"friends\";s:6:\"gender\";s:6:\"tier-1\";}', '2022-07-01 06:32:35', '2022-07-04 11:23:35'),
+(1, 2, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. ', 'NYC', 'YC', 'single', '2020-01-28', 'Lorem Ipsum', 'Lorem Ipsum', 'NYC', '1656703476vid.jpg', 'a:10:{s:5:\"about\";s:7:\"friends\";s:4:\"city\";s:6:\"tier-2\";s:5:\"state\";s:6:\"tier-1\";s:12:\"relationship\";s:6:\"tier-2\";s:7:\"joining\";s:6:\"public\";s:11:\"high_school\";s:6:\"public\";s:9:\"workplace\";s:7:\"friends\";s:7:\"hobbies\";s:6:\"tier-1\";s:5:\"phone\";s:7:\"friends\";s:6:\"gender\";s:6:\"tier-1\";}', '2022-07-01 06:32:35', '2022-07-05 06:41:33'),
 (2, 3, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. ', 'NYC', 'YC', 'single', '2020-01-28', 'Lorem Ipsum', 'Lorem Ipsum', 'Lorem Ipsum', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
 (3, 4, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. ', 'NYC', 'YC', 'single', '2020-01-28', 'Lorem Ipsum', 'Lorem Ipsum', 'Lorem Ipsum', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
 (4, 5, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id libero sit orci sed vel rutrum aliquam. ', 'NYC', 'YC', 'single', '2020-01-28', 'Lorem Ipsum', 'Lorem Ipsum', 'Lorem Ipsum', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
@@ -101,8 +101,21 @@ CREATE TABLE `chats` (
 --
 
 INSERT INTO `chats` (`id`, `from`, `to`, `message`, `file`, `read_at`, `created_at`, `updated_at`) VALUES
-(1, 2, 3, 'Message test', NULL, '2022-07-01 09:35:20', '2022-07-01 07:59:34', '2022-07-01 09:35:20'),
-(2, 2, 3, 'testing live messages', NULL, '2022-07-01 09:35:20', '2022-07-01 08:00:02', '2022-07-01 09:35:20');
+(1, 2, 3, 'Message test', NULL, '2022-07-05 08:13:12', '2022-07-01 07:59:34', '2022-07-05 08:13:12'),
+(2, 2, 3, 'testing live messages', NULL, '2022-07-05 08:13:12', '2022-07-01 08:00:02', '2022-07-05 08:13:12'),
+(3, 2, 3, '1', NULL, '2022-07-05 08:13:12', '2022-07-05 07:30:54', '2022-07-05 08:13:12'),
+(4, 2, 3, '1', NULL, '2022-07-05 08:13:12', '2022-07-05 07:30:57', '2022-07-05 08:13:12'),
+(5, 2, 3, '11', NULL, '2022-07-05 08:13:12', '2022-07-05 07:30:57', '2022-07-05 08:13:12'),
+(6, 2, 3, '1', NULL, '2022-07-05 08:13:12', '2022-07-05 07:30:58', '2022-07-05 08:13:12'),
+(7, 2, 3, '11', NULL, '2022-07-05 08:13:12', '2022-07-05 07:30:59', '2022-07-05 08:13:12'),
+(8, 2, 3, '1', NULL, '2022-07-05 08:13:12', '2022-07-05 07:31:00', '2022-07-05 08:13:12'),
+(9, 2, 3, '11', NULL, '2022-07-05 08:13:12', '2022-07-05 07:31:00', '2022-07-05 08:13:12'),
+(10, 2, 3, '1', NULL, '2022-07-05 08:13:12', '2022-07-05 07:31:01', '2022-07-05 08:13:12'),
+(11, 2, 3, '11', NULL, '2022-07-05 08:13:12', '2022-07-05 07:31:02', '2022-07-05 08:13:12'),
+(12, 2, 3, '1', NULL, '2022-07-05 08:13:12', '2022-07-05 07:31:03', '2022-07-05 08:13:12'),
+(13, 2, 3, '11', NULL, '2022-07-05 08:13:13', '2022-07-05 07:31:03', '2022-07-05 08:13:13'),
+(14, 2, 3, '111', NULL, '2022-07-05 08:13:13', '2022-07-05 07:31:04', '2022-07-05 08:13:13'),
+(15, 2, 9, 'dfdfg', NULL, NULL, '2022-07-05 07:35:10', '2022-07-05 07:35:10');
 
 -- --------------------------------------------------------
 
@@ -124,40 +137,7 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `user_id`, `post_id`, `text`, `created_at`, `updated_at`) VALUES
-(1, 2, 4, 'Comment @ 001', '2022-07-01 11:38:12', '2022-07-01 11:38:12'),
-(2, 2, 4, 'Comment @ 002', '2022-07-01 11:38:15', '2022-07-01 11:38:15'),
-(3, 2, 4, 'Comment @ 003', '2022-07-01 11:38:18', '2022-07-01 11:38:18'),
-(4, 2, 4, 'Comment @ 004', '2022-07-01 11:38:20', '2022-07-01 11:38:20'),
-(5, 2, 4, 'Comment @ 005', '2022-07-01 11:38:23', '2022-07-01 11:38:23'),
-(6, 2, 4, 'Testing post from Parent Tier (tier00@connectsocial.com) with privacy of tier-1', '2022-07-01 11:44:08', '2022-07-01 11:44:08'),
-(7, 2, 4, 'Comment @ 006', '2022-07-01 11:54:44', '2022-07-01 11:54:44'),
-(8, 2, 4, 'Comment @ 006', '2022-07-01 11:54:52', '2022-07-01 11:54:52'),
-(9, 2, 4, 'Comment @ 007', '2022-07-01 11:56:55', '2022-07-01 11:56:55'),
-(10, 2, 4, 'Comment @ 008', '2022-07-01 11:57:00', '2022-07-01 11:57:00'),
-(11, 2, 4, 'Comment @ 007', '2022-07-01 12:00:24', '2022-07-01 12:00:24'),
-(12, 2, 4, 'Comment @ 006', '2022-07-01 12:00:29', '2022-07-01 12:00:29'),
-(13, 2, 4, 'Comment @ 001', '2022-07-01 12:00:53', '2022-07-01 12:00:53'),
-(14, 2, 5, 'Comment @ 001', '2022-07-01 12:42:02', '2022-07-01 12:42:02'),
-(15, 2, 5, 'Comment @ 002', '2022-07-01 12:42:20', '2022-07-01 12:42:20'),
-(16, 2, 5, 'Comment @ 003', '2022-07-01 12:42:27', '2022-07-01 12:42:27'),
-(17, 2, 4, 'Comment @ 001', '2022-07-01 12:48:07', '2022-07-01 12:48:07'),
-(18, 2, 3, '0000', '2022-07-01 14:25:51', '2022-07-01 14:25:51'),
-(19, 2, 3, '0000', '2022-07-01 14:25:54', '2022-07-01 14:25:54'),
-(20, 2, 3, '0000', '2022-07-01 14:25:56', '2022-07-01 14:25:56'),
-(21, 2, 3, '0000', '2022-07-01 14:25:56', '2022-07-01 14:25:56'),
-(22, 2, 3, '0000', '2022-07-01 14:25:57', '2022-07-01 14:25:57'),
-(23, 2, 3, '0000', '2022-07-01 14:25:57', '2022-07-01 14:25:57'),
-(24, 2, 3, '0000', '2022-07-01 14:25:58', '2022-07-01 14:25:58'),
-(25, 2, 3, '0000', '2022-07-01 14:25:59', '2022-07-01 14:25:59'),
-(26, 2, 3, '0000', '2022-07-01 14:25:59', '2022-07-01 14:25:59'),
-(27, 2, 3, '0000', '2022-07-01 14:26:00', '2022-07-01 14:26:00'),
-(28, 2, 3, '0000', '2022-07-01 14:26:01', '2022-07-01 14:26:01'),
-(29, 2, 3, '0000', '2022-07-01 14:26:01', '2022-07-01 14:26:01'),
-(30, 2, 3, '0000', '2022-07-01 14:26:02', '2022-07-01 14:26:02'),
-(31, 2, 3, '0000', '2022-07-01 14:26:02', '2022-07-01 14:26:02'),
-(32, 2, 3, '0000', '2022-07-01 14:26:03', '2022-07-01 14:26:03'),
-(33, 2, 3, 'hiii', '2022-07-01 14:26:12', '2022-07-01 14:26:12'),
-(34, 2, 3, '0000', '2022-07-01 14:26:27', '2022-07-01 14:26:27');
+(1, 9, 39, 'Comment @ 001', '2022-07-05 13:29:50', '2022-07-05 13:29:50');
 
 -- --------------------------------------------------------
 
@@ -242,8 +222,7 @@ CREATE TABLE `likes` (
 --
 
 INSERT INTO `likes` (`id`, `post_id`, `user_id`) VALUES
-(4, 3, 2),
-(6, 39, 2);
+(5, 40, 2);
 
 -- --------------------------------------------------------
 
@@ -473,7 +452,10 @@ INSERT INTO `roles` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
 (1, 'Super Admin', 'super-admin', '2022-06-14 12:46:58', '2022-06-14 12:46:58'),
 (2, 'Merchant', 'merchant', '2022-06-14 20:48:31', '2022-06-14 20:48:31'),
 (3, 'Ambassador', 'ambassador', '2022-06-14 20:48:42', '2022-06-14 20:48:42'),
-(4, 'Admin', 'admin', '2022-06-14 20:48:53', '2022-06-14 20:48:53');
+(4, 'Admin', 'admin', '2022-06-14 20:48:53', '2022-06-14 20:48:53'),
+(5, 'Super Admin', 'super-admins', '2022-06-14 12:46:58', '2022-06-14 12:46:58'),
+(6, 'Merchant', 'merchants', '2022-06-14 20:48:31', '2022-06-14 20:48:31'),
+(7, 'Ambassador', 'ambassadors', '2022-06-14 20:48:42', '2022-06-14 20:48:42');
 
 -- --------------------------------------------------------
 
@@ -507,20 +489,20 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fname`, `lname`, `username`, `email`, `country_code`, `phone`, `email_verified_at`, `password`, `gender`, `role`, `email_code`, `phone_code`, `profile`, `email_token`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Super', 'Admin', 'super_admin', 'superadmin@connectsocial.com', '+92', '3001231231', '2022-06-12 10:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 1, NULL, NULL, 'super-admin.jpg', NULL, NULL, '2022-06-12 10:37:13', '2022-06-12 10:37:13'),
-(2, 'Parent', 'Tier', 'tier00', 'tier00@connectsocial.com', '+1', '3040647306', '2022-06-12 10:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '667966', '799931', '1656675151blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:32:35', '2022-07-01 01:33:09'),
-(3, 'Tier1', 'A', 'tier01a', 'tier01_a@connectsocial.com', '+92', '3040647306', '2022-06-12 10:37:13', '$2y$10$4sa/IPO2sYe4EqukzhEemea1H1BaJD/IfQgeXcj7Vf1FCjh7kvclO', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
-(4, 'Tier1', 'B', 'tier01b', 'tier01_b@connectsocial.com', '+92', '3040647306', '2022-06-12 10:37:13', '$2y$10$4sa/IPO2sYe4EqukzhEemea1H1BaJD/IfQgeXcj7Vf1FCjh7kvclO', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
-(5, 'Tier1', 'C', 'tier01c', 'tier01_c@connectsocial.com', '+92', '3040647306', '2022-06-12 10:37:13', '$2y$10$4sa/IPO2sYe4EqukzhEemea1H1BaJD/IfQgeXcj7Vf1FCjh7kvclO', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
-(6, 'Tier2', 'A', 'tier02a', 'tier02_a@connectsocial.com', '+92', '3040647306', '2022-06-12 10:37:13', '$2y$10$4sa/IPO2sYe4EqukzhEemea1H1BaJD/IfQgeXcj7Vf1FCjh7kvclO', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
-(7, 'Tier2', 'B', 'tier02b', 'tier02_b@connectsocial.com', '+92', '3040647306', '2022-06-12 10:37:13', '$2y$10$4sa/IPO2sYe4EqukzhEemea1H1BaJD/IfQgeXcj7Vf1FCjh7kvclO', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
-(8, 'Tier2', 'C', 'tier02c', 'tier02_c@connectsocial.com', '+92', '3040647306', '2022-06-12 10:37:13', '$2y$10$4sa/IPO2sYe4EqukzhEemea1H1BaJD/IfQgeXcj7Vf1FCjh7kvclO', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
-(9, 'Friend', 'A', 'friend_a', 'friend_a@connectsocial.com', '+92', '3040647306', '2022-06-12 10:37:13', '$2y$10$4sa/IPO2sYe4EqukzhEemea1H1BaJD/IfQgeXcj7Vf1FCjh7kvclO', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
-(10, 'Friend', 'B', 'friend_b', 'friend_b@connectsocial.com', '+92', '3040647306', '2022-06-12 10:37:13', '$2y$10$4sa/IPO2sYe4EqukzhEemea1H1BaJD/IfQgeXcj7Vf1FCjh7kvclO', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
-(11, 'Friend', 'C', 'friend_c', 'friend_c@connectsocial.com', '+92', '3040647306', '2022-06-12 10:37:13', '$2y$10$4sa/IPO2sYe4EqukzhEemea1H1BaJD/IfQgeXcj7Vf1FCjh7kvclO', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
-(12, 'Connections', 'A', 'connections_a', 'connections_a@connectsocial.com', '+92', '3040647306', '2022-06-12 10:37:13', '$2y$10$4sa/IPO2sYe4EqukzhEemea1H1BaJD/IfQgeXcj7Vf1FCjh7kvclO', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
-(13, 'Connections', 'B', 'connections_b', 'connections_b@connectsocial.com', '+92', '3040647306', '2022-06-12 10:37:13', '$2y$10$4sa/IPO2sYe4EqukzhEemea1H1BaJD/IfQgeXcj7Vf1FCjh7kvclO', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38'),
-(14, 'Connections', 'C', 'connections_c', 'connections_c@connectsocial.com', '+92', '3040647306', '2022-06-12 10:37:13', '$2y$10$4sa/IPO2sYe4EqukzhEemea1H1BaJD/IfQgeXcj7Vf1FCjh7kvclO', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 06:36:38', '2022-07-01 06:36:38');
+(1, 'Super', 'Admin', 'super_admin', 'superadmin@connectsocial.com', '+92', '3001231231', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 1, NULL, NULL, 'super-admin.jpg', NULL, NULL, '2022-06-12 05:37:13', '2022-06-12 05:37:13'),
+(2, 'Parent', 'Tier', 'tier00', 'tier00@connectsocial.com', '+1', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '667966', '799931', '1656675151blank-profile-picture-973460_640.png', NULL, NULL, '2022-06-30 20:32:35', '2022-06-30 20:33:09'),
+(3, 'Tier1', 'A', 'tier01a', 'tier01_a@connectsocial.com', '+92', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:36:38', '2022-07-01 01:36:38'),
+(4, 'Tier1', 'B', 'tier01b', 'tier01_b@connectsocial.com', '+92', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:36:38', '2022-07-01 01:36:38'),
+(5, 'Tier1', 'C', 'tier01c', 'tier01_c@connectsocial.com', '+92', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:36:38', '2022-07-01 01:36:38'),
+(6, 'Tier2', 'A', 'tier02a', 'tier02_a@connectsocial.com', '+92', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:36:38', '2022-07-01 01:36:38'),
+(7, 'Tier2', 'B', 'tier02b', 'tier02_b@connectsocial.com', '+92', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:36:38', '2022-07-01 01:36:38'),
+(8, 'Tier2', 'C', 'tier02c', 'tier02_c@connectsocial.com', '+92', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:36:38', '2022-07-01 01:36:38'),
+(9, 'Friend', 'A', 'friend_a', 'friend_a@connectsocial.com', '+92', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:36:38', '2022-07-01 01:36:38'),
+(10, 'Friend', 'B', 'friend_b', 'friend_b@connectsocial.com', '+92', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:36:38', '2022-07-01 01:36:38'),
+(11, 'Friend', 'C', 'friend_c', 'friend_c@connectsocial.com', '+92', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:36:38', '2022-07-01 01:36:38'),
+(12, 'Connections', 'A', 'connections_a', 'connections_a@connectsocial.com', '+92', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:36:38', '2022-07-01 01:36:38'),
+(13, 'Connections', 'B', 'connections_b', 'connections_b@connectsocial.com', '+92', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:36:38', '2022-07-01 01:36:38'),
+(14, 'Connections', 'C', 'connections_c', 'connections_c@connectsocial.com', '+92', '3040647306', '2022-06-12 05:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', '964523', '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-07-01 01:36:38', '2022-07-01 01:36:38');
 
 --
 -- Indexes for dumped tables
@@ -638,13 +620,13 @@ ALTER TABLE `ambassador_details`
 -- AUTO_INCREMENT for table `chats`
 --
 ALTER TABLE `chats`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `connections`
@@ -668,7 +650,7 @@ ALTER TABLE `friends`
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -710,7 +692,7 @@ ALTER TABLE `referrals`
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`

@@ -7,9 +7,29 @@ use App\Models\Connection;
 use App\Models\Friend;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Mockery\Exception;
 
 class NetworkController extends Controller
 {
+    public function network($id,$type){
+        $user=User::find($id);
+        $repeated_html='<div class="friend-grid-col-options-dropdown-inner">
+            <div class="friend-grid-col-options-dropdown-main">
+                <ul class="friend-grid-col-options-dropdown-ul">';
+        if ($type=='friend' or $type=='connection'){
+            $repeated_html.='<li class="friend-grid-col-options-dropdown-li network-dropdown-option-in-options">
+                                <a href="javascript:void(0)" class="friend-grid-col-options-dropdown-link remove-'.$type.'">Remove '.ucfirst($type).'</a>
+                            </li>';
+        }
+
+        $repeated_html.='<li class="friend-grid-col-options-dropdown-li">
+                        <a href="'.url('chat').'" class="friend-grid-col-options-dropdown-link">Send Message</a>
+                    </li>
+                </ul>
+            </div>
+        </div>';
+        return view('ambassador.profile.network.network',compact('type','user','repeated_html'));
+    }
     public function index($type,$id=null){
         if ($id){ $user=User::find($id); }else{ $id=auth()->user()->id; $user=User::find($id); }
 
@@ -34,22 +54,30 @@ class NetworkController extends Controller
     public function fetch(Request $request){
         $type=$request->type;
         $id=$request->user;
-        $data=null;
+        $user=User::find($id);
+        $data=[];
         $html='';
-        if ($type=='friend'){
-            $data=getFriendsListUsers(auth()->user()->id);
-        }
-        if ($type=='connection'){
-            $data=getConnectionsListUsers(auth()->user()->id);
-        }
-        if ($type=='tier-1'){
-            $data=auth()->user()->tier_1();
-        }
-        if ($type=='tier-2'){
-            $data=auth()->user()->tier_2();
+        if ($user->id==auth()->user()->id){
+            $showRemove=true;
+        }else{
+            $showRemove=false;
         }
 
+
+        if ($type=='friend'){
+            $data=getFriendsListUsers($id);
+        }
+        if ($type=='connection'){
+            $data=getConnectionsListUsers($id);
+        }
+        if ($type=='tier-1'){
+            $data=$user->tier_1();
+        }
+        if ($type=='tier-2'){
+            $data=$user->tier_2();
+        }
         foreach ($data as $detail){
+
             $html.='<div class="friend-grid-col">
                             <div class="friend-grid-col-inner-div">
                                 <div class="friend-grid-col-profile">
@@ -83,10 +111,13 @@ class NetworkController extends Controller
         $repeated_html='<div class="friend-grid-col-options-dropdown-inner">
             <div class="friend-grid-col-options-dropdown-main">
                 <ul class="friend-grid-col-options-dropdown-ul">';
-        if ($type=='friend' or $type=='connection'){
-            $repeated_html.='                    <li class="friend-grid-col-options-dropdown-li network-dropdown-option-in-options">
+
+        if ($showRemove){
+            if ($type=='friend' or $type=='connection'){
+                $repeated_html.='<li class="friend-grid-col-options-dropdown-li network-dropdown-option-in-options">
                         <a href="javascript:void(0)" class="friend-grid-col-options-dropdown-link remove-'.$type.'">Remove '.ucfirst($type).'</a>
                     </li>';
+            }
         }
 
         $repeated_html.='            <li class="friend-grid-col-options-dropdown-li">

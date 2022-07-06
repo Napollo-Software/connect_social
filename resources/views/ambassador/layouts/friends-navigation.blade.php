@@ -26,7 +26,7 @@
                                 <span class="icon">
                                     <img src="{{url('ambassador_assets/images/icons/personal-network.svg')}}" alt="">
                                 </span>
-                                <span class="text">Personalized Network-Tier-1  <span id="total-tier-1">{{auth()->user()->tier_1()->count()}}</span></span>
+                                <span class="text">Personalized Network-Tier-1  <span id="total-tier-1">{{$user->tier_1()->count()}}</span></span>
                             </a>
                         </li>
                         <li class="inner-navigation-li {{$type=='tier-2'?'active':''}}">
@@ -34,7 +34,7 @@
                                 <span class="icon">
                                     <img src="{{url('ambassador_assets/images/icons/extended-network.svg')}}" alt="">
                                 </span>
-                                <span class="text">Extended Network-Tier 2 <span id="total-tier-2">{{auth()->user()->tier_2()->count()}}</span>
+                                <span class="text">Extended Network-Tier 2 <span id="total-tier-2">{{$user->tier_2()->count()}}</span>
                             </a>
                         </li>
                     </ul>
