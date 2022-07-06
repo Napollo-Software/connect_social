@@ -19,13 +19,21 @@
                             </ol>
                         </nav>
                     </div>
+                    <div class="ms-auto">
+
+                        <button class="btn btn-sm btn-primary" id="create-link"><i class="bx bx-plus-circle"></i> Create a new Link </button>
+                    </div>
                 </div>
                 <!--end breadcrumb-->
-
-
                 <div class="row">
                     <div class="col-12 mx-auto">
                         <h6 class="mb-0 text-uppercase">Invites</h6>
+                        @if($link)
+                            <p class="text-danger">
+                                Referral link was created at
+                                {{date('h:i A Y-m-d',strtotime($link->start_time))}} and is valid for next 5 min
+                            </p>
+                        @endif
                         <hr/>
                         <div class="card">
                             <div class="card-body">
@@ -58,7 +66,7 @@
                                             You can use the below link to either join as Ambassador or Merchant on Connect Social network. You will be rewarded with XX Connect Coins as a welcome bonus after successful registration.
                                             <br>
                                             <br>
-                                            Referral link: <a href="{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}">{{url('referral-link/join-as/'.auth()->user()->fullName().'/'.auth()->user()->id)}}</a><br>
+                                            Referral link: <a href="{{auth()->user()->invite()}}">{{auth()->user()->invite()}}</a><br>
                                             <br>
                                             If you have any questions, feel free to contact us at abcxyz@gmail.com.
                                             <br>
@@ -93,6 +101,26 @@
             var message= $('.message-value').html();
             message = message.substring(1)
             $('#message').val(message);
+
+            $(document).on('click','#create-link',function (e) {
+                e.preventDefault();
+                var route = '{{route('referral.link.store')}}';
+                var data = {_token:'{{csrf_token()}}'};
+                $.ajax({
+                    url: route,
+                    type: "POST",
+                    data: data,
+                    dataType: "JSON",
+                    success: function (data) {
+                        swal("Success!", data.success, "success").then(function () {
+                            window.location.reload();
+                        });
+                    },
+                    error:function (xhr) {
+
+                    }
+                });
+            })
         });
     </script>
 @endsection

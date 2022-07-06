@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\InviteController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\ReferralController;
 
 
 Route::middleware(['auth','can:super-admin-views','email-verification'])->group(function () {
@@ -12,6 +13,10 @@ Route::middleware(['auth','can:super-admin-views','email-verification'])->group(
         Route::get('/', [UserController::class, 'index'])->name('users');
         Route::post('fetch', [UserController::class, 'fetch'])->name('users.fetch');
     });
+    Route::prefix('referral-link')->group(function () {
+        Route::post('store', [ReferralController::class, 'store'])->name('referral.link.store');
+    });
+
     Route::prefix('roles')->group(function () {
         Route::get('/', [RoleController::class, 'index'])->name('roles');
         Route::post('fetch', [RoleController::class, 'fetch'])->name('roles.fetch');

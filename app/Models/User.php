@@ -99,4 +99,15 @@ class User extends Authenticatable
         $u=array_merge($u,getArrayFromKeyofEloquent(getConnectionsListUsers($this->id),'id'));
         return $u;
     }
+    public function referral_link_status(){
+        if ($this->roles->slug=='super-admin'){
+            $link=SuperadminReferral::first();
+            if (time()>strtotime($link->end_time)){
+                return false;
+            }else{
+                return true;
+            }
+        }
+        return true;
+    }
 }

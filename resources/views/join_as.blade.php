@@ -1,7 +1,6 @@
 @extends('auth.layouts.app')
 @section('content')
     <link rel="stylesheet" href="{{url('assets/css/all.css')}}">
-    <!-- Header -->
     <div class="page-navigation">
         <div class="container">
             <!-- <div class="container-fluid"> -->
