@@ -11,6 +11,10 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
     public function index($type=null)
+<<<<<<< HEAD
+    {   //dd(auth()->user()->tier_0());
+        if (Auth::user()->roles->slug == 'ambassador') {          
+=======
     {
         $data=[
           'friends'=>'friends',
@@ -18,6 +22,7 @@ class HomeController extends Controller
         ];
         dd(\Opis\Closure\serialize($data));
         if (Auth::user()->roles->slug == 'ambassador') {
+>>>>>>> a52a0794b709810eb12797a00e166e35d68153b6
             $user = auth()->user();
             return view('ambassador.home.index', compact( 'user','type'));
         }

@@ -21,9 +21,17 @@ class PostController extends Controller
     public function fetch_all(Request $request){
         
         $type=$request->type;
-        $posts = Post::orderBy('created_at', 'DESC')->where('privacy','public')->orWhere('privacy','friends')->orwhere('privacy','connections')->orWhere('privacy','tier-1')->orWhere('privacy','tier-2')->whereIn('user_id',auth()->user()->my_network())->skip($request->n*2)->take(2)->get();
+        $tier_0=auth()->user()->tier_0();
+        if($tier_0!=null)
+        {
+            $tier0=$tier_0->id;
+        }else{
+            $tier0=null;
+        }
+        $posts = Post::orderBy('created_at', 'DESC')->where('user_id','!=',auth()->user()->id)->orWhere('user_id',$tier0)->whereIn('user_id',auth()->user()->my_network())->skip($request->n*2)->take(2)->get();
+       // dd($posts);
         if ($type=='all'){
-            $posts = Post::orderBy('created_at', 'DESC')->where('privacy','public')->whereIn('user_id',auth()->user()->my_network())->skip($request->n*2)->take(2)->get();
+            $posts = Post::orderBy('created_at', 'DESC')->where('user_id','!=',auth()->user()->id)->orWhere('user_id',$tier0)->whereIn('user_id',auth()->user()->my_network())->skip($request->n*2)->take(2)->get();
         }
         if ($type=='friends'){
             $friends=getArrayFromKeyofEloquent(getFriendsListUsers(auth()->user()->id),'id');
