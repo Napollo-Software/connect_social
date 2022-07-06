@@ -4,6 +4,41 @@
     <div class="friends-grid">
         <div class="friends-grid-inner">
             <div class="container">
+                <div class="gallary-top-bar">
+                    <div class="gallary-top-bar-inner">
+                        <div class="gallary-top-title">
+                        </div>
+                        <div class="gallary-top-date">
+
+                        </div>
+                        <div class="selection-icon">
+                            <div class="current-privacy">
+                                <div class="icon">
+                                    <img src="{{getNetworkPrivacy($type)['url']}}" alt="">
+                                </div>
+                                <p>{{getNetworkPrivacy($type)['name']}}</p>
+                            </div>
+                            <div class="selection-dropdown">
+                                <div class="selection-dropdown-inner">
+                                    <ul class="selection-dropdown-ul selected-type" data-type="{{$type}}">
+                                        @foreach($reflection->getConstants() as $constant)
+                                            <li class="selection-dropdown-li change-privacy" data-privacy="{{$constant}}">
+                                                <div class="icon">
+                                                    <img src="{{getPrivacyDetails($constant)['url']}}"
+                                                         alt="">
+                                                </div>
+                                                {{getPrivacyDetails($constant)['name']}}
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+
                 <div class="friends-grid-main">
 
                 </div>
@@ -13,29 +48,37 @@
     <div id="repeated-html" class="d-none">
         {{$repeated_html}}
     </div>
-
-    <div class="modal fade show" id="exampleFullScreenModal" tabindex="-1" style=";" aria-modal="true" role="dialog">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur.</div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
     @push('scripts')
-
         <script>
             $(document).ready(function() {
+                $(".selection-icon").click(function () {
+                    $(".selection-dropdown").toggle();
+                });
                 $(document).on('click',".friend-grid-col-options-icon",function() {
                     $(this).find(".friend-grid-col-options-dropdown").toggle()
                 });
+                $(document).on('click', '.change-privacy', function () {
+                    var privacy=$(this).attr('data-privacy');
+                    var type=$(this).parent().attr('data-type');
+
+
+                    $.ajax({
+                        type: "POST",
+                        url: "{{route('network.change.privacy')}}",
+                        dataType: "JSON",
+                        data: {'type': type,'privacy': privacy, _token: '{{csrf_token()}}'},
+                        success: function (data) {
+
+                            $('.current-privacy').find('img').attr('src',data.data.url);
+                            $('.current-privacy').find('p').text(data.data.name);
+
+                        },
+                        error: function (xhr) {
+                            erroralert(xhr);
+                        }
+                    });
+                });
+
                 $(document).on('click', '.remove-friend', function () {
                     var id =$(this).parent().parent().parent().parent().parent().attr('data-id');
                     var now= $(this);
@@ -53,6 +96,8 @@
                         }
                     });
                 });
+
+
                 $(document).on('click', '.remove-connection', function () {
                     var id =$(this).parent().parent().parent().parent().parent().attr('data-id');
                     var now= $(this);
@@ -78,6 +123,7 @@
                     $('.inner-navigation-li.active').removeClass('active');
                     $(this).parent().addClass('active');
                     var type= $(this).attr('data-type');
+                    $('.selected-type').attr('data-type',type);
                     fetch(type,'{{$user->id}}');
                     window.history.pushState({}, null, '/network/'+type);
                 });
@@ -90,11 +136,17 @@
                     data: {'type': type,'user': user, _token: '{{csrf_token()}}'},
                     beforeSend: function () {
                         $('.friends-grid-main').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>');
-
                     },
                     success: function (data) {
                         $('.friends-grid-main').html(data.html);
                         $(".friend-grid-col-options-dropdown").html(data.repeated_html);
+                        if (data.p.show_privacy){
+                            $('.current-privacy').show();
+                            $('.current-privacy').find('img').attr('src',data.p.privacy.url);
+                            $('.current-privacy').find('p').text(data.p.privacy.name);
+                        } else{
+                            $('.current-privacy').hide();
+                        }
                     },
                     error: function (xhr) {
                         console.log(xhr);

@@ -43,7 +43,7 @@ class User extends Authenticatable
         return $this->fname.' '.$this->lname;
     }
     public function details(){
-        if ($this->roles->slug=='ambassador'){
+        if ($this->roles->slug == 'ambassador'){
             return $this->belongsTo(AmbassadorDetails::class,'id','user_id')->withDefault();
         }
     }

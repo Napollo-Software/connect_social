@@ -34,56 +34,7 @@
                 </div>
             </div>
             <div class="container container-for-assets">
-           {{-- @if($type=='audio')
-                    <div class="audio-grid-main">
-                        @foreach($assets as $asset)
-                            <div class="audio-grid-col">
-                                <div class="audio-grid-col-inner">
-                                    <div class="audio-file-name">
-                                        <div class="name">{{substr($asset['asset']['file'],10)}}</div>
-                                        <div class="date">{{$asset['asset']['created_at']->format('F d, Y')}}</div>
-                                    </div>
-                                    <div class="audio-grid-col-audio">
-                                        <audio controls>
-                                            <source src="{{$asset['url']}}" type="audio/mpeg">
-                                            No audio support.
-                                        </audio>
-                                        <div class="select-gallary-item">
-                                            <div class="select-gallary-item-inner">
-                                                <input type="checkbox">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                @else
-                    <div class="gallary-grid-main">
-                        @foreach($assets as $asset)
-                            <div class="gallary-grid-col">
-                                <div class="gallary-grid-col-inner">
-                                    <div class="gallary-grid-col-image">
-                                        @if($asset['type']=='image')
-                                            <img src="{{$asset['url']}}" alt="">
-                                        @elseif($asset['type']=='video')
-                                            <video src="{{$asset['url']}}" style="width: 100%;height: 100%"></video>
-                                        @endif
-                                        <div class="select-gallary-item">
-                                            <div class="select-gallary-item-inner">
-                                                <input type="checkbox">
-                                            </div>
-                                        </div>
-                                        @if($asset['type']=='video')
-                                            <div class="play-video-icon">
-                                            </div>
-                                        @endif
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                @endif--}}
+
             </div>
         </div>
     </div>
