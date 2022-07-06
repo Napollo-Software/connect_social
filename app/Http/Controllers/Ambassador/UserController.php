@@ -34,6 +34,7 @@ class UserController extends Controller
         }
 
         $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
+        
         return view('ambassador.profile.index', compact('posts', 'images', 'user'));
     }
 
