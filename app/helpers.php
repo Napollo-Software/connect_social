@@ -1,6 +1,6 @@
 <?php
 use \PHPMailer\PHPMailer\PHPMailer;
-
+use App\Models\PostAssets;
 function sendEmail($to,$from,$subject,$message){
     if ($from==null){
         $from='connectsocial@napollo.net';
@@ -98,6 +98,17 @@ function myLikeOnPost($post){
         }
     }
     return $my;
+}
+function postAsset($id){
+
+    $post_asset=PostAssets::where('id',$id)->get();
+    $asset_name=null;
+    foreach($post_asset as $asset)
+    {
+        $asset_name=$asset->file;
+    }
+    return $asset_name;
+
 }
 function getSocialPrivacy($k){
     $data=unserialize(auth()->user()->details->privacy);

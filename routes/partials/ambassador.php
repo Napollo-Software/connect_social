@@ -50,6 +50,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         Route::prefix('gallery')->group(function () {
             Route::get('{type}', [GalleryController::class, 'index'])->name('gallery');
             Route::post('fetch', [GalleryController::class, 'fetch'])->name('gallery.fetch');
+            Route::post('delete', [GalleryController::class, 'delete'])->name('gallery.delete');
         });
         Route::prefix('likes')->group(function () {
             Route::post('store', [LikeController::class, 'store'])->name('likes.store');
