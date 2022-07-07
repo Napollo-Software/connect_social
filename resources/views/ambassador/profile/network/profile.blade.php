@@ -48,6 +48,7 @@
                                                         <div class="social-info-editor-box">
                                                             <div class="social-info-editor-box-inner">
                                                                 <ul class="social-info-editor-box-ul">
+                                                            @if (checkPrivacyInNetwork(getSocialPrivacyofUser('city',$user),$user->id))                                                         
                                                                     <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
@@ -65,6 +66,8 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
+                                                                    @endif
+                                                                    @if (checkPrivacyInNetwork(getSocialPrivacyofUser('state',$user),$user->id)) 
                                                                     <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
@@ -83,6 +86,8 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
+                                                                    @endif
+                                                                    @if (checkPrivacyInNetwork(getSocialPrivacyofUser('relationship',$user),$user->id)) 
                                                                     <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
@@ -101,6 +106,8 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
+                                                                    @endif
+                                                                    @if (checkPrivacyInNetwork(getSocialPrivacyofUser('joining',$user),$user->id)) 
                                                                     <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
@@ -118,6 +125,8 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
+                                                                    @endif
+                                                                    @if (checkPrivacyInNetwork(getSocialPrivacyofUser('workplace',$user),$user->id)) 
                                                                     <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
@@ -136,6 +145,8 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
+                                                                    @endif
+                                                                    @if (checkPrivacyInNetwork(getSocialPrivacyofUser('high_school',$user),$user->id)) 
                                                                     <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
@@ -154,6 +165,8 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
+                                                                    @endif
+                                                                    @if (checkPrivacyInNetwork(getSocialPrivacyofUser('hobbies',$user),$user->id)) 
                                                                     <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
@@ -171,6 +184,8 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
+                                                                    @endif
+                                                                    @if (checkPrivacyInNetwork(getSocialPrivacyofUser('email',$user),$user->id)) 
                                                                     <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
@@ -188,6 +203,8 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
+                                                                    @endif
+                                                                    @if (checkPrivacyInNetwork(getSocialPrivacyofUser('phone',$user),$user->id)) 
                                                                     <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
@@ -205,6 +222,8 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
+                                                                    @endif
+                                                                    @if (checkPrivacyInNetwork(getSocialPrivacyofUser('gender',$user),$user->id)) 
                                                                     <li class="social-info-editor-box-li custom-padding">
                                                                         <div class="info-editor-box">
                                                                             <div class="info-editor-box-title">
@@ -223,9 +242,11 @@
                                                                             </div>
                                                                         </div>
                                                                     </li>
+                                                                    @endif
                                                                 </ul>
                                                             </div>
-                                                        </div>
+                                                        </div>                                                             
+                                                   
                                                     </div>
                                                 </div>
                                             </div>
