@@ -65,6 +65,8 @@ class RegisterController extends Controller
             'gender' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8','confirmed'],
             'profile' => ['required','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
+        ],[
+            'profile.required'=>'Profile picture is required.'
         ]);
     }
 

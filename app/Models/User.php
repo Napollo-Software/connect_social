@@ -65,7 +65,7 @@ class User extends Authenticatable
         $username=$explode[0];
         return url('referral/'.$username.'/'.$this->id);
     }
-    
+
     public function tier_0(){
         $referrer=Referral::where('referred_to',$this->id)->first();
         if ($referrer){

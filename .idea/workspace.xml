@@ -50,7 +50,7 @@
           <entry key="html" value="6" />
           <entry key="js" value="27" />
           <entry key="json" value="6" />
-          <entry key="php" value="1184" />
+          <entry key="php" value="1185" />
           <entry key="sql" value="31" />
         </counts>
       </usages-collector>
@@ -61,7 +61,7 @@
           <entry key="HTML" value="6" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="27" />
-          <entry key="PHP" value="636" />
+          <entry key="PHP" value="637" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="SQL" value="31" />
         </counts>
@@ -73,7 +73,7 @@
           <entry key="env" value="197" />
           <entry key="html" value="321" />
           <entry key="js" value="1222" />
-          <entry key="php" value="73818" />
+          <entry key="php" value="73879" />
           <entry key="sql" value="103" />
         </counts>
       </usages-collector>
@@ -83,7 +83,7 @@
           <entry key="CSS" value="115" />
           <entry key="HTML" value="412" />
           <entry key="JavaScript" value="1222" />
-          <entry key="PHP" value="37161" />
+          <entry key="PHP" value="37222" />
           <entry key="PLAIN_TEXT" value="198" />
           <entry key="SQL" value="103" />
         </counts>
@@ -92,11 +92,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+            <state relative-caret-position="187">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -104,11 +104,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+            <state relative-caret-position="374">
+              <caret line="67" selection-start-line="67" selection-end-line="67" />
               <folding>
                 <element signature="e#30#76#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="68" column="60" selection-start-line="68" selection-start-column="60" selection-end-line="68" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -185,7 +194,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
         <option value="$PROJECT_DIR$/routes/partials/production.php" />
         <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
         <option value="$PROJECT_DIR$/database/initial.sql" />
@@ -236,6 +244,7 @@
         <option value="$PROJECT_DIR$/resources/views/admin/invite.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Models/User.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
       </list>
     </option>
   </component>
@@ -781,12 +790,12 @@
       <workItem from="1656673971449" duration="22574000" />
       <workItem from="1656944349278" duration="12539000" />
       <workItem from="1657019708999" duration="42209000" />
-      <workItem from="1657189193495" duration="7658000" />
+      <workItem from="1657189193495" duration="8013000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="412111000" />
+    <option name="totallyTimeSpent" value="412466000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -864,13 +873,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1428">
           <caret line="84" column="15" lean-forward="true" selection-start-line="82" selection-start-column="12" selection-end-line="84" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="128" selection-start-line="128" selection-end-line="128" />
         </state>
       </provider>
     </entry>
@@ -1162,20 +1164,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+        <state relative-caret-position="374">
+          <caret line="67" selection-start-line="67" selection-end-line="67" />
           <folding>
             <element signature="e#30#76#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="18" column="21" selection-start-line="18" selection-start-column="21" selection-end-line="18" selection-end-column="21" />
+        <state relative-caret-position="306">
+          <caret line="68" column="60" selection-start-line="68" selection-start-column="60" selection-end-line="68" selection-end-column="60" />
         </state>
       </provider>
     </entry>
