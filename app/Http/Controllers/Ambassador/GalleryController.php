@@ -20,9 +20,9 @@ class GalleryController extends Controller
     }
 
     public function fetch(Request $request)
-    {
+    { 
         $assets = []; 
-        $type = $request->type;
+        $type = $request->type; 
         if ($type == 'all' or $type == 'image') {
             if (File::isDirectory(public_path('storage/profile/' . auth()->user()->email))) {
                 foreach (File::files(public_path('storage/profile/' . auth()->user()->email)) as $file) {
@@ -83,7 +83,7 @@ class GalleryController extends Controller
                 }
                 $html .= '                                        <div class="select-gallary-item">
                                             <div class="select-gallary-item-inner">
-                                                <input type="checkbox">
+                                                <input type="checkbox" data->
                                             </div>
                                         </div>';
                 if ($asset['type'] == 'video') {
