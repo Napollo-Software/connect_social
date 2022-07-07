@@ -36,7 +36,7 @@
                                                             </div> -->
                                                             <div class="uploa-file-buttons">
                                                                 <input type="file" id="file-input" class="d-none">
-                                                                <button class="black-button" for="file-input"
+                                                                <button class="black-button" for="file-input" name="profile"
                                                                         type="button">Choose File
                                                                 </button>
                                                             </div>
@@ -222,4 +222,21 @@
             </div> -->
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $(function () {
+                var settings = {
+                    "url": "https://api.countrystatecity.in/v1/countries",
+                    "method": "GET",
+                    "headers": {
+                        "X-CSCAPI-KEY": "API_KEY"
+                    },
+                };
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                });
+            });
+        </script>
+    @endpush
 @endsection
