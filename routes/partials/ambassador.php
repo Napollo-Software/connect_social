@@ -90,7 +90,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         });
 
         Route::prefix('kyc')->group(function () {
-            Route::get('submit', [KycController::class, 'kyc_submit'])->name('kyc.submit.form');
+            Route::get('submission', [KycController::class, 'submission'])->name('kyc.submission');
             Route::get('response', [KycController::class, 'kyc_response'])->name('kyc.response');
         });
 
