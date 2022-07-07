@@ -1,5 +1,18 @@
 @extends('auth.layouts.app')
 @section('content')
+<div class="action-div p-3">
+    <div class="action-div-inner">
+        <div class="containetr">
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-sm-8 col-xs-12">
+                    <div class="action-div-logo-inner">
+                        <img src="{{url('assets/images/logo.png')}}" alt="" class="w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css"/>
     <div class="form-div">
         <div class="container">
