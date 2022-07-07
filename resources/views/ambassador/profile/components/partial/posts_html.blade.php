@@ -12,7 +12,7 @@
                             </div>
                             <div class="singal-post-top-bar-post-detail">
                                 <div class="singal-post-top-bar-post-detail-inner">
-                                    <div class="user-name">
+                                    <div class="user-name"> 
                                         {{$post->user->fullName()}}
                                     </div>
                                     <div class="date-and-privacy">
@@ -284,7 +284,7 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </div> 
                     </div>
                     <div class="all-comments-box single-post-comments-{{$post->id}}">
                         <div class="all-comments-box-inner">

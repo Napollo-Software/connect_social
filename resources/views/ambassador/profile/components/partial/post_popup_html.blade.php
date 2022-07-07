@@ -11,7 +11,7 @@
                             <div class="single-post-top-bar-photo">
                                 <div class="single-post-top-bar-photo-inner">
                                     <img src="{{$post->user->profile_image()}}" alt="" class="profile_photo_preview">
-                                </div>
+                                </div> 
                             </div>
                             <div class="singal-post-top-bar-post-detail">
                                 <div class="singal-post-top-bar-post-detail-inner">

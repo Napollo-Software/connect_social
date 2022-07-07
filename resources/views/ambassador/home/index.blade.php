@@ -56,7 +56,7 @@ Profile
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     <div id="privacy_dropdown" style='display: none'>
         <ul class="set-privacy-dropdown-ul">
             <li class="set-privacy-dropdown-li" data-value="{{Privacy::PRIV_FRIENDS}}">

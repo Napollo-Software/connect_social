@@ -13,7 +13,7 @@
             $.ajax({
                 type: "POST",
                 url: "{{route('post.fetch.all')}}",
-                dataType: "JSON",
+                dataType: "JSON", 
                 data: {'n':n,'type':t,'user':'{{$user->id}}',_token: '{{csrf_token()}}'},
                 beforeSend: function () {
                     $('#scroll-to').attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm"></span> Processing ...');

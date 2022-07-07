@@ -11,7 +11,7 @@
                 type:"POST",
                 url:"{{route('comments.store')}}",
                 data: new FormData(this),
-                dataType:'JSON',
+                dataType:'JSON', 
                 processData: false,
                 contentType: false,
                 cache: false,
@@ -30,8 +30,8 @@
                     button.attr('disabled',null).html(previous);
                     erroralert(xhr);
                 }
-            });
-
+            }); 
+ 
         });
         $(document).on('click','.show-more-comments',function () {
             var previousBtn=$(this);
@@ -83,7 +83,8 @@
                 cache: false,
                 success:function(response) {
                     button.attr('disabled',null).html(previous);
-
+                    $('#comment-count-'+post).text(parseInt($('#comment-count-'+post).text())+1).parent().removeClass('d-none');
+                    $('#comment-box-'+post).append(response.data.comment_html);
                     var html='<div class="singal-comment-row custom-padding" >\n' +
                         '        <div class="singal-comment-row-inner">\n' +
                         '           <div class="singal-comment-row-user-image">\n' +

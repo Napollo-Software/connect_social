@@ -12,6 +12,7 @@ class CommentController extends Controller
     //
     public function store(Request $request)
     {
+        
         $this->validate($request, [
             'comment' => 'required'
         ]);
@@ -63,6 +64,6 @@ class CommentController extends Controller
             'total_comments' => $post->comments->count(),
             'show_post'=>$showPostHTML,
         ];
-        return response()->json($data);
+        return response()->json($data); 
     }
 }

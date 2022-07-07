@@ -14,7 +14,7 @@
                 var id = $(this).attr('data-post');
                 if (type == 'link') {
                     $('.url-div').show();
-                    $('.file-div').hide();
+                    $('.file-div').hide(); 
                 } else {
                     $('.url-div').hide();
                     $('.file-div').show();
