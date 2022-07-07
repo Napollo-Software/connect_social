@@ -51,7 +51,7 @@ class User extends Authenticatable
         if($this->profile){
             return Storage::disk('local')->url('/profile/'.$this->email.'/'.$this->profile);
         }
-        return url('admin_assets//images/avatars/avatar-2.png');
+        return url('admin_assets/images/avatars/avatar-1.png');
     }
     public function unread_messages($id){
         $results=Chat::where('from',$id)->where('to',auth()->user()->id)->whereNull('read_at')->get()->count();
@@ -63,8 +63,9 @@ class User extends Authenticatable
     public function invite(){
         $explode=explode('@',$this->email);
         $username=$explode[0];
-        return url('referral-link/join-as/'.$username.'/'.$this->id);
+        return url('referral/'.$username.'/'.$this->id);
     }
+
     public function tier_0(){
         $referrer=Referral::where('referred_to',$this->id)->first();
         if ($referrer){

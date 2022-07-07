@@ -16,7 +16,7 @@ Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profi
 Route::get('/sign-up', [ReferralController::class, 'sign_up'])->name('sign.up');
 Route::get('/user', [UserController::class, 'create'])->name('create');
 Route::post('/user', [UserController::class, 'store'])->name('store');
-Route::get('/referral-link/join-as/{name}/{id}', [ReferralController::class, 'referral_link'])->name('referral.link');
+Route::get('/referral/{name}/{id}', [ReferralController::class, 'referral_link'])->name('referral.link');
 
 Route::post('forget-password/send-email', [ForgotPasswordController::class, 'send_email'])->name('forgot.send.email');
 Route::get('forget-password/resend-email', [ForgotPasswordController::class, 'resend_email'])->name('forgot.resend.email');
@@ -34,7 +34,3 @@ Route::group([],__DIR__.'/partials/ambassador.php');
 Route::get('/front-end', [FrontEnd::class, 'index']);
 
 Route::get('/under-construction', [FrontEnd::class, 'under_construction'])->name('site.under.construction');
-Route::prefix('kyc')->group(function () {
-    Route::get('submit', [FrontEnd::class, 'kyc_submit'])->name('kyc.submit.form');
-    Route::get('response', [FrontEnd::class, 'kyc_response'])->name('kyc.response');
-});

@@ -21,7 +21,7 @@
                     </div>
                     <div class="ms-auto">
 
-                        <button class="btn btn-sm btn-primary" id="create-link"><i class="bx bx-plus-circle"></i> Create a new Link </button>
+                        <button class="btn btn-sm btn-primary" id="create-link"><i class="bx bx-plus-circle"></i> Activate Invitation </button>
                     </div>
                 </div>
                 <!--end breadcrumb-->

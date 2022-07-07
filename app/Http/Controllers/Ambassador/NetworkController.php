@@ -80,11 +80,9 @@ class NetworkController extends Controller
         if ($type == 'friends') {
             $privacy = unserialize($user->details->network_privacy);
             $data = [];
-            dd(checkPrivacyInNetwork($privacy[$type], $id));
             if (checkPrivacyInNetwork($privacy[$type], $id)) {
                 $data = getFriendsListUsers($id);
             }
-            dd($data);
         }
         if ($type == 'connections') {
             $data = [];
