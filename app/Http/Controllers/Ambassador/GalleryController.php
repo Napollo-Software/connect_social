@@ -26,12 +26,12 @@ class GalleryController extends Controller
         if ($type == 'all' or $type == 'image') {
             if (File::isDirectory(public_path('storage/profile/' . auth()->user()->email))) {
                 foreach (File::files(public_path('storage/profile/' . auth()->user()->email)) as $file) {
-                    $assets[] = ['type' => 'image', 'url' => Storage::disk('local')->url('/profile/' . auth()->user()->email . '/' . $file->getFilename()),];
+                    $assets[] = ['source'=>'profile','type' => 'image', 'url' => Storage::disk('local')->url('/profile/' . auth()->user()->email . '/' . $file->getFilename()),];
                 }
             }
             if (File::isDirectory(public_path('storage/a/covers/' . auth()->user()->id))) {
                 foreach (File::files(public_path('storage/a/covers/' . auth()->user()->id)) as $file) {
-                    $assets[] = ['type' => 'image', 'url' => Storage::disk('local')->url('/a/covers/' . auth()->user()->id . '/' . $file->getFilename())];
+                    $assets[] = ['source'=>'cover','type' => 'image', 'url' => Storage::disk('local')->url('/a/covers/' . auth()->user()->id . '/' . $file->getFilename())];
                 }
             }
         }
@@ -39,7 +39,7 @@ class GalleryController extends Controller
         foreach ($posts as $post) {
             if ($post->assets()->exists()) {
                 if ($type == 'all' or $type == $post->assets->type) {
-                    $assets[] = ['type' => $post->assets->type, 'url' => $post->assets->data(), 'asset' => $post->assets];
+                    $assets[] = ['source'=>'post','type' => $post->assets->type, 'url' => $post->assets->data(), 'asset' => $post->assets];
                 }
             }
         }
@@ -56,7 +56,7 @@ class GalleryController extends Controller
                                     <div class="audio-grid-col-audio">
                                         <audio controls>
                                             <source src="'.$asset['url'].'" type="audio/mpeg">
-                No audio support.
+                                                No audio support.
                                         </audio>
                                         <div class="select-gallary-item">
                                             <div class="select-gallary-item-inner">
@@ -83,7 +83,7 @@ class GalleryController extends Controller
                 }
                 $html .= '                                        <div class="select-gallary-item">
                                             <div class="select-gallary-item-inner">
-                                                <input type="checkbox">
+                                                <input type="checkbox" data-source="" data-post="" data-path="">
                                             </div>
                                         </div>';
                 if ($asset['type'] == 'video') {
