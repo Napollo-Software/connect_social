@@ -105,6 +105,7 @@ function getSocialPrivacy($k){
 
     return $privacy;
 }
+
 function getSocialPrivacyofUser($k,$user){
     $data=unserialize($user->details->privacy);
     $privacy='friends';
@@ -117,6 +118,7 @@ function getSocialPrivacyofUser($k,$user){
     }
     return $privacy;
 }
+
 
 use App\Models\Friend;
 use App\Models\Connection;
@@ -348,7 +350,7 @@ function invite_email_text($name){
 function getNetworkPrivacy($type){
     $all=unserialize(auth()->user()->details->network_privacy);
     $privacy=$all[$type];
-    return getPrivacyDetails($privacy); 
+    return getPrivacyDetails($privacy);
 }
 use App\Models\User;
 function checkPrivacyInNetwork($privacy,$other_network_id)
