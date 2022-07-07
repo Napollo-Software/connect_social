@@ -105,6 +105,21 @@ function getSocialPrivacy($k){
 
     return $privacy;
 }
+
+function getSocialPrivacyofUser($k,$user){
+    $data=unserialize($user->details->privacy);
+    $privacy='friends';
+    if ($data){
+        foreach ($data as $key=>$value){
+            if ($key==$k){
+                $privacy=$value;
+            }
+        }
+    }
+    return $privacy;
+}
+
+
 use App\Models\Friend;
 use App\Models\Connection;
 function friendRequestSent($to){

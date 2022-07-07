@@ -20,7 +20,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
     Route::middleware('under-construction')->group(function () {
         Route::get('home/{type?}', [HomeController::class, 'index'])->name('ambassador.home');
         Route::prefix('profile-view')->group(function () {
-            Route::get('{id?}', [UserController::class, 'index'])->name('network.profile');
+            Route::get('{id}', [NetworkController::class, 'profile'])->name('network.profile');
             Route::get('network/{id}/{type}', [NetworkController::class, 'network'])->name('network.list');
         });
         Route::prefix('post')->group(function () {
@@ -90,7 +90,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         });
 
         Route::prefix('kyc')->group(function () {
-            Route::get('submit', [KycController::class, 'kyc_submit'])->name('kyc.submit.form');
+            Route::get('submission', [KycController::class, 'submission'])->name('kyc.submission');
             Route::get('response', [KycController::class, 'kyc_response'])->name('kyc.response');
         });
 

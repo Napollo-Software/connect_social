@@ -50,18 +50,18 @@
           <entry key="html" value="6" />
           <entry key="js" value="27" />
           <entry key="json" value="6" />
-          <entry key="php" value="1193" />
+          <entry key="php" value="1209" />
           <entry key="sql" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="553" />
+          <entry key="Blade" value="560" />
           <entry key="CSS" value="22" />
           <entry key="HTML" value="6" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="27" />
-          <entry key="PHP" value="640" />
+          <entry key="PHP" value="649" />
           <entry key="PLAIN_TEXT" value="20" />
           <entry key="SQL" value="31" />
         </counts>
@@ -73,17 +73,17 @@
           <entry key="env" value="197" />
           <entry key="html" value="321" />
           <entry key="js" value="1222" />
-          <entry key="php" value="74324" />
+          <entry key="php" value="74629" />
           <entry key="sql" value="103" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="36958" />
+          <entry key="Blade" value="37066" />
           <entry key="CSS" value="115" />
           <entry key="HTML" value="412" />
           <entry key="JavaScript" value="1222" />
-          <entry key="PHP" value="37273" />
+          <entry key="PHP" value="37470" />
           <entry key="PLAIN_TEXT" value="198" />
           <entry key="SQL" value="103" />
         </counts>
@@ -92,11 +92,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/profile.blade.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/partials/ambassador.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="90" column="77" selection-start-line="90" selection-start-column="77" selection-end-line="90" selection-end-column="77" />
+            <state relative-caret-position="459">
+              <caret line="36" column="68" selection-start-line="36" selection-start-column="68" selection-end-line="36" selection-end-column="86" />
+              <folding>
+                <element signature="e#7#44#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/helpers.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3182">
+              <caret line="106" column="1" selection-start-line="106" selection-end-line="106" selection-end-column="1" />
+              <folding>
+                <element signature="n#getMessageHtml#0;n#!!top" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/network/profile.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="11" column="115" selection-start-line="11" selection-start-column="115" selection-end-line="11" selection-end-column="115" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="36" column="131" selection-start-line="36" selection-start-column="106" selection-end-line="36" selection-end-column="131" />
             </state>
           </provider>
         </entry>
@@ -112,7 +145,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>like</find>
       <find>netwo</find>
       <find>profile-</find>
       <find>$friend-&gt;profile_image()</find>
@@ -142,6 +174,7 @@
       <find>$name</find>
       <find>checkPrivacyInNetwork</find>
       <find>connections</find>
+      <find>auth()-&gt;user()</find>
     </findStrings>
     <replaceStrings>
       <replace>admin_assets/</replace>
@@ -150,7 +183,6 @@
       <replace>create-post-upload-file-modal</replace>
       <replace>update-social-info-modal</replace>
       <replace>src=&quot;{{getPrivacyDetails(getSocialPrivacy('about'))['url']}}&quot;</replace>
-      <replace>$user</replace>
       <replace>merchants</replace>
       <replace>ambassador_assets</replace>
       <replace>gallery-link inner-navigation-link</replace>
@@ -165,6 +197,7 @@
       <replace>popup-edit-post-close-btn</replace>
       <replace>p-edit-post-modal-show</replace>
       <replace>auth()-&gt;user()-&gt;invite</replace>
+      <replace>$user</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -173,8 +206,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Middleware/EmailVerification.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/OnlyForStaging.php" />
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/app/Http/Middleware/UnderConstruction.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/home/search.blade.php" />
@@ -192,9 +223,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/CommentController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/LikeController.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/components/partial/posts_html.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/ambassador/profile/network/profile.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/network/network.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/gallery/index.blade.php" />
         <option value="$PROJECT_DIR$/database/connect_social.sql" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/friends-navigation.blade.php" />
@@ -206,12 +235,8 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/InviteController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/ReferralController.php" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/NetworkController.php" />
-        <option value="$PROJECT_DIR$/app/helpers.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/profile-navigation.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/home/index.blade.php" />
-        <option value="$PROJECT_DIR$/routes/partials/ambassador.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/KycController.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/kyc/response.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/nav.blade.php" />
@@ -224,6 +249,14 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" />
         <option value="$PROJECT_DIR$/routes/partials/super_admin.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/profile.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/kyc/index.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/home/layouts/alert.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/KycController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php" />
+        <option value="$PROJECT_DIR$/routes/partials/ambassador.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/NetworkController.php" />
+        <option value="$PROJECT_DIR$/app/helpers.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/profile/network/profile.blade.php" />
       </list>
     </option>
   </component>
@@ -634,21 +667,6 @@
               <item name="connect_social" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="admin" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
-              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="ambassador" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -658,6 +676,23 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="ambassador" type="462c0819:PsiDirectoryNode" />
               <item name="kyc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
+              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="ambassador" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
+              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="ambassador" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
@@ -753,12 +788,12 @@
       <workItem from="1656673971449" duration="22574000" />
       <workItem from="1656944349278" duration="12539000" />
       <workItem from="1657019708999" duration="42209000" />
-      <workItem from="1657189193495" duration="9668000" />
+      <workItem from="1657189193495" duration="11988000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="414121000" />
+    <option name="totallyTimeSpent" value="416441000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -803,16 +838,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/gallery/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1428">
-          <caret line="84" column="15" lean-forward="true" selection-start-line="82" selection-start-column="12" selection-end-line="84" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/connect_social (1).sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/ambassador/scripts/universal.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1479">
@@ -831,13 +856,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="215">
           <caret line="28" column="123" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="123" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="158" column="9" selection-start-line="152" selection-start-column="8" selection-end-line="158" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -947,40 +965,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="369" column="56" selection-start-line="369" selection-start-column="56" selection-end-line="369" selection-end-column="56" />
-          <folding>
-            <element signature="n#getMessageHtml#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="19" lean-forward="true" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/NetworkController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="91" column="13" lean-forward="true" selection-start-line="91" selection-start-column="13" selection-end-line="91" selection-end-column="13" />
-          <folding>
-            <element signature="e#3743#5419#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/layouts/alert.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="25" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/KycController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -995,26 +979,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="38" column="50" lean-forward="true" selection-start-line="38" selection-start-column="50" selection-end-line="38" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/kyc/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/KycController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/partials/ambassador.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="92" column="42" lean-forward="true" selection-start-line="92" selection-start-column="42" selection-end-line="92" selection-end-column="42" />
-          <folding>
-            <element signature="e#7#44#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1091,13 +1055,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/join_as.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -1145,6 +1102,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="90" column="100" selection-start-line="90" selection-start-column="100" selection-end-line="90" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FrontEnd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="35" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="35" column="40" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/layouts/alert.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/KycController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="10" column="46" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/header.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -1152,10 +1144,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/profile.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/kyc/submission.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="90" column="77" selection-start-line="90" selection-start-column="77" selection-end-line="90" selection-end-column="77" />
+        <state>
+          <caret column="35" selection-start-column="35" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/NetworkController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="36" column="131" selection-start-line="36" selection-start-column="106" selection-end-line="36" selection-end-column="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3182">
+          <caret line="106" column="1" selection-start-line="106" selection-end-line="106" selection-end-column="1" />
+          <folding>
+            <element signature="n#getMessageHtml#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/partials/ambassador.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="36" column="68" selection-start-line="36" selection-start-column="68" selection-end-line="36" selection-end-column="86" />
+          <folding>
+            <element signature="e#7#44#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/network/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="11" column="115" selection-start-line="11" selection-start-column="115" selection-end-line="11" selection-end-column="115" />
         </state>
       </provider>
     </entry>

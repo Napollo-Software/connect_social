@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class KycController extends Controller
 {
-    public function index(){
-        return view('');
+    public function submission(){
+        return view('ambassador.kyc.submission');
     }
 }

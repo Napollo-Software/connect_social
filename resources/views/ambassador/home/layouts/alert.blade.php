@@ -8,7 +8,7 @@
                 Complete Your KYC Verification & Open The World of Connect Coins!
             </div>
             <div class="alert-link">
-                <a href='javascript:void(0)'> Submit details here</a>.
+                <a href='{{route('kyc.submission')}}'> Submit details here</a>.
             </div>
         </div>
     </div>

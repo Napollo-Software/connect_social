@@ -378,6 +378,10 @@
     font-size: 14px;
 }
 
+.show-on-mobile {
+    display: block;
+}
+
 
 /* Customization */
 
@@ -389,7 +393,7 @@
 
 @media only screen and (max-width: 1220px) {
     .page-navigation-ul {
-        width: 80%;
+        width: 100%;
     }
 }
 
@@ -401,6 +405,13 @@
 }
 
 @media only screen and (max-width: 768px) {
+    .hide-on-mobile {
+        display: none;
+    }
+
+    .show-on-mobile {
+        display: block;
+    }
     .user-profile-info-action-inner.text-center {
         margin-top: 50px;
     }
