@@ -99,7 +99,34 @@
             });
             //Delete Items
             $('.gallay-sellect-bar-select-delete').click(function(){
+                var post_source=[];
+                var post_url=[];
+                var post_id=[];
+                var post_asset=[];
+                var post_directory=[];
+                var a=0,e=0,i=0,o=0,u=0;
+                $('.select-asset:checkbox:checked').each(function(){
+                    data_source=$(this).attr('data-source');
+	                data_url=$(this).attr('data-path');
+                    data_id=$(this).attr('data-id');
+                    data_asset=$(this).attr('data-asset');
+                    data_directory=$(this).attr('data-asset-directory')
+                    post_source[a++]=data_source;
+                    post_url[e++]=data_url;
+                    post_id[i++]=data_id;
+                    post_asset[o++]=data_asset;
+                    post_directory[u++]=data_directory;
+                 });
+                 $.ajax({
+                        type:"POST",
+                        url:"{{route('gallery.delete')}}",
+                        dataType:"JSON",
+                        data:{_token: '{{csrf_token()}}','post_source':post_source,'post_url':post_url,'post_id':post_id,'post_asset':post_asset,'post_directory':post_directory},
+                        success:function(){
+                            console.log('success');
+                        }
 
+                    })
             });
         });
     </script>
