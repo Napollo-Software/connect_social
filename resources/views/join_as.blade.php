@@ -139,6 +139,41 @@
                             </div>
                         </div>
                     </div>
+                    @elseif($ref->roles->slug=='super-admin')
+                        <div class="user-profile-about-text col-md-5">
+                            <h2 class="user-profile-about-title text-center">
+                                About {{$ref->fullName()}}
+                            </h2>
+                            <div class="user-profile-about-text-p">
+                            </div>
+                            <div class="user-profile-social-info">
+                                <div class="user-profile-social-info-title">
+                                    <div class="user-profile-social-info-table">
+                                        <table class="table table-borderd">
+                                            <tbody>
+                                            <tr>
+                                                <td>Username</td>
+                                                <td>{{$ref->username}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Email</td>
+                                                <td>{{$ref->email}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Phone</td>
+                                                <td>{{$ref->country_code.$ref->phone}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Role</td>
+                                                <td>{{$ref->roles->name}}</td>
+                                            </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     @endif
                     <div class="user-profile-about-video col-md-6">
                         <h2 class="user-profile-about-title text-center">

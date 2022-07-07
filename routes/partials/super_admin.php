@@ -9,6 +9,7 @@ use App\Http\Controllers\ReferralController;
 
 
 Route::middleware(['auth','can:super-admin-views','email-verification'])->group(function () {
+    Route::get('profile', [UserController::class, 'profile'])->name('users.profile');
     Route::prefix('user')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('users');
         Route::post('fetch', [UserController::class, 'fetch'])->name('users.fetch');

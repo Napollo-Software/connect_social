@@ -23,7 +23,7 @@
                             </div>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="{{ url('user-profile') }}"><i class="bx bx-user"></i><span>Profile</span></a></li>
+                            <li><a class="dropdown-item" href="{{ url('profile') }}"><i class="bx bx-user"></i><span>Profile</span></a></li>
                             <li>
                                 <div class="dropdown-divider mb-0"></div>
                             </li>
