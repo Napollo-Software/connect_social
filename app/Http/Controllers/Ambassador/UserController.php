@@ -17,7 +17,6 @@ class UserController extends Controller
 
         if ($id) {
             ($id == auth()->user()->id) ? ( $user = auth()->user() ) : ( $user = User::find($id) );
-            dd(getPrivacyDetails(getSocialPrivacy('City'))['name']);
         } else {
             $user = auth()->user();
             $id=auth()->user()->id;
