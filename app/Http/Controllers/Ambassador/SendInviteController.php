@@ -4,16 +4,19 @@ namespace App\Http\Controllers\Ambassador;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class SendInviteController extends Controller
 {
     public function send_invite(Request $request){
-        //dd($request->all());
 
-        $request->email=explode(',',$request->email);
-        $this->validate(\request(),[
-           'email.*'=>'users:unique'
-        ]);
+        foreach ($request->email as $k=>$v){
+            $request->validate([
+                'email.'.$k => ['required', 'distinct','unique:users,email'],
+            ],[
+                'unique'=> $v.' is already taken'
+            ]);
+        }
         $resp='Email is sent to ';
         $notresp=null;
         $emails=explode(',',$request->email);
