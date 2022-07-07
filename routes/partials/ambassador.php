@@ -13,6 +13,7 @@ use App\Http\Controllers\Ambassador\ChatController;
 use App\Http\Controllers\Ambassador\SearchController;
 use App\Http\Controllers\Ambassador\NetworkController;
 use App\Http\Controllers\Ambassador\SendInviteController;
+use App\Http\Controllers\Ambassador\KycController;
 
 Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group(function () {
 
@@ -27,7 +28,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::post('fetch-all', [PostController::class, 'fetch_all'])->name('post.fetch.all');
             Route::post('store', [PostController::class, 'store'])->name('post.store');
             Route::post('update', [PostController::class, 'update'])->name('post.update');
-            Route::post('pop-up', [PostController::class, 'popup'])->name('post.popup');
+            Route::post('pop-up', [PostController::class, 'popup'])->name('post.popup'); 
             Route::delete('destroy', [PostController::class, 'destroy'])->name('post.destroy');
             Route::delete('asset-destroy', [PostController::class, 'asset_destroy'])->name('post.asset.destroy');
         });
@@ -87,6 +88,12 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         Route::prefix('send-invite-email')->group(function () {
             Route::post('for-referral', [SendInviteController::class, 'send_invite'])->name('send.invite.for.referral');
         });
+
+        Route::prefix('kyc')->group(function () {
+            Route::get('submit', [KycController::class, 'kyc_submit'])->name('kyc.submit.form');
+            Route::get('response', [KycController::class, 'kyc_response'])->name('kyc.response');
+        });
+
     });
 
 });

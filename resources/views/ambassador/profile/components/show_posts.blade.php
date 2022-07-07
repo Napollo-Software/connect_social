@@ -173,7 +173,7 @@
                     $.ajax({
                         url: "{{route('post.popup')}}",
                         data: {'id': id, _token: '{{csrf_token()}}'},
-                        dataType: "JSON",
+                        dataType: "JSON", 
                         type: "POST",
                         success: function (data) {
                             $('.single-post-pop-up').html(data).show(500);

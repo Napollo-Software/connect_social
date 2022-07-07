@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--favicon-->
-	<link rel="icon" href="{{url('admin_assets/images/favicon-32x32.png')}}" type="image/png" />
+	<link rel="icon" href="{{url('img/coin.png')}}" type="image/png" />
 	<!--plugins-->
 	@yield("style")
 	<link href="{{url('admin_assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
@@ -44,14 +44,15 @@
 		<!--Start Back To Top Button--> <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
 		<!--End Back To Top Button-->
 		<footer class="page-footer">
-			<p class="mb-0">Copyright © 2021. All right reserved.</p>
+			<p class="mb-0">Copyright © 2022. All right reserved.</p>
 		</footer>
 	</div>
 	<!--end wrapper-->
     <!--start switcher-->
     <div class="switcher-wrapper">
-        <div class="switcher-btn"> <i class='bx bx-cog bx-spin'></i>
+        {{--<div class="switcher-btn"> <i class='bx bx-cog bx-spin'></i>
         </div>
+        --}}
         <div class="switcher-body">
             <div class="d-flex align-items-center">
                 <h5 class="mb-0 text-uppercase">Theme Customizer</h5>

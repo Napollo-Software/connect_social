@@ -21,7 +21,7 @@ class GalleryController extends Controller
 
     public function fetch(Request $request)
     {
-        $assets = [];
+        $assets = []; 
         $type = $request->type;
         if ($type == 'all' or $type == 'image') {
             if (File::isDirectory(public_path('storage/profile/' . auth()->user()->email))) {

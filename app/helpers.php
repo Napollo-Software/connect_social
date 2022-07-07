@@ -361,13 +361,14 @@ function checkPrivacyInNetwork($privacy,$other_network_id)
     if($privacy==Privacy::PRIV_TIER_1){
         $user=User::find($other_network_id);
         $all_IDS=getArrayFromKeyofEloquent($user->tier_1(),'id');
-        if (in_array($other_network_id,$all_IDS)){
+        if (in_array(auth()->user()->id,$all_IDS)){
             return true;
         }
     }
     if($privacy==Privacy::PRIV_TIER_2){
-        $all_IDS=getArrayFromKeyofEloquent(auth()->user()->tier_2(),'id');
-        if (in_array($other_network_id,$all_IDS)){
+        $user=User::find($other_network_id);
+        $all_IDS=getArrayFromKeyofEloquent($user->tier_2(),'id');
+        if (in_array(auth()->user()->id,$all_IDS)){
             return true;
         }
     }
