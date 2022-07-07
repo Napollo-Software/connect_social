@@ -1,5 +1,18 @@
 @extends('auth.layouts.app')
 @section('content')
+<div class="action-div p-3 hide-on-mobile">
+    <div class="action-div-inner">
+        <div class="containetr">
+            <div class="row justify-content-center">
+                <div class="col-md-4 col-sm-8 col-xs-12">
+                    <div class="action-div-logo-inner">
+                        <img src="{{url('assets/images/logo.png')}}" alt="" class="w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
     <link rel="stylesheet" href="{{url('assets/css/all.css')}}">
     <div class="page-navigation">
         <div class="container">
@@ -36,9 +49,6 @@
                         <a href="javascript:void(0)" class="page-navigation-link">Treasure Island</a>
                     </li>
                 </ul>
-                <div class="login-link">
-
-                </div>
             </div>
             <div class="navigation-in-mobile">
                 <ul class="page-navigation-ul d-block">

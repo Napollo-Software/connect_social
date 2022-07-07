@@ -15,6 +15,10 @@
 
 .custom-padding {padding: 15px !important;}
 
+i {
+    font-style: normal;
+}
+
 /*  Forgot Password  */
 
 .action-div {
@@ -379,7 +383,7 @@
 }
 
 .show-on-mobile {
-    display: block;
+    display: none;
 }
 
 
@@ -412,6 +416,24 @@
     .show-on-mobile {
         display: block;
     }
+    .mobile-site-logo {
+        display: block;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .user-profile-btn-large.white {
+        margin: 0 !important;
+        margin-top: 15px !important;
+        display: block;
+    }
+
+    .page-navigation-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     .user-profile-info-action-inner.text-center {
         margin-top: 50px;
     }
@@ -425,6 +447,12 @@
     }
 
     .page-navigation-inner {
+        justify-content: space-between;
+    }
+
+    .page-navigation-inner {
+        display: flex;
+        align-items: center;
         justify-content: space-between;
     }
 }
