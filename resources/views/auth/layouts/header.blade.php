@@ -1,4 +1,4 @@
-<div class="action-div p-3 hide-on-mobile">
+<!-- <div class="action-div p-3 hide-on-mobile">
     <div class="action-div-inner">
         <div class="containetr">
             <div class="row justify-content-center">
@@ -10,4 +10,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

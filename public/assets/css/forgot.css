@@ -15,6 +15,10 @@
 
 .custom-padding {padding: 15px !important;}
 
+i {
+    font-style: normal;
+}
+
 /*  Forgot Password  */
 
 .action-div {
