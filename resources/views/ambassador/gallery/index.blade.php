@@ -97,10 +97,9 @@
                 }
 
             });
-
             //Delete Items
             $('.gallay-sellect-bar-select-delete').click(function(){
-                alert('reach');
+
             });
         });
     </script>

@@ -36,11 +36,12 @@
             document.execCommand("copy");
         });
         $(document).on('click','#send-invite-link-btn',function () {
+            var emails=$('#email-tags').val().split(',');
             $.ajax({
                 type: "POST",
                 url: "{{route('send.invite.for.referral')}}",
                 dataType: "JSON",
-                data: {'email': $('#email-tags').val(), _token: '{{csrf_token()}}'},
+                data: {'email': emails, _token: '{{csrf_token()}}'},
                 beforeSend: function () {
                     $('#send-invite-link-btn').html('<i class="fa fa-spin fa-spinner"></i> Processing');
                 },

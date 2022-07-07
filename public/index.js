@@ -103,7 +103,7 @@ function erroralert(xhr) {
     if (typeof  xhr.responseJSON.errors === 'object') {
         var error = '';
         $.each(xhr.responseJSON.errors, function (key, item) {
-            error += item;
+            error += item+'\n';
         });
         swal("Failed", error, "error");
     } else {
