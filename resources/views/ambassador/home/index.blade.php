@@ -12,7 +12,7 @@ Profile
                         <div class="social-information-content-inner">
                             <div class="content-sides">
 
-                                <div class="content-side-01 hide-on-mobile">
+                                <div class="content-side-01 hide-on-mobile-ads">
                                     <div class="content-cards">
                                         <div class="content-card">
                                             <div class="content-card-inner">
@@ -20,7 +20,7 @@ Profile
                                                     <div class="content-top-bar-inner">
                                                         <div class="content-top-bar-title">
                                                             <div class="text">
-                                                                Merchant Adds
+                                                                Merchant Ads
                                                             </div>
                                                         </div>
                                                     </div>
