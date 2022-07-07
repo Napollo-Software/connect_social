@@ -15,7 +15,7 @@
                                                     <div class="content-top-bar-inner">
                                                         <div class="content-top-bar-title">
                                                             <div class="text">
-                                                                About
+                                                                About 
                                                             </div>
                                                             @if($user->id==auth()->user()->id)
                                                                 <div class="edit-button"
