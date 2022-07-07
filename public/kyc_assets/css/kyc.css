@@ -315,6 +315,17 @@ input.form-div-field-input {
     margin-bottom: 20px;
 }
 
+.form-div-field-input {
+    border-radius: 2px;
+}
+
+.form-div-field-input:focus {
+    border-color: #000;
+    color: #495057;
+    outline: none;
+    box-shadow: 0px 7px 19px #f0f0f0;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 1200px) {
