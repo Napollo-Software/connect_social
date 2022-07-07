@@ -14,6 +14,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="mobile-site-logo show-on-mobile">
+                    <div class="mobile-site-logo-inner">
+                        <img src="{{url('assets/images/logo.png')}}" alt="" class="w-100">
+                    </div>
+                </div>
                 <ul class="page-navigation-ul">
                     <li class="page-navigation-li active">
                         <a href="javascript:void(0)" class="page-navigation-link">About</a>
