@@ -13,6 +13,10 @@ class UserController extends Controller
     public function index(){
         return view('admin.users.index');
     }
+    public function profile(){
+        return view('admin.profile');
+    }
+
     public function fetch(Request $request){
         $data = User::all();
         return DataTables::of($data)
