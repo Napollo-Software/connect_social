@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Ambassador;
 
 use App\Http\Controllers\Controller;
+use App\Models\AmbassadorDetails;
 use App\Models\Post;
 use App\Models\PostAssets;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -114,10 +116,22 @@ class GalleryController extends Controller
                 }
 
             }elseif($request->post_source[$i]=='profile'){
-                Storage::disk('local')->delete('public/profile/'.auth()->user()->email.'/'.$request->post_asset[$i]);
-            
+                if (Storage::disk('local')->delete('public/profile/'.auth()->user()->email.'/'.$request->post_asset[$i])){
+                    if (auth()->user()->profile==$request->post_asset[$i]){
+                        $user=User::find(auth()->user()->id);
+                        $user->profile=null;
+                        $user->save();
+                    }
+                }
+
             }elseif($request->post_source[$i]=='cover'){
-                Storage::disk('local')->delete('public/a/covers/' . auth()->user()->id . '/' . $request->post_asset[$i]);
+                if (Storage::disk('local')->delete('public/a/covers/' . auth()->user()->id . '/' . $request->post_asset[$i])){
+                    if (auth()->user()->details->cover==$request->post_asset[$i]){
+                        $user=AmbassadorDetails::find(auth()->user()->details->id);
+                        $user->cover=null;
+                        $user->save();
+                    }
+                }
             }
         }
         return response()->json(['success'=>'Deleted successfully!']);
