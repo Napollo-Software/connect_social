@@ -84,7 +84,12 @@
                 success:function(response) {
                     button.attr('disabled',null).html(previous);
                     $('#comment-count-'+post).text(parseInt($('#comment-count-'+post).text())+1).parent().removeClass('d-none');
-                    $('#comment-box-'+post).append(response.data.comment_html);
+                    if (response.data.more_comments_toggle){
+                        $('#comment-box-'+post).closest('.all-comments-box').append(response.data.more_comments_html);
+                    }
+                    if (response.data.total_comments<=5){
+                        $('#comment-box-'+post).append(response.data.comment_html);
+                    }
                     var html='<div class="singal-comment-row custom-padding" >\n' +
                         '        <div class="singal-comment-row-inner">\n' +
                         '           <div class="singal-comment-row-user-image">\n' +
