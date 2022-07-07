@@ -63,8 +63,9 @@ class User extends Authenticatable
     public function invite(){
         $explode=explode('@',$this->email);
         $username=$explode[0];
-        return url('referral-link/join-as/'.$username.'/'.$this->id);
+        return url('referral/'.$username.'/'.$this->id);
     }
+    
     public function tier_0(){
         $referrer=Referral::where('referred_to',$this->id)->first();
         if ($referrer){
