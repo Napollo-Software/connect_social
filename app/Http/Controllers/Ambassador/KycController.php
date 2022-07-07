@@ -9,20 +9,6 @@ use Illuminate\Http\Request;
 class KycController extends Controller
 {
     public function submission(){
-        $curl = curl_init();
-
-        curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://api.countrystatecity.in/v1/countries',
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_HTTPHEADER => array(
-                'X-CSCAPI-KEY: API_KEY'
-            ),
-        ));
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-        dd($response);
         return view('ambassador.kyc.submission');
     }
     public function submit(Request $request){
@@ -57,6 +43,6 @@ class KycController extends Controller
         $ambassador->id_card_1=$request->id_card_1;
         $ambassador->id_card_2=$request->id_card_2;
         $ambassador->save();
-
+        return response()->json(['success'=>'KEC data is sent for submission.']);
     }
 }
