@@ -176,6 +176,7 @@
     display: block;
     align-items: center;
     width: 100%;
+    border: 0;
 }
 
 .user-profile-div-inner {
