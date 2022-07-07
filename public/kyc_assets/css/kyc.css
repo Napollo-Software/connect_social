@@ -95,22 +95,31 @@ i {
 
 .form-div-field-input {
     border: 1px solid #dedede;
-    font-size: 12px;
-    padding: 7px 15px;
+    padding: 5px 10px;
     width: 100%;
     outline: none;
+    color: #757575;
+}
+
+input.form-div-field-input {
+    border: 1px solid #dedede;
+    padding: 5px 10px;
+    width: 100%;
+    outline: none;
+    color: #000;
 }
 
 .form-card-div-field {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .date-text {
     position: absolute;
-    top: 2px;
-    left: 5px;
+    top: 4px;
+    left: 11px;
     background: #fff;
     padding: 3px;
+    color: #757575;
 }
 
 .form-card-div-field.date-field {
@@ -125,7 +134,7 @@ i {
 }
 
 .form-card-profile-pic {
-    margin: 50px 0;
+    margin-bottom: 50px;
 }
 
 .form-card-profile-pic-inner img {
@@ -149,8 +158,9 @@ i {
 }
 
 .form-card-profile-doc-title {
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 20px;
+    /* font-weight: 500; */
+    margin-bottom: 10px;
 }
 
 .form-card-profile-doc-sub-title {
@@ -159,6 +169,17 @@ i {
 
 .doc-uploader .upload-text {
     opacity: 0;
+}
+
+.upload-file-text {
+    padding: 5px 10px;
+    flex-grow: 1;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
+.form-card-profile-doc-inner {
+    margin-top: 30px;
 }
 
 /* Customization */
@@ -224,7 +245,7 @@ i {
 }
 
 .passport-field-inner {
-    margin-bottom: 50px;
+    /* margin-bottom: 10px; */
 }
 
 .submit-button {
@@ -248,6 +269,7 @@ i {
 
 .form-card-spliter-inner {
     display: flex;
+    justify-content: center;
 }
 
 .form-card-image-div-inner {
@@ -261,8 +283,8 @@ i {
 }
 
 .form-card-spliter-main {
-    flex: 0 0 60%;
-    width: 60%;
+    flex: 0 0 90%;
+    width: 90%;
 }
 
 .card-title {
@@ -291,6 +313,17 @@ i {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
+}
+
+.form-div-field-input {
+    border-radius: 2px;
+}
+
+.form-div-field-input:focus {
+    border-color: #000;
+    color: #495057;
+    outline: none;
+    box-shadow: 0px 7px 19px #f0f0f0;
 }
 
 /* Responsive */
@@ -350,5 +383,11 @@ i {
 @media only screen and (max-width: 400px) {
     .form-card-profile-input-inner {
         flex-direction: column;
+    }
+
+    .upload-file-text {
+        margin-right: 0;
+        margin-bottom: 15px;
+        width: 100%;
     }
 }

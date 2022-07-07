@@ -8,12 +8,15 @@
     <link rel="icon" type="image/x-icon" href="{{asset('kyc_assets/images/favicon.png')}}">
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('kyc_assets/css/kyc.css')}}">
+    <link rel="stylesheet" href="{{asset('ambassador_assets/css/profile.css')}}">
     <link rel="stylesheet" href="{{asset('assets/lib/icons/themify-icons.css')}}">
     <link rel="stylesheet" href="{{asset('assets/lib/uploader/uploader.css')}}">
 </head>
 <body>
     <div class="page-wrapper">
         <div class="page-wrapper-inner">
+            @include('ambassador.layouts.top-nav')
+            @include('ambassador.layouts.navigation')
             @yield('content')
         </div>
     </div>

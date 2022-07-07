@@ -195,14 +195,15 @@
                             About Connect Social
                         </h2>
                         <div class="user-profile-video-container">
-                            <div class="user-profile-video-container-inner">
-                                <div class="user-profile-video-container-image">
-                                    <img src="{{url('assets/images/video/bg-01.png')}}" alt="">
+                            <div class="user-profile-video-container-inners">
+                                <div class="user-profile-video-container-imagew">
+                                    <iframe src="https://player.vimeo.com/video/681042450" width="540" height="300" frameborder="0" class="video-player" allow="autoplay;" allowfullscreen></iframe>
+                                    <!-- <img src="{{url('assets/images/video/bg-01.png')}}" alt="">
                                     <div class="user-profile-video-controller">
                                         <div class="user-profile-video-controller-inner">
                                             <img src="{{url('assets/images/icons/play.svg')}}" alt="">
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

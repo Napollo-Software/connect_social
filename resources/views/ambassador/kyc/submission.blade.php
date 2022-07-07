@@ -5,13 +5,13 @@
             <div class="form-card-spliter-main">
                 <div class="form-card-div">
                     <div class="form-card-div-inner custom-card custom-shadow custom-padding custom-border">
-                        <div class="row justify-content-center">
+                        <!-- <div class="row justify-content-center">
                             <div class="col-md-4 col-sm-8 col-xs-12">
                                 <div class="action-div-logo-inner">
                                     <img src="{{asset('assets/images/logo.png')}}" alt="" class="w-100">
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-card-div-main">
                             <form action="#">
                                 <div class="form-card-profile-pic">
@@ -30,13 +30,13 @@
                                                 </div>
                                                 <div class="form-card-profile-pic-input">
                                                     <div class="form-card-profile-input-outer">
-                                                        <div class="form-card-profile-input-inner clasic-shadow custom-padding input-radius">
-                                                            <div class="upload-file-text">
+                                                        <div class="form-card-profile-input-inner">
+                                                            <!-- <div class="upload-file-text custom-shadow">
                                                                 Your Profile pic name
-                                                            </div>
+                                                            </div> -->
                                                             <div class="uploa-file-buttons">
                                                                 <input type="file" id="file-input" class="d-none">
-                                                                <button class="black-button" for="file-input"
+                                                                <button class="black-button" for="file-input" name="profile"
                                                                         type="button">Choose File
                                                                 </button>
                                                             </div>
@@ -50,61 +50,76 @@
                                 <div class="form-card-field-box">
                                     <div class="form-card-field-box-inner">
                                         <div class="row">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="row">
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-6">
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="House / Appartment Number"
+                                                            <input type="text" placeholder="First Name"
                                                                    name="house_appartment_number"
-                                                                   class="form-div-field-input clasic-shadow input-radius">
+                                                                   class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
+                                                        <div class="form-card-div-field">
+                                                            <input type="text" placeholder="Last Name"
+                                                                   name="house_appartment_number"
+                                                                   class="form-div-field-input form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <div class="form-card-div-field">
+                                                            <input type="text" placeholder="Address Line 01"
+                                                                   name="house_appartment_number"
+                                                                   class="form-div-field-input form-control">
+                                                        </div>
+                                                        <div class="form-card-div-field">
+                                                            <input type="text" placeholder="Address Line 02"
+                                                                   name="house_appartment_number"
+                                                                   class="form-div-field-input form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
                                                         <div class="form-card-div-field">
                                                             <select name="" id=""
-                                                                    class="form-div-field-input clasic-shadow input-radius">
+                                                                    class="form-div-field-input form-control">
                                                                 <option value="" hidden>State</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
                                                         <div class="form-card-div-field">
                                                             <select name="" id=""
-                                                                    class="form-div-field-input clasic-shadow input-radius">
+                                                                    class="form-div-field-input form-control">
                                                                 <option value="" hidden>City</option>
                                                             </select>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-6">
                                                         <div class="form-card-div-field">
                                                             <select name="" id=""
-                                                                    class="form-div-field-input clasic-shadow input-radius">
+                                                                    class="form-div-field-input form-control">
                                                                 <option value="" hidden>Country</option>
                                                             </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-card-div-field">
-                                                            <input type="text" placeholder="Address"
-                                                                   name="house_appartment_number"
-                                                                   class="form-div-field-input clasic-shadow input-radius">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
                                                             <input type="text" placeholder="Zip Code"
                                                                    name="house_appartment_number"
-                                                                   class="form-div-field-input clasic-shadow input-radius">
+                                                                   class="form-div-field-input form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-card-div-field">
+                                                            <input type="text" placeholder="Phone Number"
+                                                                   name="house_appartment_number"
+                                                                   class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field date-field">
                                                             <input type="date" name="house_appartment_number"
-                                                                   class="form-div-field-input clasic-shadow input-radius">
+                                                                   class="form-div-field-input form-control">
                                                             <span class="date-text">Date of Birth</span>
                                                         </div>
                                                     </div>
@@ -115,7 +130,7 @@
                                 </div>
                                 <div class="form-card-profile-doc">
                                     <div class="form-card-profile-doc-inner">
-                                        <div class="form-card-profile-doc-title margin-bottom">
+                                        <div class="form-card-profile-doc-title">
                                             Proof Documents (Driving License or Passport)
                                         </div>
                                         <div class="passport-field">
@@ -123,15 +138,15 @@
                                                 <div class="form-card-div-field">
                                                     <input type="text" placeholder="Passport or Driving License Number"
                                                            name="house_appartment_number"
-                                                           class="form-div-field-input clasic-shadow input-radius">
+                                                           class="form-div-field-input form-control">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-card-profile-doc-sub-title margin-bottom">
+                                        <div class="form-card-profile-doc-sub-title">
                                             Add front and back side of Government Issued Photo ID
                                         </div>
                                         <div class="doc-uploader">
-                                            <div class="doc-uploader-inner  custom-padding clasic-shadow input-radius">
+                                            <div class="doc-uploader-inner  custom-padding custom-shadow input-radius">
                                                 <div class="doc-uploader-main input-radius">
                                                     <div id="doc-uploader">
                                                         <div class="input-images"></div>
@@ -140,7 +155,7 @@
                                                         <div class="uploader-text-inner">
                                                             <div class="uploader-text-main">
                                                                 <div class="icon"><img
-                                                                            src="assets/images/icon/attachment.svg"
+                                                                            src="{{asset('kyc_assets/images/icon/attachment.svg')}}"
                                                                             alt=""></div>
                                                                 Drag & Drop Attachment
                                                             </div>
@@ -160,7 +175,7 @@
                                             Add Front & Back side of the ID Card
                                         </div>
                                         <div class="doc-uploader">
-                                            <div class="doc-uploader-inner custom-padding clasic-shadow input-radius">
+                                            <div class="doc-uploader-inner custom-padding custom-shadow input-radius">
                                                 <div class="doc-uploader-main  input-radius">
                                                     <div id="doc-uploader">
                                                         <div class="input-images"></div>
@@ -169,7 +184,7 @@
                                                         <div class="uploader-text-inner">
                                                             <div class="uploader-text-main">
                                                                 <div class="icon"><img
-                                                                            src="assets/images/icon/attachment.svg"
+                                                                            src="{{asset('kyc_assets/images/icon/attachment.svg')}}"
                                                                             alt=""></div>
                                                                 Drag & Drop Attachment
                                                             </div>
@@ -188,23 +203,40 @@
                     </div>
                 </div>
             </div>
-            <div class="form-card-image-div">
+            <!-- <div class="form-card-image-div">
                 <div class="form-card-image-div-inner">
                     <div class="form-card-image-div-main">
                         <div class="form-card-div-coin-image">
                             <div class="form-card-div-coin-image-inner margin-bottom">
-                                <img src="{{asset('kyc_assets/images/coin.png')}}" alt="" class="clasic-shadow">
+                                <img src="{{asset('kyc_assets/images/coin.png')}}" alt="" class="custom-shadow">
                             </div>
-                            <!-- <div class="form-card-div-coin-bottom-text">
+                            <div class="form-card-div-coin-bottom-text">
                                 Know Your Customer (KYC) Verification
-                            </div> -->
+                            </div>
                         </div>
                         <div class="card-title">
                             Unlock the World of Connect Coins
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $(function () {
+                var settings = {
+                    "url": "https://api.countrystatecity.in/v1/countries",
+                    "method": "GET",
+                    "headers": {
+                        "X-CSCAPI-KEY": "API_KEY"
+                    },
+                };
+
+                $.ajax(settings).done(function (response) {
+                    console.log(response);
+                });
+            });
+        </script>
+    @endpush
 @endsection

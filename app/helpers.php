@@ -47,6 +47,13 @@ class Privacy{
     const PRIV_TIER_1='tier-1';
     const PRIV_TIER_2='tier-2';
 }
+class KYC{
+    const STATUS_PENDING=null;
+    const STATUS_REQUESTED=0;
+    const STATUS_APPROVED=1;
+    const STATUS_REJECTED=2;
+}
+
 class Friends{
     const STATUS_REQUEST_SENT=0;
     const STATUS_APPROVED=1;

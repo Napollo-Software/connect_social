@@ -2089,6 +2089,18 @@ input.referel-link-input::selection {
     animation: PopoverAnimation 1.4s ease-in-out;
 }
 
+.hide-on-mobile-ads {
+    display: block;
+}
+
+.home-navigation-li.active {
+    border-bottom: 2px solid #000;
+    border-radius: 0;
+}
+
+.hide-on-mobile-ads {
+    display: block;
+}
 
 @keyframes LikeAnimation{
     0%{transform: scale(1);}
@@ -2301,6 +2313,14 @@ input.referel-link-input::selection {
     }
 
     .home-navigation-link .text {
+        display: none;
+    }
+
+    .hide-on-mobile-ads {
+        display: none;
+    }
+
+    .hide-on-mobile-ads {
         display: none;
     }
 
