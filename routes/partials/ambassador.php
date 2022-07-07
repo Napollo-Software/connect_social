@@ -13,6 +13,7 @@ use App\Http\Controllers\Ambassador\ChatController;
 use App\Http\Controllers\Ambassador\SearchController;
 use App\Http\Controllers\Ambassador\NetworkController;
 use App\Http\Controllers\Ambassador\SendInviteController;
+use App\Http\Controllers\Ambassador\KycController;
 
 Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group(function () {
 
@@ -87,6 +88,12 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         Route::prefix('send-invite-email')->group(function () {
             Route::post('for-referral', [SendInviteController::class, 'send_invite'])->name('send.invite.for.referral');
         });
+
+        Route::prefix('kyc')->group(function () {
+            Route::get('submit', [KycController::class, 'kyc_submit'])->name('kyc.submit.form');
+            Route::get('response', [KycController::class, 'kyc_response'])->name('kyc.response');
+        });
+
     });
 
 });

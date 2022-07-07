@@ -14,8 +14,8 @@
                             <li class="profile-navigation-li {{Route::currentRouteName()=='ambassador.profile'?'active':''}}"><a href="{{route('ambassador.profile')}}" class="profile-navigation-link">Social Information</a></li>
                             <li class="profile-navigation-li {{Route::currentRouteName()=='gallery'?'active':''}}"><a href="{{route('gallery',['all'])}}" class="profile-navigation-link">Gallery</a></li>
                             <li class="profile-navigation-li
-{{in_array(Route::currentRouteName(),['friends.show','connections.show'])?'active':''}}"
-                            ><a href="{{auth()->user()->id==$user->id ? route('network',['type'=>'friends']) : route('network.list',['type'=>'friend','id'=>$user->id])}}" class="profile-navigation-link">Networks</a></li>
+{{in_array(Route::currentRouteName(),['network.list','network'])?'active':''}}"
+                            ><a href="{{auth()->user()->id==$user->id ? route('network',['type'=>'friends']) : route('network.list',['type'=>'friends','id'=>$user->id])}}" class="profile-navigation-link">Networks</a></li>
                         </ul>
                     </div>
                     <div class="mobile-menu-icon top-open-menu" data-target=".to-show-menu-01">
