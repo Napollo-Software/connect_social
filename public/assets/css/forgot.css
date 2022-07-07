@@ -421,6 +421,7 @@
     .user-profile-btn-large.white {
         margin: 0 !important;
         margin-top: 15px !important;
+        display: block;
     }
 
     .page-navigation-inner {

@@ -36,9 +36,6 @@
                         <a href="javascript:void(0)" class="page-navigation-link">Treasure Island</a>
                     </li>
                 </ul>
-                <div class="login-link">
-
-                </div>
             </div>
             <div class="navigation-in-mobile">
                 <ul class="page-navigation-ul d-block">
