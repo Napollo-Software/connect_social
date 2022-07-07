@@ -79,26 +79,25 @@ class NetworkController extends Controller
         }
         if ($type == 'friends') {
             $privacy = unserialize($user->details->network_privacy);
-            //dd($privacy['friends']);
             $data = [];
-            if (checkPrivacyInNetwork($privacy['friends'], $id)) {
+            dd(checkPrivacyInNetwork($privacy[$type], $id));
+            if (checkPrivacyInNetwork($privacy[$type], $id)) {
                 $data = getFriendsListUsers($id);
             }
+            dd($data);
         }
         if ($type == 'connections') {
             $data = [];
             $privacy = unserialize($user->details->network_privacy);
-            if (checkPrivacyInNetwork($privacy['friends'], $id)) {
+            if (checkPrivacyInNetwork($privacy[$type], $id)) {
                 $data = getConnectionsListUsers($id);
             }
         }
         if ($type == 'tier-1') {
             $data = $user->tier_1();
-            $privacy = 'tier-1';
         }
         if ($type == 'tier-2') {
             $data = $user->tier_2();
-            $privacy = 'tier-2';
         }
         foreach ($data as $detail) {
                 $html .= '<div class="friend-grid-col">
@@ -151,10 +150,15 @@ class NetworkController extends Controller
             </div>
         </div>';
 
-        if (in_array($type, ['friends', 'connections'])) {
-            $show_privacy = true;
-            $privacies = getNetworkPrivacy($type);
-        } else {
+        if ($user->id == auth()->user()->id) {
+            if (in_array($type, ['friends', 'connections'])) {
+                $show_privacy = true;
+                $privacies = getNetworkPrivacy($type);
+            } else {
+                $show_privacy = false;
+                $privacies = [];
+            }
+        }else{
             $show_privacy = false;
             $privacies = [];
         }

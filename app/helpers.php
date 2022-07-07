@@ -337,16 +337,17 @@ function getNetworkPrivacy($type){
     $privacy=$all[$type];
     return getPrivacyDetails($privacy);
 }
-
+use App\Models\User;
 function checkPrivacyInNetwork($privacy,$other_network_id)
 {
+
     if($privacy==Privacy::PRIV_PUBLIC){
         if (in_array($other_network_id,auth()->user()->my_network())){
             return true;
         }
     }
     if($privacy==Privacy::PRIV_CONNECTIONS){
-        $all_IDS=getArrayFromKeyofEloquent(getConnectionsList(auth()->user()->id),'id');
+        $all_IDS=getArrayFromKeyofEloquent(getConnectionsListUsers(auth()->user()->id),'id');
         if (in_array($other_network_id,$all_IDS)){
             return true;
         }
@@ -358,7 +359,8 @@ function checkPrivacyInNetwork($privacy,$other_network_id)
         }
     }
     if($privacy==Privacy::PRIV_TIER_1){
-        $all_IDS=getArrayFromKeyofEloquent(auth()->user()->tier_1(),'id');
+        $user=User::find($other_network_id);
+        $all_IDS=getArrayFromKeyofEloquent($user->tier_1(),'id');
         if (in_array($other_network_id,$all_IDS)){
             return true;
         }
