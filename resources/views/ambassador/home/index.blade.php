@@ -12,7 +12,7 @@ Profile
                         <div class="social-information-content-inner">
                             <div class="content-sides">
 
-                                <div class="content-side-01">
+                                <!-- <div class="content-side-01">
                                     <div class="content-cards">
                                         <div class="content-card">
                                             <div class="content-card-inner">
@@ -43,7 +43,7 @@ Profile
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="content-side-02">
                                     <div class="content-cards"> 
                                         @include('ambassador.profile.components.add_post')
