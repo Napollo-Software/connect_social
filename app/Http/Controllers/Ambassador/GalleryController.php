@@ -39,8 +39,8 @@ class GalleryController extends Controller
         foreach ($posts as $post) {
             if ($post->assets()->exists()) {
                 if ($type == 'all' or $type == $post->assets->type) {
-                    $asset_name=postAsset($post->id);
-                    $assets[] = ['source'=>'post','type' => $post->assets->type,'asset_name'=>$asset_name,'post_id'=>$post->id,'asset_directory'=>'asset','url' => $post->assets->data(), 'asset' => $post->assets];
+                    $assets[] = [
+                        'source'=>'post','type' => $post->assets->type,'asset_name'=>$post->assets->file,'post_id'=>$post->id,'asset_directory'=>'asset','url' => $post->assets->data(), 'asset' => $post->assets];
                 }
             }
         }
@@ -102,31 +102,24 @@ class GalleryController extends Controller
 
     public function delete(Request $request)
     {
-        $post_url=$request->post_url;
-        $post_source=$request->post_source;
-        $post_id=$request->post_id;
-        $post_asset=$request->post_asset;
-        $post_directory=$request->post_directory;
-        $count=count($post_id);
-        for($i=0;$i<$count;$i++)
+        for($i=0;$i<count($request->post_source);$i++)
         {
-            if($post_id[$i]!=null && $post_source[$i]=='post')
-            {
-                Post::where('id',$post_id[$i])->delete();
-                Storage::disk('local')->delete('/a/posts/' . $post_asset[$i]);
+            if($request->post_source[$i]=='post') {
+                $post=Post::find($request->post_id[$i]);
+                if (Storage::disk('local')->delete('public/a/posts/' . $request->post_asset[$i])){
+                    $post->comments()->delete();
+                    $post->likes()->delete();
+                    $post->assets->delete();
+                    $post->delete();
+                }
 
-            }elseif($post_id[$i]==null && $post_source[$i]='profile'){
-
-                Storage::disk('local')->delete('/profile/tier00@connectsocial.com/1657112531images');
+            }elseif($request->post_source[$i]=='profile'){
+                Storage::disk('local')->delete('public/profile/'.auth()->user()->email.'/'.$request->post_asset[$i]);
             
-            }elseif($post_id[$i]==null && $post_source[$i]='cover_photo'){
-
-                Storage::disk('local')->delete('/a/covers/' . $post_directory[$i] . '/' . $post_asset[$i]);
-            
+            }elseif($request->post_source[$i]=='cover'){
+                Storage::disk('local')->delete('public/a/covers/' . auth()->user()->id . '/' . $request->post_asset[$i]);
             }
-           
         }
-        Storage::disk('local')->delete(path:'/profile/tier00@connectsocial.com/1657112531images.png');
-        return response()->json($post_asset);
+        return response()->json(['success'=>'Deleted successfully!']);
     }
 }

@@ -110,7 +110,7 @@
 	                data_url=$(this).attr('data-path');
                     data_id=$(this).attr('data-id');
                     data_asset=$(this).attr('data-asset');
-                    data_directory=$(this).attr('data-asset-directory')
+                    data_directory=$(this).attr('data-asset-directory');
                     post_source[a++]=data_source;
                     post_url[e++]=data_url;
                     post_id[i++]=data_id;
@@ -123,7 +123,7 @@
                         dataType:"JSON",
                         data:{_token: '{{csrf_token()}}','post_source':post_source,'post_url':post_url,'post_id':post_id,'post_asset':post_asset,'post_directory':post_directory},
                         success:function(){
-                            console.log('success');
+
                         }
 
                     })
