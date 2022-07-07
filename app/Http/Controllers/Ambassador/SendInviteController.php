@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 class SendInviteController extends Controller
 {
     public function send_invite(Request $request){
+        //dd($request->all());
+
+        $request->email=explode(',',$request->email);
+        $this->validate(\request(),[
+           'email.*'=>'users:unique'
+        ]);
         $resp='Email is sent to ';
         $notresp=null;
         $emails=explode(',',$request->email);

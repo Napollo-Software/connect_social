@@ -15,7 +15,7 @@ class InviteController extends Controller
     }
     public function send(Request $request){
         $this->validate($request,[
-           'email'=>'required|string|email|max:255',
+           'email'=>'required|string|email|max:255|unique:users',
            'name'=>'required|string|max:255'
         ]);
         $message=invite_email_text($request->name);
