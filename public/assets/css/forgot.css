@@ -173,9 +173,9 @@
 }
 
 .page-navigation-inner {
-    display: flex;
+    display: block;
     align-items: center;
-    justify-content: flex-end;
+    width: 100%;
 }
 
 .user-profile-div-inner {
@@ -189,8 +189,8 @@
     list-style: none;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 50%;
+    justify-content: center;
+    width: 100%;
 }
 
 .login-link {

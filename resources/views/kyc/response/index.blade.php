@@ -1,6 +1,7 @@
 @include('kyc.components.top-bar')
 @extends('kyc.layouts.app')
             @section('content')
+
             <div class="form-card-div padding-div bg-custom">
                 <div class="form-card-div-inner custom-card custom-shadow custom-padding custom-border custom-width">
                     <div class="form-card-div-main">
