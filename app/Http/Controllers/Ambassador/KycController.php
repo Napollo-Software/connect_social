@@ -16,6 +16,9 @@ class KycController extends Controller
             'country_code'=>'required',
             'phone'=>'required',
 
+            'fname'=>'required',
+            'lname'=>'required',
+
             'state'=>'required',
             'city'=>'required',
             'country'=>'required',
@@ -31,6 +34,8 @@ class KycController extends Controller
 
         ]);
         $ambassador=AmbassadorDetails::find(auth()->user()->details->id);
+        $ambassador->fname=$request->fname;
+        $ambassador->lname=$request->lname;
         $ambassador->state=$request->state;
         $ambassador->city=$request->city;
         $ambassador->country=$request->country;

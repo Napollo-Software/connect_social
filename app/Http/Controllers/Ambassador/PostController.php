@@ -104,7 +104,6 @@ class PostController extends Controller
         return response()->json(['success'=>'Post added successfully']);
     }
     public function update(Request $request){
-        dd($request->all());
         $post= Post::find($request->id);
 
         if ($request->file_type){

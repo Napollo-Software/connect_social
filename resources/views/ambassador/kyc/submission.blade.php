@@ -55,70 +55,67 @@
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
                                                             <input type="text" placeholder="First Name"
-                                                                   name="house_appartment_number"
+                                                                   name="fname"
                                                                    class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
                                                             <input type="text" placeholder="Last Name"
-                                                                   name="house_appartment_number"
+                                                                   name="lname"
                                                                    class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="Address Line 01"
-                                                                   name="house_appartment_number"
+                                                            <input type="text" placeholder="Address Line 1"
+                                                                   name="address_1"
                                                                    class="form-div-field-input form-control">
                                                         </div>
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="Address Line 02"
-                                                                   name="house_appartment_number"
+                                                            <input type="text" placeholder="Address Line 2"
+                                                                   name="address_2"
                                                                    class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
-                                                            <select name="" id=""
-                                                                    class="form-div-field-input form-control">
-                                                                <option value="" hidden>State</option>
-                                                            </select>
+                                                            <input type="text" placeholder="City"
+                                                                   name="city"
+                                                                   class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
-                                                            <select name="" id=""
-                                                                    class="form-div-field-input form-control">
-                                                                <option value="" hidden>City</option>
-                                                            </select>
+                                                            <input type="text" placeholder="State"
+                                                                   name="state"
+                                                                   class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
-                                                            <select name="" id=""
-                                                                    class="form-div-field-input form-control">
-                                                                <option value="" hidden>Country</option>
-                                                            </select>
+                                                            <input type="text" placeholder="Country"
+                                                                   name="country"
+                                                                   class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
                                                             <input type="text" placeholder="Zip Code"
-                                                                   name="house_appartment_number"
+                                                                   name="country_code"
                                                                    class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
                                                             <input type="text" placeholder="Phone Number"
-                                                                   name="house_appartment_number"
+                                                                   name="phone"
                                                                    class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field date-field">
-                                                            <input type="date" name="house_appartment_number"
+                                                            <input type="date" name="date_of_birth"
                                                                    class="form-div-field-input form-control">
                                                             <span class="date-text">Date of Birth</span>
                                                         </div>
@@ -137,7 +134,7 @@
                                             <div class="passport-field-inner">
                                                 <div class="form-card-div-field">
                                                     <input type="text" placeholder="Passport or Driving License Number"
-                                                           name="house_appartment_number"
+                                                           name="passport_no"
                                                            class="form-div-field-input form-control">
                                                 </div>
                                             </div>
