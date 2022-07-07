@@ -49,6 +49,9 @@ class User extends Authenticatable
     }
     public function profile_image(){
         if($this->profile){
+            if (!file_exists(Storage::disk('local')->url('/profile/'.$this->email.'/'.$this->profile))) {
+                return url('admin_assets/images/avatars/avatar-1.png');
+            }
             return Storage::disk('local')->url('/profile/'.$this->email.'/'.$this->profile);
         }
         return url('admin_assets/images/avatars/avatar-1.png');
