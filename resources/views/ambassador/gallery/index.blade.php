@@ -7,7 +7,7 @@
                 <div class="gallary-top-bar">
                     <div class="gallary-top-bar-inner">
                         <div class="gallary-top-title">
-                            All Media
+                            All Media 
                         </div>
                         <div class="gallary-top-date">
                             June 1, 2022
@@ -23,7 +23,7 @@
                                         <li class="selection-dropdown-li gallary-sellect-bar-select-all">
                                             Select All
                                         </li>
-                                        <li class="selection-dropdown-li">
+                                        <li class="selection-dropdown-li gallay-sellect-bar-select-delete" >
                                             Delete
                                         </li>
                                     </ul>
@@ -97,6 +97,11 @@
                 }
 
             });
+
+            //Delete Items
+            $('.gallay-sellect-bar-select-delete').click(function(){
+                alert('reach');
+            });
         });
     </script>
     <script>
@@ -104,7 +109,7 @@
             $.ajax({
                 type: "POST",
                 url: "{{route('gallery.fetch')}}",
-                dataType: "JSON",
+                dataType: "JSON", 
                 data: {'type': type, _token: '{{csrf_token()}}'},
                 beforeSend: function () {
                     $('.friends-grid-main').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>')
@@ -128,6 +133,7 @@
                 window.history.pushState({}, null, '/gallery/'+type);
             });
         });
+        
     </script>
     <style>
         .container-for-assets{

@@ -45,7 +45,7 @@ class PostController extends Controller
         if ($type=='tier-1'){
             $tier1=getArrayFromKeyofEloquent(auth()->user()->tier_1(),'id');
             $posts = Post::orderBy('created_at', 'DESC')->where('privacy','tier-1')->whereIn('user_id',$tier1)->skip($request->n*2)->take(2)->get();
-        }
+        } 
         if ($type=='tier-2'){
             $tier2=getArrayFromKeyofEloquent(auth()->user()->tier_2(),'id');
             $posts = Post::orderBy('created_at', 'DESC')->where('privacy','tier-2')->whereIn('user_id',$tier2)->skip($request->n*2)->take(2)->get();
