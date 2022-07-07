@@ -9,6 +9,7 @@
                             <div class="content-sides">
                                 <div class="content-side-01">
                                     <div class="content-cards">
+                                        @if(checkPrivacyInNetwork(getSocialPrivacyofUser('about',$user),$user->id))
                                         <div class="content-card">
                                             <div class="content-card-inner">
                                                 <div class="content-top-bar custom-padding">
@@ -18,19 +19,18 @@
                                                                 About
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
-                                                <div class="content-card-content">
-                                                    <div class="content-card-content-inner about-content custom-padding">
-                                                        <p id="about-text">
-                                                            {{auth()->user()->details->about}}
-                                                        </p>
+                                                    <div class="content-card-content">
+                                                        <div class="content-card-content-inner about-content custom-padding">
+                                                            <p id="about-text">
+                                                                {{$user->details->about}}
+                                                            </p>
+                                                        </div>
                                                     </div>
-
-                                                </div>
                                             </div>
                                         </div>
+                                        @endif
                                         <div class="content-card">
                                             <div class="content-card-inner">
                                                 <div class="content-top-bar custom-padding">
@@ -59,7 +59,7 @@
                                                                             <div class="info-editor-box-value">
                                                                                 <div class="info-editor-box-value-text"
                                                                                      id="city-text">
-                                                                                    {{auth()->user()->details->city}}
+                                                                                    {{$user->details->city}}
                                                                                 </div>
 
                                                                             </div>
@@ -76,7 +76,7 @@
                                                                             <div class="info-editor-box-value">
                                                                                 <div class="info-editor-box-value-text"
                                                                                      id="state-text">
-                                                                                    {{auth()->user()->details->state}}
+                                                                                    {{$user->details->state}}
 
                                                                                 </div>
 
@@ -94,7 +94,7 @@
                                                                             <div class="info-editor-box-value">
                                                                                 <div class="info-editor-box-value-text"
                                                                                      id="relationship-text">
-                                                                                    {{auth()->user()->details->relationship}}
+                                                                                    {{$user->details->relationship}}
 
                                                                                 </div>
 
@@ -111,7 +111,7 @@
 
                                                                             <div class="info-editor-box-value">
                                                                                 <div class="info-editor-box-value-text">
-                                                                                    {{dateFormat(auth()->user()->details->joining,'d M Y')}}
+                                                                                    {{dateFormat($user->details->joining,'d M Y')}}
 
                                                                                 </div>
 
@@ -129,7 +129,7 @@
                                                                             <div class="info-editor-box-value">
                                                                                 <div class="info-editor-box-value-text"
                                                                                      id="workplace-text">
-                                                                                    {{auth()->user()->details->workplace}}
+                                                                                    {{$user->details->workplace}}
 
                                                                                 </div>
 
@@ -147,7 +147,7 @@
                                                                             <div class="info-editor-box-value">
                                                                                 <div class="info-editor-box-value-text"
                                                                                      id="high_school-text">
-                                                                                    {{auth()->user()->details->high_school}}
+                                                                                    {{$user->details->high_school}}
 
                                                                                 </div>
 
@@ -165,7 +165,7 @@
                                                                             <div class="info-editor-box-value">
                                                                                 <div class="info-editor-box-value-text"
                                                                                      id="hobbies-text">
-                                                                                    {{auth()->user()->details->hobbies}}
+                                                                                    {{$user->details->hobbies}}
                                                                                 </div>
 
                                                                             </div>
@@ -181,7 +181,7 @@
 
                                                                             <div class="info-editor-box-value">
                                                                                 <div class="info-editor-box-value-text">
-                                                                                    {{auth()->user()->email}}
+                                                                                    {{$user->email}}
 
                                                                                 </div>
 
@@ -198,7 +198,7 @@
 
                                                                             <div class="info-editor-box-value">
                                                                                 <div class="info-editor-box-value-text">
-                                                                                    {{auth()->user()->phone}}
+                                                                                    {{$user->phone}}
 
                                                                                 </div>
 
@@ -216,7 +216,7 @@
                                                                             <div class="info-editor-box-value">
                                                                                 <div class="info-editor-box-value-text"
                                                                                      id="gender-text">
-                                                                                    {{auth()->user()->gender}}
+                                                                                    {{$user->gender}}
 
                                                                                 </div>
 
@@ -279,14 +279,16 @@
                                                         <div class="friend-grid">
                                                             <div class="friend-grid-inner">
                                                                 @if(getFriendsList($user->id)->count()>0)
-                                                                    @foreach(getFriendsListUsers(auth()->user()->id) as $friend)
+                                                                    @foreach(getFriendsListUsers($user->id) as $friend)
                                                                         <div class="friend-grid-col">
                                                                             <div class="friend-grid-col-inner">
                                                                                 <div class="firend-grid-col-image">
-                                                                                    <img src="{{$friend->profile_image()}}" alt="">
+                                                                                    <img src="{{$friend->profile_image()}}"
+                                                                                         alt="">
                                                                                 </div>
                                                                                 <div class="friend-grid-col-text">
-                                                                                    <a href="{{url('profile-view/'.$friend->id)}}" class="text-decoration-none text-muted">{{$friend->fullName()}}</a>
+                                                                                    <a href="{{url('profile-view/'.$friend->id)}}"
+                                                                                       class="text-decoration-none text-muted">{{$friend->fullName()}}</a>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -434,18 +436,18 @@
             $(document).on('click', '.friend-request-sent', function () {
                 var id = $(this).attr('data-id');
                 var status = null;
-                if($(this).hasClass('approve')){
-                    status='{{Friends::STATUS_APPROVED}}'
+                if ($(this).hasClass('approve')) {
+                    status = '{{Friends::STATUS_APPROVED}}'
                 }
-                if($(this).hasClass('decline')){
-                    status='{{Friends::STATUS_REJECTED}}'
+                if ($(this).hasClass('decline')) {
+                    status = '{{Friends::STATUS_REJECTED}}'
                 }
 
                 $.ajax({
                     type: "POST",
                     url: "{{route('friends.action')}}",
                     dataType: "JSON",
-                    data: {'id': id,'status': status, _token: '{{csrf_token()}}'},
+                    data: {'id': id, 'status': status, _token: '{{csrf_token()}}'},
                     success: function (data) {
                         showControls('{{$user->id}}');
                     },
@@ -457,18 +459,18 @@
             $(document).on('click', '.connection-request-sent', function () {
                 var id = $(this).attr('data-id');
                 var status = null;
-                if($(this).hasClass('approve')){
-                    status='{{Connections::STATUS_APPROVED}}'
+                if ($(this).hasClass('approve')) {
+                    status = '{{Connections::STATUS_APPROVED}}'
                 }
-                if($(this).hasClass('decline')){
-                    status='{{Connections::STATUS_REJECTED}}'
+                if ($(this).hasClass('decline')) {
+                    status = '{{Connections::STATUS_REJECTED}}'
                 }
 
                 $.ajax({
                     type: "POST",
                     url: "{{route('connections.action')}}",
                     dataType: "JSON",
-                    data: {'id': id,'status': status, _token: '{{csrf_token()}}'},
+                    data: {'id': id, 'status': status, _token: '{{csrf_token()}}'},
                     success: function (data) {
                         showControls('{{$user->id}}');
                     },

@@ -6,12 +6,36 @@ use App\Http\Controllers\Controller;
 use App\Models\AmbassadorDetails;
 use App\Models\Connection;
 use App\Models\Friend;
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Mockery\Exception;
 
 class NetworkController extends Controller
 {
+    public function profile($id = null){
+        if($id == auth()->user()->id){
+            return redirect()->route('ambassador.profile');
+        }else{
+            $user =User::find($id);
+        }
+        $images = [];
+        if (File::isDirectory(public_path('storage/profile/' . $user->email))) {
+            foreach (File::files(public_path('storage/profile/' . $user->email)) as $file) {
+                $images[] = Storage::disk('local')->url('/profile/' . $user->email . '/' . $file->getFilename());
+            }
+        }
+        if (File::isDirectory(public_path('storage/a/covers/' . $id))) {
+            foreach (File::files(public_path('storage/a/covers/' . $id)) as $file) {
+                $images[] = Storage::disk('local')->url('/a/covers/' . $id . '/' . $file->getFilename());
+            }
+        }
+
+        $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
+        return view('ambassador.profile.network.profile', compact('posts', 'images', 'user'));
+    }
     public function network($id, $type)
     {
 
