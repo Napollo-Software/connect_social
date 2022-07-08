@@ -12,7 +12,7 @@ function sendEmail($to,$from,$subject,$message){
         $mail->Host = 'smtp.gmail.com';             //  smtp host
         $mail->SMTPAuth = true;
         $mail->Username = 'connectsocialtest@napollo.net';   //  sender username
-        $mail->Password = 'Conn3ctS0c1al@';       // sender password
+        $mail->Password = 'Conn3ctS0c1al@';         // sender password
         $mail->SMTPSecure = 'tls';                  // encryption - ssl/tls
         $mail->Port = 587;                          // port - 587/465
 
