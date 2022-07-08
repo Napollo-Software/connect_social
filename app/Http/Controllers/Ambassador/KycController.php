@@ -59,7 +59,7 @@ class KycController extends Controller
         Storage::disk('local')->put('/public/profile/' . auth()->user()->email . '/' . $passport_1, File::get($request['driving_license']['0']));
         $ambassador->passport_1=$passport_1;
         }
-        if(count($request['driving_license'])>2){
+        if(count($request['driving_license'])>1){
         $passport_2 = time() . $request['driving_license']['1']->getClientOriginalName();
         Storage::disk('local')->put('/public/profile/' . auth()->user()->email . '/' . $passport_2, File::get($request['driving_license']['1']));
         $ambassador->passport_2=$passport_2;
@@ -69,7 +69,7 @@ class KycController extends Controller
         Storage::disk('local')->put('/public/profile/' . auth()->user()->email . '/' . $id_card_1, File::get($request['cnic_pics']['0']));
         $ambassador->id_card_1=$id_card_1;
        }
-       if(count($request['cnic_pics'])>2){
+       if(count($request['cnic_pics'])>1){
         $id_card_2 = time() . $request['cnic_pics']['1']->getClientOriginalName();
         Storage::disk('local')->put('/public/profile/' . auth()->user()->email . '/' . $id_card_2, File::get($request['cnic_pics']['1']));
         $ambassador->id_card_2=$id_card_2;
