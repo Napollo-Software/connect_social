@@ -22,6 +22,8 @@
     </div>
     <script src="{{asset('assets/js/jquery.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assets/lib/Itrigger/itrigger.js')}}"></script>
+    <script src="{{asset('assets/js/universal.js')}}"></script>
     <script src="{{asset('assets/lib/uploader/uploader.js')}}"></script>
     <script>
         let preloaded = [
@@ -35,8 +37,9 @@
       
               $('.input-images').imageUploader({
                   preloaded: preloaded,
-                  imagesInputName: 'photos',
-                  preloadedInputName: 'old'
+                  imagesInputName: 'driving_license',
+                  preloadedInputName: 'old',
+                  maxFiles:2
               });
       
 
