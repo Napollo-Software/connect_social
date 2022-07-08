@@ -69,7 +69,7 @@ class UserController extends Controller
     public function update_cover(Request $request)
     {
         $this->validate($request, [
-            'cover' => 'required|mimes:jpeg,png,jpg,gif,svg',
+            'cover' => 'required|mimes:jpeg,png,jpg,gif,svg|max:4048',
         ], [
             'cover.required' => 'About field is required *',
         ]);
