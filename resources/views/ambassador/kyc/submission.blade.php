@@ -6,7 +6,7 @@
                 <div class="form-card-div">
                     <div class="form-card-div-inner custom-card custom-shadow custom-padding custom-border">
                         <div class="form-card-div-main">
-                            <form action="{{route('kyc.submit')}}" method="post" enctype="multipart/form-data">
+                            <form id="kyc-form" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-card-profile-pic">
                                     <div class="form-card-profile-pic-outer">
@@ -171,7 +171,7 @@
                                     </div>
                                 </div>
                                 <div class="submit-button">
-                                    <button class="black-button" id="store-kyc" type='submit'>Submit</button>
+                                    <button class="black-button" id='save-kyc' type="submit">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -181,7 +181,16 @@
 
         </div>
     </div>
-    @push('scripts')
-    
+    <script src="{{url('index.js')}}"></script>
+    @push('scripts')  
+    <script>
+        $(function () {
+            $(document).on('click', '#save-kyc', function (e) { 
+                e.preventDefault();
+                console.log('reach');
+                
+            });
+        });
+    </script>
     @endpush
 @endsection
