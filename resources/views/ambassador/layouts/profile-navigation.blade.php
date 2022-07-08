@@ -14,7 +14,7 @@
                             <li class="profile-navigation-li {{Route::currentRouteName()=='ambassador.profile'?'active':''}}"><a href="{{route('ambassador.profile')}}" class="profile-navigation-link">Social Information</a></li>
                             <li class="profile-navigation-li {{Route::currentRouteName()=='gallery'?'active':''}}"><a href="{{route('gallery',['all'])}}" class="profile-navigation-link">Gallery</a></li>
                             <li class="profile-navigation-li
-{{in_array(Route::currentRouteName(),['network.list','network'])?'active':''}}"
+                           {{in_array(Route::currentRouteName(),['network.list','network'])?'active':''}}"
                             ><a href="{{auth()->user()->id==$user->id ? route('network',['type'=>'friends']) : route('network.list',['type'=>'friends','id'=>$user->id])}}" class="profile-navigation-link">Networks</a></li>
                         </ul>
                     </div>
@@ -40,7 +40,7 @@
                                                         <img src="{{asset('ambassador_assets/images/icons/coin.svg')}}" alt="">
                                                     </span>
                                                     <span class="text">$100</span>
-                                                </a>
+                                                </a> 
                                             </li>
                                             <li class="inner-mega-navigation-li active">
                                                 <a href="javascript:void(0)" class="inner-mega-navigation-link">
@@ -93,7 +93,7 @@
                             <li class="inner-navigation-sub-menu-li">
                                 <div class="inner-navigation-sub-menu-li-profile dropdown-box  open-dropdown" data-target=".drop-0012">
                                     <div class="profile-user-options-icon">
-                                        <img src="{{auth()->user()->profile_image()}}" alt="">
+                                        <img src="{{auth()->user()->profile_image()}}" alt="" class="profile_photo_preview"> 
                                     </div>
                                     <div class="user-dropdown-inner custom-dropdown left-dropdown drop-0012">
                                         <ul class="user-dropdown-ul">

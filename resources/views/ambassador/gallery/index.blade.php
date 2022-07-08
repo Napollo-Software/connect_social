@@ -111,6 +111,7 @@
                     data_id=$(this).attr('data-id');
                     data_asset=$(this).attr('data-asset');
                     data_directory=$(this).attr('data-asset-directory');
+                    data_type=$(this).attr('data-type');
                     post_source[a++]=data_source;
                     post_url[e++]=data_url;
                     post_id[i++]=data_id;
@@ -121,10 +122,16 @@
                         type:"POST",
                         url:"{{route('gallery.delete')}}",
                         dataType:"JSON",
-                        data:{_token: '{{csrf_token()}}','post_source':post_source,'post_url':post_url,'post_id':post_id,'post_asset':post_asset,'post_directory':post_directory},
-                        success:function(){
-
-                        }
+                        data:{_token: '{{csrf_token()}}','post_source':post_source,'post_url':post_url,'post_id':post_id,'post_asset':post_asset,'post_directory':post_directory,'data_type':data_type},
+                        beforeSend: function () {
+                        $('.friends-grid-main').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>')
+                        },
+                        success: function (data) {
+                         $('.container-for-assets').html(data);
+                         },
+                         error: function (xhr) {
+                          erroralert(xhr);
+                         }
 
                     })
             });
@@ -132,7 +139,7 @@
     </script>
     <script>
         function fetch(type){
-            $.ajax({
+            $.ajax({ 
                 type: "POST",
                 url: "{{route('gallery.fetch')}}",
                 dataType: "JSON", 
@@ -175,6 +182,6 @@
             border-radius: 50%;
             -webkit-animation: .75s linear infinite spinner-border;
             animation: .75s linear infinite spinner-border;
-        }
+        } 
     </style>
 @endpush
