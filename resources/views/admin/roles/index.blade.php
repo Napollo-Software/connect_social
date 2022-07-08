@@ -86,6 +86,7 @@
 @endsection
 
 @section("script")
+
     <script src="admin_assets/plugins/datatable/js/jquery.dataTables.min.js"></script>
     <script src="admin_assets/plugins/datatable/js/dataTables.bootstrap5.min.js"></script>
     <script>

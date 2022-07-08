@@ -47,4 +47,10 @@ class KycController extends Controller
         $show=AmbassadorDetails::find($id);
         return view('admin.kyc.show',compact('show'));
     }
+    public function action(Request $request){
+        $action=AmbassadorDetails::find($request->id);
+        $action->kyc_status=$request->status;
+        $action->kyc_reject_reason=$request->reason;
+        $action->save();
+    }
 }
