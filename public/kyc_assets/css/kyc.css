@@ -116,6 +116,7 @@ input.form-div-field-input {
 .date-text {
     position: absolute;
     top: 4px;
+    min-width: 100px;
     left: 11px;
     background: #fff;
     padding: 3px;

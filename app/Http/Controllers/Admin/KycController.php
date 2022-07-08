@@ -52,5 +52,12 @@ class KycController extends Controller
         $action->kyc_status=$request->status;
         $action->kyc_reject_reason=$request->reason;
         $action->save();
+        if ($request->status==1){
+            $response='KYC request is approved successfully!';
+        }
+        if ($request->status==2){
+            $response='KYC request is rejected successfully!';
+        }
+        return response()->json(['success'=>$response]);
     }
 }
