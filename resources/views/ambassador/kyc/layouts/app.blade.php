@@ -39,9 +39,11 @@
     <script src="{{asset('assets/lib/Itrigger/itrigger.js')}}"></script>
     <script src="{{asset('assets/js/universal.js')}}"></script>
     <script src="{{asset('assets/lib/uploader/uploader.js')}}"></script>
+    @stack('scripts')
     <script src="{{url('ambassador_assets/lib/tags/tags.js')}}"></script>
     <script src="{{url('ambassador_assets/lib/tags/tags-prety.js')}}"></script>
     <script src="{{url('ambassador_assets/js/app.js')}}"></script>
+
     <script>
         let preloaded = [
                 //   {id: 1, src: 'https://picsum.photos/500/500?random=1'},

@@ -51,18 +51,18 @@
           <entry key="html" value="6" />
           <entry key="js" value="28" />
           <entry key="json" value="6" />
-          <entry key="php" value="1273" />
+          <entry key="php" value="1278" />
           <entry key="sql" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="584" />
+          <entry key="Blade" value="587" />
           <entry key="CSS" value="22" />
           <entry key="HTML" value="6" />
           <entry key="JSON" value="6" />
           <entry key="JavaScript" value="28" />
-          <entry key="PHP" value="689" />
+          <entry key="PHP" value="691" />
           <entry key="PLAIN_TEXT" value="21" />
           <entry key="SQL" value="32" />
         </counts>
@@ -74,17 +74,17 @@
           <entry key="env" value="197" />
           <entry key="html" value="321" />
           <entry key="js" value="1243" />
-          <entry key="php" value="78151" />
+          <entry key="php" value="78446" />
           <entry key="sql" value="103" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="38405" />
+          <entry key="Blade" value="38657" />
           <entry key="CSS" value="115" />
           <entry key="HTML" value="420" />
           <entry key="JavaScript" value="1243" />
-          <entry key="PHP" value="39645" />
+          <entry key="PHP" value="39688" />
           <entry key="PLAIN_TEXT" value="198" />
           <entry key="SQL" value="103" />
         </counts>
@@ -94,22 +94,44 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/SendInviteController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/KycController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-              <folding>
-                <element signature="e#51#87#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="374">
+              <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/sign_up.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/kyc/show.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="150" column="40" lean-forward="true" selection-start-line="150" selection-start-column="40" selection-end-line="150" selection-end-column="40" />
+            <state relative-caret-position="487">
+              <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="8" />
+              <folding>
+                <element signature="e#1108#4954#0#HTML" />
+                <element signature="e#5584#6667#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://E:/main-files/syndron/horizontal/resources/views/component-modals.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="100" column="44" selection-start-line="100" selection-start-column="44" selection-end-line="117" />
+              <folding>
+                <element signature="e#11079#12722#0#HTML" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/roles/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="87" selection-start-line="87" selection-end-line="88" />
             </state>
           </provider>
         </entry>
@@ -186,7 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/ambassador/profile/components/show_posts.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/CommentController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/LikeController.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/components/partial/posts_html.blade.php" />
@@ -230,13 +251,14 @@
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/nav.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/AmbassadorDetails.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/kyc/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/KycController.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/kyc/show.blade.php" />
         <option value="$PROJECT_DIR$/routes/partials/super_admin.php" />
         <option value="$PROJECT_DIR$/routes/partials/ambassador.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/top-nav.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/InviteController.php" />
         <option value="$PROJECT_DIR$/app/helpers.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/KycController.php" />
+        <option value="E:/main-files/syndron/horizontal/resources/views/component-modals.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/kyc/show.blade.php" />
       </list>
     </option>
   </component>
@@ -738,12 +760,12 @@
       <workItem from="1656944349278" duration="12539000" />
       <workItem from="1657019708999" duration="42209000" />
       <workItem from="1657189193495" duration="25046000" />
-      <workItem from="1657278215462" duration="9420000" />
+      <workItem from="1657278215462" duration="10661000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="438919000" />
+    <option name="totallyTimeSpent" value="440160000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -788,16 +810,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/seeders/UserSeeder.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://E:/main-files/syndron/horizontal/resources/views/user-profile.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1065,13 +1077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/KycController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="26" column="31" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/partials/ambassador.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
@@ -1079,13 +1084,6 @@
           <folding>
             <element signature="e#7#44#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/KycController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="54" column="31" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1102,16 +1100,6 @@
           <caret line="40" column="64" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="64" />
           <folding>
             <element signature="e#7#44#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/kyc/show.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="68" column="99" selection-start-line="68" selection-start-column="99" selection-end-line="68" selection-end-column="99" />
-          <folding>
-            <element signature="e#1268#1286#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1155,6 +1143,48 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="150" column="40" lean-forward="true" selection-start-line="150" selection-start-column="40" selection-end-line="150" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/KycController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="833">
+          <caret line="54" column="31" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/KycController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="52" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/roles/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="87" selection-start-line="87" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/main-files/syndron/horizontal/resources/views/component-modals.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="100" column="44" selection-start-line="100" selection-start-column="44" selection-end-line="117" />
+          <folding>
+            <element signature="e#11079#12722#0#HTML" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/kyc/show.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="140" column="8" selection-start-line="140" selection-start-column="8" selection-end-line="140" selection-end-column="8" />
+          <folding>
+            <element signature="e#1108#4954#0#HTML" />
+            <element signature="e#5584#6667#0#HTML" />
+          </folding>
         </state>
       </provider>
     </entry>
