@@ -74,7 +74,7 @@ class KycController extends Controller
         Storage::disk('local')->put('/public/profile/' . auth()->user()->email . '/' . $id_card_2, File::get($request['cnic_pics']['1']));
         $ambassador->id_card_2=$id_card_2;
        }
-        $ambassador->kyc_status=0;
+        $ambassador->kyc_status=1;
         $ambassador->save();
         return response()->json(['success' => 'Added Successfully']);
     }
