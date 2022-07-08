@@ -6,7 +6,7 @@
                 <div class="form-card-div">
                     <div class="form-card-div-inner custom-card custom-shadow custom-padding custom-border">
                         <div class="form-card-div-main">
-                            <form action="{{route('kyc.submit')}}" method="post" enctype="multipart/form-data">
+                            <form id="kyc-form" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-card-profile-pic">
                                     <div class="form-card-profile-pic-outer">
@@ -30,7 +30,7 @@
                                                             <div class="uploa-file-buttons">
                                                                 <input type="file" onchange="document.getElementById('view-profile').src = window.URL.createObjectURL(this.files[0])" name="profile" id="file-input" class="d-none">
 
-                                                                <button class="Itrigger black-button"  name="profile" type="button"  data-trigger="click" data-target="#file-input" data-action="element.click">Choose File</button>
+                                                                <button class="black-button" for="file-input" onclick="$('#file-input').click()" name="profile" type="button">Choose File</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -94,8 +94,8 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field date-field">
-                                                            <input type="date" name="date_of_birth" id="date_of_birth" class="Itrigger form-div-field-input form-control" data-trigger="change" data-target=".change-text" data-action="change.html">
-                                                            <span class="date-text change-text Itrigger" data-trigger="click" data-target="#date_of_birth" data-action="element.click">Date of Birth</span>
+                                                            <input type="date" name="date_of_birth" id="date_of_birth" class="Itrigger change-value form-div-field-input form-control" data-trigger="change" data-target=".change-text" data-action="change.html">
+                                                            <span class="date-text change-text Itrigger" for="date_of_birth"  data-trigger="click" data-target="#date_of_birth" data-action="focus">Date of Birth</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -128,7 +128,7 @@
                                                     </div>
                                                     <div class="uploader-text">
                                                         <div class="uploader-text-inner">
-                                                            <div class="uploader-text-main Itrigger"  data-trigger="change" data-target=".change-text" data-action="change.html">
+                                                            <div class="uploader-text-main">
                                                                 <div class="icon"><img
                                                                             src="{{asset('kyc_assets/images/icon/attachment.svg')}}"
                                                                             alt=""></div>
@@ -171,7 +171,7 @@
                                     </div>
                                 </div>
                                 <div class="submit-button">
-                                    <button class="black-button" id="store-kyc" type='submit'>Submit</button>
+                                    <button class="black-button" id='save-kyc' type="submit">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -181,6 +181,8 @@
 
         </div>
     </div>
-    @push('scripts')
+
+    @push('scripts')  
+  
     @endpush
 @endsection
