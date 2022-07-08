@@ -182,6 +182,41 @@
         </div>
     </div>
     @push('scripts')  
-  
+    <script>
+        $(function () {
+            $(document).on('submit', '#kyc-form', function (e) { 
+                e.preventDefault();
+                console.log('reach');
+                $('#country_code').val($('.iti__selected-dial-code').text());
+                var method = 'POST';
+                var button=$(this).find('button[type=submit]');
+                var previous= button.text();
+                button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
+
+                $.ajax({
+                    type:method,
+                    url:'{{route('register')}}',
+                    data: new FormData(this),
+                    dataType:'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success:function(data) {
+                        button.attr('disabled',null).html(previous);
+                        swal("Success!", "Congratulations! You account has been successfully created!", "success").then(function () {
+                            window.location.href='{{route('home')}}';
+                        });
+                    },
+                    error:function (xhr) {
+                        button.attr('disabled',null).html(previous);
+                        erroralert(xhr);
+                    }
+                });
+
+            });
+        });
+
+       
+    </script>
     @endpush
 @endsection
