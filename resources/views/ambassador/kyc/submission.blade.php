@@ -5,22 +5,15 @@
             <div class="form-card-spliter-main">
                 <div class="form-card-div">
                     <div class="form-card-div-inner custom-card custom-shadow custom-padding custom-border">
-                        <!-- <div class="row justify-content-center">
-                            <div class="col-md-4 col-sm-8 col-xs-12">
-                                <div class="action-div-logo-inner">
-                                    <img src="{{asset('assets/images/logo.png')}}" alt="" class="w-100">
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="form-card-div-main">
-                            <form action="#">
+                            <form action="{{route('kyc.submit')}}" method="post" enctype="multipart/form-data">
+                                @csrf
                                 <div class="form-card-profile-pic">
                                     <div class="form-card-profile-pic-outer">
                                         <div class="row align-items-center custom-row">
                                             <div class="col-md-3">
                                                 <div class="form-card-profile-pic-inner">
-                                                    <img src="{{asset('kyc_assets/images/default/profile.png')}}"
-                                                         alt="">
+                                                    <img src="{{auth()->user()->profile_image()}}"  alt="" id="view-profile">
                                                 </div>
                                             </div>
                                             <div class="col-md-9">
@@ -35,10 +28,9 @@
                                                                 Your Profile pic name
                                                             </div> -->
                                                             <div class="uploa-file-buttons">
-                                                                <input type="file" id="file-input" class="d-none">
-                                                                <button class="black-button" for="file-input" name="profile"
-                                                                        type="button">Choose File
-                                                                </button>
+                                                                <input type="file" onchange="document.getElementById('view-profile').src = window.URL.createObjectURL(this.files[0])" name="profile" id="file-input" class="d-none">
+
+                                                                <button class="black-button" for="file-input" onclick="$('#file-input').click()" name="profile" type="button">Choose File</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -54,70 +46,56 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="First Name"
-                                                                   name="fname"
-                                                                   class="form-div-field-input form-control">
+                                                            <input type="text" placeholder="First Name" value="{{auth()->user()->fname}}" name="fname" class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="Last Name"
-                                                                   name="lname"
-                                                                   class="form-div-field-input form-control">
+                                                            <input type="text" placeholder="Last Name" value="{{auth()->user()->lname}}" name="lname" class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="Address Line 1"
-                                                                   name="address_1"
-                                                                   class="form-div-field-input form-control">
+                                                            <input type="text" placeholder="Address Line 1" name="address_1" class="form-div-field-input form-control">
                                                         </div>
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="Address Line 2"
-                                                                   name="address_2"
-                                                                   class="form-div-field-input form-control">
+                                                            <input type="text" placeholder="Address Line 2" name="address_2" class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="City"
-                                                                   name="city"
-                                                                   class="form-div-field-input form-control">
+                                                            <input type="text" placeholder="City" name="city" value="{{auth()->user()->details->city}}" class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="State"
-                                                                   name="state"
-                                                                   class="form-div-field-input form-control">
+                                                            <input type="text" placeholder="State" name="state"  value="{{auth()->user()->details->city}}" class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="Country"
-                                                                   name="country"
-                                                                   class="form-div-field-input form-control">
+                                                            <input type="text" placeholder="Country" name="country"  value="" class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-1">
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="Zip Code"
-                                                                   name="country_code"
+                                                            <input type="text" placeholder="Zip Code" name="country_code"
+                                                                   value="{{auth()->user()->country_code}}"
                                                                    class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-5">
                                                         <div class="form-card-div-field">
                                                             <input type="text" placeholder="Phone Number"
+                                                                   value="{{auth()->user()->phone}}"
                                                                    name="phone"
                                                                    class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field date-field">
-                                                            <input type="date" name="date_of_birth"
-                                                                   class="form-div-field-input form-control">
-                                                            <span class="date-text">Date of Birth</span>
+                                                            <input type="date" name="date_of_birth" id="date_of_birth" class="form-div-field-input form-control">
+                                                            <span class="date-text" for="date_of_birth">Date of Birth</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -180,9 +158,9 @@
                                                     <div class="uploader-text">
                                                         <div class="uploader-text-inner">
                                                             <div class="uploader-text-main">
-                                                                <div class="icon"><img
-                                                                            src="{{asset('kyc_assets/images/icon/attachment.svg')}}"
-                                                                            alt=""></div>
+                                                                <div class="icon">
+                                                                    <img src="{{asset('kyc_assets/images/icon/attachment.svg')}}" alt="">
+                                                                </div>
                                                                 Drag & Drop Attachment
                                                             </div>
                                                         </div>
@@ -193,47 +171,17 @@
                                     </div>
                                 </div>
                                 <div class="submit-button">
-                                    <button class="black-button">Submit</button>
+                                    <button class="black-button" type="submit">Submit</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- <div class="form-card-image-div">
-                <div class="form-card-image-div-inner">
-                    <div class="form-card-image-div-main">
-                        <div class="form-card-div-coin-image">
-                            <div class="form-card-div-coin-image-inner margin-bottom">
-                                <img src="{{asset('kyc_assets/images/coin.png')}}" alt="" class="custom-shadow">
-                            </div>
-                            <div class="form-card-div-coin-bottom-text">
-                                Know Your Customer (KYC) Verification
-                            </div>
-                        </div>
-                        <div class="card-title">
-                            Unlock the World of Connect Coins
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+
         </div>
     </div>
     @push('scripts')
-        <script>
-            $(function () {
-                var settings = {
-                    "url": "https://api.countrystatecity.in/v1/countries",
-                    "method": "GET",
-                    "headers": {
-                        "X-CSCAPI-KEY": "API_KEY"
-                    },
-                };
 
-                $.ajax(settings).done(function (response) {
-                    console.log(response);
-                });
-            });
-        </script>
     @endpush
 @endsection

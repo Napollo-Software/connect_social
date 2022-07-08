@@ -12,6 +12,7 @@ class KycController extends Controller
         return view('ambassador.kyc.submission');
     }
     public function submit(Request $request){
+        dd($request->all());
         $this->validate($request,[
             'country_code'=>'required',
             'phone'=>'required',
@@ -47,6 +48,7 @@ class KycController extends Controller
         $ambassador->passport_2=$request->passport_2;
         $ambassador->id_card_1=$request->id_card_1;
         $ambassador->id_card_2=$request->id_card_2;
+        $ambassador->kyc_status=0;
         $ambassador->save();
         return response()->json(['success'=>'KEC data is sent for submission.']);
     }
