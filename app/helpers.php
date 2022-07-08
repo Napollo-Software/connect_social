@@ -11,8 +11,8 @@ function sendEmail($to,$from,$subject,$message){
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';             //  smtp host
         $mail->SMTPAuth = true;
-        $mail->Username = 'connectsocial@napollo.net';   //  sender username
-        $mail->Password = 'SDE$#@W#42';       // sender password
+        $mail->Username = 'connectsocialtest@napollo.net';   //  sender username
+        $mail->Password = 'Conn3ctS0c1al@';       // sender password
         $mail->SMTPSecure = 'tls';                  // encryption - ssl/tls
         $mail->Port = 587;                          // port - 587/465
 
