@@ -171,7 +171,7 @@
                                     </div>
                                 </div>
                                 <div class="submit-button">
-                                    <button class="black-button" type="submit">Submit</button>
+                                    <button class="black-button">Submit</button>
                                 </div>
                             </form>
                         </div>
