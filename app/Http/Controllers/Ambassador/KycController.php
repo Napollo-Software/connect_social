@@ -11,13 +11,28 @@ use Illuminate\Support\Facades\File;
 
 class KycController extends Controller
 {
-    public function submission()
-    {
+    public function submission(){
+        if (auth()->user()->details->kyc_status!=null){
+            return redirect()->route('kyc.after.reject');
+        }
         return view('ambassador.kyc.submission');
     }
+    public function after_reject (){
+        return view('ambassador.kyc.rejected');
+    }
+
+
 
     public function submit(Request $request)
     {
+        if (auth()->user()->details->kyc_status!=null){
+            $response['message'] = ['You have already requested for KYC!'];
+            return response()->json([
+                'status' => 'failed',
+                'status_code' => 422,
+                'errors' => $response,
+            ], 422);
+        }
         $this->validate($request, [
             'country_code' => 'required',
             'phone' => 'required',
@@ -40,6 +55,7 @@ class KycController extends Controller
 
         ]);
 
+        $ambassador = AmbassadorDetails::find(auth()->user()->details->id);
         $profile = User::find(auth()->user()->id);
         $profile->fname = $request->fname;
         $profile->lname = $request->lname;
@@ -50,7 +66,6 @@ class KycController extends Controller
         }
         $profile->phone = $request->phone;
         $profile->save();
-        $ambassador = AmbassadorDetails::find(auth()->user()->details->id);
         $ambassador->state = $request->state;
         $ambassador->city = $request->city;
         $ambassador->country = $request->country;
