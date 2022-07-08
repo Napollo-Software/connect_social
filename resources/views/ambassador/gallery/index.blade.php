@@ -1,4 +1,7 @@
 @extends('ambassador.layouts.app')
+@section('title')
+Gallery
+@endsection
 @section('content')
     @include('ambassador.layouts.gallery-navigation')
     <div class="gallary-grid">

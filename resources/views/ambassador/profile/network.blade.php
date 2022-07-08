@@ -1,4 +1,7 @@
 @extends('ambassador.layouts.app')
+@section('title')
+Network
+@endsection
 @section('content')
     @include('ambassador.layouts.friends-navigation')
     <div class="friends-grid">

@@ -1,6 +1,8 @@
 
 @extends('ambassador.layouts.app2')
-@section('title', 'Chat')
+@section('title')
+Chat
+@endsection
 @section('content')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="{{url('ambassador_assets/css/chat.css')}}">

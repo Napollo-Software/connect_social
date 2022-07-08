@@ -1,8 +1,8 @@
 @extends('ambassador.layouts.app2')
 @section('title')
-Profile
+Home
 @endsection
-@section('content')
+@section('content') 
     @include('ambassador.home.layouts.navigation')
     <div class="profile-content">
         <div class="container"> 

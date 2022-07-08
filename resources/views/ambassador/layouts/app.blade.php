@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-@yield('title')
+    <title>@yield('title') </title>
 <!-- Icon -->
     <link rel="icon" type="image/x-icon" href="{{url('ambassador_assets/images/favicon.png')}}">
     <!-- Bootstrap -->
@@ -37,7 +37,7 @@
             </div>
         </div>
         <!-- </div> -->
-    </div> 
+    </div>  
 </div>
 @include('ambassador.layouts.modals')
 @include('ambassador.layouts.single-post')

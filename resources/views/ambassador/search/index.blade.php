@@ -1,4 +1,7 @@
 @extends('ambassador.layouts.app2')
+@section('title')
+Search
+@endsection
 @section('content')
     @include('ambassador.home.layouts.alert')
     @include('ambassador.home.layouts.navigation')

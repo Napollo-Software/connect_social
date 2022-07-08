@@ -1,4 +1,7 @@
 @extends('ambassador.kyc.layouts.app')
+@section('title')
+Kyc Submission
+@endsection
 @section('content')
     <div class="form-card-spliter bg-custom">
         <div class="form-card-spliter-inner">

@@ -74,7 +74,7 @@ function getPrivacyDetails($slug){
     if ($slug=='public') {
         $data['url'] = url('ambassador_assets/images/icons/globe.svg');
         $data['name'] = 'Public';
-    }
+    } 
     if ($slug=='connections') {
         $data['url'] = url('ambassador_assets/images/icons/connection.svg');
         $data['name'] = 'Connections';
