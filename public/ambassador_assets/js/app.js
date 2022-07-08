@@ -10,6 +10,7 @@ $(document).ready(function() {
     // Open DropDown
     $(document).on('click','.open-dropdown',function() {
         var target = $(this).attr('data-target')
+        console.log(target)
         if (!check_activity($(target))) {
             $(target).addClass('active');
         } else {

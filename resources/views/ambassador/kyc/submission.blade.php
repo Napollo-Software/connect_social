@@ -181,16 +181,7 @@
 
         </div>
     </div>
-    <script src="{{url('index.js')}}"></script>
     @push('scripts')  
-    <script>
-        $(function () {
-            $(document).on('click', '#save-kyc', function (e) { 
-                e.preventDefault();
-                console.log('reach');
-                
-            });
-        });
-    </script>
+  
     @endpush
 @endsection

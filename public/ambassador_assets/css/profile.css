@@ -814,6 +814,11 @@ i {
     word-break: break-word;
 }
 
+.singal-post-content a {
+    padding: 15px;
+    display: block;
+}
+
 .singal-post-content audio {
     margin: 10px;
 }
@@ -2100,6 +2105,35 @@ input.referel-link-input::selection {
 
 .hide-on-mobile-ads {
     display: block;
+}
+
+form#add_post {
+    margin: 0;
+}
+
+.selection-dropdown-li.change-privacy {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 130px;
+    padding: 5px;
+}
+
+.selection-dropdown-li.change-privacy .icon {
+    margin-right: 9px;
+}
+
+.current-privacy {
+    display: flex;
+    align-items: center;
+}
+
+.current-privacy .icon {
+    margin-right: 8px;
+}
+
+.current-privacy p {
+    margin: 0;
 }
 
 @keyframes LikeAnimation{
