@@ -94,8 +94,8 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field date-field">
-                                                            <input type="date" name="date_of_birth" id="date_of_birth" class="form-div-field-input form-control">
-                                                            <span class="date-text" for="date_of_birth">Date of Birth</span>
+                                                            <input type="date" name="date_of_birth" id="date_of_birth" class="Itrigger change-value form-div-field-input form-control" data-trigger="change" data-target=".change-text" data-action="change.html">
+                                                            <span class="date-text change-text Itrigger" for="date_of_birth"  data-trigger="click" data-target="#date_of_birth" data-action="focus">Date of Birth</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -118,7 +118,7 @@
                                             </div>
                                         </div>
                                         <div class="form-card-profile-doc-sub-title">
-                                            Add front and back side of Government Issued Photo ID
+                                            Add front and back side of Driving License or Passport
                                         </div>
                                         <div class="doc-uploader">
                                             <div class="doc-uploader-inner  custom-padding custom-shadow input-radius">

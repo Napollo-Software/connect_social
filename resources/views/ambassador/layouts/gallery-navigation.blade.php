@@ -11,7 +11,7 @@
                                                             </span>
                                 <span class="text">All Media</span>
                             </a>
-                        </li>
+                        </li> 
                         <li class="inner-navigation-li {{$type=='image'?'active':''}}">
                             <a href class="gallery-link inner-navigation-link" data-type="image">
                                                             <span class="icon">
