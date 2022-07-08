@@ -5,10 +5,11 @@ use App\Http\Controllers\Admin\InviteController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\KycController;
 use App\Http\Controllers\ReferralController;
 
 
-Route::middleware(['auth','can:super-admin-views','email-verification'])->group(function () {
+Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->group(function () {
     Route::get('profile', [UserController::class, 'profile'])->name('users.profile');
     Route::prefix('user')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('users');
@@ -37,6 +38,13 @@ Route::middleware(['auth','can:super-admin-views','email-verification'])->group(
         Route::get('/', [InviteController::class, 'index'])->name('invite');
         Route::post('send', [InviteController::class, 'send'])->name('invite.send');
     });
+    Route::middleware('under-construction')->group(function () {
+        Route::prefix('kyc')->group(function () {
+            Route::get('/', [KycController::class, 'index'])->name('kyc');
+            Route::post('fetch', [KycController::class, 'fetch'])->name('kyc.fetch');
+            Route::get('show/{id}', [KycController::class, 'show'])->name('kyc.show');
+        });
+    });
 
-    
+
 });

@@ -42,6 +42,13 @@
                     <div class="menu-title">Permissions</div>
                 </a>
             </li>
+            <li>
+                <a href="{{route('kyc')}}">
+                    <div class="parent-icon"><i class='bx bxs-dollar-circle'></i></div>
+                    <div class="menu-title">KYC</div>
+                </a>
+            </li>
+
         @endcan
 
         {{--                <li>

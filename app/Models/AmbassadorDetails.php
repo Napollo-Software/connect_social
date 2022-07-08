@@ -16,4 +16,7 @@ class AmbassadorDetails extends Model
         }
         return url('ambassador_assets/images/cover/cover-bg.svg');
     }
+    public function user(){
+        return $this->belongsTo(User::class,'user_id');
+    }
 }

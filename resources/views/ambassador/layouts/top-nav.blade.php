@@ -20,7 +20,9 @@
                 <div class="site-logo">
                     <div class="site-logo-inner">
                         <div class="site-logo-main">
-                            <img src="{{url('assets/images/logo.png')}}" alt="">
+                            <a href="{{url('')}}">
+                                <img src="{{url('assets/images/logo.png')}}" alt="">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -58,9 +60,8 @@
                                                 <li class="user-dropdown-li">
                                                     <a href="javascript:void(0)">Settings</a>
                                                 </li>
-
                                                 <li class="user-dropdown-li">
-                                                    <a ref="{{ route('logout') }}"
+                                                    <a href="{{ route('logout') }}"
                                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Log out</a>
                                                 </li>
