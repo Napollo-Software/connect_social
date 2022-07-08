@@ -14,7 +14,7 @@ class KycController extends Controller
         return view('admin.kyc.index');
     }
     public function fetch(Request $request){
-        $data = AmbassadorDetails::all();
+        $data = AmbassadorDetails::whereNotNull('kyc_status')->get();
         return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('name', function ($data) {
@@ -24,11 +24,8 @@ class KycController extends Controller
                 return $data->user->email;
             })
             ->addColumn('status', function ($data) {
-                if ($data->kyc_status==\KYC::STATUS_PENDING){
-                    return '<button class="btn btn-sm py-0 btn-danger">Pending</button>';
-                }
                 if ($data->kyc_status==\KYC::STATUS_REQUESTED){
-                    return '<span class="btn btn-sm py-0 btn-info">Requested</span>';
+                    return '<span class="btn btn-sm py-0 btn-info">Pending for Approval</span>';
                 }
                 if ($data->kyc_status==\KYC::STATUS_APPROVED){
                     return '<span class="btn btn-sm py-0 btn-success">Approved</span>';
@@ -49,5 +46,11 @@ class KycController extends Controller
     public function show($id){
         $show=AmbassadorDetails::find($id);
         return view('admin.kyc.show',compact('show'));
+    }
+    public function action(Request $request){
+        $action=AmbassadorDetails::find($request->id);
+        $action->kyc_status=$request->status;
+        $action->kyc_reject_reason=$request->reason;
+        $action->save();
     }
 }

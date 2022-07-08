@@ -37,6 +37,7 @@ class CreateAmbassadorDetailsTable extends Migration
             $table->string('id_card_1')->nullable();
             $table->string('id_card_2')->nullable();
             $table->string('kyc_status')->nullable();
+            $table->string('kyc_reject_reason')->nullable();
             $table->timestamps();
         });
     }

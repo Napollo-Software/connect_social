@@ -24,6 +24,15 @@
             </div>
 
             <div class="card">
+                <div class="card-header">
+                    <div class="col-12">
+                        <button class="btn btn-sm btn-success action" data-status="1"><i class="bx bx-check"></i>
+                            Approve
+                        </button>
+                        <button class="btn btn-sm btn-danger action" data-status="2"><i class="bx bx-x"></i> Reject
+                        </button>
+                    </div>
+                </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -104,8 +113,90 @@
                             </tr>
                         </table>
                     </div>
+
+
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleVerticallycenteredModal">Vertically Centered
+                    </button>
+                    <div class="modal fade" id="exampleVerticallycenteredModal" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Modal title</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">Contrary to popular belief, Lorem Ipsum is not simply random
+                                    text. It has roots in a piece of classical Latin literature from 45 BC, making it
+                                    over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College
+                                    in Virginia, looked up one of the more obscure Latin words, consectetur.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                    </button>
+                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section("script")
+    <script src="{{url('index.js')}}"></script>
+
+    <script>
+        function saveAction(status,reason){
+            $.ajax({
+                url: '{{route('kyc.action')}}',
+                type: "POST",
+                dataType: "JSON",
+                data: {'id':'{{$show->id}}','status': status,'reason':reason,_token: token},
+                success: function (data) {
+                    swal('success', data.success, 'success').then(function () { });
+                },
+                error: function (xhr) {
+                    erroralert(xhr);
+                },
+            });
+        }
+        $(document).on('click', '.action', function () {
+            var status=$(this).attr('data-status');
+            if (status == 1){
+                swal({
+                    title: "Are you sure to approve this KYC request",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        saveAction(status,null);
+                    }
+                });
+
+            } else{
+                swal({
+                    text: 'Please enter reason for rejection of KYC.',
+                    content: "input",
+                    button: {
+                        text: "Reject!",
+                        closeModal: false,
+                    },
+
+                }).then((value) => {
+                    if (!value){
+                        swal("Failed!", "Please enter something", "error");
+                        swal.close();
+                        $('.action').trigger('click');
+                        throw null;
+                    }else{
+                        saveAction(status,value);
+                    }
+                });
+            }
+
+        });
+    </script>
 @endsection
