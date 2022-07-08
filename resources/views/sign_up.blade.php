@@ -124,7 +124,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
         $(function () {
-            $(document).on('submit', '#register-form', function (e) {
+            $(document).on('submit', '#register-form', function (e) { 
                 e.preventDefault();
                 $('#country_code').val($('.iti__selected-dial-code').text());
                 var method = 'POST';

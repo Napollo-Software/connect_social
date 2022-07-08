@@ -35,9 +35,14 @@
                 //   {id: 6, src: 'https://picsum.photos/500/500?random=6'},
               ];
       
-              $('.input-images').imageUploader({
-                  preloaded: preloaded,
+              $('.input-driving-licence').imageUploader({
                   imagesInputName: 'driving_license',
+                  preloadedInputName: 'old',
+                  maxFiles:2
+              });
+
+              $('.input-cinic-image').imageUploader({
+                  imagesInputName: 'cnic_pics',
                   preloadedInputName: 'old',
                   maxFiles:2
               });
