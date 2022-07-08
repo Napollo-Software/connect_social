@@ -124,7 +124,7 @@
                                             <div class="doc-uploader-inner  custom-padding custom-shadow input-radius">
                                                 <div class="doc-uploader-main input-radius">
                                                     <div id="doc-uploader">
-                                                        <div class="input-images"></div>
+                                                        <div class="input-driving-licence"></div>
                                                     </div>
                                                     <div class="uploader-text">
                                                         <div class="uploader-text-inner">
@@ -153,7 +153,7 @@
                                             <div class="doc-uploader-inner custom-padding custom-shadow input-radius">
                                                 <div class="doc-uploader-main  input-radius">
                                                     <div id="doc-uploader">
-                                                        <div class="input-images"></div>
+                                                        <div class="input-cinic-image"></div>
                                                     </div>
                                                     <div class="uploader-text">
                                                         <div class="uploader-text-inner">
@@ -171,7 +171,7 @@
                                     </div>
                                 </div>
                                 <div class="submit-button">
-                                    <button class="black-button">Submit</button>
+                                    <button class="black-button" id="store-kyc" type='submit'>Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -182,6 +182,6 @@
         </div>
     </div>
     @push('scripts')
-
+    
     @endpush
 @endsection
