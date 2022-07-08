@@ -10,7 +10,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> 
     </div>
 </div>
     <link rel="stylesheet" href="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/css/intlTelInput.css"/>

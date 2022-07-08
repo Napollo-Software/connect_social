@@ -94,7 +94,7 @@ class User extends Authenticatable
         foreach ($this->tier_1() as $tier_1){
             foreach ($tier_1->tier_1() as $user){
                 $tier_2[]=$user->id;
-            }
+            } 
         }
         return User::whereIn('id',$tier_2)->get();
     }
