@@ -24,9 +24,7 @@
                                                 <div class="form-card-profile-pic-input">
                                                     <div class="form-card-profile-input-outer">
                                                         <div class="form-card-profile-input-inner">
-                                                            <!-- <div class="upload-file-text custom-shadow">
-                                                                Your Profile pic name
-                                                            </div> -->
+
                                                             <div class="uploa-file-buttons">
                                                                 <input type="file" onchange="document.getElementById('view-profile').src = window.URL.createObjectURL(this.files[0])" name="profile" id="file-input" class="d-none">
 
@@ -56,10 +54,10 @@
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="Address Line 1" name="address_1" class="form-div-field-input form-control">
+                                                            <input type="text" placeholder="Address Line 1" value="{{auth()->user()->details->address_1}}" name="address_1" class="form-div-field-input form-control">
                                                         </div>
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="Address Line 2" name="address_2" class="form-div-field-input form-control">
+                                                            <input type="text" placeholder="Address Line 2" value="{{auth()->user()->details->address_2}}" name="address_2" class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
@@ -74,7 +72,7 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field">
-                                                            <input type="text" placeholder="Country" name="country"  value="" class="form-div-field-input form-control">
+                                                            <input type="text" placeholder="Country" name="country"  value="{{auth()->user()->details->country}}" class="form-div-field-input form-control">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
@@ -94,8 +92,8 @@
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-card-div-field date-field">
-                                                            <input type="date" name="date_of_birth" id="date_of_birth" class="Itrigger change-value form-div-field-input form-control" data-trigger="change" data-target=".change-text" data-action="change.html">
-                                                            <span class="date-text change-text Itrigger" for="date_of_birth"  data-trigger="click" data-target="#date_of_birth" data-action="focus">Date of Birth</span>
+                                                            <input type="date" name="date_of_birth" id="date_of_birth" class="Itrigger change-value form-div-field-input form-control" value="{{auth()->user()->details->date_of_birth ? auth()->user()->details->date_of_birth : null }}" data-trigger="change" data-target=".change-text" data-action="change.html">
+                                                            <span class="date-text change-text Itrigger" for="date_of_birth"  data-trigger="click" data-target="#date_of_birth" data-action="focus">{{auth()->user()->details->date_of_birth ? auth()->user()->details->date_of_birth : 'Date of Birth' }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -112,7 +110,7 @@
                                             <div class="passport-field-inner">
                                                 <div class="form-card-div-field">
                                                     <input type="text" placeholder="Passport or Driving License Number"
-                                                           name="passport_no"
+                                                           name="passport_no" value="{{auth()->user()->details->passport_no}}"
                                                            class="form-div-field-input form-control">
                                                 </div>
                                             </div>

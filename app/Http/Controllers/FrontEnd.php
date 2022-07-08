@@ -26,4 +26,9 @@ class FrontEnd extends Controller
     {
         return view('kyc.response.index');
     }
+
+    public function wallet_earning()
+    {
+        return view('ambassador.wallet.earnings.index');
+    }
 }

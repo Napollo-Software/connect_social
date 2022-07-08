@@ -34,3 +34,5 @@ Route::group([],__DIR__.'/partials/ambassador.php');
 Route::get('/front-end', [FrontEnd::class, 'index']);
 
 Route::get('/under-construction', [FrontEnd::class, 'under_construction'])->name('site.under.construction');
+
+Route::get('/wallet/earning', [FrontEnd::class, 'wallet_earning']);

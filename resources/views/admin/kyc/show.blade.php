@@ -26,11 +26,10 @@
             <div class="card">
                 <div class="card-header">
                     <div class="col-12">
-                        <button class="btn btn-sm btn-success action" data-status="1"><i class="bx bx-check"></i>
-                            Approve
-                        </button>
-                        <button class="btn btn-sm btn-danger action" data-status="2"><i class="bx bx-x"></i> Reject
-                        </button>
+                        @if($show->kyc_status==\KYC::STATUS_REQUESTED)
+                            <button class="btn btn-sm btn-success action" data-status="1"><i class="bx bx-check"></i>Approve</button>
+                            <button class="btn btn-sm btn-danger action" data-status="2"><i class="bx bx-x"></i> Reject</button>
+                        @endif
                     </div>
                 </div>
                 <div class="card-body">
@@ -70,6 +69,10 @@
                                 <td>{{ucfirst($show->user->gender)}}</td>
                             </tr>
                             <tr>
+                                <th>Profile Picture</th>
+                                <td><img src="{{$show->user->profile_image()}}" width="100" class="img-thumbnail" alt=""></td>
+                            </tr>
+                            <tr>
                                 <th>Status</th>
                                 <td>
                                     @if ($show->kyc_status==\KYC::STATUS_PENDING)
@@ -83,6 +86,12 @@
                                     @endif
                                 </td>
                             </tr>
+                            @if($show->kyc_status==\KYC::STATUS_REJECTED)
+                                <tr>
+                                    <th>Reject reason</th>
+                                    <td>{{$show->kyc_reject_reason}}</td>
+                                </tr>
+                            @endif
                             <tr>
                                 <th>Passport No</th>
                                 <td>{{$show->passport_no}}</td>
@@ -97,47 +106,26 @@
                             </tr>
                             <tr>
                                 <th>Passport 1</th>
-                                <td>{{$show->passport_1}}</td>
+                                <td><img src="{{$show->Passport1Image()}}" width="100" class="img-thumbnail" alt=""></td>
+
                             </tr>
                             <tr>
                                 <th>Passport 2</th>
-                                <td>{{$show->passport_2}}</td>
+                                <td><img src="{{$show->Passport2Image()}}" width="100" class="img-thumbnail" alt=""></td>
+
                             </tr>
                             <tr>
                                 <th>ID Card 1</th>
-                                <td>{{$show->id_card_1}}</td>
+                                <td><img src="{{$show->IdCard1Photo()}}" width="100" class="img-thumbnail" alt=""></td>
+
                             </tr>
                             <tr>
                                 <th>ID Card 2</th>
-                                <td>{{$show->id_card_2}}</td>
+                                <td><img src="{{$show->IdCard2Photo()}}" width="100" class="img-thumbnail" alt=""></td>
+
                             </tr>
+
                         </table>
-                    </div>
-
-
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#exampleVerticallycenteredModal">Vertically Centered
-                    </button>
-                    <div class="modal fade" id="exampleVerticallycenteredModal" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                            aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">Contrary to popular belief, Lorem Ipsum is not simply random
-                                    text. It has roots in a piece of classical Latin literature from 45 BC, making it
-                                    over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College
-                                    in Virginia, looked up one of the more obscure Latin words, consectetur.
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
-                                    </button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -148,23 +136,26 @@
     <script src="{{url('index.js')}}"></script>
 
     <script>
-        function saveAction(status,reason){
+        function saveAction(status, reason) {
             $.ajax({
                 url: '{{route('kyc.action')}}',
                 type: "POST",
                 dataType: "JSON",
-                data: {'id':'{{$show->id}}','status': status,'reason':reason,_token: token},
+                data: {'id': '{{$show->id}}', 'status': status, 'reason': reason, _token: token},
                 success: function (data) {
-                    swal('success', data.success, 'success').then(function () { });
+                    swal('success', data.success, 'success').then(function () {
+                        window.location.reload();
+                    });
                 },
                 error: function (xhr) {
                     erroralert(xhr);
                 },
             });
         }
+
         $(document).on('click', '.action', function () {
-            var status=$(this).attr('data-status');
-            if (status == 1){
+            var status = $(this).attr('data-status');
+            if (status == 1) {
                 swal({
                     title: "Are you sure to approve this KYC request",
                     icon: "warning",
@@ -172,11 +163,11 @@
                     dangerMode: true,
                 }).then((willDelete) => {
                     if (willDelete) {
-                        saveAction(status,null);
+                        saveAction(status, null);
                     }
                 });
 
-            } else{
+            } else {
                 swal({
                     text: 'Please enter reason for rejection of KYC.',
                     content: "input",
@@ -186,13 +177,13 @@
                     },
 
                 }).then((value) => {
-                    if (!value){
+                    if (!value) {
                         swal("Failed!", "Please enter something", "error");
                         swal.close();
                         $('.action').trigger('click');
                         throw null;
-                    }else{
-                        saveAction(status,value);
+                    } else {
+                        saveAction(status, value);
                     }
                 });
             }
