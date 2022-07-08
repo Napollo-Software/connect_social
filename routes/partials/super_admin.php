@@ -42,6 +42,7 @@ Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->grou
         Route::prefix('kyc')->group(function () {
             Route::get('/', [KycController::class, 'index'])->name('kyc');
             Route::post('fetch', [KycController::class, 'fetch'])->name('kyc.fetch');
+            Route::post('action', [KycController::class, 'action'])->name('kyc.action');
             Route::get('show/{id}', [KycController::class, 'show'])->name('kyc.show');
         });
     });
