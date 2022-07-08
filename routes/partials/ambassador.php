@@ -86,9 +86,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::post('fetch', [ChatController::class, 'fetch'])->name('chat.fetch');
             Route::post('mark-as-read', [ChatController::class, 'mark_as_read'])->name('chat.mark.as.read');
         });
-        Route::prefix('send-invite-email')->group(function () {
-            Route::post('for-referral', [SendInviteController::class, 'send_invite'])->name('send.invite.for.referral');
-        });
+
 
         Route::prefix('kyc')->group(function () {
             Route::get('submission', [KycController::class, 'submission'])->name('kyc.submission');
@@ -97,5 +95,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         });
 
     });
-
+    Route::prefix('send-invite-email')->group(function () {
+        Route::post('for-referral', [SendInviteController::class, 'send_invite'])->name('send.invite.for.referral');
+    });
 });
