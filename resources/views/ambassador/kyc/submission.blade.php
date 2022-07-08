@@ -171,7 +171,7 @@
                                     </div>
                                 </div>
                                 <div class="submit-button">
-                                    <button class="black-button" id='save-kyc' type="submit">Submit</button>
+                                    <button class="black-button"  type="submit">Submit</button>
                                 </div>
                             </form>
                         </div>
@@ -183,20 +183,21 @@
     </div>
 
     @push('scripts')  
+<script src="{{url('index.js')}}"></script>
+
     <script>
         $(function () {
             $(document).on('submit', '#kyc-form', function (e) { 
                 e.preventDefault();
-                console.log('reach');
-                $('#country_code').val($('.iti__selected-dial-code').text());
-                var method = 'POST';
                 var button=$(this).find('button[type=submit]');
+                var method = 'POST';
                 var previous= button.text();
                 button.attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing ...');
 
                 $.ajax({
                     type:method,
-                    url:'{{route('register')}}',
+                    url:'{{route('kyc.submit')}}',
+                    type:'POST',
                     data: new FormData(this),
                     dataType:'JSON',
                     processData: false,
@@ -204,8 +205,8 @@
                     cache: false,
                     success:function(data) {
                         button.attr('disabled',null).html(previous);
-                        swal("Success!", "Congratulations! You account has been successfully created!", "success").then(function () {
-                            window.location.href='{{route('home')}}';
+                        swal("Success!", data.success, "success").then(function () {
+                            window.location.href='{{route('kyc.submit')}}';
                         });
                     },
                     error:function (xhr) {

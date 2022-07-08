@@ -43,6 +43,7 @@
     <script src="{{url('ambassador_assets/lib/tags/tags.js')}}"></script>
     <script src="{{url('ambassador_assets/lib/tags/tags-prety.js')}}"></script>
     <script src="{{url('ambassador_assets/js/app.js')}}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <script>
         let preloaded = [

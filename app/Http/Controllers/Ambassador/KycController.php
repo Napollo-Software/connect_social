@@ -14,7 +14,7 @@ class KycController extends Controller
         return view('ambassador.kyc.submission'); 
     }
     public function submit(Request $request){
-      //dd($request->all());
+    //   dd($request->all());
         $this->validate($request,[
             'country_code'=>'required',
             'phone'=>'required',
@@ -30,8 +30,8 @@ class KycController extends Controller
 
             'date_of_birth'=>'required',
             'passport_no'=>'required',
-            // 'passport_1'=>'required',
-            // 'passport_2'=>'required',
+            'driving_license'=>'required',
+            'cnic_pics'=>'required',
             // 'id_card_1'=>'required',
             // 'id_card_2'=>'required',
 
@@ -77,6 +77,6 @@ class KycController extends Controller
        }
         $ambassador->kyc_status=0;
         $ambassador->save();
-        return view('ambassador.kyc.submission'); 
+        return response()->json(['success' => 'Added Successfully']);
     }
 }
