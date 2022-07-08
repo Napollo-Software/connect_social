@@ -14,7 +14,6 @@ class KycController extends Controller
         return view('ambassador.kyc.submission'); 
     }
     public function submit(Request $request){
-    //   dd($request->all());
         $this->validate($request,[
             'country_code'=>'required',
             'phone'=>'required',

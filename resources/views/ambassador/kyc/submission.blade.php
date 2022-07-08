@@ -206,7 +206,6 @@
                     success:function(data) {
                         button.attr('disabled',null).html(previous);
                         swal("Success!", data.success, "success").then(function () {
-                            window.location.href='{{route('kyc.submit')}}';
                         });
                     },
                     error:function (xhr) {
