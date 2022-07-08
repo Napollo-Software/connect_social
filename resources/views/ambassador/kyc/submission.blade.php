@@ -182,6 +182,5 @@
         </div>
     </div>
     @push('scripts')
-    
     @endpush
 @endsection
