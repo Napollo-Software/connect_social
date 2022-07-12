@@ -48,10 +48,8 @@ class KycController extends Controller
 
             'date_of_birth' => 'required',
             'passport_no' => 'required',
-            'driving_license' => 'required',
-            'cnic_pics' => 'required',
-            // 'id_card_1'=>'required',
-            // 'id_card_2'=>'required',
+            'driving_license' => 'required|array|min:2|max:2',
+            'cnic_pics' => 'required|array|min:2|max:2;',
 
         ]);
 
