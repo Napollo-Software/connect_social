@@ -71,7 +71,7 @@ class UserController extends Controller
         $this->validate($request, [
             'cover' => 'required|mimes:jpeg,png,jpg,gif,svg|max:4048',
         ], [
-            'cover.required' => 'About field is required *',
+            'cover.required' => 'Cover field is required *',
         ]);
         $attachment = time() . $request['cover']->getClientOriginalName();
         Storage::disk('local')->put('/public/a/covers/' . auth()->user()->id . '/' . $attachment, File::get($request['cover']));
