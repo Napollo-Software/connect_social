@@ -17,7 +17,7 @@ use App\Http\Controllers\Ambassador\KycController;
 
 Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group(function () {
 
-    Route::middleware('under-construction')->group(function () {
+    Route::middleware('under-construction')->group(function () { 
         Route::get('home/{type?}', [HomeController::class, 'index'])->name('ambassador.home');
         Route::prefix('profile-view')->group(function () {
             Route::get('{id}', [NetworkController::class, 'profile'])->name('network.profile');

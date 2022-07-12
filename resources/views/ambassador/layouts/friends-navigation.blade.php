@@ -15,7 +15,7 @@
                         <li class="inner-navigation-li {{$type=='connections'?'active':''}}">
 
                             <a href data-type="connections" class="inner-navigation-link network-link">
-                                <span class="icon">
+                                <span class="icon"> 
                                     <img src="{{url('ambassador_assets/images/icons/connection.svg')}}" alt="">
                                 </span>
                                 <span class="text">Connections <span id="total-connections">{{getConnectionsList($user->id)->count()}}</span></span>

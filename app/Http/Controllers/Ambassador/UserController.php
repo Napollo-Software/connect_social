@@ -40,79 +40,53 @@ class UserController extends Controller
 
     public function fetch(Request $request)
     {
+        $type = $request->type;
+        $id = auth()->user()->id;
+        $user = User::find($id);
+        $data = [];
+        $html = '';
+        if ($user->id == auth()->user()->id) {
+            $showRemove = true;
+        } else {
+            $showRemove = false;
+        }
+        if ($type == 'friends') {
+            $privacy = unserialize($user->details->network_privacy);
+            $data = [];
+            if (checkPrivacyInNetwork($privacy[$type], $id)) {
+                $data = getFriendsListUsers($id);
+            }
+        }
+        if ($type == 'connections') {
+            $data = [];
+            $privacy = unserialize($user->details->network_privacy);
+            if (checkPrivacyInNetwork($privacy[$type], $id)) {
+                $data = getConnectionsListUsers($id);
+            }
+        }
+        if ($type == 'tier-1') {
+            $data = $user->tier_1();
+        }
+        if ($type == 'tier-2') {
+            $data = $user->tier_2();
+        }
         $html='';
         $type=$request->type;
-        if($type=='friends')
-        {  
-            $html.='<div class="friend-grid-inner">';
-            foreach(getFriendsListUsers(auth()->user()->id) as $k=>$friend){if($k<15){
-            $html.='<div class="friend-grid-col">
-                <div class="friend-grid-col-inner">
-                    <div class="firend-grid-col-image">
-                        <img src="'.$friend->profile_image().'" alt="">
-                    </div>
-                    <div class="friend-grid-col-text">
-                        <a href="'.url('profile-view/'.$friend->id).'" class="text-decoration-none text-muted">'.$friend->fullName().'</a>
-                    </div>
+        $html.='<div class="friend-grid-inner">';
+        foreach($data as $k=>$details){if($k<15){
+        $html.='<div class="friend-grid-col">
+            <div class="friend-grid-col-inner">
+                <div class="firend-grid-col-image">
+                    <img src="'.$details->profile_image().'" alt="">
                 </div>
-            </div>';
-             } } 
-             $html .= '</div>';
-             
-        }
-        if($type=='connections')
-        {
-            $html.='<div class="friend-grid-inner">';
-            foreach(getConnectionsListUsers(auth()->user()->id) as $k=>$connection){if($k<15){
-            $html.='<div class="friend-grid-col">
-                <div class="friend-grid-col-inner">
-                    <div class="firend-grid-col-image">
-                        <img src="'.$connection->profile_image().'" alt="">
-                    </div>
-                    <div class="friend-grid-col-text">
-                        <a href="'.url('profile-view/'.$connection->id).'" class="text-decoration-none text-muted">'.$connection->fullName().'</a>
-                    </div>
+                <div class="friend-grid-col-text">
+                    <a href="'.url('profile-view/'.$details->id).'" class="text-decoration-none text-muted">'.$details->fullName().'</a>
                 </div>
-            </div>';
-             } } 
-             $html .= '</div>';
-            
-        }
-        if($type=='tier_1')
-        {
-            $html.='<div class="friend-grid-inner">';
-            foreach(auth()->user()->tier_1() as $k=>$tier1){if($k<15){
-            $html.='<div class="friend-grid-col">
-                <div class="friend-grid-col-inner">
-                    <div class="firend-grid-col-image">
-                        <img src="'.$tier1->profile_image().'" alt="">
-                    </div>
-                    <div class="friend-grid-col-text">
-                        <a href="'.url('profile-view/'.$tier1->id).'" class="text-decoration-none text-muted">'.$tier1->fullName().'</a>
-                    </div>
-                </div>
-            </div>';
-             } } 
-             $html .= '</div>';
-        }
-        if($type=='tier_2')
-        {
-            $html.='<div class="friend-grid-inner">';
-            foreach(auth()->user()->tier_2() as $k=>$tier2){if($k<15){
-            $html.='<div class="friend-grid-col">
-                <div class="friend-grid-col-inner">
-                    <div class="firend-grid-col-image">
-                        <img src="'.$tier2->profile_image().'" alt="">
-                    </div>
-                    <div class="friend-grid-col-text">
-                        <a href="'.url('profile-view/'.$tier2->id).'" class="text-decoration-none text-muted">'.$tier2->fullName().'</a>
-                    </div>
-                </div>
-            </div>';
-             } } 
-             $html .= '</div>';
-        }
-        return response()->json($html);
+            </div>
+        </div>';
+            } } 
+            $html .= '</div>';
+    return response()->json($html);
     }
 
     public function update_name(Request $request)
