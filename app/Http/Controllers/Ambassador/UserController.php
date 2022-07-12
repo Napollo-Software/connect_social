@@ -85,7 +85,7 @@ class UserController extends Controller
     public function update_profile(Request $request)
     {
         $this->validate($request, [
-            'profile' => 'required|mimes:jpeg,png,jpg,gif,svg',
+            'profile' => 'required|mimes:jpeg,png,jpg,gif,svg|file|max:4000',
         ], [
             'profile.required' => 'Photo field is required *',
         ]);

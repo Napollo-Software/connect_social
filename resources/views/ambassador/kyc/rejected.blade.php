@@ -1,4 +1,8 @@
+
     @extends('ambassador.kyc.layouts.app')
+    @section('title')
+Kyc Responce
+@endsection
 @section('content')
     <div class="form-card-div padding-div bg-custom">
         <div class="form-card-div-inner custom-card custom-shadow custom-padding custom-border custom-width">

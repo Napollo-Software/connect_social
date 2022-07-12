@@ -1,4 +1,7 @@
 @extends('ambassador.layouts.app')
+@section('title')
+My Profile
+@endsection
 @section('content')
     <div class="profile-content">
         <div class="container">
@@ -571,7 +574,7 @@
                         cache: false,
                         success: function (data) {
                             $('.abouy-text-editor').hide();
-                            $('.about-content').show();
+                            $('.about-content').show(); 
                             $('#about-text').text(data.response.about);
                         },
                         error: function (xhr) {

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-@yield('title')
+    <title>@yield('title') </title>
 <!-- Icon -->
     <link rel="icon" type="image/x-icon" href="{{url('ambassador_assets/images/favicon.png')}}">
     <!-- Bootstrap -->
@@ -22,7 +23,7 @@
 <div class="page-wrapper">
     <div class="page-wrapper-inner">
         <!-- <div class="container"> -->
-    @include('ambassador.layouts.top-nav')
+    @include('ambassador.layouts.top-nav')  
     <!-- Site Navigation -->
     @include('ambassador.layouts.navigation')
 
@@ -37,7 +38,7 @@
             </div>
         </div>
         <!-- </div> -->
-    </div> 
+    </div>  
 </div>
 @include('ambassador.layouts.modals')
 @include('ambassador.layouts.single-post')

@@ -1,8 +1,8 @@
 @extends('ambassador.layouts.app2')
 @section('title')
-Profile
+Home
 @endsection
-@section('content')
+@section('content') 
     @include('ambassador.home.layouts.navigation')
     <div class="profile-content">
         <div class="container"> 
@@ -92,7 +92,7 @@ Profile
     </div>
     @push('scripts')
         <script src="{{url('index.js')}}"></script>
-
+ 
         <script>
             setInterval(function(){
                 offset = $(".profile-navigation").offset();
