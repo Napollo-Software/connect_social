@@ -71,7 +71,7 @@ class UserController extends Controller
         $this->validate($request, [
             'cover' => 'required|mimes:jpeg,png,jpg,gif,svg|max:4048',
         ], [
-            'cover.required' => 'About field is required *',
+            'cover.required' => 'Cover field is required *',
         ]);
         $attachment = time() . $request['cover']->getClientOriginalName();
         Storage::disk('local')->put('/public/a/covers/' . auth()->user()->id . '/' . $attachment, File::get($request['cover']));
@@ -168,6 +168,7 @@ class UserController extends Controller
         $from=auth()->user()->id;
         $to=$request->id;
         $cancelConnectionRequest='    <button class="black-button mr-2 cancel-connection-request">Cancel Connection Request</button>';
+
         $sendMessage='                <button class="black-button mr-2">Send Message</button>';
         $addAsFriend="                <button class='black-button mr-2 sent-request' id='add-as-friend' data-to='".$to."'>Add as Friend</button>";
         $confirmFriendRequest='       <button class="black-button mr-2 friend-request-sent approve" data-id="'.$to.'">Confirm Friend Request</button>';
@@ -179,7 +180,6 @@ class UserController extends Controller
         $confirmConnectionRequest='   <button class="black-button mr-2 connection-request-sent approve" data-id="'.$to.'">Confirm Connection Request</button>';
         $rejectConnectionRequest='    <button class="black-button mr-2 connection-request-sent decline" data-id="'.$to.'">Delete Connection Request</button>';
         $unConnection="               <button class='black-button mr-2 remove-connection' data-id='".$to."'>Remove From Connection</button>";
-
 
         $data='';
         if (receivedAnyPendingRequest($to)){
@@ -198,6 +198,8 @@ class UserController extends Controller
             }else{
                 $data.=$unfriend;
             }
+            $data.=$sendMessage;
+
         }
         else{
             if (friendRequestSent($to)){
@@ -210,7 +212,6 @@ class UserController extends Controller
                 $data.=$addAsConnection;
             }
         }
-        $data.=$sendMessage;
         return response()->json($data);
     }
 }

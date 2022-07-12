@@ -42,23 +42,17 @@
                                         <div class="title">Search Results</div>
                                         <div class="recent-search-list">
                                             <ul class="recent-search-ul">
-                                                {{--<li class="recent-search-li">
+                                                <li class="recent-search-li">
                                                     <div class="recent-search-list-div">
                                                         <div class="recent-search-list-inner">
                                                             <div class="recent-search-rofile">
-                                                                <div class="profile-image">
-                                                                    <img src="{{asset('ambassador_assets/images/user-profile/user-01.png')}}" alt="">
-                                                                </div>
                                                                 <div class="profile-text">
-                                                                    <a href='javascript:void(0)'>User Name</a>
+                                                                    <small><i>No search results</i></small>
                                                                 </div>
-                                                            </div>
-                                                            <div class="remove-div">
-                                                                <span class="ti-close"></span>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </li>--}}
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
@@ -160,22 +154,16 @@
                                                         </form>
                                                     </div>
                                                     <div class="recent-search-box">
-                                                        <div class="title">Recent Searches</div>
+                                                        <div class="title">Search Results</div>
                                                         <div class="recent-search-list">
                                                             <ul class="recent-search-ul">
                                                                 <li class="recent-search-li">
                                                                     <div class="recent-search-list-div">
                                                                         <div class="recent-search-list-inner">
-                                                                            {{-- <div class="recent-search-rofile">
-                                                                                <div class="profile-image">
-                                                                                    <img src="{{asset('ambassador_assets/images/user-profile/user-01.png')}}" alt="">
-                                                                                </div>
+                                                                             <div class="recent-search-rofile">
                                                                                 <div class="profile-text">
-                                                                                    <a href='javascript:void(0)'>User Name</a>
+                                                                                    <small><i>No search results</i></small>
                                                                                 </div>
-                                                                            </div> --}}
-                                                                            <div class="remove-div">
-                                                                                <span class="ti-close"></span>
                                                                             </div>
                                                                         </div>
                                                                     </div>
