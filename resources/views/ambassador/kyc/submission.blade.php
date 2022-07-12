@@ -200,7 +200,7 @@ Kyc Submission
                     url:'{{route('kyc.submit')}}',
                     type:'POST',
                     data: new FormData(this),
-                    dataType:'JSON',
+                    dataType:'JSON', 
                     processData: false,
                     contentType: false,
                     cache: false,

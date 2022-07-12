@@ -44,7 +44,6 @@ class KycController extends Controller
             'city' => 'required',
             'country' => 'required',
             'address_1' => 'required',
-            'address_2' => 'required',
 
             'date_of_birth' => 'required',
             'passport_no' => 'required',

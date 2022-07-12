@@ -87,7 +87,7 @@
                     <div class="modal-body">
                         @csrf
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-6"> 
                                 <div class="form-group">
                                     <label for="fname">First Name</label>
                                     <input type="text" id="fname" name="fname" class="form-control"

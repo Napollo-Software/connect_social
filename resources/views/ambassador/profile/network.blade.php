@@ -53,6 +53,87 @@ Network
     </div>
     @push('scripts')
         <script>
+            $(function(){
+                $(document).on('submit', '#update_cover_photo_form', function (e) {
+                    e.preventDefault();
+                    swal({
+                        title: "Are you sure to change cover photo?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                        .then((willDelete) => {
+                            if (willDelete) {
+                                $.ajax({
+                                    url: "{{route('ambassador.update.cover')}}",
+                                    data: new FormData(this),
+                                    dataType: "JSON",
+                                    type: "post",
+                                    processData: false,
+                                    contentType: false,
+                                    cache: false,
+                                    success: function (data) {
+                                        $('#cover_photo_preview').attr('src', data.response);
+                                        $('#cover_photo_input').val('');
+                                    },
+                                    error: function (xhr) {
+                                        erroralert(xhr);
+                                    },
+                                });
+                            }
+                        });
+                });
+                $(document).on('submit', '#update_profile_photo_form', function (e) {
+                    e.preventDefault();
+                    swal({
+                        title: "Are you sure to change profile photo?",
+                        icon: "warning",
+                        buttons: true,
+                        dangerMode: true,
+                    })
+                        .then((willDelete) => {
+                            if (willDelete) {
+                                $.ajax({
+                                    url: "{{route('ambassador.update.profile')}}",
+                                    data: new FormData(this),
+                                    dataType: "JSON",
+                                    type: "post",
+                                    processData: false,
+                                    contentType: false,
+                                    cache: false,
+                                    success: function (data) {
+                                        $('.profile_photo_preview').attr('src', data.response);
+                                        $('#profile_photo_input').val('');
+                                    },
+                                    error: function (xhr) {
+                                        erroralert(xhr);
+                                    },
+                                });
+                            }
+                        });
+                });
+              
+                $(document).on('submit', '#change_name_form', function (e) {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "POST",
+                        url: "{{route('ambassador.update.name')}}",
+                        data: new FormData(this),
+                        dataType: 'JSON',
+                        processData: false,
+                        contentType: false,
+                        cache: false,
+                        success: function (data) {
+                            $('#update-name-modal').modal('hide');
+                            $('#full-name-of-current-user').html(data.response.fname + ' ' + data.response.lname);
+                        },
+                        error: function (xhr) {
+                            erroralert(xhr);
+                        }
+                    });
+
+                });
+            });
             $(document).ready(function() {
                 $(".selection-icon").click(function () {
                     $(".selection-dropdown").toggle();

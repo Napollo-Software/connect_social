@@ -24,7 +24,7 @@
 
                         $('.load-posts').append(data);
                     } else{
-                        $('#scroll-to').text('No more posts').removeClass('black-button').addClass('white-button');
+                        $('#scroll-to').text('No more posts').removeClass('black-button').addClass('white-button').addClass('button-disabled');
                     }
                 },
                 error: function (xhr) {

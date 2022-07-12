@@ -21,7 +21,7 @@
                         $('.load-posts').append(data);
                         $('#scroll-to').attr('disabled', null).text('Show more posts');
                     } else {
-                        $('#scroll-to').text('No more posts').removeClass('black-button').addClass('white-button');
+                        $('#scroll-to').text('No more posts').removeClass('black-button').addClass('white-button').addClass('button-disabled');
                     }
                     $('.set-privacy-dropdown-inner').html($('#privacy_dropdown').html());
                 },

@@ -150,7 +150,7 @@
                                                             data-modal="#upload-file-modal">
                                                             <div class="attachment-option">
                                                                 <div class="attachment-icon">
-                                                                    <span class="ti-camera"></span>
+                                                                    <span class="ti-camera"></span> 
                                                                 </div>
                                                             </div>
                                                         </li>

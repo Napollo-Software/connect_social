@@ -574,7 +574,7 @@ My Profile
                         cache: false,
                         success: function (data) {
                             $('.abouy-text-editor').hide();
-                            $('.about-content').show();
+                            $('.about-content').show(); 
                             $('#about-text').text(data.response.about);
                         },
                         error: function (xhr) {

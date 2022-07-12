@@ -8,7 +8,7 @@ use App\Models\PostAssets;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage; 
 
 class PostController extends Controller
 {
@@ -177,4 +177,4 @@ class PostController extends Controller
         $viewRender = view('ambassador.profile.components.partial.post_popup_html',compact('post'))->render();
         return response()->json($viewRender);
     }
-}
+} 
