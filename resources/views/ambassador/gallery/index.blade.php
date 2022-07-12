@@ -219,7 +219,7 @@ Gallery
                 });
               
                 $(document).on('submit', '#change_name_form', function (e) {
-                    e.preventDefault();
+                    e.preventDefault(); 
                     $.ajax({
                         type: "POST",
                         url: "{{route('ambassador.update.name')}}",

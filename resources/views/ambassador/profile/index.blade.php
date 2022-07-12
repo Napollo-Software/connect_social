@@ -452,18 +452,18 @@ My Profile
                                                     <div class="content-top-bar-inner">
                                                         <div class="content-top-bar-title">
                                                             <div class="text">
-                                                                <span class="icon">
+                                                                <span class="icon hover profile-friends">
                                                                     <img src="{{url('ambassador_assets/images/icons/users.svg')}}" alt="">
                                                                 </span> ({{getFriendsList($user->id)->count()}})
-                                                                <span class="icon">
+                                                                <span class="icon profile-connections">
                                                                     <img src="{{url('ambassador_assets/images/icons/connection.svg')}}" alt="">
                                                                 </span> ({{getConnectionsList($user->id)->count()}})
-                                                                <span class="icon">
+                                                                <span class="icon profile-tier_1">
                                                                     <img src="{{url('ambassador_assets/images/icons/personal-network.svg')}}" alt="">
-                                                                </span><small> Tier 1 </small>
-                                                                <span class="icon">
+                                                                </span> ({{auth()->user()->tier_1()->count()}}) 
+                                                                <span class="icon profile-tier_2">
                                                                     <img src="{{url('ambassador_assets/images/icons/extended-network.svg')}}" alt="">
-                                                                </span><small> Tier 2 </small>
+                                                                </span>({{auth()->user()->tier_2()->count()}})
                                                             </div>
                                                         </div>
                                                     </div>
@@ -472,31 +472,14 @@ My Profile
                                                     <div class="content-card-content-inner">
                                                         <div class="friend-grid">
                                                             <div class="friend-grid-inner">
-                                                                @if(getFriendsList($user->id)->count()>0)
-                                                                    @foreach(getFriendsListUsers($user->id) as $k=>$friend)
-                                                                    @if($k<15)
-                                                                    <div class="friend-grid-col">
-                                                                        <div class="friend-grid-col-inner">
-                                                                            <div class="firend-grid-col-image">
-                                                                                <img src="{{$friend->profile_image()}}" alt="">
-                                                                            </div>
-                                                                            <div class="friend-grid-col-text">
-                                                                                <a href="{{url('profile-view/'.$friend->id)}}" class="text-decoration-none text-muted">{{$friend->fullName()}}</a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    @endif
-                                                                    @endforeach
-                                                                @else
-                                                                    <i class="text-muted ml-4">No friend</i>
-                                                                @endif
+                                                                
                                                             </div>
                                                             
                                                         </div>
                                                     </div>
                                                     <div class="see-all custom-padding">
-                                                        <div class="see-all-inner">
-                                                            <a href="{{route('network',['friends'])}}">See All</a>
+                                                        <div class="see-all-inner see-all-url">
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -554,7 +537,95 @@ My Profile
     </div>
 @endsection
 <script src="{{url('index.js')}}"></script>
-@push('scripts')
+@push('scripts') 
+ <script>
+       $('document').ready(function(){
+        var type='<?= $type ?>';
+        $.ajax({
+            type:"POST",
+            url:"{{route('ambassador.fetch.network')}}",
+            data: {'type': type, _token: '{{csrf_token()}}'},
+            success:function(data){
+                $('.friend-grid-inner').html(data);
+                $('.see-all-url').html('<a href="{{route('network',['friends'])}}">See All</a>');
+            },
+            error: function (xhr) {
+                erroralert(xhr);
+            }
+
+        });
+    });
+    $(function(){
+        $('.profile-connections').on('click',function(){
+        var type='connections';
+        $.ajax({
+            type:"POST",
+            url:"{{route('ambassador.fetch.network')}}",
+            data: {'type': type, _token: '{{csrf_token()}}'},
+            success:function(data){
+                $('.friend-grid-inner').html(data);
+                $('.see-all-url').html('<a href="{{route('network',['connections'])}}">See All</a>');
+            },
+            error: function (xhr) {
+                erroralert(xhr);
+            }
+
+        });
+        });
+
+        $('.profile-tier_1').on('click',function(){
+        var type='tier_1';
+        var network_type='tier-1';
+        $.ajax({
+            type:"POST",
+            url:"{{route('ambassador.fetch.network')}}",
+            data: {'type': type, _token: '{{csrf_token()}}'},
+            success:function(data){
+                $('.friend-grid-inner').html(data);
+                $('.see-all-url').html('<a href="{{route('network',[network_type'])}}">See All</a>');
+            },
+            error: function (xhr) {
+                erroralert(xhr);
+            }
+
+        });
+        });
+
+        $('.profile-tier_2').on('click',function(){ 
+        var type='tier_2';
+        $.ajax({
+            type:"POST",
+            url:"{{route('ambassador.fetch.network')}}",
+            data: {'type': type, _token: '{{csrf_token()}}'},
+            success:function(data){
+                $('.friend-grid-inner').html(data);
+                $('.see-all-url').html('<a href="{{route('network',['tier-2'])}}">See All</a>');
+            },
+            error: function (xhr) {
+                erroralert(xhr);
+            }
+
+        });
+        });
+
+        $('.profile-friends').on('click',function(){
+        var type='friends';
+        $.ajax({
+            type:"POST",
+            url:"{{route('ambassador.fetch.network')}}",
+            data: {'type': type, _token: '{{csrf_token()}}'},
+            success:function(data){
+                $('.friend-grid-inner').html(data);
+                $('.see-all-url').html('<a href="{{route('network',['friends'])}}">See All</a>');
+            },
+            error: function (xhr) {
+                erroralert(xhr);
+            }
+
+        });
+        });
+    });
+ </script>
     @if($user->id==auth()->user()->id)
         <script>
             $(function () {

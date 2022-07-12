@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Ambassador;
 
 use App\Http\Controllers\Controller;
 use App\Models\AmbassadorDetails;
+use App\Models\Connection;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -32,9 +33,86 @@ class UserController extends Controller
                 $images[] = Storage::disk('local')->url('/a/covers/' . $id . '/' . $file->getFilename());
             }
         }
-
+        $type='friends';
         $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
-        return view('ambassador.profile.index', compact('posts', 'images', 'user'));
+        return view('ambassador.profile.index', compact('posts', 'images', 'user','type'));
+    }
+
+    public function fetch(Request $request)
+    {
+        $html='';
+        $type=$request->type;
+        if($type=='friends')
+        {  
+            $html.='<div class="friend-grid-inner">';
+            foreach(getFriendsListUsers(auth()->user()->id) as $k=>$friend){if($k<15){
+            $html.='<div class="friend-grid-col">
+                <div class="friend-grid-col-inner">
+                    <div class="firend-grid-col-image">
+                        <img src="'.$friend->profile_image().'" alt="">
+                    </div>
+                    <div class="friend-grid-col-text">
+                        <a href="'.url('profile-view/'.$friend->id).'" class="text-decoration-none text-muted">'.$friend->fullName().'</a>
+                    </div>
+                </div>
+            </div>';
+             } } 
+             $html .= '</div>';
+             
+        }
+        if($type=='connections')
+        {
+            $html.='<div class="friend-grid-inner">';
+            foreach(getConnectionsListUsers(auth()->user()->id) as $k=>$connection){if($k<15){
+            $html.='<div class="friend-grid-col">
+                <div class="friend-grid-col-inner">
+                    <div class="firend-grid-col-image">
+                        <img src="'.$connection->profile_image().'" alt="">
+                    </div>
+                    <div class="friend-grid-col-text">
+                        <a href="'.url('profile-view/'.$connection->id).'" class="text-decoration-none text-muted">'.$connection->fullName().'</a>
+                    </div>
+                </div>
+            </div>';
+             } } 
+             $html .= '</div>';
+            
+        }
+        if($type=='tier_1')
+        {
+            $html.='<div class="friend-grid-inner">';
+            foreach(auth()->user()->tier_1() as $k=>$tier1){if($k<15){
+            $html.='<div class="friend-grid-col">
+                <div class="friend-grid-col-inner">
+                    <div class="firend-grid-col-image">
+                        <img src="'.$tier1->profile_image().'" alt="">
+                    </div>
+                    <div class="friend-grid-col-text">
+                        <a href="'.url('profile-view/'.$tier1->id).'" class="text-decoration-none text-muted">'.$tier1->fullName().'</a>
+                    </div>
+                </div>
+            </div>';
+             } } 
+             $html .= '</div>';
+        }
+        if($type=='tier_2')
+        {
+            $html.='<div class="friend-grid-inner">';
+            foreach(auth()->user()->tier_2() as $k=>$tier2){if($k<15){
+            $html.='<div class="friend-grid-col">
+                <div class="friend-grid-col-inner">
+                    <div class="firend-grid-col-image">
+                        <img src="'.$tier2->profile_image().'" alt="">
+                    </div>
+                    <div class="friend-grid-col-text">
+                        <a href="'.url('profile-view/'.$tier2->id).'" class="text-decoration-none text-muted">'.$tier2->fullName().'</a>
+                    </div>
+                </div>
+            </div>';
+             } } 
+             $html .= '</div>';
+        }
+        return response()->json($html);
     }
 
     public function update_name(Request $request)
@@ -82,7 +160,7 @@ class UserController extends Controller
         return response()->json(['success' => 'updated', 'response' => $response]);
     }
 
-    public function update_profile(Request $request)
+    public function update_profile(Request $request) 
     {
         $this->validate($request, [
             'profile' => 'required|mimes:jpeg,png,jpg,gif,svg|file|max:4000',

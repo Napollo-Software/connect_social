@@ -3,7 +3,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SmsController;
-use App\Http\Controllers\ReferralController;
+use App\Http\Controllers\ReferralController; 
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\ProfilesController;
 use App\Http\Controllers\Auth\VerifyCodeController; 

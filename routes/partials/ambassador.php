@@ -33,8 +33,9 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::delete('asset-destroy', [PostController::class, 'asset_destroy'])->name('post.asset.destroy');
         });
 
-        Route::prefix('ambassador')->group(function () {
+        Route::prefix('ambassador')->group(function () { 
             Route::get('', [UserController::class, 'index'])->name('ambassador.profile');
+            Route::post('fetch-network',[UserController::class,'fetch'])->name('ambassador.fetch.network');
             Route::post('update-name', [UserController::class, 'update_name'])->name('ambassador.update.name');
             Route::post('update-about', [UserController::class, 'update_about'])->name('ambassador.update.about');
             Route::post('update-cover', [UserController::class, 'update_cover'])->name('ambassador.update.cover');

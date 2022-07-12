@@ -257,17 +257,14 @@ function getFriendsListUsers($id){
         $users[]=$user;
     }
     return $users;
-}
+} 
 
 
 function getConnectionsList($id){
     $connections=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
     return $connections;
 }
-function getTier1List($id){
-    $connections=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
-    return $connections;
-}
+
 function getConnectionsListUsers($id){
     $connections=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
     $users=[];
