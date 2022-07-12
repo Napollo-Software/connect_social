@@ -221,7 +221,7 @@ function receivedConnectionRequest($id){
     return false;
 }
 function getFriendDetails($f){
-    $friend=null;
+    $friend=null; 
     if (auth()->user()->id==$f->from){
         $friend=$f->user_to;
     }
@@ -261,6 +261,10 @@ function getFriendsListUsers($id){
 
 
 function getConnectionsList($id){
+    $connections=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
+    return $connections;
+}
+function getTier1List($id){
     $connections=Connection::where('from',$id)->where('status',\Connections::STATUS_APPROVED)->orwhere('to',$id)->where('status',\Connections::STATUS_APPROVED)->get();
     return $connections;
 }

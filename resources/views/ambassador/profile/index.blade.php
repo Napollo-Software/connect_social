@@ -426,12 +426,14 @@ My Profile
                                                     <div class="content-card-content-inner">
                                                         <div class="photo-galary-grid">
                                                             <div class="photo-galary-grid-inner">
-                                                                @foreach($images as $image)
+                                                                @foreach($images as $k=>$image)
+                                                                 @if($k<15)
                                                                     <div class="photo-grid-col">
                                                                         <div class="photo-grid-col-inner">
                                                                             <img src="{{$image}}" alt="{{$image}}">
                                                                         </div>
                                                                     </div>
+                                                                    @endif
                                                                 @endforeach
                                                             </div>
                                                         </div>
@@ -450,7 +452,18 @@ My Profile
                                                     <div class="content-top-bar-inner">
                                                         <div class="content-top-bar-title">
                                                             <div class="text">
-                                                                Friends ({{getFriendsList($user->id)->count()}})
+                                                                <span class="icon">
+                                                                    <img src="{{url('ambassador_assets/images/icons/users.svg')}}" alt="">
+                                                                </span> ({{getFriendsList($user->id)->count()}})
+                                                                <span class="icon">
+                                                                    <img src="{{url('ambassador_assets/images/icons/connection.svg')}}" alt="">
+                                                                </span> ({{getConnectionsList($user->id)->count()}})
+                                                                <span class="icon">
+                                                                    <img src="{{url('ambassador_assets/images/icons/personal-network.svg')}}" alt="">
+                                                                </span><small> Tier 1 </small>
+                                                                <span class="icon">
+                                                                    <img src="{{url('ambassador_assets/images/icons/extended-network.svg')}}" alt="">
+                                                                </span><small> Tier 2 </small>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -460,7 +473,8 @@ My Profile
                                                         <div class="friend-grid">
                                                             <div class="friend-grid-inner">
                                                                 @if(getFriendsList($user->id)->count()>0)
-                                                                    @foreach(getFriendsListUsers($user->id) as $friend)
+                                                                    @foreach(getFriendsListUsers($user->id) as $k=>$friend)
+                                                                    @if($k<15)
                                                                     <div class="friend-grid-col">
                                                                         <div class="friend-grid-col-inner">
                                                                             <div class="firend-grid-col-image">
@@ -471,11 +485,13 @@ My Profile
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    @endif
                                                                     @endforeach
                                                                 @else
                                                                     <i class="text-muted ml-4">No friend</i>
                                                                 @endif
                                                             </div>
+                                                            
                                                         </div>
                                                     </div>
                                                     <div class="see-all custom-padding">
