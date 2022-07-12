@@ -582,7 +582,7 @@ My Profile
             data: {'type': type, _token: '{{csrf_token()}}'},
             success:function(data){
                 $('.friend-grid-inner').html(data);
-                $('.see-all-url').html('<a href="{{route('network',[network_type'])}}">See All</a>');
+                $('.see-all-url').html('<a href="{{route('network',['network_type'])}}">See All</a>');
             },
             error: function (xhr) {
                 erroralert(xhr);
