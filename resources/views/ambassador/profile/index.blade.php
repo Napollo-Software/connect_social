@@ -919,7 +919,7 @@ My Profile
                                         </option>
                                         <option value="female" {{auth()->user()->gender=='female'?'selected':''}}>Female
                                         </option>
-                                    </select>
+                                    </select> 
                                 </div>
                             </div>
                         </div>
