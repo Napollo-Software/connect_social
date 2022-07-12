@@ -8,7 +8,7 @@
                     </div>
                 </div>
                 <ul class="home-navigation-ul">
-                <li class="home-navigation-li {{Route::getCurrentRoute()->type=='all'?'active':''}}"><a href="{{url('home/all')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/globe.svg')}}" alt=""></span> <span class="text">Everyone</span></a></li>
+                <li class="home-navigation-li {{Route::currentRouteName()=='home'?'active':''}}  {{Route::getCurrentRoute()->type=='all'?'active':''}}"><a href="{{url('home/all')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/globe.svg')}}" alt=""></span> <span class="text">Everyone</span></a></li>
                     <li class="home-navigation-li {{Route::getCurrentRoute()->type=='friends'?'active':''}}"><a href="{{url('home/friends')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/users.svg')}}" alt=""></span> <span class="text">Friends</span></a></li>
                     <li class="home-navigation-li {{Route::getCurrentRoute()->type=='connections'?'active':''}}"><a href="{{url('home/connections')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/connection.svg')}}" alt=""></span> <span class="text">Connections</span></a></li>
                     <li class="home-navigation-li {{Route::getCurrentRoute()->type=='tier-1'?'active':''}}"><a href="{{url('home/tier-1')}}" class="home-navigation-link"><span class="icon"><img src="{{asset('ambassador_assets/images/icons/personal-network.svg')}}" alt=""></span> <span class="text">Personal Network</span></a></li>
@@ -17,6 +17,7 @@
                 <div class="message-button to-hide-sticky">
                     <div class="message-button-inner">
                         <a href="{{url('chat')}}" class='text-decoration-none hover-button'><span class="ti-comment-alt"></span></a>
+
                     </div>
                 </div>
                 <div class="search-input-home-navigation to-hide-sticky">

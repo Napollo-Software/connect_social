@@ -1,8 +1,8 @@
-@include('ambassador.kyc.components.top-bar')
-@section('title')
+
+    @extends('ambassador.kyc.layouts.app')
+    @section('title')
 Kyc Responce
 @endsection
-@extends('kyc.layouts.app')
 @section('content')
     <div class="form-card-div padding-div bg-custom">
         <div class="form-card-div-inner custom-card custom-shadow custom-padding custom-border custom-width">
@@ -40,7 +40,7 @@ Kyc Responce
                         <div class="passport-field-inner  m-0 margin-bottom">
                                     <div class="form-card-div-field">
                         <textarea name="" rows="5"
-                                  class="form-div-field-input clasic-shadow input-radius text-area-input"
+                                  class="form-div-field-input custom-shadow input-radius text-area-input"
                                   placeholder="Enter Details"></textarea>
                     </div>
             </div>
@@ -48,7 +48,7 @@ Kyc Responce
         <div class="form-card-profile-doc">
             <div class="form-card-profile-doc-inner">
                 <div class="doc-uploader">
-                    <div class="doc-uploader-inner  custom-padding clasic-shadow input-radius">
+                    <div class="doc-uploader-inner  custom-padding custom-shadow input-radius">
                         <div class="doc-uploader-main input-radius">
                             <div id="doc-uploader">
                                 <div class="input-images"></div>

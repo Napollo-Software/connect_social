@@ -20,10 +20,6 @@
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/tags/tags.css')}}">
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/tags/tagsify.css')}}">
 
-    
-    
-    
-    
 </head>
 <body>
     <div class="page-wrapper">
@@ -54,7 +50,7 @@
                 //   {id: 5, src: 'https://picsum.photos/500/500?random=5'},
                 //   {id: 6, src: 'https://picsum.photos/500/500?random=6'},
               ];
-      
+
               $('.input-driving-licence').imageUploader({
                   imagesInputName: 'driving_license',
                   preloadedInputName: 'old',
@@ -66,9 +62,9 @@
                   preloadedInputName: 'old',
                   maxFiles:2
               });
-      
 
-      
+
+
               // Input and label handler
               $('input').on('focus', function () {
                   $(this).parent().find('label').addClass('active')
@@ -77,7 +73,7 @@
                       $(this).parent().find('label').removeClass('active');
                   }
               });
-      
+
       </script>
       @include('ambassador.scripts.universal')
 </body>
