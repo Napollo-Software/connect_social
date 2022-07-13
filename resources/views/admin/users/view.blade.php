@@ -20,11 +20,8 @@
                         </ol>
                     </nav>
                 </div>
-
             </div>
-
             <div class="card">
-              
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -110,8 +107,4 @@
 @endsection
 @section("script")
     <script src="{{url('index.js')}}"></script>
-
-    <script>
-  
-    </script>
 @endsection
