@@ -21,6 +21,8 @@
     <link rel="stylesheet" href="{{asset('assets/lib/uploader/uploader.css')}}">
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/tags/tags.css')}}">
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/tags/tagsify.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
 
 </head>
 <body>
