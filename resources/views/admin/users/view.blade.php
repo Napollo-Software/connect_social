@@ -82,11 +82,11 @@
                             </tr>
                             <tr>
                                 <th>Tier 1</th>
-                                <td>{{$view->user->details}}</td>
+                                <td>{{$view->id}}</td>
                             </tr>
                             <tr>
                                 <th>Tier 2</th>
-                                <td>{{$view}}</td>
+                                <td>{{$view->id}}</td>
                             </tr>
                            <tr>
                                 <th>Passport No</th>
