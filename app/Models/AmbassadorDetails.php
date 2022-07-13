@@ -56,6 +56,7 @@ class AmbassadorDetails extends Model
         }
         return null;
     }
+    
     public function user(){
         return $this->belongsTo(User::class,'user_id');
     }
