@@ -82,7 +82,7 @@
                             </tr>
                             <tr>
                                 <th>Tier 1</th>
-                                <td>{{tier_1()}}</td>
+                                <td>{{$view->user->details}}</td>
                             </tr>
                             <tr>
                                 <th>Tier 2</th>
