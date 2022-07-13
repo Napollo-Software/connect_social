@@ -1,6 +1,6 @@
 @extends('ambassador.layouts.app')
 @section('title')
-My Profile
+    My Profile
 @endsection
 @section('content')
     <div class="profile-content">
@@ -18,7 +18,7 @@ My Profile
                                                     <div class="content-top-bar-inner">
                                                         <div class="content-top-bar-title">
                                                             <div class="text">
-                                                                About 
+                                                                About
                                                             </div>
                                                             @if($user->id==auth()->user()->id)
                                                                 <div class="edit-button"
@@ -63,7 +63,8 @@ My Profile
                                                     </div>
                                                     @if($user->id==auth()->user()->id)
 
-                                                        <div class="abouy-text-editor custom-padding" style="display:none">
+                                                        <div class="abouy-text-editor custom-padding"
+                                                             style="display:none">
                                                             <div class="abouy-text-editor-inner">
                                                                 <form id="about_form">
                                                                     @csrf
@@ -427,12 +428,12 @@ My Profile
                                                         <div class="photo-galary-grid">
                                                             <div class="photo-galary-grid-inner">
                                                                 @foreach($images as $k=>$image)
-                                                                 @if($k<15)
-                                                                    <div class="photo-grid-col">
-                                                                        <div class="photo-grid-col-inner">
-                                                                            <img src="{{$image}}" alt="{{$image}}">
+                                                                    @if($k<15)
+                                                                        <div class="photo-grid-col">
+                                                                            <div class="photo-grid-col-inner">
+                                                                                <img src="{{$image}}" alt="{{$image}}">
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
                                                                     @endif
                                                                 @endforeach
                                                             </div>
@@ -452,17 +453,23 @@ My Profile
                                                     <div class="content-top-bar-inner">
                                                         <div class="content-top-bar-title">
                                                             <div class="text">
-                                                                <span class="icon hover profile-network "  data-type='friends'>
-                                                                    <img src="{{url('ambassador_assets/images/icons/users.svg')}}" alt="">
+                                                                <span class="icon hover profile-network "
+                                                                      data-type='friends'>
+                                                                    <img src="{{url('ambassador_assets/images/icons/users.svg')}}"
+                                                                         alt="">
                                                                 </span> ({{getFriendsList($user->id)->count()}})
-                                                                <span class="icon profile-network" data-type='connections'>
-                                                                    <img src="{{url('ambassador_assets/images/icons/connection.svg')}}" alt="">
+                                                                <span class="icon profile-network"
+                                                                      data-type='connections'>
+                                                                    <img src="{{url('ambassador_assets/images/icons/connection.svg')}}"
+                                                                         alt="">
                                                                 </span> ({{getConnectionsList($user->id)->count()}})
                                                                 <span class="icon profile-network" data-type='tier-1'>
-                                                                    <img src="{{url('ambassador_assets/images/icons/personal-network.svg')}}" alt="">
-                                                                </span> ({{auth()->user()->tier_1()->count()}}) 
+                                                                    <img src="{{url('ambassador_assets/images/icons/personal-network.svg')}}"
+                                                                         alt="">
+                                                                </span> ({{auth()->user()->tier_1()->count()}})
                                                                 <span class="icon profile-network" data-type='tier-2'>
-                                                                    <img src="{{url('ambassador_assets/images/icons/extended-network.svg')}}" alt="">
+                                                                    <img src="{{url('ambassador_assets/images/icons/extended-network.svg')}}"
+                                                                         alt="">
                                                                 </span>({{auth()->user()->tier_2()->count()}})
                                                             </div>
                                                         </div>
@@ -472,14 +479,14 @@ My Profile
                                                     <div class="content-card-content-inner">
                                                         <div class="friend-grid">
                                                             <div class="friend-grid-inner">
-                                                                
+
                                                             </div>
-                                                            
+
                                                         </div>
                                                     </div>
                                                     <div class="see-all custom-padding">
                                                         <div class="see-all-inner see-all-url">
-                                                            
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -537,36 +544,36 @@ My Profile
     </div>
 @endsection
 <script src="{{url('index.js')}}"></script>
-@push('scripts') 
- <script>
-       $('document').ready(function() {
-        fetch('{{$type}}');
-        $(document).on('click','.profile-network',function (e) {
-        e.preventDefault();
-        var type=$(this).attr('data-type');
-        fetch(type);
+@push('scripts')
+    <script>
+        $('document').ready(function () {
+            fetch('{{$type}}');
+            $(document).on('click', '.profile-network', function (e) {
+                e.preventDefault();
+                var type = $(this).attr('data-type');
+                fetch(type);
+            });
         });
-    });
 
-    function fetch(type){
-    $.ajax({
-        type:"POST",
-        url:"{{route('ambassador.fetch.network')}}",
-        data: {'type': type, _token: '{{csrf_token()}}'},
-        beforeSend: function () {
-        $('.friend-grid-inner').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>');
-        },
-        success:function(data){
-        $('.friend-grid-inner').html(data);
-        $('.see-all-url').html('<a href="{{route('network',['friends'])}}">See All</a>');
-        },
-        error: function (xhr) {
-        erroralert(xhr);
+        function fetch(type) {
+            $.ajax({
+                type: "POST",
+                url: "{{route('ambassador.fetch.network')}}",
+                data: {'type': type, _token: '{{csrf_token()}}'},
+                beforeSend: function () {
+                    $('.friend-grid-inner').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>');
+                },
+                success: function (data) {
+                    $('.friend-grid-inner').html(data);
+                    $('.see-all-url').html('<a href="{{route('network',['friends'])}}">See All</a>');
+                },
+                error: function (xhr) {
+                    erroralert(xhr);
+                }
+            });
         }
-    });
-    }
-        
- </script>
+
+    </script>
     @if($user->id==auth()->user()->id)
         <script>
             $(function () {
@@ -602,7 +609,7 @@ My Profile
                         cache: false,
                         success: function (data) {
                             $('.abouy-text-editor').hide();
-                            $('.about-content').show(); 
+                            $('.about-content').show();
                             $('#about-text').text(data.response.about);
                         },
                         error: function (xhr) {
@@ -698,6 +705,7 @@ My Profile
                         });
                 });
             });
+
             function changePrivacy(key, value) {
                 $.ajax({
                     type: "POST",
@@ -794,18 +802,18 @@ My Profile
                 $(document).on('click', '.friend-request-sent', function () {
                     var id = $(this).attr('data-id');
                     var status = null;
-                    if($(this).hasClass('approve')){
-                        status='{{Friends::STATUS_APPROVED}}'
+                    if ($(this).hasClass('approve')) {
+                        status = '{{Friends::STATUS_APPROVED}}'
                     }
-                    if($(this).hasClass('decline')){
-                        status='{{Friends::STATUS_REJECTED}}'
+                    if ($(this).hasClass('decline')) {
+                        status = '{{Friends::STATUS_REJECTED}}'
                     }
 
                     $.ajax({
                         type: "POST",
                         url: "{{route('friends.action')}}",
                         dataType: "JSON",
-                        data: {'id': id,'status': status, _token: '{{csrf_token()}}'},
+                        data: {'id': id, 'status': status, _token: '{{csrf_token()}}'},
                         success: function (data) {
                             showControls('{{$user->id}}');
                         },
@@ -817,18 +825,18 @@ My Profile
                 $(document).on('click', '.connection-request-sent', function () {
                     var id = $(this).attr('data-id');
                     var status = null;
-                    if($(this).hasClass('approve')){
-                        status='{{Connections::STATUS_APPROVED}}'
+                    if ($(this).hasClass('approve')) {
+                        status = '{{Connections::STATUS_APPROVED}}'
                     }
-                    if($(this).hasClass('decline')){
-                        status='{{Connections::STATUS_REJECTED}}'
+                    if ($(this).hasClass('decline')) {
+                        status = '{{Connections::STATUS_REJECTED}}'
                     }
 
                     $.ajax({
                         type: "POST",
                         url: "{{route('connections.action')}}",
                         dataType: "JSON",
-                        data: {'id': id,'status': status, _token: '{{csrf_token()}}'},
+                        data: {'id': id, 'status': status, _token: '{{csrf_token()}}'},
                         success: function (data) {
                             showControls('{{$user->id}}');
                         },
@@ -947,7 +955,7 @@ My Profile
                                         </option>
                                         <option value="female" {{auth()->user()->gender=='female'?'selected':''}}>Female
                                         </option>
-                                    </select> 
+                                    </select>
                                 </div>
                             </div>
                         </div>

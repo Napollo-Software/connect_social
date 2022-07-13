@@ -55,5 +55,21 @@
 <script>
 
 </script>
+<style>
+    .friends-grid-main{
+        min-height: 300px;
+    }
+    .spinner-border-large{
+        display: inline-block;
+        width: 5rem;
+        height: 5rem;
+        vertical-align: -.125em;
+        border: .15em solid #007bff;
+        border-right-color: transparent;
+        border-radius: 50%;
+        -webkit-animation: .75s linear infinite spinner-border;
+        animation: .75s linear infinite spinner-border;
+    }
+</style>
 </body>
 </html>
