@@ -14,6 +14,7 @@ Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->grou
     Route::prefix('user')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('users');
         Route::post('fetch', [UserController::class, 'fetch'])->name('users.fetch');
+        Route::get('view/{id}',[UserController::class,'view'])->name('users.view');
     });
     Route::prefix('referral-link')->group(function () {
         Route::post('store', [ReferralController::class, 'store'])->name('referral.link.store');

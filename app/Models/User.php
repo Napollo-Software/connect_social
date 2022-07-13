@@ -88,7 +88,7 @@ class User extends Authenticatable
             $tier_1[]=$item->referred_to;
         }
         return User::whereIn('id',$tier_1)->get();
-    }
+    } 
     public function tier_2(){
         $tier_2=[];
         foreach ($this->tier_1() as $tier_1){

@@ -37,11 +37,12 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
                             </tbody>
-                            <tfoot>
+                            <tfoot> 
                             <tr>
                                 <th>ID</th>
                                 <th>First Name</th>
@@ -49,6 +50,7 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                <th>Action</th>
                             </tr>
                             </tfoot>
                         </table>
@@ -87,6 +89,7 @@
                     {"data": "username"},
                     {"data": "email"},
                     {"data": "role"},
+                    {"data":"action" , searchable : false , orderable : false},
 
                 ]
             });
