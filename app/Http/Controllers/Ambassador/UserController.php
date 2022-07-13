@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
 
-    public function index($id = null){
+    public function index($id = null)
+    {
 
         if ($id) {
-            ($id == auth()->user()->id) ? ( $user = auth()->user() ) : ( $user = User::find($id) );
+            ($id == auth()->user()->id) ? ($user = auth()->user()) : ($user = User::find($id));
         } else {
             $user = auth()->user();
-            $id=auth()->user()->id;
+            $id = auth()->user()->id;
         }
         $images = [];
         if (File::isDirectory(public_path('storage/profile/' . $user->email))) {
@@ -33,9 +34,9 @@ class UserController extends Controller
                 $images[] = Storage::disk('local')->url('/a/covers/' . $id . '/' . $file->getFilename());
             }
         }
-        $type='friends';
+        $type = 'friends';
         $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
-        return view('ambassador.profile.index', compact('posts', 'images', 'user','type'));
+        return view('ambassador.profile.index', compact('posts', 'images', 'user', 'type'));
     }
 
     public function fetch(Request $request)
@@ -70,23 +71,25 @@ class UserController extends Controller
         if ($type == 'tier-2') {
             $data = $user->tier_2();
         }
-        $html='';
-        $type=$request->type;
-        $html.='<div class="friend-grid-inner">';
-        foreach($data as $k=>$details){if($k<15){
-        $html.='<div class="friend-grid-col">
+        $html = '';
+        $type = $request->type;
+        $html .= '<div class="friend-grid-inner">';
+        foreach ($data as $k => $details) {
+            if ($k < 15) {
+                $html .= '<div class="friend-grid-col">
             <div class="friend-grid-col-inner">
                 <div class="firend-grid-col-image">
-                    <img src="'.$details->profile_image().'" alt="">
+                    <img src="' . $details->profile_image() . '" alt="">
                 </div>
                 <div class="friend-grid-col-text">
-                    <a href="'.url('profile-view/'.$details->id).'" class="text-decoration-none text-muted">'.$details->fullName().'</a>
+                    <a href="' . url('profile-view/' . $details->id) . '" class="text-decoration-none text-muted">' . $details->fullName() . '</a>
                 </div>
             </div>
         </div>';
-            } } 
-            $html .= '</div>';
-    return response()->json($html);
+            }
+        }
+        $html .= '</div>';
+        return response()->json($html);
     }
 
     public function update_name(Request $request)
@@ -134,7 +137,7 @@ class UserController extends Controller
         return response()->json(['success' => 'updated', 'response' => $response]);
     }
 
-    public function update_profile(Request $request) 
+    public function update_profile(Request $request)
     {
         $this->validate($request, [
             'profile' => 'required|mimes:jpeg,png,jpg,gif,svg|file|max:4000',
@@ -216,52 +219,50 @@ class UserController extends Controller
         return response()->json(['success' => 'updated']);
     }
 
-    public function show_control(Request $request){
-        $from=auth()->user()->id;
-        $to=$request->id;
-        $cancelConnectionRequest='    <button class="black-button mr-2 cancel-connection-request">Cancel Connection Request</button>';
+    public function show_control(Request $request)
+    {
+        $from = auth()->user()->id;
+        $to = $request->id;
+        $cancelConnectionRequest = '    <button class="black-button mr-2 cancel-connection-request">Cancel Connection Request</button>';
 
-        $sendMessage='                <button class="black-button mr-2">Send Message</button>';
-        $addAsFriend="                <button class='black-button mr-2 sent-request' id='add-as-friend' data-to='".$to."'>Add as Friend</button>";
-        $confirmFriendRequest='       <button class="black-button mr-2 friend-request-sent approve" data-id="'.$to.'">Confirm Friend Request</button>';
-        $rejectFriendRequest='        <button class="black-button mr-2 friend-request-sent decline" data-id="'.$to.'">Delete Friend Request</button>';
-        $cancelFriendRequest="        <button class='black-button mr-2 cancel-friend-request' data-id='".$to."'>Cancel Friend Request</button>";
-        $unfriend="                   <button class='black-button mr-2 remove-friend' data-id='".$to."'>Unfriend</button>";
-        $addAsConnection="            <button class='black-button mr-2 sent-request' id='add-as-connection' data-to='".$to."'>Add as Connection</button>";
-        $cancelConnectionRequest='    <button class="black-button mr-2 cancel-connection-request" data-id="'.$to.'">Cancel Connection Request</button>';
-        $confirmConnectionRequest='   <button class="black-button mr-2 connection-request-sent approve" data-id="'.$to.'">Confirm Connection Request</button>';
-        $rejectConnectionRequest='    <button class="black-button mr-2 connection-request-sent decline" data-id="'.$to.'">Delete Connection Request</button>';
-        $unConnection="               <button class='black-button mr-2 remove-connection' data-id='".$to."'>Remove From Connection</button>";
+        $sendMessage = '                <button class="black-button mr-2">Send Message</button>';
+        $addAsFriend = "                <button class='black-button mr-2 sent-request' id='add-as-friend' data-to='" . $to . "'>Add as Friend</button>";
+        $confirmFriendRequest = '       <button class="black-button mr-2 friend-request-sent approve" data-id="' . $to . '">Confirm Friend Request</button>';
+        $rejectFriendRequest = '        <button class="black-button mr-2 friend-request-sent decline" data-id="' . $to . '">Delete Friend Request</button>';
+        $cancelFriendRequest = "        <button class='black-button mr-2 cancel-friend-request' data-id='" . $to . "'>Cancel Friend Request</button>";
+        $unfriend = "                   <button class='black-button mr-2 remove-friend' data-id='" . $to . "'>Unfriend</button>";
+        $addAsConnection = "            <button class='black-button mr-2 sent-request' id='add-as-connection' data-to='" . $to . "'>Add as Connection</button>";
+        $cancelConnectionRequest = '    <button class="black-button mr-2 cancel-connection-request" data-id="' . $to . '">Cancel Connection Request</button>';
+        $confirmConnectionRequest = '   <button class="black-button mr-2 connection-request-sent approve" data-id="' . $to . '">Confirm Connection Request</button>';
+        $rejectConnectionRequest = '    <button class="black-button mr-2 connection-request-sent decline" data-id="' . $to . '">Delete Connection Request</button>';
+        $unConnection = "               <button class='black-button mr-2 remove-connection' data-id='" . $to . "'>Remove From Connection</button>";
 
-        $data='';
-        if (receivedAnyPendingRequest($to)){
-            if (receivedFriendRequest($to)){
-                $data.=$confirmFriendRequest;
-                $data.=$rejectFriendRequest;
+        $data = '';
+        if (receivedAnyPendingRequest($to)) {
+            if (receivedFriendRequest($to)) {
+                $data .= $confirmFriendRequest;
+                $data .= $rejectFriendRequest;
             }
-            if (receivedConnectionRequest($to)){
-                $data.=$confirmConnectionRequest;
-                $data.=$rejectConnectionRequest;
+            if (receivedConnectionRequest($to)) {
+                $data .= $confirmConnectionRequest;
+                $data .= $rejectConnectionRequest;
             }
-        }
-        elseif (receivedAnyApprovedRequest($to)){
-            if(checkApprovedRequest($to)=='connections'){
-                $data.=$unConnection;
-            }else{
-                $data.=$unfriend;
+        } elseif (receivedAnyApprovedRequest($to)) {
+            if (checkApprovedRequest($to) == 'connections') {
+                $data .= $unConnection;
+            } else {
+                $data .= $unfriend;
             }
-            $data.=$sendMessage;
+            $data .= $sendMessage;
 
-        }
-        else{
-            if (friendRequestSent($to)){
-                $data.=$cancelFriendRequest;
-            }elseif(connectionRequestSent($to)){
-                $data.=$cancelConnectionRequest;
-            }
-            else{
-                $data.=$addAsFriend;
-                $data.=$addAsConnection;
+        } else {
+            if (friendRequestSent($to)) {
+                $data .= $cancelFriendRequest;
+            } elseif (connectionRequestSent($to)) {
+                $data .= $cancelConnectionRequest;
+            } else {
+                $data .= $addAsFriend;
+                $data .= $addAsConnection;
             }
         }
         return response()->json($data);
