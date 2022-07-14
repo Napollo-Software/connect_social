@@ -27,49 +27,21 @@
                                                                     <div class="wallet-earning-filter-text">
                                                                         Filter by Date
                                                                     </div>
-                                                                    <div class="wallet-earning-filter-inputs">
-                                                                        <div class="label-text">Start Date</div>
-                                                                        <div class="wallet-earning-filter-single-input">
-                                                                            <input type="date">
+                                                                    <form action="{{route('wallet.dashboard')}}" method="get">
+                                                                        <div class="wallet-earning-filter-inputs">
+                                                                            <div class="label-text">Start Date</div>
+                                                                            <div class="wallet-earning-filter-single-input">
+                                                                                <input type="date" name="start">
+                                                                            </div>
+                                                                            <div class="label-text">End Date</div>
+                                                                            <div class="wallet-earning-filter-single-input">
+                                                                                <input type="date" name="end">
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="label-text">End Date</div>
-                                                                        <div class="wallet-earning-filter-single-input">
-                                                                            <input type="date">
+                                                                        <div class="action-button text-right">
+                                                                            <button type="submit" class="black-button">Apply</button>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="wallet-earning-filter-text">
-                                                                        Filter by Type:
-                                                                    </div>
-                                                                    <div class="wallet-earning-filter-inputs">
-                                                                        <div class="wallet-earning-filter-single-input">
-                                                                            <label for="check-01"><input type="checkbox"
-                                                                                                         id="check-01">
-                                                                                <span class="text">Ambassadors</span></label>
-                                                                        </div>
-                                                                        <div class="wallet-earning-filter-single-input">
-                                                                            <label for="check-02"><input type="checkbox"
-                                                                                                         id="check-02">
-                                                                                <span class="text">Merchants</span></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="wallet-earning-filter-text">
-                                                                        Filter by Tier:
-                                                                    </div>
-                                                                    <div class="wallet-earning-filter-inputs">
-                                                                        <div class="wallet-earning-filter-single-input">
-                                                                            <label for="check-03"><input type="checkbox"
-                                                                                                         id="check-03">
-                                                                                <span class="text">T1</span></label>
-                                                                        </div>
-                                                                        <div class="wallet-earning-filter-single-input">
-                                                                            <label for="check-04"><input type="checkbox"
-                                                                                                         id="check-04">
-                                                                                <span class="text">T2</span></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="action-button text-right">
-                                                                        <button class="black-button">Apply</button>
-                                                                    </div>
+                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         </div>

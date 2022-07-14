@@ -12,13 +12,24 @@ class WalletController extends Controller
 {
     //
     use Transaction;
-    public function index(){
+    public function index(Request $request){
         $tier1Earnings=0;
         $tier2Earnings=0;
-
-        $my_trxs=JournalDetails::where('account',auth()->user()->coa)->get();
-
-
+        if ($request->start){
+            $my_trxs=JournalDetails::whereDate('created_at','>=',$request->start)->where('account',auth()->user()->coa)->get();
+        }
+        elseif ($request->end){
+            $my_trxs=JournalDetails::whereDate('created_at','<=',$request->end)->where('account',auth()->user()->coa)->get();
+        }
+        elseif ($request->start && $request->end){
+            $my_trxs=JournalDetails::
+                  whereDate('created_at','>=',$request->start)
+                ->whereDate('created_at','<=',$request->end)
+                ->where('account',auth()->user()->coa)->get();
+        }
+        else{
+            $my_trxs=JournalDetails::where('account',auth()->user()->coa)->get();
+        }
         foreach (JournalDetails::where('account',auth()->user()->coa)->get() as $detail){
             if ($detail->journal->type=='Tier 1 Reward' && isset($detail->dr)){
                 $tier1Earnings+=$detail->dr;
@@ -29,7 +40,6 @@ class WalletController extends Controller
                 $tier2Earnings+=$detail->dr;
             }
         }
-
         return view('ambassador.wallet.earnings.index',compact('my_trxs','tier1Earnings','tier2Earnings'));
     }
 }
