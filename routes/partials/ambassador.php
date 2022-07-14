@@ -14,6 +14,8 @@ use App\Http\Controllers\Ambassador\SearchController;
 use App\Http\Controllers\Ambassador\NetworkController;
 use App\Http\Controllers\Ambassador\SendInviteController;
 use App\Http\Controllers\Ambassador\KycController;
+use App\Http\Controllers\Ambassador\WalletController;
+use App\Http\Controllers\TransactionController;
 
 Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group(function () {
 
@@ -93,9 +95,15 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::post('submit', [KycController::class, 'submit'])->name('kyc.submit');
             Route::get('response', [KycController::class, 'kyc_response'])->name('kyc.response');
         });
+        Route::prefix('transactions')->group(function () {
+            Route::post('ambassador/fetch', [TransactionController::class, 'fetch'])->name('transactions.ambassador.fetch');
+        });
+        Route::prefix('wallet')->group(function () {
+            Route::get('dashboard', [WalletController::class, 'index'])->name('wallet.dashboard');
+        });
+
     });
     Route::prefix('send-invite-email')->group(function () {
         Route::post('for-referral', [SendInviteController::class, 'send_invite'])->name('send.invite.for.referral');
     });
-
 });

@@ -9,7 +9,7 @@
                         </div>
                         <div class="profile-wallete-text">
                             <div class="profile-wallete-top-text">
-                                My Balance
+                                <a href="{{route('wallet.dashboard')}}">My Balance</a>
                             </div>
                             <div class="profile-wallete-balance">
                                 10 Coins (Worth $1500)

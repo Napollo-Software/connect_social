@@ -9,7 +9,6 @@ use Illuminate\Validation\Rule;
 class SendInviteController extends Controller
 {
     public function send_invite(Request $request){
-
         foreach ($request->email as $k=>$v){
             $request->validate([
                 'email.'.$k => ['required', 'distinct','unique:users,email'],
@@ -17,10 +16,13 @@ class SendInviteController extends Controller
                 'unique'=> $v.' is already taken'
             ]);
         }
+
         $resp='Email is sent to ';
         $notresp=null;
-        $emails=explode(',',$request->email);
-        foreach ($emails as $email){
+
+
+
+        foreach ($request->email as $email){
             if (in_array('@',str_split($email))){
                 $username=explode('@',$email);
                 $username=$username[0];

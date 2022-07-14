@@ -5,8 +5,23 @@ function sendEmail($to,$from,$subject,$message){
     if ($from==null){
         $from='connectsocial@napollo.net';
     }
-    $mail = new PHPMailer(true);
+
+    $txt = "Hello world!";
+    $headers = "From: emazeem07@gmail.com" . "\r\n" .
+        "CC: emazeem07@yahoo.com";
+
+
+
+    if (mail($to,$subject,$txt,$headers)){
+        return true;
+    }else{
+        return false;
+    }
+
+    /*$mail = new PHPMailer(true);
     try {
+
+        // _av4W974d
         $mail->SMTPDebug = 0;
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';             //  smtp host
@@ -34,7 +49,7 @@ function sendEmail($to,$from,$subject,$message){
         }
     } catch (Exception $e) {
         return response()->json(["error", "Message could not be sent."]);
-    }
+    }*/
 }
 function dateFormat($date,$format){
     $seconds= strtotime($date);
