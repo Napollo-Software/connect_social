@@ -70,15 +70,51 @@
                                 <td>{{ucfirst($view->user->gender)}}</td>
                             </tr>
                             <tr>
-                                <th>Friends</th>
-                                <td>{{getFriendsList($view->id)->count()}}</td>
+                                <th>Friends( {{getFriendsList($view->id)->count()}} )</th>
+                                <td>
+                                <div class="friend-grid-inner " style="display: flex">
+                                @foreach(getFriendsListUsers($view->id) as $k=>$details)
+                                <div class="friend-grid-col">
+                                <div class="friend-grid-col-inner">
+                                    <div class="firend-grid-col-image">
+                                        <img src={{$details->profile_image()}}  width="100" class="img-thumbnail" alt="">
+                                    </div>
+                                    <div class="friend-grid-col-text">
+                                        <a href="" class="text-decoration-none text-muted">{{$details->fullName()}}</a>
+                                    </div>
+                                </div>
+                                </div>
+                                @endforeach
+                            </div>
+                            </td>
                             </tr>
                             <tr>
-                                <th>Connections</th>
-                                <td>{{getConnectionsList($view->id)->count()}}</td>
+                                <th>Connections ( {{getConnectionsList($view->id)->count()}} )</th>
+                                <td>
+                                    <div class="friend-grid-inner " style="display: flex">
+                                        @foreach(getConnectionsListUsers($view->id) as $k=>$details)
+                                        <div class="friend-grid-col">
+                                        <div class="friend-grid-col-inner " >
+                                            <div class="firend-grid-col-image">
+                                                <img src={{$details->profile_image()}}  width="100" class="img-thumbnail " alt="">
+                                            </div>
+                                            <div class="friend-grid-col-text">
+                                                <a href="" class="text-decoration-none text-muted">{{$details->fullName()}}</a>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <th>Tier 1</th>
+                                <th>Tier 1
+                                   @php
+                                        use App/Models/User;
+                                       $user = User::find($view->id);
+                                   @endphp
+                                   ( {{$user->tier_1()->count();}} )
+                                </th>
                                 <td>{{$view->id}}</td>
                             </tr>
                             <tr>
