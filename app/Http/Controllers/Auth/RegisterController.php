@@ -133,19 +133,22 @@ class RegisterController extends Controller
                 $parentTier2=$user->tier_00();
 
 
-                $this->transaction('Tier 1 Reward','Tier 1 Reward from joining of '.$full_name.'['.$user->email.']',
-                    array(
-                        array('account'=>$connectSocialAccount->id,'dr'=>null,'cr'=>$tier1reward),
-                        array('account'=>$parentTier1->coa,'dr'=>$tier1reward,'cr'=>null)
-                    )
-                );
-                $this->transaction('Tier 2 Reward','Tier 1 Reward from joining of '.$full_name.'['.$user->email.']',
-                    array(
-                        array('account'=>$connectSocialAccount->id,'dr'=>null,'cr'=>$tier2reward),
-                        array('account'=>$parentTier2->coa,'dr'=>$tier2reward,'cr'=>null)
-                    )
-                );
-
+                if ($parentTier1){
+                    $this->transaction('Tier 1 Reward','Tier 1 Reward from joining of '.$full_name.'['.$user->email.']',
+                        array(
+                            array('account'=>$connectSocialAccount->id,'dr'=>null,'cr'=>$tier1reward),
+                            array('account'=>$parentTier1->coa,'dr'=>$tier1reward,'cr'=>null)
+                        )
+                    );
+                }
+                if ($parentTier2){
+                    $this->transaction('Tier 2 Reward','Tier 2 Reward from joining of '.$full_name.'['.$user->email.']',
+                        array(
+                            array('account'=>$connectSocialAccount->id,'dr'=>null,'cr'=>$tier2reward),
+                            array('account'=>$parentTier2->coa,'dr'=>$tier2reward,'cr'=>null)
+                        )
+                    );
+                }
             }
         }
 

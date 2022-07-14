@@ -208,23 +208,18 @@
                                     <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Role</th>
+                                        <th>Type</th>
                                         <th>Activity</th>
-                                        <th>Network Type</th>
                                         <th>Date</th>
                                         <th>Amount</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($my_trxs as $my_trx)
-                                        <?php
-                                            $us=\App\Models\User::where('coa',$my_trx->account)->first();
-                                        ?>
                                         <tr>
                                             <td>{{$my_trx->chartOfAccount->title}}</td>
-                                            <td>{{$us->roles->name}}</td>
+                                            <td>{{$my_trx->journal->type}}</td>
                                             <td>{{$my_trx->journal->narration}}</td>
-                                            <td>----</td>
                                             <td>{{$my_trx->created_at->format('d-m-Y')}}</td>
                                             <td>
                                                 @if($my_trx->dr)
@@ -232,7 +227,6 @@
                                                 @else
                                                     <span class="credit">- ${{$my_trx->dr}}</span>
                                                 @endif
-
                                             </td>
                                         </tr>
                                     @endforeach
