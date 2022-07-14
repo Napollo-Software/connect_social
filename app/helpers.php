@@ -5,20 +5,7 @@ function sendEmail($to,$from,$subject,$message){
     if ($from==null){
         $from='connectsocial@napollo.net';
     }
-
-    $txt = "Hello world!";
-    $headers = "From: emazeem07@gmail.com" . "\r\n" .
-        "CC: emazeem07@yahoo.com";
-
-
-
-    if (mail($to,$subject,$txt,$headers)){
-        return true;
-    }else{
-        return false;
-    }
-
-    /*$mail = new PHPMailer(true);
+    $mail = new PHPMailer(true);
     try {
 
         // _av4W974d
@@ -49,7 +36,7 @@ function sendEmail($to,$from,$subject,$message){
         }
     } catch (Exception $e) {
         return response()->json(["error", "Message could not be sent."]);
-    }*/
+    }
 }
 function dateFormat($date,$format){
     $seconds= strtotime($date);
@@ -425,4 +412,8 @@ function checkPrivacyInNetwork($privacy,$other_network_id)
         return true;
     }
     return false;
+}
+use App\Models\ChartOfAccount;
+function ConnectSocialCOA(){
+    return ChartOfAccount::where('group','connect-social-account')->first();
 }

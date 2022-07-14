@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\ChartOfAccount;
+use App\Http\Traits\Transaction;
 use App\Models\AmbassadorDetails;
 use App\Models\Referral;
 use App\Models\Role;
@@ -17,42 +19,14 @@ use Nexmo;
 
 class RegisterController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Register Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users as well as their
-    | validation and creation. By default this controller uses a trait to
-    | provide this functionality without requiring any additional code.
-    |
-    */
 
     use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
     protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         $this->middleware('guest');
     }
-
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -70,67 +44,64 @@ class RegisterController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return \App\Models\User
-     */
+    use ChartOfAccount;
+    use Transaction;
     protected function create(array $data)
     {
-        $mobilecode=rand(100000,999999);
+        //Step 1 : Insert data in User
+        //Step 2 : Send verification email
+        //Step 3 : Create ambassador/merchant details
+        //Step 4 : Create referral table data
+        //Step 5 : Create COA of ambassador/merchant
+        //Step 6 : Award with joining reward
+        //Step 7 : Award to parent tier 1 and parent tier 2
+
+
         $emailcode=rand(100000,999999);
-        $message='Dear '.$data['fname'].' '.$data['lname'].',<br><br>
-Congrats! You are one step away from joining our community! You need to verify your email address to activate your account. Please use the following 6-digit One Time Password (OTP) to complete your sign-up procedure. <br><br>
-'.$emailcode.'<br><br>
-Please do not provide this code to anyone else to keep your important data confidential. If you are receiving this email without registering on our platform, please contact us.<br><br>
-For any further help, you can email us at abcdef@gmail.com.<br><br>
-With Best Regards,<br>
-Connect Social Team';
-
-
-
-        /*$nexmo = app('Nexmo\Client');
-        $nexmo->message()->send([
-            'to'   => '+923040647306',
-            'from' => '16105552344',
-            'text' => 'Make Everything Special With Connect Social,<br>
-To get started with us, you need to verify your phone number. Please use the following 4-digit OTP to confirm your phone number and complete your registration. <br>
-'.$mobilecode.'
-To avoid inconvenience and secure your data, do not share this OTP with anyone else. If you did not register with us, contact us at abcdef@gmail.com at your earliest. <br>
-Best Wishes<br>
-Connect Social'
-        ]);*/
-
-
+        $full_name=$data['fname'].' '.$data['lname'];
+        $referrer=User::find($data['referred_by']);
         $attachment = time() . $data['profile']->getClientOriginalName();
-        Storage::disk('local')->put('/public/profile/'.$data['email'].'/' . $attachment, File::get($data['profile']));
-        sendEmail($data['email'],'connectsocial@napollo.net','Almost There! Confirm Your Email',$message);
 
-        $user=User::create([
-            'fname' => $data['fname'],
-            'lname' => $data['lname'],
-            'role' => $data['role'],
-            'email' => $data['email'],
-            'country_code' =>$data['country_code'],
-            'phone' => $data['phone'],
-            'gender' => $data['gender'],
-            'username' => $data['username'],
-            'password' => Hash::make($data['password']),
-            'email_code'=>$emailcode,
-            'phone_code'=>$mobilecode,
-            'profile'=>$attachment,
-        ]);
+        $message="Dear {$full_name},<br><br>Congrats! You are one step away from joining our community! You need to verify your email address to activate your account. Please use the following 6-digit One Time Password (OTP) to complete your sign-up procedure. <br><br>{$emailcode}<br><br>Please do not provide this code to anyone else to keep your important data confidential. If you are receiving this email without registering on our platform, please contact us.<br><br>For any further help, you can email us at abcdef@gmail.com.<br><br>With Best Regards,<br>Connect Social Team";
+
+        $user=new User();
+        $user->fname=$data['fname'];
+        $user->lname=$data['lname'];
+        $user->role=$data['role'];
+        $user->email=$data['email'];
+        $user->country_code=$data['country_code'];
+        $user->phone=$data['phone'];
+        $user->gender=$data['gender'];
+        $user->username=$data['username'];
+        $user->password=Hash::make($data['password']);
+        $user->email_code=$emailcode;
+        $user->profile=$attachment;
+
+
+        sendEmail($data['email'],'connectsocial@napollo.net','Almost There! Confirm Your Email',$message);
+        Storage::disk('local')->put('/public/profile/'.$data['email'].'/' . $attachment, File::get($data['profile']));
+
         $role=Role::find($data['role']);
+
         if ($role->slug=='ambassador'){
             $details=new AmbassadorDetails();
         }
         if ($role->slug=='merchant'){
             //TODO: Pending till merchant details model is available
         }
+
+        $user->save();
+
+        if ($role->slug == 'ambassador' || $role->slug == 'merchant'){
+            $coa=$this->coa_create($full_name,$role->slug);
+            $user->coa=$coa->id;
+            $user->save();
+        }
+
+
         $details->user_id=$user->id;
         $details->save();
-        $referrer=User::find($data['referred_by']);
+
         if ($referrer){
             if ($referrer->roles->slug=='ambassador' || $referrer->roles->slug=='merchant'){
                 $referral = new Referral();
@@ -139,6 +110,47 @@ Connect Social'
                 $referral->save();
             }
         }
+
+
+        $connectSocialAccount=ConnectSocialCOA();
+        $joiningBonus=100;
+        $this->transaction('Joining Bonus','Joining Bonus on joining Connect Social',
+            array(
+                array('account'=>$connectSocialAccount->id,'dr'=>null,'cr'=>$joiningBonus),
+                array('account'=>$user->coa,'dr'=>$joiningBonus,'cr'=>null)
+            )
+        );
+
+
+
+        if ($referrer) {
+            if ($referrer->roles->slug == 'ambassador' || $referrer->roles->slug == 'merchant') {
+
+                $tier1reward=50;
+                $tier2reward=50;
+
+                $parentTier1=$user->tier_0();
+                $parentTier2=$user->tier_00();
+
+
+                $this->transaction('Tier 1 Reward','Tier 1 Reward from joining of '.$full_name.'['.$user->email.']',
+                    array(
+                        array('account'=>$connectSocialAccount->id,'dr'=>null,'cr'=>$tier1reward),
+                        array('account'=>$parentTier1->coa,'dr'=>$tier1reward,'cr'=>null)
+                    )
+                );
+                $this->transaction('Tier 2 Reward','Tier 1 Reward from joining of '.$full_name.'['.$user->email.']',
+                    array(
+                        array('account'=>$connectSocialAccount->id,'dr'=>null,'cr'=>$tier2reward),
+                        array('account'=>$parentTier2->coa,'dr'=>$tier2reward,'cr'=>null)
+                    )
+                );
+
+            }
+        }
+
+
+
         return $user;
     }
 }

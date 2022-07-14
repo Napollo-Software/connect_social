@@ -111,7 +111,7 @@
                                                                         Connect Coins Earned
                                                                     </div>
                                                                     <div class="wallet-earning-stats-value-text-value">
-                                                                        50
+                                                                        {{$tier1Earnings}}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -129,7 +129,7 @@
                                                                              alt="">
                                                                     </div>
                                                                     <div class="connect-coin-text">
-                                                                        $10.00k
+                                                                        $0.00k
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -163,7 +163,7 @@
                                                                         Connect Coins Earned
                                                                     </div>
                                                                     <div class="wallet-earning-stats-value-text-value">
-                                                                        50
+                                                                        {{$tier2Earnings}}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -181,7 +181,7 @@
                                                                              alt="">
                                                                     </div>
                                                                     <div class="connect-coin-text">
-                                                                        $10.00k
+                                                                        $0.00k
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -216,150 +216,26 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="credit">- $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="credit">- $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="credit">- $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
+                                    @foreach($my_trxs as $my_trx)
+                                        <?php
+                                            $us=\App\Models\User::where('coa',$my_trx->account)->first();
+                                        ?>
+                                        <tr>
+                                            <td>{{$my_trx->chartOfAccount->title}}</td>
+                                            <td>{{$us->roles->name}}</td>
+                                            <td>{{$my_trx->journal->narration}}</td>
+                                            <td>----</td>
+                                            <td>{{$my_trx->created_at->format('d-m-Y')}}</td>
+                                            <td>
+                                                @if($my_trx->dr)
+                                                    <span class="debit">+ ${{$my_trx->dr}}</span>
+                                                @else
+                                                    <span class="credit">- ${{$my_trx->dr}}</span>
+                                                @endif
+
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

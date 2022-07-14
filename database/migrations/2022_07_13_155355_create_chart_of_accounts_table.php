@@ -15,8 +15,8 @@ class CreateChartOfAccountsTable extends Migration
     {
         Schema::create('chart_of_accounts', function (Blueprint $table) {
             $table->id();
-            $table->integer('parent_id')->nullable();
             $table->string('title');
+            $table->string('group');
             $table->timestamps();
         });
     }
