@@ -5,9 +5,14 @@ function sendEmail($to,$from,$subject,$message){
     if ($from==null){
         $from='connectsocial@napollo.net';
     }
-    $headers = "From: ".$from."";
 
-    if (mail($to,$subject,$message,$headers)){
+    $txt = "Hello world!";
+    $headers = "From: emazeem07@gmail.com" . "\r\n" .
+        "CC: emazeem07@yahoo.com";
+
+
+
+    if (mail($to,$subject,$txt,$headers)){
         return true;
     }else{
         return false;
