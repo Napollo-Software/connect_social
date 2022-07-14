@@ -37,4 +37,3 @@ Route::get('/front-end/wallet', [FrontEnd::class, 'wallet_earning']);
 
 Route::get('/under-construction', [FrontEnd::class, 'under_construction'])->name('site.under.construction');
 
-Route::get('/wallet/earning', [FrontEnd::class, 'wallet_earning']);

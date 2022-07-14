@@ -82,26 +82,27 @@ class User extends Authenticatable
     public function tier1(){
         return $this->hasMany(Referral::class,'referred_by');
     }
-    public function tier_1(){
+    public function tier_1($user_type=null){
         $tier_1=[];
         foreach ($this->tier1 as $item){
             $tier_1[]=$item->referred_to;
         }
-        return User::whereIn('id',$tier_1)->get();
-    } 
-    public function tier_11($user){
-        $tier_1=[];
-        foreach ($user as $item){
-            $tier_1[]=$item->referred_to;
+        if ($user_type){
+            $role=Role::where('slug',$user_type)->first();
+            return User::whereIn('id',$tier_1)->where('role',$role->id)->get();
         }
         return User::whereIn('id',$tier_1)->get();
-    } 
-    public function tier_2(){
+    }
+    public function tier_2($user_type=null){
         $tier_2=[];
         foreach ($this->tier_1() as $tier_1){
             foreach ($tier_1->tier_1() as $user){
                 $tier_2[]=$user->id;
             } 
+        }
+        if ($user_type){
+            $role=Role::where('slug',$user_type)->first();
+            return User::whereIn('id',$tier_2)->where('role',$role->id)->get();
         }
         return User::whereIn('id',$tier_2)->get();
     }
