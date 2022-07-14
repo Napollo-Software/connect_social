@@ -554,15 +554,12 @@
                 fetch(type);
             });
         });
-
-
+        
         function fetch(type) {
             $.ajax({
                 type: "POST",
                 url: "{{route('ambassador.fetch.network')}}",
                 data: {'type': type, _token: '{{csrf_token()}}'},
-                contentType: false,
-
                 beforeSend: function () {
                     $('.friend-grid-inner').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>');
                 },
@@ -572,10 +569,9 @@
                 },
                 error: function (xhr) {
                     erroralert(xhr);
-
                 }
-            });
-
+            })
+        }
     </script>
     @if($user->id==auth()->user()->id)
         <script>
@@ -648,7 +644,7 @@
                         }
                     });
 
-                });
+                }); 
                 $(document).on('submit', '#update_cover_photo_form', function (e) {
                     e.preventDefault();
                     swal({
