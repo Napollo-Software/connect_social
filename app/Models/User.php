@@ -33,6 +33,7 @@ class User extends Authenticatable
         'email_code',
         'phone_code',
         'profile',
+        'coa',
     ];
     protected $hidden = [
         'password', 
@@ -79,6 +80,18 @@ class User extends Authenticatable
         }
         return null; 
     }
+    public function tier_00(){
+        $tier_0=$this->tier_0();
+        if ($tier_0){
+            if ($tier_0->tier_0()){
+                $tier_00=$tier_0->tier_0();
+                return $tier_00;
+            }
+            return null;
+        }
+        return null;
+    }
+
     public function tier1(){
         return $this->hasMany(Referral::class,'referred_by');
     }
@@ -123,5 +136,8 @@ class User extends Authenticatable
             }
         }
         return true;
+    }
+    public function chartOfAccount(){
+        return $this->belongsTo(ChartOfAccount::class,'coa');
     }
 }

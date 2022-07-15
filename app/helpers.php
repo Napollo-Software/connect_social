@@ -1,55 +1,53 @@
 <?php
 use \PHPMailer\PHPMailer\PHPMailer;
 use App\Models\PostAssets;
+use Illuminate\Support\Facades\Mail;
 function sendEmail($to,$from,$subject,$message){
     if ($from==null){
         $from='connectsocial@napollo.net';
     }
 
-    $txt = "Hello world!";
-    $headers = "From: emazeem07@gmail.com" . "\r\n" .
-        "CC: emazeem07@yahoo.com";
-
-
-
-    if (mail($to,$subject,$txt,$headers)){
+    try{
+        Mail::html( $message, function( $message ) use ($subject,$to) {
+            $message->subject( $subject )->to( $to );
+        });
         return true;
-    }else{
-        return false;
+    }catch (Exception $exception){
+        return response()->json($exception->getMessage());
     }
 
-    /*$mail = new PHPMailer(true);
-    try {
+    /*    $mail = new PHPMailer(true);
+        try {
 
-        // _av4W974d
-        $mail->SMTPDebug = 0;
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';             //  smtp host
-        $mail->SMTPAuth = true;
-        $mail->Username = 'connectsocialtest@napollo.net';   //  sender username
-        $mail->Password = 'Conn3ctS0c1al@';         // sender password
-        $mail->SMTPSecure = 'tls';                  // encryption - ssl/tls
-        $mail->Port = 587;                          // port - 587/465
+            // _av4W974d
+            $mail->SMTPDebug = 0;
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';             //  smtp host
+            $mail->SMTPAuth = true;
+            $mail->Username = 'connectsocialtest@napollo.net';   //  sender username
+            $mail->Password = 'Conn3ctS0c1al@';         // sender password
+            $mail->SMTPSecure = 'tls';                  // encryption - ssl/tls
+            $mail->Port = 587;                          // port - 587/465
 
-        $mail->setFrom($from, 'Connect social');
-        $mail->addAddress($to);
-        //$mail->addCC();
-        //$mail->addBCC($request->emailBcc);
-        //$mail->addReplyTo('sender@example.com', 'SenderReplyName');
+            $mail->setFrom($from, 'Connect social');
+            $mail->addAddress($to);
+            //$mail->addCC();
+            //$mail->addBCC($request->emailBcc);
+            //$mail->addReplyTo('sender@example.com', 'SenderReplyName');
 
-        $mail->isHTML(true);                // Set email content format to HTML
-        $mail->Subject = $subject;
-        $mail->Body    = $message;
-        // $mail->AltBody = plain text version of email body;
-        if($mail->send() ) {
-            return true;
-        }
-        else {
-            return response()->json(["failed", $mail->ErrorInfo]);
-        }
-    } catch (Exception $e) {
-        return response()->json(["error", "Message could not be sent."]);
-    }*/
+            $mail->isHTML(true);                // Set email content format to HTML
+            $mail->Subject = $subject;
+            $mail->Body    = $message;
+            // $mail->AltBody = plain text version of email body;
+            if($mail->send() ) {
+                return true;
+            }
+            else {
+                return response()->json(["failed", $mail->ErrorInfo]);
+            }
+        } catch (Exception $e) {
+            return response()->json(["error", "Message could not be sent."]);
+        }*/
 }
 function dateFormat($date,$format){
     $seconds= strtotime($date);
@@ -425,4 +423,8 @@ function checkPrivacyInNetwork($privacy,$other_network_id)
         return true;
     }
     return false;
+}
+use App\Models\ChartOfAccount;
+function ConnectSocialCOA(){
+    return ChartOfAccount::where('group','connect-social-account')->first();
 }

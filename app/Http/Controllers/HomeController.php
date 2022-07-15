@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Traits\ChartOfAccount;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {

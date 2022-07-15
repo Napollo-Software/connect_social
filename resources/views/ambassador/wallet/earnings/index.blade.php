@@ -27,49 +27,21 @@
                                                                     <div class="wallet-earning-filter-text">
                                                                         Filter by Date
                                                                     </div>
-                                                                    <div class="wallet-earning-filter-inputs">
-                                                                        <div class="label-text">Start Date</div>
-                                                                        <div class="wallet-earning-filter-single-input">
-                                                                            <input type="date">
+                                                                    <form action="{{route('wallet.dashboard')}}" method="get">
+                                                                        <div class="wallet-earning-filter-inputs">
+                                                                            <div class="label-text">Start Date</div>
+                                                                            <div class="wallet-earning-filter-single-input">
+                                                                                <input type="date" name="start">
+                                                                            </div>
+                                                                            <div class="label-text">End Date</div>
+                                                                            <div class="wallet-earning-filter-single-input">
+                                                                                <input type="date" name="end">
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="label-text">End Date</div>
-                                                                        <div class="wallet-earning-filter-single-input">
-                                                                            <input type="date">
+                                                                        <div class="action-button text-right">
+                                                                            <button type="submit" class="black-button">Apply</button>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="wallet-earning-filter-text">
-                                                                        Filter by Type:
-                                                                    </div>
-                                                                    <div class="wallet-earning-filter-inputs">
-                                                                        <div class="wallet-earning-filter-single-input">
-                                                                            <label for="check-01"><input type="checkbox"
-                                                                                                         id="check-01">
-                                                                                <span class="text">Ambassadors</span></label>
-                                                                        </div>
-                                                                        <div class="wallet-earning-filter-single-input">
-                                                                            <label for="check-02"><input type="checkbox"
-                                                                                                         id="check-02">
-                                                                                <span class="text">Merchants</span></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="wallet-earning-filter-text">
-                                                                        Filter by Tier:
-                                                                    </div>
-                                                                    <div class="wallet-earning-filter-inputs">
-                                                                        <div class="wallet-earning-filter-single-input">
-                                                                            <label for="check-03"><input type="checkbox"
-                                                                                                         id="check-03">
-                                                                                <span class="text">T1</span></label>
-                                                                        </div>
-                                                                        <div class="wallet-earning-filter-single-input">
-                                                                            <label for="check-04"><input type="checkbox"
-                                                                                                         id="check-04">
-                                                                                <span class="text">T2</span></label>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="action-button text-right">
-                                                                        <button class="black-button">Apply</button>
-                                                                    </div>
+                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -111,7 +83,7 @@
                                                                         Connect Coins Earned
                                                                     </div>
                                                                     <div class="wallet-earning-stats-value-text-value">
-                                                                        50
+                                                                        {{$tier1Earnings}}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -129,7 +101,7 @@
                                                                              alt="">
                                                                     </div>
                                                                     <div class="connect-coin-text">
-                                                                        $10.00k
+                                                                        $0.00k
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -163,7 +135,7 @@
                                                                         Connect Coins Earned
                                                                     </div>
                                                                     <div class="wallet-earning-stats-value-text-value">
-                                                                        50
+                                                                        {{$tier2Earnings}}
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -181,7 +153,7 @@
                                                                              alt="">
                                                                     </div>
                                                                     <div class="connect-coin-text">
-                                                                        $10.00k
+                                                                        $0.00k
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -208,158 +180,28 @@
                                     <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Role</th>
+                                        <th>Type</th>
                                         <th>Activity</th>
-                                        <th>Network Type</th>
                                         <th>Date</th>
                                         <th>Amount</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="credit">- $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="credit">- $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="credit">- $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Laura kiniare</td>
-                                        <td>Merchant</td>
-                                        <td>ABC</td>
-                                        <td>T1</td>
-                                        <td>26-03-2021</td>
-                                        <td><span class="debit">+ $3000.00</span></td>
-                                    </tr>
+                                    @foreach($my_trxs as $my_trx)
+                                        <tr>
+                                            <td>{{$my_trx->chartOfAccount->title}}</td>
+                                            <td>{{$my_trx->journal->type}}</td>
+                                            <td>{{$my_trx->journal->narration}}</td>
+                                            <td>{{$my_trx->created_at->format('d-m-Y')}}</td>
+                                            <td>
+                                                @if($my_trx->dr)
+                                                    <span class="debit">+ ${{$my_trx->dr}}</span>
+                                                @else
+                                                    <span class="credit">- ${{$my_trx->dr}}</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

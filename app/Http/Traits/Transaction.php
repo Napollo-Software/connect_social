@@ -12,6 +12,7 @@ trait Transaction
         $journal=new Journal();
         $journal->type=$type;
         $journal->narration=$narration;
+        $journal->trx=0;
         $journal->save();
         $journal->trx=str_pad($journal->id,4,0,STR_PAD_LEFT);
         $journal->save();
