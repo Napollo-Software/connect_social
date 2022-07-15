@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Traits\ChartOfAccount;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -12,10 +13,8 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-    use ChartOfAccount;
     public function index($type=null)
     {
-
         if (Auth::user()->roles->slug == 'ambassador') {
             $user = auth()->user();
             return view('ambassador.home.index', compact( 'user','type'));
