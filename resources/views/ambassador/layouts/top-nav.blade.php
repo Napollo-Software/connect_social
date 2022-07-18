@@ -49,7 +49,52 @@
                                 <li class="profile-user-options-li">
                                     <div class="profile-user-options-inner">
                                         <div class="profile-user-options-icon">
-                                            <span class="ti-help-alt"></span>
+                                            <a href="javascript:void(0)"><span class="ti-comment-alt"></span></a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="profile-user-options-li">
+                                    <div class="profile-user-options-inner">
+                                        <div class="profile-user-options-icon">
+                                            <div class="search-input-home-navigation-inner dropdown-box">
+                                                <div class="search-input-home-navigation-main">
+                                                    <!-- <input type='text' placeholder="Search by name" id='input-trigger-div'> -->
+                                                    <button class="hover-button open-dropdown" data-target=".search-menu-02"><span class="ti-search"></span></button>
+                                                </div>
+                                                <div class="recent-searches-box custom-dropdown search-menu-02" id="recent-searches-box" style="display: none;">
+                                                    <div class="recent-searches-box-inner">
+                                                        <div class="recent-searches-box-main">
+                                                            <div class="search-input-home-navigation-main">
+                                                                <form action="http://127.0.0.1:8000/search" method="get">
+                                                                    <div class="back-btn close-recent-search" onclick="document.getElementById('recent-searches-box').style.display = 'none'">
+                                                                        <span class="ti-arrow-left"></span>
+                                                                    </div>
+                                                                    <input type="text" placeholder="Search by name" name="key" class="key-drop-down" id="key-dropdown" required="" autocomplete="off">
+                                                                    <button class="search-btn black-button" type="submit"><span class="ti-search"></span></button>
+                                                                </form>
+                                                            </div>
+                                                            <div class="recent-search-box">
+                                                                <div class="title">Search Results</div>
+                                                                <div class="recent-search-list">
+                                                                    <ul class="recent-search-ul">
+                                                                        <li class="recent-search-li">
+                                                                            <div class="recent-search-list-div">
+                                                                                <div class="recent-search-list-inner">
+                                                                                    <div class="recent-search-rofile">
+                                                                                        <div class="profile-text">
+                                                                                            <small><i>No search results</i></small>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </li>
@@ -68,6 +113,9 @@
                                                 </li>
                                                 <li class="user-dropdown-li">
                                                     <a href="javascript:void(0)"><i class="fa fa-cogs"></i> Settings</a>
+                                                </li>
+                                                <li class="user-dropdown-li">
+                                                    <a href="javascript:void(0)"><span class="ti-help-alt"></span> FAQ's</a>
                                                 </li>
                                                 <li class="user-dropdown-li">
                                                     <a href="{{ route('logout') }}"

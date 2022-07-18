@@ -41,6 +41,11 @@
         <!-- </div> -->
     </div>
 </div>
+<footer class="footer">
+    <div class="footer-inner">
+        © Connect Social, All rights reserved
+    </div>
+</footer>
 @include('ambassador.layouts.modals')
 <script src="{{url('ambassador_assets/js/jquery.js')}}"></script>
 <script src="{{url('ambassador_assets/js/bootstrap.min.js')}}"></script>

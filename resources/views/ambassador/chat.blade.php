@@ -110,6 +110,11 @@ Chat
             </div>
         </div>
     </div>
+    <footer class="footer">
+        <div class="footer-inner">
+            © Connect Social, All rights reserved
+        </div>
+    </footer>
     @push('scripts')
         <script src="https://js.pusher.com/7.1/pusher.min.js"></script>
 
