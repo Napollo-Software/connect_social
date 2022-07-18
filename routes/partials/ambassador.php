@@ -100,7 +100,6 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         Route::prefix('wallet')->group(function () {
             Route::get('dashboard', [WalletController::class, 'index'])->name('wallet.dashboard');
         });
-
     });
     Route::prefix('send-invite-email')->group(function () {
         Route::post('for-referral', [SendInviteController::class, 'send_invite'])->name('send.invite.for.referral');
