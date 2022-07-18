@@ -162,6 +162,11 @@ class UserController extends Controller
         ]);
         $user = User::find(auth()->user()->id);
         $user->gender = $request->gender;
+        if($request->has('username')){
+        $user->username = $request->username;
+        }if($request->has('phone')){
+        $user->phone = $request->phone;
+        }
         $user->save();
         $detail = AmbassadorDetails::find($user->details->id);
         $detail->city = $request->city;

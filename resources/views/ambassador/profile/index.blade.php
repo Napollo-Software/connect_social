@@ -896,6 +896,22 @@
                     @csrf
                     <div class="modal-body">
                         <div class="row">
+                            @if (auth()->user()->details->kyc_status!=Kyc::STATUS_APPROVED)
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" class="form-control" value="{{auth()->user()->username}}"
+                                    name="username" id="username">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="username">Phone</label>
+                                    <input type="text" class="form-control" value="{{auth()->user()->phone}}"
+                                    name="phone" id="phone">
+                                </div>
+                            </div>
+                            @endif
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="city">City</label>
