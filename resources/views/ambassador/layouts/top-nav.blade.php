@@ -1,3 +1,12 @@
+@push('scripts')
+    @if (\Session::has('message'))
+        <script>
+            $(function () {
+                swal("KYC", "{!! Session::get('message') !!}", "warning")
+            });
+        </script>
+    @endif
+@endpush
 <div class="profile-top-bar">
     <div class="profile-top-bar-inner">
         <div class="container">
@@ -52,18 +61,18 @@
                                         <div class="user-dropdown-inner drop-00 custom-dropdown left-dropdown">
                                             <ul class="user-dropdown-ul">
                                                 <li class="user-dropdown-li">
-                                                    <a href="{{route('ambassador.profile')}}">My Profile</a>
+                                                    <a href="{{route('ambassador.profile')}}"><i class="fa fa-user"></i> My Profile</a>
                                                 </li>
                                                 <li class="user-dropdown-li">
-                                                    <a href="javascript:void(0)" class="open-modal" data-modal="#Send-InvitationModal">Send Invite</a>
+                                                    <a href="javascript:void(0)" class="open-modal" data-modal="#Send-InvitationModal"><i class="fa fa-share"></i> Send Invite</a>
                                                 </li>
                                                 <li class="user-dropdown-li">
-                                                    <a href="javascript:void(0)">Settings</a>
+                                                    <a href="javascript:void(0)"><i class="fa fa-cogs"></i> Settings</a>
                                                 </li>
                                                 <li class="user-dropdown-li">
                                                     <a href="{{ route('logout') }}"
                                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Log out</a>
+                                                     document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> Log out</a>
                                                 </li>
                                             </ul>
                                         </div>

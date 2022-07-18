@@ -13,6 +13,9 @@ class WalletController extends Controller
     //
     use Transaction;
     public function index(Request $request){
+        if (auth()->user()->details->kyc_status!=\KYC::STATUS_APPROVED){
+            return redirect()->route('home')->with('message','Please verify your KYC to access wallet!');
+        }
         $tier1Earnings=0;
         $tier2Earnings=0;
         if ($request->start){
