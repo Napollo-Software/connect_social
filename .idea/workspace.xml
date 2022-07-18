@@ -55,19 +55,19 @@
           <entry key="js" value="29" />
           <entry key="json" value="9" />
           <entry key="lock" value="2" />
-          <entry key="php" value="1430" />
+          <entry key="php" value="1436" />
           <entry key="sql" value="37" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="645" />
+          <entry key="Blade" value="647" />
           <entry key="CSS" value="23" />
           <entry key="HTML" value="6" />
           <entry key="JSON" value="11" />
           <entry key="JavaScript" value="29" />
-          <entry key="PHP" value="785" />
+          <entry key="PHP" value="789" />
           <entry key="PLAIN_TEXT" value="24" />
           <entry key="SQL" value="37" />
         </counts>
@@ -80,14 +80,14 @@
           <entry key="html" value="321" />
           <entry key="js" value="1243" />
           <entry key="json" value="1" />
-          <entry key="php" value="87072" />
+          <entry key="php" value="87204" />
           <entry key="sql" value="142" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="41329" />
+          <entry key="Blade" value="41461" />
           <entry key="CSS" value="115" />
           <entry key="HTML" value="431" />
           <entry key="JSON" value="1" />
@@ -101,11 +101,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/navigation.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="45" column="39" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/partials/ambassador.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+            <state relative-caret-position="119">
+              <caret line="22" column="61" lean-forward="true" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
               <folding>
                 <element signature="e#3854#3966#2#PHP" />
                 <element signature="e#4359#4686#2#PHP" />
@@ -116,15 +125,6 @@
                 <element signature="e#6896#7044#2#PHP" />
                 <element signature="e#7086#7208#2#PHP" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/WalletController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="16" column="103" selection-start-line="16" selection-start-column="103" selection-end-line="16" selection-end-column="103" />
             </state>
           </provider>
         </entry>
@@ -202,7 +202,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/auth/login.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/GalleryController.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/gallery/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/PostController.php" />
@@ -253,6 +252,7 @@
         <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/top-nav.blade.php" />
         <option value="$PROJECT_DIR$/routes/partials/ambassador.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/WalletController.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/navigation.blade.php" />
       </list>
     </option>
   </component>
@@ -507,6 +507,14 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="ambassador" type="462c0819:PsiDirectoryNode" />
               <item name="kyc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
+              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="ambassador" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
@@ -835,12 +843,12 @@
       <workItem from="1657797507967" duration="15991000" />
       <workItem from="1657824532711" duration="8745000" />
       <workItem from="1658144184603" duration="861000" />
-      <workItem from="1658145403551" duration="8959000" />
+      <workItem from="1658145403551" duration="9751000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="499504000" />
+    <option name="totallyTimeSpent" value="500296000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -885,13 +893,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="498" column="55" selection-start-line="498" selection-start-column="55" selection-end-line="498" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1075,13 +1076,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/kyc/rejected.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="25" column="22" selection-start-line="16" selection-start-column="16" selection-end-line="25" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/KycController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
@@ -1126,16 +1120,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/partials/super_admin.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="8" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-          <folding>
-            <element signature="e#40#75#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
@@ -1182,17 +1166,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/WalletController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="16" column="103" selection-start-line="16" selection-start-column="103" selection-end-line="16" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/kyc/rejected.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/GalleryController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="19" column="28" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="28" />
+        <state relative-caret-position="204">
+          <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding>
+            <element signature="e#40#75#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/partials/ambassador.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+        <state relative-caret-position="119">
+          <caret line="22" column="61" lean-forward="true" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
           <folding>
             <element signature="e#3854#3966#2#PHP" />
             <element signature="e#4359#4686#2#PHP" />
@@ -1206,10 +1214,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/WalletController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/navigation.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="103" selection-start-line="16" selection-start-column="103" selection-end-line="16" selection-end-column="103" />
+        <state relative-caret-position="102">
+          <caret line="45" column="39" selection-start-line="45" selection-start-column="29" selection-end-line="45" selection-end-column="39" />
         </state>
       </provider>
     </entry>
