@@ -91,7 +91,6 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         });
         Route::prefix('kyc')->group(function () {
             Route::get('submission', [KycController::class, 'submission'])->name('kyc.submission');
-            Route::get('after-reject', [KycController::class, 'after_reject'])->name('kyc.after.reject');
             Route::post('submit', [KycController::class, 'submit'])->name('kyc.submit');
             Route::get('response', [KycController::class, 'kyc_response'])->name('kyc.response');
         });

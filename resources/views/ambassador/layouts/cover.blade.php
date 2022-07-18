@@ -8,11 +8,13 @@
                     <input type="file" name="cover" id="cover_photo_input"
                            onchange="$('#update_cover_photo_form').submit()">
                 </form>
+                @if (auth()->user()->details->kyc_status==Kyc::STATUS_APPROVED)
                 <div class="edit-button upload-selector with-bg" data-target="#cover_photo_input">
                     <div class="edit-button-inner">
-                        <span class="icon"><span class="ti-camera"></span></span> <i>Edit cover photo</i>
+                       <span class="icon"><span class="ti-camera"></span></span> <i>Edit cover photo</i>
                     </div>
                 </div>
+                @endif 
             @endif
         </div>
         <div class="profile-box-user-info">
@@ -30,11 +32,13 @@
                                             <input type="file" name="profile" id="profile_photo_input"
                                                    onchange="$('#update_profile_photo_form').submit()">
                                         </form>
+                                        @if (auth()->user()->details->kyc_status==Kyc::STATUS_APPROVED)
                                         <div class="edit-button upload-selector" data-target="#profile_photo_input">
                                             <div class="edit-button-inner">
                                                 <span class="icon"><span class="ti-pencil-alt"></span></span>
                                             </div>
                                         </div>
+                                        @endif
                                     @endif
                                 </div>
                             </div>
