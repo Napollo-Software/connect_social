@@ -54,8 +54,8 @@
                             <ul class="navigation-drop-down-">
                                 <li class="navigation-drop-down-li">
                                     <a href="{{route('ambassador.home')}}" class="navigation-drop-down-link">
-                                        <div class="icon"><img
-                                                    src="{{asset('ambassador_assets/images/icons/globe.svg')}}" alt="">
+                                        <div class="icon">
+                                            <img src="{{asset('ambassador_assets/images/icons/globe.svg')}}" alt="">
                                         </div>
                                         <div class="text">Everyone</div>
                                     </a>
