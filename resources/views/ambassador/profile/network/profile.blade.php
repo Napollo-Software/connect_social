@@ -40,7 +40,6 @@
                                                                 Social Information
                                                             </div>
                                                         </div>
-
                                                     </div>
                                                 </div>
                                                 <div class="content-card-content">
@@ -119,7 +118,6 @@
                                                                             <div class="info-editor-box-value">
                                                                                 <div class="info-editor-box-value-text">
                                                                                     {{dateFormat($user->details->joining,'d M Y')}}
-
                                                                                 </div>
 
                                                                             </div>

@@ -105,7 +105,7 @@ Home
                     $(".to-show-sticky").hide();
                     $('.message-button-inner button').removeClass('hide-text');
                     $('.profile-navigation-nav').addClass('aligned')
-                }
+                } 
             }, 100);
 
             $("#input-trigger-div").click(function() {

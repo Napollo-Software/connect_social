@@ -54,7 +54,7 @@ function dateFormat($date,$format){
     return date($format,$seconds);
 }
 class Privacy{
-    const PRIV_PUBLIC='public';
+    const PRIV_PUBLIC='public'; 
     const PRIV_FRIENDS='friends';
     const PRIV_CONNECTIONS='connections';
     const PRIV_TIER_1='tier-1';
