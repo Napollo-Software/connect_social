@@ -644,7 +644,7 @@
                         }
                     });
 
-                }); 
+                });  
                 $(document).on('submit', '#update_cover_photo_form', function (e) {
                     e.preventDefault();
                     swal({

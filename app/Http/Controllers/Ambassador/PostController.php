@@ -9,7 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage; 
-
+ 
 class PostController extends Controller
 {
     public function fetch(Request $request){
@@ -19,7 +19,7 @@ class PostController extends Controller
         return response()->json($viewRender);
     }
     public function fetch_all(Request $request){
-        
+
         $type=$request->type;
         $tier_0=auth()->user()->tier_0();
         if($tier_0!=null)
@@ -28,28 +28,34 @@ class PostController extends Controller
         }else{
             $tier0=null;
         }
-        $posts = Post::orderBy('created_at', 'DESC')->where('user_id','!=',auth()->user()->id)->orWhere('user_id',$tier0)->whereIn('user_id',auth()->user()->my_network())->skip($request->n*2)->take(2)->get();
-       // dd($posts);
+        $network=auth()->user()->my_network();
+        $network[]=$tier0;
+        $posts = Post::orderBy('created_at', 'DESC')->where('user_id','!=',auth()->user()->id)->whereIn('user_id',$network)->skip($request->n*2)->take(2)->get();
         if ($type=='all'){
-            $posts = Post::orderBy('created_at', 'DESC')->where('user_id','!=',auth()->user()->id)->orWhere('user_id',$tier0)->whereIn('user_id',auth()->user()->my_network())->skip($request->n*2)->take(2)->get();
+           
+            $posts = Post::orderBy('created_at', 'DESC')->where('user_id','!=',auth()->user()->id)->whereIn('user_id',$network)->skip($request->n*2)->take(2)->get();
         }
         if ($type=='friends'){
+            
             $friends=getArrayFromKeyofEloquent(getFriendsListUsers(auth()->user()->id),'id');
             $posts = Post::orderBy('created_at', 'DESC')->where('privacy','friends')->whereIn('user_id',$friends)->skip($request->n*2)->take(2)->get();
         }
         if ($type=='connections'){
-            
+           
             $connections=getArrayFromKeyofEloquent(getConnectionsListUsers(auth()->user()->id),'id');
             $posts = Post::orderBy('created_at', 'DESC')->where('privacy','connections')->whereIn('user_id',$connections)->skip($request->n*2)->take(2)->get();
         }
         if ($type=='tier-1'){
+           
             $tier1=getArrayFromKeyofEloquent(auth()->user()->tier_1(),'id');
             $posts = Post::orderBy('created_at', 'DESC')->where('privacy','tier-1')->whereIn('user_id',$tier1)->skip($request->n*2)->take(2)->get();
         } 
         if ($type=='tier-2'){
+           
             $tier2=getArrayFromKeyofEloquent(auth()->user()->tier_2(),'id');
             $posts = Post::orderBy('created_at', 'DESC')->where('privacy','tier-2')->whereIn('user_id',$tier2)->skip($request->n*2)->take(2)->get();
         }
+     
         $user=User::find($request->user);
         $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
         return response()->json($viewRender);
@@ -151,7 +157,7 @@ class PostController extends Controller
         $post->privacy=$request->privacy;
         $post->save();
         if ($request->file_type){
-            $postAsset->post_id=$post->id;
+            $postAsset->post_id=$post->id; 
             $postAsset->save();
         }
         return response()->json(['success'=>'Post updated successfully']);

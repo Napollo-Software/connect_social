@@ -36,7 +36,7 @@ class User extends Authenticatable
         'coa',
     ];
     protected $hidden = [
-        'password',
+        'password', 
         'remember_token',
     ];
     protected $casts = [
@@ -78,7 +78,7 @@ class User extends Authenticatable
             $tier0=User::find($referrer->referred_by);
             return $tier0;
         }
-        return null;
+        return null; 
     }
     public function tier_00(){
         $tier_0=$this->tier_0();
