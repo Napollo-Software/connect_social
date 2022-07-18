@@ -418,7 +418,7 @@
                                                     <div class="content-top-bar-inner">
                                                         <div class="content-top-bar-title">
                                                             <div class="text">
-                                                                Photos/Gallery
+                                                                Gallery
                                                             </div>
                                                         </div>
                                                     </div>
@@ -450,27 +450,41 @@
                                         <div class="content-card">
                                             <div class="content-card-inner">
                                                 <div class="content-top-bar custom-padding">
-                                                    <div class="content-top-bar-inner">
-                                                        <div class="content-top-bar-title">
-                                                            <div class="text">
-                                                                <span class="icon hover profile-network"
-                                                                      {{$type=='friends'?'active':''}} data-type='friends'>
-                                                                    <img src="{{url('ambassador_assets/images/icons/users.svg')}}"
-                                                                         alt="">
-                                                                </span> ({{getFriendsList($user->id)->count()}})
-                                                                <span class="icon profile-network"
-                                                                      data-type='connections'>
-                                                                    <img src="{{url('ambassador_assets/images/icons/connection.svg')}}"
-                                                                         alt="">
-                                                                </span> ({{getConnectionsList($user->id)->count()}})
-                                                                <span class="icon profile-network" data-type='tier-1'>
-                                                                    <img src="{{url('ambassador_assets/images/icons/personal-network.svg')}}"
-                                                                         alt="">
-                                                                </span> ({{auth()->user()->tier_1()->count()}})
-                                                                <span class="icon profile-network" data-type='tier-2'>
-                                                                    <img src="{{url('ambassador_assets/images/icons/extended-network.svg')}}"
-                                                                         alt="">
-                                                                </span>({{auth()->user()->tier_2()->count()}})
+                                                    <div class="content-top-bar-inner w-100">
+                                                        <div class="content-top-bar-title w-100">
+                                                            <div class="text w-100 custom-flex">
+                                                                <div class="icon-hover-network">
+                                                                    <span class="icon hover profile-network" {{$type=='friends'?'active':''}} data-type='friends'>
+                                                                            <img src="{{url('ambassador_assets/images/icons/users.svg')}}"alt="" style="width: 25px;margin-right: 2px;">
+                                                                    </span>
+                                                                    <div class="text-badge-01">
+                                                                        {{getFriendsList($user->id)->count()}}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="icon-hover-network">
+                                                                    <span class="icon profile-network" data-type='connections'>
+                                                                        <img src="{{url('ambassador_assets/images/icons/connection.svg')}}" alt="">
+                                                                    </span>
+                                                                    <div class="text-badge-01">
+                                                                        {{getConnectionsList($user->id)->count()}}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="icon-hover-network">
+                                                                    <span class="icon profile-network" data-type='tier-1'>
+                                                                        <img src="{{url('ambassador_assets/images/icons/personal-network.svg')}}" alt="">
+                                                                    </span>
+                                                                    <div class="text-badge-01">
+                                                                        {{auth()->user()->tier_1()->count()}}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="icon-hover-network">
+                                                                    <span class="icon profile-network" data-type='tier-2'>
+                                                                        <img src="{{url('ambassador_assets/images/icons/extended-network.svg')}}" alt="">
+                                                                    </span>
+                                                                    <div class="text-badge-01">
+                                                                        {{auth()->user()->tier_2()->count()}}
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>

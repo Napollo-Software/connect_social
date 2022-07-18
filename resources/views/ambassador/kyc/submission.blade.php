@@ -4,15 +4,26 @@ Kyc Submission
 @endsection
 @section('content')
     <div class="form-card-spliter bg-custom">
-
+        <div class="container">
         <div class="form-card-spliter-inner">
             <div class="form-card-spliter-main">
                 <div class="form-card-div">
+                    <div class="form-card-div-inner custom-card custom-shadow custom-padding custom-border text-center">
+                        <div class="top-text-kyc">
+                            Unlock the World of Connect Coins
+                        </div>
+                        <div class="image-kyc">
+                            <img src="{{asset('kyc_assets/images/coin.png')}}" alt="">
+                        </div>
+                        <div class="bottom-text-kyc">
+                            Know Your Customer (KYC) verification
+                        </div>
+                    </div>
                     <div class="form-card-div-inner custom-card custom-shadow custom-padding custom-border">
-                        <div class="container">
+                        <!-- <div class="container"> -->
                             <div class="row-flexed">
                                 <div class="card-title">
-                                    Unlock the World of Connect Coins
+                                    <!-- Unlock the World of Connect Coins -->
                                 </div>
                                 <div class="rejected-text text-danger margin-bottom text-center">
                                     @if(auth()->user()->details->kyc_status==KYC::STATUS_PENDING)
@@ -37,7 +48,7 @@ Kyc Submission
                                 </div>
                             </div>
                                 @endif
-                        </div>
+                        <!-- </div> -->
                         <div class="form-card-div-main">
                             <form id="kyc-form" enctype="multipart/form-data">
                                 @csrf
@@ -61,7 +72,7 @@ Kyc Submission
                                                             <div class="uploa-file-buttons">
                                                                 <input type="file" onchange="document.getElementById('view-profile').src = window.URL.createObjectURL(this.files[0])" name="profile" id="file-input" class="d-none">
 
-                                                                <button class="black-button" for="file-input" onclick="$('#file-input').click()" name="profile" type="button">Choose File</button>
+                                                                <button class="black-button" for="file-input" onclick="$('#file-input').click()" name="profile" type="button">Change Picture</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -212,6 +223,7 @@ Kyc Submission
                 </div>
             </div>
 
+        </div>
         </div>
     </div>
 

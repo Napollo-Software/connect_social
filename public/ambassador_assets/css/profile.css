@@ -230,6 +230,7 @@ i {
     border-radius: 50%;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 17%);
     object-fit: cover;
+    background: #fff;
 }
 
 .profile-box-cover-inner {
@@ -728,6 +729,15 @@ a.navigation-drop-down-link {
     padding: 10px;
 }
 
+.p3-padding {
+    padding-top: 4px;
+    display: block;
+}
+
+.profile-box-info-type {
+    padding-bottom: 15px;
+}
+
 .content-side-02 {
     width: 100%;
 }
@@ -738,13 +748,12 @@ a.navigation-drop-down-link {
 
 .share-post-box-inner {
     display: flex;
-    padding: 10px;
+    /* padding: 10px; */
+    flex-direction: column;
 }
 
 .share-post-user-image {
     flex: 0 0 80px;
-    overflow: hidden;
-    margin-right: 10px;
 }
 
 .share-post-user-image-inner img {
@@ -759,8 +768,13 @@ a.navigation-drop-down-link {
 
 .share-post-input-box {
     border-bottom: 1px solid #dedede;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    /* padding-bottom: 10px; */
+    /* margin-bottom: 10px; */
+    padding: 0 15px 15px;
+}
+
+.share-post-box-main-bottom {
+    padding: 15px;
 }
 
 .share-post-input-box-inner textarea {
@@ -845,7 +859,7 @@ a.navigation-drop-down-link {
 }
 
 .date-and-privacy .time-stamp .at {
-    margin: 0 10px;
+    margin: 0 5px;
 }
 
 .singal-post-top-bar {
@@ -1121,6 +1135,7 @@ a.navigation-drop-down-link {
     border-radius: 0;
     border-bottom: 2px solid #000;
     position: relative;
+    padding-top: 12px;
 }
 
 .profile-site-navigation-li:hover {
@@ -1447,8 +1462,8 @@ a.navigation-drop-down-link {
 
 .share-post-user-image {
     flex: 0 0 40px;
-    overflow: hidden;
-    margin-right: 10px;
+    /* overflow: hidden; */
+    /* margin-right: 10px; */
 }
 
 .add-comment-input-bar-user-image {
@@ -1995,7 +2010,12 @@ input.referel-link-input {
     cursor: pointer;
     outline: none;
     font-weight: 500;
+    padding: 3px 6px;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    margin-top: 1px;
 }
+
 input.referel-link-input::selection {
     color: black;
     background: white;
@@ -2221,6 +2241,71 @@ form#add_post {
     text-align: center;
     font-size: 12px;
     padding: 15px;
+    border-top: 1px solid #dedede;
+}
+
+.custom-icon {
+        font-size: 23px;
+        padding-bottom: 2px;
+        display: block;
+}
+
+.custom-icon-01 {
+        padding-bottom: 5px;
+        display: block;
+}
+
+.singal-post-top-bar-user-info-01 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px #fff;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #dedede;
+    outline: 1px solid slategrey;
+    background: #555;
+}
+
+.white-button.button-disabled {
+    background: #fff;
+    border-radius: 4px;
+    border: 1px solid #000;
+    color: #000;
+    padding: 10px 15px;
+    cursor: not-allowed;
+}
+
+.custom-flex {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.icon-hover-network {
+    display: flex;
+}
+
+.text-badge {
+    background: #000;
+    color: #fff;
+    padding: 0;
+    font-size: 10px;
+    border-radius: 50px;
+    margin-left: 5px;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @keyframes LikeAnimation{
@@ -2237,6 +2322,18 @@ form#add_post {
     50% {transform: scale(1.2);}
     750%{opacity: .4;}
     100%{display:none}
+}
+
+.user-dropdown-li i {
+    margin-right: 10px;
+    height: 10px;
+    width: 15px;
+}
+
+.user-dropdown-li span {
+    margin-right: 10px;
+    height: 10px;
+    width: 15px;
 }
 
 
@@ -2345,6 +2442,7 @@ form#add_post {
 }
 
 @media only screen and (max-width: 768px) {
+
     .profile-site-navigation-link {
         display: flex;
         flex-direction: column;
@@ -2419,6 +2517,7 @@ form#add_post {
     .profile-box-cover-image::after {
         bottom: -215px;
         height: 350px;
+        display: none;
     }
 
     .single-post-pop-up-inner {
@@ -2445,6 +2544,12 @@ form#add_post {
         display: none;
     }
 
+}
+
+@media only screen and (max-width: 600px) {
+    .profile-site-navigation-li {
+        padding: 5px 10px;
+    }
 }
 
 @media only screen and (max-width: 560px) {
@@ -2529,6 +2634,12 @@ form#add_post {
 
     .profile-box-user-info {
         margin-top: -200px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .profile-site-navigation-li {
+        padding: 2px 5px;
     }
 }
 

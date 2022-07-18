@@ -12,6 +12,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="referel-link-outer">
+                            <b>Unique Referral Link:</b>
                             <input type="text" class="referel-link-input show-popover" id="referral-link-text" data-popover=".popover-01" value="{{auth()->user()->invite()}}" readonly>
                             <div class="copy-popover popover-01">
                                 <div class="copy-popover-text">
@@ -22,8 +23,9 @@
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
+                        <p>You can either share this URL with your friends and family or send email invitation to join Connect Social network by adding there email address below</p>
                             <div>Add Email (Press enter to add more)</div>
-                            <input type="text" class="form-control pt-1 pb-3" name="emails" id="email-tags" placeholder="Add Emails">
+                            <input type="text" class="form-control pt-1 pb-3" name="emails" id="email-tags" placeholder="Add emails to send invites">
                         </div>
                     </div>
                 </div>

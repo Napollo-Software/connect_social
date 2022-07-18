@@ -38,6 +38,9 @@
                 <div class="profile-user-options">
                     <div class="profile-user-options-inner">
                         <div class="profile-user-options-main">
+                            <div class="line-show">
+                                
+                            </div>
                             <ul class="profile-user-options-ul">
                                 <li class="profile-user-options-li">
                                     <div class="profile-user-options-inner">
@@ -49,7 +52,10 @@
                                 <li class="profile-user-options-li">
                                     <div class="profile-user-options-inner">
                                         <div class="profile-user-options-icon">
-                                            <a href="javascript:void(0)"><span class="ti-comment-alt"></span></a>
+                                            <a href="javascript:void(0)">
+                                                <span class="ti-comment p3-padding"></span>
+                                                <!-- <img src="{{asset('ambassador_assets/images/nav-icon/message.png')}}" alt=""> -->
+                                            </a>
                                         </div>
                                     </div>
                                 </li>
@@ -59,7 +65,7 @@
                                             <div class="search-input-home-navigation-inner dropdown-box">
                                                 <div class="search-input-home-navigation-main">
                                                     <!-- <input type='text' placeholder="Search by name" id='input-trigger-div'> -->
-                                                    <button class="hover-button open-dropdown" data-target=".search-menu-02"><span class="ti-search"></span></button>
+                                                    <button class="hover-button open-dropdown" data-target=".search-menu-02"><span class="ti-search p3-padding"></span></button>
                                                 </div>
                                                 <div class="recent-searches-box custom-dropdown search-menu-02" id="recent-searches-box" style="display: none;">
                                                     <div class="recent-searches-box-inner">
@@ -67,7 +73,7 @@
                                                             <div class="search-input-home-navigation-main">
                                                                 <form action="http://127.0.0.1:8000/search" method="get">
                                                                     <div class="back-btn close-recent-search" onclick="document.getElementById('recent-searches-box').style.display = 'none'">
-                                                                        <span class="ti-arrow-left"></span>
+                                                                        <span class="ti-close"></span>
                                                                     </div>
                                                                     <input type="text" placeholder="Search by name" name="key" class="key-drop-down" id="key-dropdown" required="" autocomplete="off">
                                                                     <button class="search-btn black-button" type="submit"><span class="ti-search"></span></button>

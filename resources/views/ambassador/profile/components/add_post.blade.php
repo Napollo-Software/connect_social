@@ -1,11 +1,25 @@
 <div class="content-card">
     <div class="content-card-inner">
         <div class="share-post-box">
-            <div class="share-post-box-inner custom-padding">
-                <div class="share-post-user-image">
-                    <div class="share-post-user-image-inner">
-                        <img src="{{auth()->user()->profile_image()}}" alt="" style="width: 40px;height: 40px;object-fit: cover" class="profile_photo_preview">
+            <div class="share-post-box-inner">
+                <div class="share-post-user-image custom-padding">
+                    <div class="singal-post-top-bar-user-info-01">
+                        <div class="single-post-top-bar-photo">
+                            <div class="single-post-top-bar-photo-inner">
+                                <img src="{{auth()->user()->profile_image()}}" alt="" class="profile_photo_preview">
+                            </div>
+                        </div>
+                        <div class="singal-post-top-bar-post-detail">
+                            <div class="singal-post-top-bar-post-detail-inner">
+                                <div class="user-name"> 
+                                    Jhon Doe
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <!-- <div class="share-post-user-image-inner">
+                        <img src="{{auth()->user()->profile_image()}}" alt="" style="width: 40px;height: 40px;object-fit: cover" class="profile_photo_preview">
+                    </div> -->
                 </div>
                 <div class="share-post-box-main">
                     <form id="add_post">
@@ -32,7 +46,7 @@
                                                 <li class="share-post-attachments-li add-post-modal-show" data-type="video" >
                                                     <div class="attachment-option">
                                                         <div class="attachment-icon">
-                                                            <span class="ti-control-play"></span>
+                                                            <span class="ti-control-play custom-icon"></span>
                                                         </div>
                                                     </div>
                                                 </li>
@@ -46,7 +60,7 @@
                                                 <li class="share-post-attachments-li add-post-modal-show" data-type="link">
                                                     <div class="attachment-option">
                                                         <div class="attachment-icon">
-                                                            <span class="ti-link"></span>
+                                                            <span class="ti-link custom-icon-01"></span>
                                                         </div>
                                                     </div>
                                                 </li>

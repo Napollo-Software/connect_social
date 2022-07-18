@@ -74,7 +74,7 @@ i {
 }
 
 .form-card-div {
-    margin: 50px;
+    margin: 50px 0;
 }
 
 .form-card-div-inner {
@@ -284,8 +284,8 @@ input.form-div-field-input {
 }
 
 .form-card-spliter-main {
-    flex: 0 0 90%;
-    width: 90%;
+    flex: 0 0 100%;
+    width: 100%;
 }
 
 .card-title {
@@ -327,11 +327,22 @@ input.form-div-field-input {
     box-shadow: 0px 7px 19px #f0f0f0;
 }
 
+.top-text-kyc {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.bottom-text-kyc {
+    font-size: 20px;
+    margin-top: 15px;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 1200px) {
     .form-card-div-inner {
-        width: 90%;
+        width: 100%;
         margin: auto;
     }
 
@@ -354,14 +365,14 @@ input.form-div-field-input {
     }
 
     .form-card-spliter-main {
-        flex: 0 0 70%;
-        width: 70%;
+        flex: 0 0 100%;
+        width: 100%;
     }
 }
 
 @media only screen and (max-width: 800px) {
     .form-card-div-inner {
-        width: 90%;
+        width: 100%;
         margin: auto;
     }
 
@@ -377,7 +388,7 @@ input.form-div-field-input {
 
 @media only screen and (max-width: 600px) {
     .form-card-div {
-        margin: 10px;
+        
     }
 }
 
