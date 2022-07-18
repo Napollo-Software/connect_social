@@ -10,7 +10,7 @@
     <!-- Universal Styles -->
     <link rel="stylesheet" href="{{asset('main-assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{url('main-assets/lib/themify/themify-icons.css')}}">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <!-- Specific Styles -->
     {{load_styles(( isset($styles) ? $styles : '' ))}}
 </head>
@@ -21,7 +21,7 @@
     @endif
 
     @yield('content')
-    
+
     @if(isset($include_bottom))
         @include('layout.include_bottom')
     @endif
@@ -30,6 +30,9 @@
     <script src="{{asset('main-assets/js/bootstrap.min.js')}}"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!-- Specific Scripts -->
+    <scripts>
+        
+    </scripts>
     {{load_scripts(( isset($scripts) ? $scripts : '' ))}}
     @stack('scripts')
 </body>

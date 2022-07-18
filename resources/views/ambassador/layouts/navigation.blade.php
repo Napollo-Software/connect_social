@@ -4,13 +4,18 @@
             <ul class="profile-site-navigation-ul">
                 <li class="profile-site-navigation-li active">
                     <a href="javascript:void(0)" class="profile-site-navigation-link">
-                                        <span class="icon">
-                                            <img src="{{url('ambassador_assets/images/nav-icon/social.png')}}" alt="">
-                                        </span>
+                        <span class="icon">
+                            <img src="{{url('ambassador_assets/images/nav-icon/social.png')}}" alt="">
+                        </span>
                         <span class="text">
-                                            Social
-                                        </span>
+                            Social
+                        </span>
                     </a>
+                    <div class="navigation-drop-down">
+                        <div class="navigation-drop-down-inner">
+                            
+                        </div>
+                    </div>
                 </li>
                 <li class="profile-site-navigation-li">
                     <a href="javascript:void(0)" class="profile-site-navigation-link">
@@ -55,4 +60,5 @@
             </ul>
         </div>
     </div>
+</div>
 </div>
