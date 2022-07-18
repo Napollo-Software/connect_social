@@ -40,6 +40,11 @@
         <!-- </div> -->
     </div>  
 </div>
+<footer class="footer">
+    <div class="footer-inner">
+        © Connect Social, All rights reserved
+    </div>
+</footer>
 @include('ambassador.layouts.modals')
 @include('ambassador.layouts.single-post')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

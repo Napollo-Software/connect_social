@@ -338,7 +338,7 @@ i {
 
 .profile-navigation {
     position: sticky;
-    /* display: none; */
+    display: none;
 }
 
 .navigation-drop-down {
@@ -351,6 +351,7 @@ i {
     border-radius: 4px;
     overflow: hidden;
     display: none;
+    z-index: 1;
 }
 
 a.navigation-drop-down-link {
@@ -1786,7 +1787,13 @@ li.recent-search-li {
     min-width: 200px;
     border-radius: 3px;
     overflow: hidden;
+    z-index: 1;
     display: none;
+}
+
+.profile-user-options-icon a {
+    color: #000;
+    text-decoration: none;
 }
 
 .recent-searches-box-main .search-btn {
@@ -2207,6 +2214,13 @@ form#add_post {
 
 .current-privacy p {
     margin: 0;
+}
+
+.footer-inner {
+    background: #f0f2f5;
+    text-align: center;
+    font-size: 12px;
+    padding: 15px;
 }
 
 @keyframes LikeAnimation{
