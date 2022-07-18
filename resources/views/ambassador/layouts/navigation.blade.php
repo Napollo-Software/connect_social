@@ -2,25 +2,19 @@
 	<div class="container">
 		<div class="profile-site-navigation-inner">
 			<ul class="profile-site-navigation-ul">
-                <li class="profile-site-navigation-li">
+                <li class="profile-site-navigation-li {{(Route::currentRouteName()=='home')?'active':''}}">
 					<a href="javascript:void(0)" class="profile-site-navigation-link"> <span class="icon">
                     <img src="{{url('ambassador_assets/images/nav-icon/home.png')}}" alt="">
-                    </span> <span class="text">Homse</span> </a>
+                    </span> <span class="text">Home</span> </a>
 				</li>
-				<li class="profile-site-navigation-li {{Route::currentRouteName()=='ambassador.home'?'active':''}}">
+				<li class="profile-site-navigation-li {{(Route::currentRouteName()=='ambassador.home')?'active':''}}">
 					<a href="javascript:void(0)" class="profile-site-navigation-link"> <span class="icon">
                <img src="{{url('ambassador_assets/images/nav-icon/connection.png')}}" alt="">
                </span> <span class="text">Social</span> </a>
 					<div class="navigation-drop-down">
 						<div class="navigation-drop-down-inner">
 							<ul class="navigation-drop-down-">
-								<!-- <li class="navigation-drop-down-li">
-									<a href="{{route('ambassador.home')}}" class="navigation-drop-down-link">
-										<div class="icon"><img src="{{asset('ambassador_assets/images/icons/globe.svg')}}" alt=""> </div>
-										<div class="text">Everyone</div>
-									</a>
-								</li> -->
-								<li class="navigation-drop-down-li">
+								<li class="navigation-drop-down-li {{Route::getCurrentRoute()->type=='friends'?'active':''}}">
 									<a href="{{route('ambassador.home',['friends'])}}" class="navigation-drop-down-link">
 										<div class="icon"><img src="{{asset('ambassador_assets/images/icons/users.svg')}}" alt=""> </div>
 										<div class="text">Friends</div>
@@ -48,7 +42,7 @@
 						</div>
 					</div>
 				</li>
-                <li class="profile-site-navigation-li active">
+                <li class="profile-site-navigation-li {{(Route::currentRouteName()=='ambassador.profile' or Route::currentRouteName()=='gallery')?'active':''}}">
 					<a href="javascript:void(0)" class="profile-site-navigation-link"> <span class="icon">
                <img src="{{url('ambassador_assets/images/icons/user.png')}}" alt="">
                </span> <span class="text">
@@ -57,12 +51,6 @@
 					<div class="navigation-drop-down">
 						<div class="navigation-drop-down-inner">
 							<ul class="navigation-drop-down-">
-								<!-- <li class="navigation-drop-down-li">
-									<a href="{{route('home')}}" class="navigation-drop-down-link">
-										<div class="icon"><img src="{{asset('ambassador_assets/images/nav-icon/home.png')}}" alt=""></div>
-										<div class="text">Home</div>
-									</a>
-								</li> -->
 								<li class="navigation-drop-down-li">
 									<a href="{{route('ambassador.profile')}}" class="navigation-drop-down-link">
 										<div class="icon"><img src="{{asset('ambassador_assets/images/nav-icon/social-information.png')}}" alt=""></div>
@@ -79,8 +67,8 @@
 						</div>
 					</div>
 				</li>
-				<li class="profile-site-navigation-li">
-					<a href="javascript:void(0)" class="profile-site-navigation-link"> <span class="icon">
+				<li class="profile-site-navigation-li {{(Route::currentRouteName()=='network')?'active':''}}">
+					<a href="{{route('network',['friends'])}}" class="profile-site-navigation-link"> <span class="icon">
                <img src="{{url('ambassador_assets/images/nav-icon/network.png')}}" alt="">
                </span> <span class="text">Network</span> </a>
 				</li>
