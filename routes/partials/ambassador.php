@@ -15,6 +15,7 @@ use App\Http\Controllers\Ambassador\NetworkController;
 use App\Http\Controllers\Ambassador\SendInviteController;
 use App\Http\Controllers\Ambassador\KycController;
 use App\Http\Controllers\Ambassador\WalletController;
+use App\Http\Controllers\Ambassador\ReceiptController;
 use App\Http\Controllers\TransactionController;
 
 Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group(function () {
@@ -45,6 +46,12 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::post('update-privacy', [UserController::class, 'update_privacy'])->name('ambassador.update.privacy');
             Route::post('update-social-info', [UserController::class, 'update_social_info'])->name('ambassador.update.social.info');
             Route::post('show-control', [UserController::class, 'show_control'])->name('ambassador.show.control');
+
+            Route::prefix('receipts')->group(function () {
+                Route::get('', [ReceiptController::class, 'index'])->name('ambassador.receipts');
+                Route::post('store', [ReceiptController::class, 'store'])->name('ambassador.receipts.store');
+            });
+
         });
         Route::prefix('comments')->group(function () {
             Route::post('store', [CommentController::class, 'store'])->name('comments.store');

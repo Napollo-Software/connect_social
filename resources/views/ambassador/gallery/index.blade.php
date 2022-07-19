@@ -246,7 +246,7 @@ Gallery
                 $(this).parent().addClass('active');
                 var type= $(this).attr('data-type');
                 fetch(type);
-                window.history.pushState({}, null, '/gallery/'+type);
+                window.history.replaceState({}, null, '/gallery/'+type);
             });
         });
         
