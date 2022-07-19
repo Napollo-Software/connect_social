@@ -12,14 +12,11 @@
                         <div class="singal-post-top-bar-post-detail">
                             <div class="singal-post-top-bar-post-detail-inner">
                                 <div class="user-name"> 
-                                    Jhon Doe
+                                    {{auth()->user()->fullName()}}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="share-post-user-image-inner">
-                        <img src="{{auth()->user()->profile_image()}}" alt="" style="width: 40px;height: 40px;object-fit: cover" class="profile_photo_preview">
-                    </div> -->
                 </div>
                 <div class="share-post-box-main">
                     <form id="add_post">

@@ -5,7 +5,7 @@
                 <li class="profile-site-navigation-li {{(Route::currentRouteName()=='home')?'active':''}}">
 					<a href="{{route('home')}}" class="profile-site-navigation-link"> <span class="icon">
                     <img src="{{url('ambassador_assets/images/nav-icon/home.png')}}" alt="">
-                    </span> <span class="text">Home</span> </a>
+                    </span> <span class="text">Timeline</span> </a>
 				</li>
 				<li class="profile-site-navigation-li {{(Route::currentRouteName()=='ambassador.home')?'active':''}}">
 					<a href="javascript:void(0)" class="profile-site-navigation-link"> <span class="icon">
