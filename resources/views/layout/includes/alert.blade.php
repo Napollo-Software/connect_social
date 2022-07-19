@@ -1,4 +1,4 @@
-@if (auth()->user()->details->kyc_status==KYC::STATUS_APPROVED)
+@if (auth()->user()->details->kyc_status!=KYC::STATUS_APPROVED)
     <div class="alerts-outer">
         <div class="alerts-inner">
             <div class="singal-alert">

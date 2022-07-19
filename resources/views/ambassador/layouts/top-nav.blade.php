@@ -52,7 +52,7 @@
                                 <li class="profile-user-options-li">
                                     <div class="profile-user-options-inner">
                                         <div class="profile-user-options-icon">
-                                            <a href="javascript:void(0)">
+                                            <a href="{{url('chat')}}">
                                                 <span class="ti-comment p3-padding"></span>
                                                 <!-- <img src="{{asset('ambassador_assets/images/nav-icon/message.png')}}" alt=""> -->
                                             </a>
@@ -112,13 +112,13 @@
                                         <div class="user-dropdown-inner drop-00 custom-dropdown left-dropdown">
                                             <ul class="user-dropdown-ul">
                                                 <li class="user-dropdown-li">
-                                                    <a href="{{route('ambassador.profile')}}"><i class="fa fa-user"></i> My Profile</a>
+                                                    <a href="{{route('ambassador.profile')}}"><i class="ti-user"></i> My Profile</a>
                                                 </li>
                                                 <li class="user-dropdown-li">
-                                                    <a href="javascript:void(0)" class="open-modal" data-modal="#Send-InvitationModal"><i class="fa fa-share"></i> Send Invite</a>
+                                                    <a href="javascript:void(0)" class="open-modal" data-modal="#Send-InvitationModal"><i class="ti-share"></i> Send Invite</a>
                                                 </li>
                                                 <li class="user-dropdown-li">
-                                                    <a href="javascript:void(0)"><i class="fa fa-cogs"></i> Settings</a>
+                                                    <a href="javascript:void(0)"><i class="ti-settings"></i> Settings</a>
                                                 </li>
                                                 <li class="user-dropdown-li">
                                                     <a href="{{route('kyc.submission')}}"><span class="ti-money"></span>

@@ -39,7 +39,7 @@ Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->grou
     Route::prefix('ambassador_receipts')->group(function () {
         Route::get('/', [AmbassadorReceiptsController::class, 'index'])->name('admin.ambassador.receipt');
         Route::post('fetch', [AmbassadorReceiptsController::class, 'fetch'])->name('admin.ambassador.receipt.fetch');
-        Route::post('submit', [AmbassadorReceiptsController::class, 'submit'])->name('admin.ambassador.receipt.submit');
+        Route::post('action', [AmbassadorReceiptsController::class, 'action'])->name('admin.ambassador.receipt.action');
 
     });
 

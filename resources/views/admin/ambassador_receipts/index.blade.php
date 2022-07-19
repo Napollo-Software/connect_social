@@ -45,18 +45,7 @@
                             </thead>
                             <tbody>
                             </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>Ambassador</th>
-                                <th>Merchant Name</th>
-                                <th>Receipts</th>
-                                <th></th>
-                                <th>Status</th>
-                                <th>Date</th>
-                                <th>Coins</th>
-                                <th>Action</th>
-                            </tr>
-                            </tfoot>
+
                         </table>
                     </div>
                 </div>
@@ -88,12 +77,21 @@
             InitTable(route,token,columns);
 
 
-            $(document).on('click','.delete',function () {
-                var id = $(this).attr('data-id');
-                var route = '{{route('permission.destroy')}}';
-                var next = {'type':'soft-dt'};
+            $(document).on('click','.action',function (e) {
+                e.preventDefault();
+                var type=$(this).attr('data-type');
+                var warning='';
+                if (type=='approve'){
+                    warning='Are you sure to approve this Ambassador Receipt?';
+                }
+                if (type=='reject'){
+                    warning='Are you sure to reject this Ambassador Receipt?';
+                }
 
-                cdelete('Are you sure to delete this permissions?',id,token,route,next)
+                var data = {'id':$(this).attr('data-id'),'type':type};
+                var route = '{{route('admin.ambassador.receipt.action')}}';
+                var next = {'type':'soft-dt'};
+                cdelete(warning,data,token,route,next)
             });
 
         });

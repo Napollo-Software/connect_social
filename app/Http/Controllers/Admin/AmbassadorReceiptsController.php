@@ -14,6 +14,23 @@ class AmbassadorReceiptsController extends Controller
     public function index(){
         return view('admin.ambassador_receipts.index');
     }
+    public function action(Request $request){
+        $data=$request->id;
+        $id=$data['id'];
+        $type=$data['type'];
+        $receipt=AmbassadorReceipt::find($id);
+        if ($receipt->status==\AMBASSADOR_RECEIPT::STATUS_REQUESTED){
+            if ($type=='approve'){
+                $receipt->status=\AMBASSADOR_RECEIPT::STATUS_APPROVED;
+            }
+            if ($type=='reject'){
+                $receipt->status=\AMBASSADOR_RECEIPT::STATUS_REJECTED;
+            }
+            $receipt->save();
+        }
+        return response()->json(['success'=>'Ambassador receipt is '.$type.'d successfully!']);
+    }
+
 
 
     public function fetch(Request $request){
@@ -36,27 +53,31 @@ class AmbassadorReceiptsController extends Controller
             })
 
             ->addColumn('action', function($v){
-                $actions =
-                    '<a href class="btn p-0 action" data-type="approve" data-id="'.$v->id.'"><i class="bx bx-check"></i></a>
+                if ($v->status==\AMBASSADOR_RECEIPT::STATUS_REQUESTED){
+                    $actions =
+                        '<a href class="btn p-0 action" data-type="approve" data-id="'.$v->id.'"><i class="bx bx-check"></i></a>
                     <a href class="btn p-0 action" data-type="reject" data-id="'.$v->id.'"><i class="bx bx-x"></i></a>';
+                }else{
+                    $actions='';
+                }
                 return $actions;
             })
             ->addColumn('status', function($v){
                 $status=null;
                 if ($v->status==\AMBASSADOR_RECEIPT::STATUS_REQUESTED){
-                    $status='Requested';
+                    $status='<p class="text-warning">Requested</p>';
                 }
                 if ($v->status==\AMBASSADOR_RECEIPT::STATUS_APPROVED){
-                    $status='Approved';
+                    $status='<p class="text-success">Approved</p>';
                 }
                 if ($v->status==\AMBASSADOR_RECEIPT::STATUS_REJECTED){
-                    $status='Rejected';
+                    $status='<p class="text-danger">Rejected</p>';
                 }
                 return $status;
             })
 
 
-            ->rawColumns(['action','attachment',])
+            ->rawColumns(['action','attachment','status'])
             ->make(true);
     }
 }

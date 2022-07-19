@@ -43,17 +43,6 @@
                             </thead>
                             <tbody>
                             </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>City</th>
-                                <th>State</th>
-                                <th>Country</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>
