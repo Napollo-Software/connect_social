@@ -55,14 +55,14 @@
           <entry key="js" value="29" />
           <entry key="json" value="9" />
           <entry key="lock" value="2" />
-          <entry key="php" value="1486" />
+          <entry key="php" value="1487" />
           <entry key="sql" value="37" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="673" />
+          <entry key="Blade" value="674" />
           <entry key="CSS" value="23" />
           <entry key="HTML" value="6" />
           <entry key="JSON" value="11" />
@@ -80,14 +80,14 @@
           <entry key="html" value="321" />
           <entry key="js" value="1243" />
           <entry key="json" value="1" />
-          <entry key="php" value="90801" />
+          <entry key="php" value="90840" />
           <entry key="sql" value="142" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="43458" />
+          <entry key="Blade" value="43497" />
           <entry key="CSS" value="115" />
           <entry key="HTML" value="434" />
           <entry key="JSON" value="1" />
@@ -101,11 +101,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/navigation.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="63" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="63" />
+            <state relative-caret-position="340">
+              <caret line="20" column="64" selection-start-line="20" selection-start-column="64" selection-end-line="20" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="39" column="114" selection-start-line="39" selection-start-column="114" selection-end-line="39" selection-end-column="114" />
             </state>
           </provider>
         </entry>
@@ -183,7 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/KycController.php" />
         <option value="$PROJECT_DIR$/public/kyc_assets/css/kyc.css" />
         <option value="$PROJECT_DIR$/app/Models/AmbassadorDetails.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/kyc/layouts/app.blade.php" />
@@ -234,6 +242,7 @@
         <option value="$PROJECT_DIR$/resources/views/admin/ambassador_receipts/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/components/add_post.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/navigation.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/home/index.blade.php" />
       </list>
     </option>
   </component>
@@ -872,12 +881,12 @@
       <workItem from="1657824532711" duration="8745000" />
       <workItem from="1658144184603" duration="861000" />
       <workItem from="1658145403551" duration="13786000" />
-      <workItem from="1658230065849" duration="9021000" />
+      <workItem from="1658230065849" duration="9482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="513352000" />
+    <option name="totallyTimeSpent" value="513813000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -922,13 +931,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/dashboard.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="38" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Traits/ChartOfAccount.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1255,8 +1257,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/navigation.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="63" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="63" />
+        <state relative-caret-position="340">
+          <caret line="20" column="64" selection-start-line="20" selection-start-column="64" selection-end-line="20" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="39" column="114" selection-start-line="39" selection-start-column="114" selection-end-line="39" selection-end-column="114" />
         </state>
       </provider>
     </entry>
