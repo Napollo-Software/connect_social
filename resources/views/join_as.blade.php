@@ -209,15 +209,11 @@
                         </div>
                         <div class="user-profile-video-bottom-text">
                             <div class="user-profile-video-bottom-text-inner">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, impedit aperiam!
-                                    Nam amet eius, alias earum, praesentium magni ex accusamus pariatur aut
-                                    perspiciatis, repellendus velit facere libero ipsam commodi quae.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, impedit aperiam!
-                                    Nam amet eius, alias earum, praesentium magni ex accusamus pariatur aut
-                                    perspiciatis, repellendus velit facere libero ipsam commodi quae.</p>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, impedit aperiam!
-                                    Nam amet eius, alias earum, praesentium magni ex accusamus pariatur aut
-                                    perspiciatis, repellendus velit facere libero ipsam commodi quae.</p>
+                                <p>Connect Social LLC is a multi-functional social platform with its own cryptocurrency called Connect Coin where ambassadors can build their network by referring new users and they can earn a referral bonus. The newcomers will also get the joining bonus, which can be used for purchases on the marketplace. Merchants can create their online stores and sell on our marketplace. When buying on Connect Social, the 5% return to the consumer is made for taking the consumer data, which other tech companies don’t normally pay for.
+                                    <br>We have been promoting the entertainment for people for years, and have now brought ‘Connect Social’ as a social platform along with earning opportunities. Anyone signing up as an ambassador can grow one’s network as vast as one wants and accumulate coins on every referral sign-up.
+                                    <br>Moreover, the influencers having a significant social network can participate in the Treasure Island seasons and can earn up to $500,000 in Connect Coins.
+                                    <br>We believe that the Connect Social is a go-to social media platform where both enjoyment and earning are possible.
+                                </p>
                             </div>
                         </div>
                     </div>

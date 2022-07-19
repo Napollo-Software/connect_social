@@ -12,14 +12,11 @@
                         <div class="singal-post-top-bar-post-detail">
                             <div class="singal-post-top-bar-post-detail-inner">
                                 <div class="user-name"> 
-                                    Jhon Doe
+                                    {{auth()->user()->fullName()}}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="share-post-user-image-inner">
-                        <img src="{{auth()->user()->profile_image()}}" alt="" style="width: 40px;height: 40px;object-fit: cover" class="profile_photo_preview">
-                    </div> -->
                 </div>
                 <div class="share-post-box-main">
                     <form id="add_post">
@@ -70,8 +67,8 @@
                                     <div class="set-privacy-share">
                                         <div class="set-privacy-share-inner">
                                             <div class="set-privacy-dropdown dropdown-box">
-                                                <div class="set-privacy-dropdown-value open-dropdown" data-target=".drop-02" data-value="{{Privacy::PRIV_FRIENDS}}">
-                                                    <img src="{{url('ambassador_assets/images/icons/users.svg')}}" alt=""> <i>Friends</i> <span class="more-icon"><span class="ti-angle-down"></span></span>
+                                                <div class="set-privacy-dropdown-value open-dropdown" data-target=".drop-02" data-value="{{Privacy::PRIV_PUBLIC}}">
+                                                    <img src="{{url('ambassador_assets/images/icons/globe.svg')}}" alt=""> <i>Public</i> <span class="more-icon"><span class="ti-angle-down"></span></span>
                                                 </div>
                                                 <div class="set-privacy-dropdown-inner custom-dropdown drop-02"></div>
                                             </div>

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\KycController;
 use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\Admin\ConfigurationController;
+use App\Http\Controllers\Admin\AmbassadorReceiptsController;
 
 Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->group(function () {
     Route::get('profile', [UserController::class, 'profile'])->name('users.profile');
@@ -34,6 +35,12 @@ Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->grou
         Route::post('submit', [PermissionController::class, 'submit'])->name('permission.submit');
         Route::post('edit', [PermissionController::class, 'edit'])->name('permission.edit');
         Route::post('destroy', [PermissionController::class, 'destroy'])->name('permission.destroy');
+    });
+    Route::prefix('ambassador_receipts')->group(function () {
+        Route::get('/', [AmbassadorReceiptsController::class, 'index'])->name('admin.ambassador.receipt');
+        Route::post('fetch', [AmbassadorReceiptsController::class, 'fetch'])->name('admin.ambassador.receipt.fetch');
+        Route::post('action', [AmbassadorReceiptsController::class, 'action'])->name('admin.ambassador.receipt.action');
+
     });
 
     Route::prefix('invite')->group(function () {

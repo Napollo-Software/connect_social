@@ -30,10 +30,10 @@ class PostController extends Controller
         }
         $network=auth()->user()->my_network();
         $network[]=$tier0;
-        $posts = Post::orderBy('created_at', 'DESC')->where('user_id','!=',auth()->user()->id)->whereIn('user_id',$network)->skip($request->n*2)->take(2)->get();
+        $network[]=auth()->user()->id;
+        $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$network)->skip($request->n*2)->take(2)->get();
         if ($type=='all'){
-           
-            $posts = Post::orderBy('created_at', 'DESC')->where('user_id','!=',auth()->user()->id)->whereIn('user_id',$network)->skip($request->n*2)->take(2)->get();
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$network)->skip($request->n*2)->take(2)->get();
         }
         if ($type=='friends'){
             

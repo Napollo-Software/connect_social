@@ -6,7 +6,6 @@ use App\Http\Controllers\Ambassador\CommentController;
 use App\Http\Controllers\Ambassador\UserController;
 use App\Http\Controllers\Ambassador\LikeController;
 use App\Http\Controllers\Ambassador\GalleryController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Ambassador\FriendsController;
 use App\Http\Controllers\Ambassador\ConnectionsController;
 use App\Http\Controllers\Ambassador\ChatController;
@@ -21,7 +20,6 @@ use App\Http\Controllers\TransactionController;
 Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group(function () {
 
     Route::middleware('under-construction')->group(function () { 
-        Route::get('home/{type?}', [HomeController::class, 'index'])->name('ambassador.home');
         Route::prefix('profile-view')->group(function () {
             Route::get('{id}', [NetworkController::class, 'profile'])->name('network.profile');
             Route::get('network/{id}/{type}', [NetworkController::class, 'network'])->name('network.list');

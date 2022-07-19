@@ -14,6 +14,7 @@
                         </div>
                         <div class="wallet-stats-table-main">
                             <div class="wallet-stats-table-outer table-responsive  custom-card custom-border custom-padding clasic-shadow">
+                                <p class="text-danger">As there is no merchant, so I manipulate all users in merchant dropdown.</p>
                                 <table id="wallet-stats" class="table">
                                     <thead>
                                     <tr>
@@ -29,24 +30,24 @@
                                     @foreach($receipts as $receipt)
                                         <tr>
                                             <td>{{$receipt->merchant_name}}</td>
-                                            <td>{{$receipt->merchant_type}}</td>
+                                            <td>{{$receipt->merchant_type()}}</td>
                                             <td>
                                                 <a class="ti-link text-decoration-none text-dark" href="{{Storage::disk('local')->url('/ambassador-receipts/'.$receipt->receipt)}}" target="_blank"></a>
                                             </td>
                                             <td>
                                                 @if($receipt->status==AMBASSADOR_RECEIPT::STATUS_REQUESTED)
-                                                    REQUESTED
+                                                    <span class="text-warning">Requested</span>
                                                 @elseif($receipt->status==AMBASSADOR_RECEIPT::STATUS_APPROVED)
-                                                    APPROVED
+                                                    <span class="text-success">Approved</span>
                                                 @else
-                                                    REJECTED
+                                                    <span class="text-danger">Rejected</span>
                                                 @endif
 
                                             </td>
                                             <td>{{$receipt->created_at->format('d-m-Y')}}</td>
                                             <td>
                                                 <span class="debit">+ ${{$receipt->receipt_amount}}</span>
-{{--                                                <span class="credit">- ${{$my_trx->dr}}</span>--}}
+{{--                                            <span class="credit">- ${{$my_trx->dr}}</span>--}}
 
                                             </td>
                                         </tr>

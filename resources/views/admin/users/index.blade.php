@@ -42,17 +42,7 @@
                             </thead>
                             <tbody>
                             </tbody>
-                            <tfoot> 
-                            <tr>
-                                <th>ID</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Username</th>
-                                <th>Email</th>
-                                <th>Role</th>
-                                <th>Action</th>
-                            </tr>
-                            </tfoot>
+
                         </table>
                     </div>
                 </div>

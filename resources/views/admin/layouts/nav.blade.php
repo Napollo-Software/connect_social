@@ -62,6 +62,12 @@
                     <div class="menu-title">KYC</div>
                 </a>
             </li>
+            <li>
+                <a href="{{route('admin.ambassador.receipt')}}">
+                    <div class="parent-icon"><i class='bx bxs-cloud-upload'></i></div>
+                    <div class="menu-title">Ambassador Receipt</div>
+                </a>
+            </li>
 
         @endcan
 
