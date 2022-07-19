@@ -30,15 +30,20 @@ class ConfigurationController extends Controller
         }
         else
         {
-            $data = Settings::find('1');
+            $data = Settings::first();
             $config=unserialize($data->configurations);
             if(array_key_exists($request->check,$config))
             {
-                $config[$request->check]=[$request->check=>$request->all()];
+                $config[$request->check]=$request->all();
             }
+            else
+            {
+                $config += [$request->check=>$request->all()];
+            }
+            $config=serialize($config);
+            $data->configurations=$config;
+            $data->save();
         }
-        $config=serialize($config);
-       // dd($config[$request->check]);
         return response()->json('Added Successfully');
     }
 }
