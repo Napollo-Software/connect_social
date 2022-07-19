@@ -20,7 +20,7 @@
             <div class="card-body" style="position: relative;">
                 <div class="d-flex align-items-center">
                     <form id="configurations">
-                        @csrf
+                        
                         <input type="hidden" name="check" value="updateAmbassadorConfig">
                     <div>
                         <p class="mb-0 text-secondary"></p>
@@ -347,20 +347,41 @@
 @section('script')
 <script>
     
-var i=0;
+var countTitle=0,countValue=0;
+var title=[];
+var value=[];
 $(document).on('change','.title',function(e)
 {
     e.preventDefault();
     var check=$(this).attr('data-change');
     if(check=='0')
     { 
-        title=$(this).attr('data-title');
-        //value[]=$(this).val();
+        title[countTitle++]=$(this).attr('data-title');
+        value[countValue++]=$(this).val();
 
     }
-    alert(title);
-   
 });
+
+$(document).on('submit','#configurations',function(e){
+    e.preventDefault();
+    $.ajax({
+        type : "POST",
+        url  : "{{route('update.ambassador.config')}}",
+        data : {
+            _token : "{{csrf_token()}}",
+            'title' : title,
+            'value' : value,
+        },
+        dataType : "json",
+        
+        success : function(data){
+            swal({ title :  data , icon : "success" , button : false});
+        },
+        error :function(xhr){
+            erroralert(xhr);
+        }
+    })
+})
 
 </script>
 @endsection
