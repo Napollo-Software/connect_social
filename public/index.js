@@ -16,9 +16,7 @@ function submit(b,m,r,d,n) {
             if (n['type']=='form-reset'){
                 n['target'].trigger("reset");
             }
-            if (n['type']=='reload'){
-                window.location.reload();
-            }
+
             swal("Success!", data.success, "success").then(function () {
                 if (n['type']=='data-table-modal'){
                     $('#modal').modal('hide');
@@ -26,6 +24,9 @@ function submit(b,m,r,d,n) {
                 }
                 if (n['type']=='next-route'){
                     window.location.href=n['url'];
+                }
+                if (n['type']=='reload'){
+                    window.location.reload();
                 }
             });
         },

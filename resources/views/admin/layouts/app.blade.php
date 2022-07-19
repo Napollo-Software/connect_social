@@ -158,6 +158,7 @@
     <script>
         var token = '{{csrf_token()}}';
     </script>
+    <script src="{{url('index.js')}}"></script>
 	@yield("script")
     @include("admin.layouts.theme-control")
 

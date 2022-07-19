@@ -131,6 +131,5 @@
             });
         });
     </script>
-    <script src="{{url('index.js')}}"></script>
 
 @endsection
