@@ -121,7 +121,7 @@ class RegisterController extends Controller
             )
         );
 
-
+ 
 
         if ($referrer) {
             if ($referrer->roles->slug == 'ambassador' || $referrer->roles->slug == 'merchant') {

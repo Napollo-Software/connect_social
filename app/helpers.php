@@ -50,7 +50,7 @@ function sendEmail($to,$from,$subject,$message){
         }*/
 }
 function dateFormat($date,$format){
-    $seconds= strtotime($date);
+    $seconds= strtotime($date); 
     return date($format,$seconds);
 }
 class Privacy{

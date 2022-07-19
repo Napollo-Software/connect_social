@@ -86,7 +86,7 @@
                     {"data": "id"},
                     {"data": "fname"},
                     {"data": "lname"},
-                    {"data": "username"},
+                    {"data": "username"}, 
                     {"data": "email"},
                     {"data": "role"},
                     {"data":"action" , searchable : false , orderable : false},

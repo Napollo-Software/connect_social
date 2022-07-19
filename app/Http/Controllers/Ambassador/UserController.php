@@ -214,7 +214,7 @@ class UserController extends Controller
         } else {
             $data += [$request->key => $request->value];
         }
-        $detail->privacy = serialize($data);
+        $detail->privacy = serialize($data); 
         $detail->save();
         return response()->json(['success' => 'updated']);
     }
