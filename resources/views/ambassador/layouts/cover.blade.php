@@ -8,7 +8,7 @@
                     <input type="file" name="cover" id="cover_photo_input"
                            onchange="$('#update_cover_photo_form').submit()">
                 </form>
-                <div class="edit-button upload-selector {{--with-bg--}}" data-target="#cover_photo_input">
+                <div class="edit-button upload-selector {{--with-bg--}}" title="Edit cover photo" data-target="#cover_photo_input">
                     <div class="edit-button-inner">
                         <span class="icon"><span class="ti-camera"></span></span>{{-- <i>Edit cover photo</i>--}}
                     </div>
