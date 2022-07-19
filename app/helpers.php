@@ -384,13 +384,13 @@ function invite_email_text($name){
     $message=str_replace('XXXXX',$name,$html);
     return $message;
 }
-
 function getNetworkPrivacy($type){
     $all=unserialize(auth()->user()->details->network_privacy);
     $privacy=$all[$type];
     return getPrivacyDetails($privacy);
 }
 use App\Models\User;
+use App\Models\Settings;
 function checkPrivacyInNetwork($privacy,$other_network_id)
 {
 
@@ -433,4 +433,12 @@ function checkPrivacyInNetwork($privacy,$other_network_id)
 use App\Models\ChartOfAccount;
 function ConnectSocialCOA(){
     return ChartOfAccount::where('group','connect-social-account')->first();
+}
+function getConfigValue($key,$name)
+{
+    $data = Settings::first();
+    $data = unserialize($data->configurations);
+    $data=$data[$key];
+    $value=$data[$name];
+    return $value;
 }

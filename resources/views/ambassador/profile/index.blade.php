@@ -560,6 +560,12 @@
 <script src="{{url('index.js')}}"></script>
 @push('scripts')
     <script>
+         var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+            separateDialCode: true,
+            initialCountry: "auto",
+        });
+
         $('document').ready(function () {
             fetch('{{$type}}');
             $(document).on('click', '.profile-network', function (e) {
@@ -633,6 +639,7 @@
                 });
                 $(document).on('submit', '#social_info_form', function (e) {
                     e.preventDefault();
+                    $('#country_code').val($('.iti__selected-dial-code').text());
                     $.ajax({
                         type: "POST",
                         url: "{{route('ambassador.update.social.info')}}",
@@ -910,7 +917,7 @@
                     @csrf
                     <div class="modal-body">
                         <div class="row">
-                            @if (auth()->user()->details->kyc_status!=Kyc::STATUS_APPROVED)
+                            @if (auth()->user()->details->kyc_status==KYC::STATUS_APPROVED)
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="username">Username</label>
@@ -921,8 +928,9 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="username">Phone</label>
-                                    <input type="text" class="form-control" value="{{auth()->user()->phone}}"
-                                    name="phone" id="phone">
+                                        <input type="text" class="form-field-input form-control w-100"
+                                        value="{{auth()->user()->phone}}"  id="phone" placeholder='Mobile Number' name="phone">
+                                        <input type="hidden" value="" name="country_code" id="country_code">
                                 </div>
                             </div>
                             @endif
@@ -997,4 +1005,5 @@
             </div>
         </div>
     </div>
+    
 @endif

@@ -20,25 +20,8 @@ class ConfigurationController extends Controller
 
     public function  updateAmbassadorConfig(Request $request)
     {
-        $config=[$request->check=>$request->all()];
-        $config=serialize($config);
-        if(Settings::all()->count()<1)
-        { 
-            $data = new Settings();
-            $data->configurations=$config;
-            $data->save();
-        }
-        else
-        {
-            $data = Settings::find('1');
-            $config=unserialize($data->configurations);
-            if(array_key_exists($request->check,$config))
-            {
-                $config[$request->check]=[$request->check=>$request->all()];
-            }
-        }
-        $config=serialize($config);
-       // dd($config[$request->check]);
+        dd($request->all());
+        
         return response()->json('Added Successfully');
     }
 }

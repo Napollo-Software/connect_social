@@ -173,6 +173,7 @@ class UserController extends Controller
         if($request->has('username')){
         $user->username = $request->username;
         }if($request->has('phone')){
+        $user->country_code = $request->country_code;
         $user->phone = $request->phone;
         }
         $user->save();
