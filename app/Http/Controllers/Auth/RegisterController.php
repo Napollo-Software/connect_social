@@ -40,6 +40,11 @@ class RegisterController extends Controller
             'password' => ['required', 'string', 'min:8','confirmed'],
             'profile' => ['required','image','mimes:jpeg,png,jpg,gif,svg','max:2048'],
         ],[
+            'gender.required'=>'Gender is required.',
+            'password.required'=>'Password is required.',
+            'username.required'=>'Username is required.',
+            'phone.required'=>'Phone is required.',
+            'email.required'=>'Email is required.',
             'fname.required'=>'First name is required.',
             'lname.required'=>'Last name is required.',
             'country_code.required'=>'Country code is required.',

@@ -19,7 +19,7 @@ class KycController extends Controller
 
     public function submit(Request $request)
     {
-        if (auth()->user()->details->kyc_status == 0){
+        if (auth()->user()->details->kyc_status === 0){
             $response['message'] = ['You have already requested for KYC!'];
             return response()->json([
                 'status' => 'failed',
