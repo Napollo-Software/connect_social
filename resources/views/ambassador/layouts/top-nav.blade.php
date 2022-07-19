@@ -121,7 +121,9 @@
                                                     <a href="javascript:void(0)"><i class="fa fa-cogs"></i> Settings</a>
                                                 </li>
                                                 <li class="user-dropdown-li">
-                                                    <a href="javascript:void(0)"><span class="ti-help-alt"></span> FAQ's</a>
+                                                    <a href="{{route('kyc.submission')}}"><span class="ti-money"></span>
+                                                        KYC Status
+                                                    </a>
                                                 </li>
                                                 <li class="user-dropdown-li">
                                                     <a href="{{ route('logout') }}"
