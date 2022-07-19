@@ -34,7 +34,7 @@
                             <label for="New User">New User</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusForAmbassador_NewUser" class="form-control">
+                            <input type="text"   data-change='0' data-title="Bonus for Ambassador new user" class="form-control title">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -45,18 +45,18 @@
                             <label for="New User">Tier 1</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bounsForMerchant_Tier1" class="form-control">
+                            <input type="text" data-change='0' data-title="Bouns For Merchant Tier1" class="form-control title">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
-                        </div>
+                        </div> 
                     </div>
                     <div class="row">
                         <div class="col-md-1 pt-3">
                             <label for="New User">Tier 2</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusForMerchant_Tier2" class="form-control">
+                            <input type="text" data-change='0' data-title="Bouns For Merchant Tier2" class="form-control title">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -79,7 +79,7 @@
                             <label for="New User">Ambassador who has recruited a merchant gains</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusForRecruitingMerchant_RecuritingAmbassadorAmount" class="form-control">
+                            <input type="text"   data-change='0' data-title="Bonus For Recruiting Merchant Recuriting Ambassador Amount" class="form-control title">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -90,7 +90,7 @@
                             <label for="New User">Tier 1</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text"  name="bonusForRecruitingMerchant_Tier1" class="form-control">
+                            <input type="text"   data-title="Bonus For Recruiting Merchant Recuriting Tier 1" class="form-control title">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -101,7 +101,7 @@
                             <label for="New User">Tier 2</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusForRecruitingMerchant_Tier2" class="form-control">
+                            <input type="text"  data-title="Bonus For Recruiting Merchant Recuriting Tier 2" class="form-control title">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -124,7 +124,7 @@
                             <label for="New User">The user will be paid </label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusForUploadingReceiptForAmbassador_Amount" class="form-control">
+                            <input type="text" data-change='0'  data-title="Bonus For Uploading Receipt For Ambassador Amount" class="form-control title">
                         </div>
                         <div class="col-md-6 pt-3">
                             <label for="coins"> % of the total payment made.(i.e., in the uploaded receipt) after verification</label>
@@ -135,7 +135,7 @@
                             <label for="New User">Tier 1</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusForUploadingReceiptForAmbassador_Tier1" class="form-control">
+                            <input type="text" data-change='0'  data-title="Bonus For Uploading Receipt For Ambassador Tier1" class="form-control title">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -146,7 +146,7 @@
                             <label for="New User">Tier 2</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusForUploadingReceiptForAmbassador_Tier2" class="form-control">
+                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Ambassador Tier2" class="form-control title">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -169,7 +169,7 @@
                             <label for="New User">The user will be paid </label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusForUploadingReceiptForMerchant_Amount" class="form-control">
+                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Resident Paid User" class="form-control title">
                         </div>
                         <div class="col-md-6 pt-3">
                             <label for="coins"> % of the total payment made.(i.e., in the uploaded receipt) after verification</label>
@@ -180,7 +180,7 @@
                             <label for="New User">Tier 1</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusForUploadingReceiptForMerchant_Tier1" class="form-control">
+                            <input type="text"  data-change='0' data-title="Bonus For Uploading Receipt For Resident Tier 1" class="form-control title">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -191,7 +191,7 @@
                             <label for="New User">Tier 2</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text"  name="bonusForUploadingReceiptForMerchant_Tier2" class="form-control">
+                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Resident Tier 2" class="form-control title">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -214,7 +214,7 @@
                             <label for="New User">The user will be paid </label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusForUploadingReceiptForCitizen_Amount" class="form-control">
+                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Citizen User will Paid" class="form-control title">
                         </div>
                         <div class="col-md-6 pt-3">
                             <label for="coins"> % of the total payment made.(i.e., in the uploaded receipt) after verification</label>
@@ -225,7 +225,7 @@
                             <label for="New User">Tier 1</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text"  name="bonusForUploadingReceiptForCitizen_Tier1" class="form-control">
+                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Citizen Tier 1" class="form-control title">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -236,7 +236,7 @@
                             <label for="New User">Tier 2</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusForUploadingReceiptForCitizen_Tier2" class="form-control">
+                            <input type="text"  data-change='0' data-title="Bonus For Uploading Receipt For Citizen Tier 2" class="form-control title">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -259,7 +259,7 @@
                             <label for="New User">Purchasing customers will be given</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusOnPurchasesOnResident_Amount" class="form-control"> 
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Resident Amount" class="form-control title"> 
                         </div>
                         <div class="col-md-5 pt-3">
                             <label for="coins"> %of the purchase payment.</label>
@@ -267,13 +267,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusOnPurchasesOnResident_Tier1" class="form-control">
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Resident Tier1" class="form-control title">
                         </div>
                         <div class="col-md-4 pt-3">
                             % will be credited to tier 1 referee and   
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusOnPurchasesOnResident_Tier2" class="form-control">
+                            <input type="text" data-title="Bonus On Purchases On Resident Tier 2" class="form-control title">
                         </div>
                         <div class="col-md-3 pt-3">
                             <label for="coins">% to tier 2 referee.</label>
@@ -281,7 +281,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusOnPurchasesOnResident_AmbassadorAmount" class="form-control">
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Resident Ambassador Who Acquired" class="form-control title">
                         </div>
                         <div class="col-md-7 pt-3">
                             <label for="coins">  %  will be credited to the ambassador who has acquired the merchant.</label>
@@ -305,7 +305,7 @@
                             <label for="New User">Purchasing customers will be given</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text"  name="bonusOnPurchasesOnCitizens_Amount" class="form-control"> 
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Citizens Amount"  class="form-control title"> 
                         </div>
                         <div class="col-md-5 pt-3">
                             <label for="coins"> %of the purchase payment.</label>
@@ -313,13 +313,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusOnPurchasesOnCitizens_Tier1" class="form-control">
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Citizens Tier1" class="form-control title">
                         </div>
                         <div class="col-md-3 pt-3">
                             % will be credited to tier 1 referee and   
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text"  name="bonusOnPurchasesOnCitizens_Tier2" class="form-control">
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Citizens Tier2" class="form-control title">
                         </div>
                         <div class="col-md-3 pt-3">
                             <label for="coins">% to tier 2 referee.</label>
@@ -327,7 +327,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 pt-2">
-                            <input type="text" name="bonusOnPurchasesOnCitizens_AmbassadorAmount" class="form-control">
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Citizens Ambassador Who Acquired" class="form-control title">
                         </div>
                         <div class="col-md-5 pt-3">
                             <label for="coins">  %  will be credited to the ambassador who has acquired the merchant.</label>
@@ -335,7 +335,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 pt-3 ">
-                           <button class="form-control btn btn-dark" type="submit" >Submit</button>
+                           <button class="form-control title btn btn-dark" type="submit" >Submit</button>
                         </div>
                     </div>
                 </div>
@@ -346,27 +346,20 @@
 @endsection
 @section('script')
 <script>
-
-$(document).on('submit','#configurations',function(e)
+    
+var i=0;
+$(document).on('change','.title',function(e)
 {
     e.preventDefault();
-    $.ajax({
-        type : "POST",
-        url  : "{{route('update.ambassador.config')}}",
-        data : new FormData(this),
-        dataType:"JSON",
-        contentType:false,
-        processData:false,
-        cache:false,
-        success : function(data){
-          swal({ title : data, icon  : "success", button: true, });
-        },
-        error : function(xhr){
-            erroralert(xhr);
-        }
-    })
-    
+    var check=$(this).attr('data-change');
+    if(check=='0')
+    { 
+        title=$(this).attr('data-title');
+        //value[]=$(this).val();
 
+    }
+    alert(title);
+   
 });
 
 </script>
