@@ -209,7 +209,7 @@ Network
                     var type= $(this).attr('data-type');
                     $('.selected-type').attr('data-type',type);
                     fetch(type,'{{$user->id}}');
-                    window.history.pushState({}, null, '/network/'+type);
+                    window.history.replaceState({}, null, '/network/'+type);
                 });
             });
             function fetch(type,user) {

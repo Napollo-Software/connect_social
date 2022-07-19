@@ -4,10 +4,51 @@ Kyc Submission
 @endsection
 @section('content')
     <div class="form-card-spliter bg-custom">
+        <div class="container">
         <div class="form-card-spliter-inner">
             <div class="form-card-spliter-main">
                 <div class="form-card-div">
+                    <div class="form-card-div-inner custom-card custom-shadow custom-padding custom-border text-center">
+                        <div class="top-text-kyc">
+                            Unlock the World of Connect Coins
+                        </div>
+                        <div class="image-kyc">
+                            <img src="{{asset('kyc_assets/images/coin.png')}}" alt="">
+                        </div>
+                        <div class="bottom-text-kyc">
+                            Know Your Customer (KYC) verification
+                        </div>
+                    </div>
                     <div class="form-card-div-inner custom-card custom-shadow custom-padding custom-border">
+                        <!-- <div class="container"> -->
+                            <div class="row-flexed">
+                                <div class="card-title">
+                                    <!-- Unlock the World of Connect Coins -->
+                                </div>
+                                <div class="rejected-text text-danger margin-bottom text-center">
+                                    @if(auth()->user()->details->kyc_status==KYC::STATUS_PENDING)
+                                        <button class='btn btn-warning'>Pending</button>
+                                    @elseif(auth()->user()->details->kyc_status==KYC::STATUS_REQUESTED)
+                                        <button class='btn btn-info'>Requested</button>
+                                    @elseif(auth()->user()->details->kyc_status==KYC::STATUS_REJECTED)
+                                        <button class='btn btn-danger'>Rejected <i class="fa fa-ban"></i> </button>
+
+                                    @elseif(auth()->user()->details->kyc_status==KYC::STATUS_APPROVED)
+                                        <button class='btn btn-success'> Approved <i class="fa fa-check-circle"></i> </button>
+                                    @endif
+                                </div>
+                            </div>
+                            @if(auth()->user()->details->kyc_status==KYC::STATUS_REJECTED)
+                            <div class="rejected-reasons margin-bottom">
+                                <div class="reason-title">
+                                    <b>Rejection Reason</b> :
+                                </div>
+                                <div class="reason-text">
+                                    {{auth()->user()->details->kyc_reject_reason}}
+                                </div>
+                            </div>
+                                @endif
+                        <!-- </div> -->
                         <div class="form-card-div-main">
                             <form id="kyc-form" enctype="multipart/form-data">
                                 @csrf
@@ -31,7 +72,7 @@ Kyc Submission
                                                             <div class="uploa-file-buttons">
                                                                 <input type="file" onchange="document.getElementById('view-profile').src = window.URL.createObjectURL(this.files[0])" name="profile" id="file-input" class="d-none">
 
-                                                                <button class="black-button" for="file-input" onclick="$('#file-input').click()" name="profile" type="button">Choose File</button>
+                                                                <button class="black-button" for="file-input" onclick="$('#file-input').click()" name="profile" type="button">Change Picture</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -171,15 +212,18 @@ Kyc Submission
                                         </div>
                                     </div>
                                 </div>
+                                @if(auth()->user()->details->kyc_status==KYC::STATUS_PENDING or auth()->user()->details->kyc_status==KYC::STATUS_REJECTED)
                                 <div class="submit-button">
                                     <button class="black-button"  type="submit">Submit</button>
                                 </div>
+                                @endif
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
 
+        </div>
         </div>
     </div>
 
@@ -198,7 +242,6 @@ Kyc Submission
                 $.ajax({
                     type:method,
                     url:'{{route('kyc.submit')}}',
-                    type:'POST',
                     data: new FormData(this),
                     dataType:'JSON', 
                     processData: false,
@@ -207,6 +250,7 @@ Kyc Submission
                     success:function(data) {
                         button.attr('disabled',null).html(previous);
                         swal("Success!", data.success, "success").then(function () {
+                            window.location.reload();
                         });
                     },
                     error:function (xhr) {

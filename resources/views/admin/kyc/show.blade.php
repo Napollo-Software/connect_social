@@ -24,14 +24,14 @@
             </div>
 
             <div class="card">
-                <div class="card-header">
-                    <div class="col-12">
-                        @if($show->kyc_status==\KYC::STATUS_REQUESTED)
+                @if($show->kyc_status == \KYC::STATUS_REQUESTED)
+                    <div class="card-header">
+                        <div class="col-12">
                             <button class="btn btn-sm btn-success action" data-status="1"><i class="bx bx-check"></i>Approve</button>
                             <button class="btn btn-sm btn-danger action" data-status="2"><i class="bx bx-x"></i> Reject</button>
-                        @endif
+                        </div>
                     </div>
-                </div>
+                @endif
                 <div class="card-body">
                     <div class="table-responsive">
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -70,7 +70,8 @@
                             </tr>
                             <tr>
                                 <th>Profile Picture</th>
-                                <td><img src="{{$show->user->profile_image()}}" width="100" class="img-thumbnail" alt=""></td>
+                                <td><img src="{{$show->user->profile_image()}}" width="100" class="img-thumbnail"
+                                         alt=""></td>
                             </tr>
                             <tr>
                                 <th>Status</th>
@@ -106,12 +107,14 @@
                             </tr>
                             <tr>
                                 <th>Passport 1</th>
-                                <td><img src="{{$show->Passport1Image()}}" width="100" class="img-thumbnail" alt=""></td>
+                                <td><img src="{{$show->Passport1Image()}}" width="100" class="img-thumbnail" alt="">
+                                </td>
 
                             </tr>
                             <tr>
                                 <th>Passport 2</th>
-                                <td><img src="{{$show->Passport2Image()}}" width="100" class="img-thumbnail" alt=""></td>
+                                <td><img src="{{$show->Passport2Image()}}" width="100" class="img-thumbnail" alt="">
+                                </td>
 
                             </tr>
                             <tr>

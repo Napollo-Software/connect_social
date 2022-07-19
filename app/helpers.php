@@ -66,6 +66,12 @@ class KYC{
     const STATUS_APPROVED=1;
     const STATUS_REJECTED=2;
 }
+class AMBASSADOR_RECEIPT{
+    const STATUS_REQUESTED=0;
+    const STATUS_APPROVED=1;
+    const STATUS_REJECTED=2;
+}
+
 
 class Friends{
     const STATUS_REQUEST_SENT=0;

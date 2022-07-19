@@ -1,7 +1,6 @@
-
-    @extends('ambassador.kyc.layouts.app')
-    @section('title')
-Kyc Responce
+@extends('ambassador.kyc.layouts.app')
+@section('title')
+    Kyc Responce
 @endsection
 @section('content')
     <div class="form-card-div padding-div bg-custom">
@@ -38,38 +37,39 @@ Kyc Responce
                 <form action="#">
                     <div class="passport-field">
                         <div class="passport-field-inner  m-0 margin-bottom">
-                                    <div class="form-card-div-field">
+                            <div class="form-card-div-field">
                         <textarea name="" rows="5"
                                   class="form-div-field-input custom-shadow input-radius text-area-input"
                                   placeholder="Enter Details"></textarea>
-                    </div>
-            </div>
-        </div>
-        <div class="form-card-profile-doc">
-            <div class="form-card-profile-doc-inner">
-                <div class="doc-uploader">
-                    <div class="doc-uploader-inner  custom-padding custom-shadow input-radius">
-                        <div class="doc-uploader-main input-radius">
-                            <div id="doc-uploader">
-                                <div class="input-images"></div>
                             </div>
-                            <div class="uploader-text">
-                                <div class="uploader-text-inner">
-                                    <div class="uploader-text-main">
-                                        <div class="icon"><img src="assets/images/icon/attachment.svg" alt=""></div>
-                                        Drag & Drop Attachment
+                        </div>
+                    </div>
+                    <div class="form-card-profile-doc">
+                        <div class="form-card-profile-doc-inner">
+                            <div class="doc-uploader">
+                                <div class="doc-uploader-inner  custom-padding custom-shadow input-radius">
+                                    <div class="doc-uploader-main input-radius">
+                                        <div id="doc-uploader">
+                                            <div class="input-images"></div>
+                                        </div>
+                                        <div class="uploader-text">
+                                            <div class="uploader-text-inner">
+                                                <div class="uploader-text-main">
+                                                    <div class="icon"><img src="assets/images/icon/attachment.svg"
+                                                                           alt=""></div>
+                                                    Drag & Drop Attachment
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="submit-button">
+                        <button class="black-button">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="submit-button">
-            <button class="black-button">Submit</button>
-        </div>
-        </form>
-    </div>
-    </div>
 @endsection
