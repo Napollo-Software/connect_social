@@ -64,7 +64,7 @@
         </div>
     </div>
 </div>
-<button class="btn btn-primary edit-button" data-toggle="modal" data-target="#update-social-info-modal">
+<button class="btn btn-primary edit-button" data-toggle="modal" data-target="#receipt-modal">
     Add Receipt
 </button>
 @push('scripts')
@@ -98,7 +98,7 @@
                     success: function (data) {
                         button.attr('disabled', null).html(previous);
                         swal("Success!", data.success, "success").then(function () {
-                            $('#receipt-modal').hide();
+                            $('#receipt-modal').modal('hide');
                         });
                     },
                     error: function (xhr) {
