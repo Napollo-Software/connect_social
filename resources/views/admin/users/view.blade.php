@@ -27,27 +27,29 @@
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <tr>
                                 <th>Profile Picture</th>
-                                <td><img src="{{$view->user->profile_image()}}" width="100" class="img-thumbnail" alt=""></td>
+                                <td>
+                                    <img src="{{$view->profile_image()}}" width="100" class="img-thumbnail" alt="">
+                                </td>
                             </tr>
                             <tr>
                                 <th>Cover Picture</th>
-                                <td><img src="{{$view->user->details->coverPhoto()}}" width="100" class="img-thumbnail" alt=""></td>
+                                <td><img src="{{$view->details->coverPhoto()}}" width="100" class="img-thumbnail" alt=""></td>
                             </tr>
                             <tr>
                                 <th>First Name</th>
-                                <td>{{$view->user->fname}}</td>
+                                <td>{{$view->fname}}</td>
                             </tr>
                             <tr>
                                 <th>Last Name</th>
-                                <td>{{$view->user->lname}}</td>
+                                <td>{{$view->lname}}</td>
                             </tr>
                             <tr>
                                 <th>Email</th>
-                                <td>{{$view->user->email}}</td>
+                                <td>{{$view->email}}</td>
                             </tr>
                             <tr>
                                 <th>Username</th>
-                                <td>{{$view->user->username}}</td>
+                                <td>{{$view->username}}</td>
                             </tr>
                             <tr>
                                 <th>About</th>
@@ -55,11 +57,11 @@
                             </tr>
                             <tr>
                                 <th>Country Code</th>
-                                <td>{{$view->user->country_code}}</td>
+                                <td>{{$view->details->country_code}}</td>
                             </tr>
                             <tr>
                                 <th>Phone</th>
-                                <td>{{$view->user->phone}}</td>
+                                <td>{{$view->details->phone}}</td>
                             </tr>
                             <tr>
                                 <th>Date of Joining</th>
@@ -67,7 +69,7 @@
                             </tr>
                             <tr>
                                 <th>Gender</th>
-                                <td>{{ucfirst($view->user->gender)}}</td>
+                                <td>{{ucfirst($view->details->gender)}}</td>
                             </tr>
                             <tr>
                                 <th>Friends( {{getFriendsList($view->id)->count()}} )</th>
@@ -109,17 +111,43 @@
                             </tr>
                             <tr>
                                 <th>Tier 1
-                                   @php
-                                        use App/Models/User;
-                                       $user = User::find($view->id);
-                                   @endphp
-                                   ( {{$user->tier_1()->count();}} )
+                             ( {{$view->tier_1()->count()}} )
                                 </th>
-                                <td>{{$view->id}}</td>
+                                <td>
+                                <div class="friend-grid-inner " style="display: flex">
+                                    @foreach($view->tier_1() as $k=>$details)
+                                    <div class="friend-grid-col">
+                                    <div class="friend-grid-col-inner " >
+                                        <div class="firend-grid-col-image">
+                                            <img src={{$details->profile_image()}}  width="100" class="img-thumbnail " alt="">
+                                        </div>
+                                        <div class="friend-grid-col-text">
+                                            <a href="" class="text-decoration-none text-muted">{{$details->fullName()}}</a>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                                </td>
                             </tr>
                             <tr>
-                                <th>Tier 2</th>
-                                <td>{{$view->id}}</td>
+                                <th>Tier 2 ( {{$view->tier_2()->count()}} )</th>
+                                <td>
+                                    <div class="friend-grid-inner " style="display: flex">
+                                        @foreach($view->tier_2() as $k=>$details)
+                                        <div class="friend-grid-col">
+                                        <div class="friend-grid-col-inner " >
+                                            <div class="firend-grid-col-image">
+                                                <img src={{$details->profile_image()}}  width="100" class="img-thumbnail " alt="">
+                                            </div>
+                                            <div class="friend-grid-col-text">
+                                                <a href="" class="text-decoration-none text-muted">{{$details->fullName()}}</a>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        @endforeach
+                                    </div>
+                                </td>
                             </tr>
                            <tr>
                                 <th>Passport No</th>

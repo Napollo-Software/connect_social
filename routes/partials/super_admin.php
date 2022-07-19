@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\KycController;
 use App\Http\Controllers\ReferralController;
-
+use App\Http\Controllers\Admin\ConfigurationController;
 
 Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->group(function () {
     Route::get('profile', [UserController::class, 'profile'])->name('users.profile');
@@ -18,7 +18,7 @@ Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->grou
     });
     Route::prefix('referral-link')->group(function () {
         Route::post('store', [ReferralController::class, 'store'])->name('referral.link.store');
-    });
+    }); 
 
     Route::prefix('roles')->group(function () {
         Route::get('/', [RoleController::class, 'index'])->name('roles');
@@ -35,10 +35,12 @@ Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->grou
         Route::post('edit', [PermissionController::class, 'edit'])->name('permission.edit');
         Route::post('destroy', [PermissionController::class, 'destroy'])->name('permission.destroy');
     });
+
     Route::prefix('invite')->group(function () {
         Route::get('/', [InviteController::class, 'index'])->name('invite');
         Route::post('send', [InviteController::class, 'send'])->name('invite.send');
     });
+
     Route::middleware('under-construction')->group(function () {
         Route::prefix('kyc')->group(function () {
             Route::get('/', [KycController::class, 'index'])->name('kyc');
@@ -48,5 +50,11 @@ Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->grou
         });
     });
 
+    Route::prefix('configurations')->group(function(){
+        Route::get('/merchant',[ConfigurationController::class,'merchantConfig'])->name('merchant.config');
+        Route::get('/ambassador',[ConfigurationController::class,'ambassadorConfig'])->name('ambassador.config');
+        Route::post('/update-ambassador-configuration',[ConfigurationController::class, 'updateAmbassadorConfig'])->name('update.ambassador.config');
+    });
 
+ 
 });

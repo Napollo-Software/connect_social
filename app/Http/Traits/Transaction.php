@@ -23,7 +23,7 @@ trait Transaction
             $detail->dr=$datum['dr'];
             $detail->cr=$datum['cr'];
             $detail->save();
-        }
+        } 
         return true;
     }
 }

@@ -25,7 +25,7 @@ class UserController extends Controller
             ->addIndexColumn()
             ->addColumn('role', function ($data) {
                 return $data->roles->name;
-            })
+            }) 
             ->addColumn('action',function($v){
                 $actions =
                     '<a href="'.route('users.view',[$v->id]).'" class="btn p-0 pt-3"><i class="bx bx-show"></i></a>';
@@ -37,7 +37,7 @@ class UserController extends Controller
 
     public function view($id)
     {
-        $view=AmbassadorDetails::find($id);
+        $view=User::find($id);
         return view('admin.users.view',compact('view'));
 
     }

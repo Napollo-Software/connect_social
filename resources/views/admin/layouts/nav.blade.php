@@ -23,7 +23,21 @@
                     <div class="menu-title">Invite</div>
                 </a>
             </li>
-
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-cog'></i>
+                    </div>
+                    <div class="menu-title">Configuration</div>
+                </a>
+                <ul>
+                    <li> <a href="{{ route('merchant.config') }}"><i class="bx bx-right-arrow-alt"></i>Merchant</a>
+                    </li>
+                    <li> <a href="{{ route('ambassador.config') }}"><i class="bx bx-right-arrow-alt"></i>Ambassador</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+            
             <li>
                 <a href="{{route('users')}}">
                     <div class="parent-icon"><i class='bx bx-user'></i></div>

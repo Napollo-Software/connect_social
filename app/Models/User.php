@@ -89,7 +89,7 @@ class User extends Authenticatable
             }
             return null;
         }
-        return null;
+        return null; 
     }
 
     public function tier1(){
