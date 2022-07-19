@@ -34,7 +34,7 @@
                             <label for="New User">New User</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text"   data-change='0' data-title="Bonus for Ambassador new user" class="form-control title">
+                            <input type="text"   data-change='0' data-title="Bonus for Ambassador new user" class="form-control title" value="{{getConfigValue('bonus-for-ambassador-new-user')}}">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -375,7 +375,13 @@ $(document).on('submit','#configurations',function(e){
         dataType : "json",
         
         success : function(data){
-            swal({ title :  data , icon : "success" , button : false});
+            swal("Success!", data.success, "success").then(function () {
+                $('.title').attr('data-change',0);
+                countTitle=0;
+                countValue=0;
+                title=[];
+                value=[];
+            });
         },
         error :function(xhr){
             erroralert(xhr);

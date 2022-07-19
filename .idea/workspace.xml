@@ -55,19 +55,19 @@
           <entry key="js" value="30" />
           <entry key="json" value="9" />
           <entry key="lock" value="2" />
-          <entry key="php" value="1570" />
+          <entry key="php" value="1576" />
           <entry key="sql" value="39" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="738" />
+          <entry key="Blade" value="740" />
           <entry key="CSS" value="23" />
           <entry key="HTML" value="6" />
           <entry key="JSON" value="11" />
           <entry key="JavaScript" value="30" />
-          <entry key="PHP" value="832" />
+          <entry key="PHP" value="836" />
           <entry key="PLAIN_TEXT" value="29" />
           <entry key="SQL" value="39" />
         </counts>
@@ -80,19 +80,19 @@
           <entry key="html" value="321" />
           <entry key="js" value="1245" />
           <entry key="json" value="1" />
-          <entry key="php" value="93004" />
+          <entry key="php" value="93355" />
           <entry key="sql" value="150" />
           <entry key="txt" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="44715" />
+          <entry key="Blade" value="44774" />
           <entry key="CSS" value="115" />
           <entry key="HTML" value="434" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="1245" />
-          <entry key="PHP" value="48174" />
+          <entry key="PHP" value="48466" />
           <entry key="PLAIN_TEXT" value="224" />
           <entry key="SQL" value="150" />
         </counts>
@@ -102,60 +102,30 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/profile.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ConfigurationController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="419">
-              <caret line="102" column="85" selection-start-line="102" selection-start-column="85" selection-end-line="102" selection-end-column="85" />
-              <folding>
-                <element signature="e#2491#2530#0#HTML" expanded="true" />
-                <element signature="e#2820#2870#0#HTML" expanded="true" />
-              </folding>
+              <caret line="38" column="81" selection-start-line="38" selection-start-column="81" selection-end-line="38" selection-end-column="81" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$USER_HOME$/Desktop/Connect Social Changes.txt">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/User.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/configuration/ambassador_config.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="62" column="51" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="51" />
+            <state relative-caret-position="306">
+              <caret line="36" column="159" lean-forward="true" selection-start-line="36" selection-start-column="159" selection-end-line="36" selection-end-column="159" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.js">
+        <entry file="file://$PROJECT_DIR$/app/helpers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/partials/super_admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+            <state relative-caret-position="388">
+              <caret line="436" column="23" selection-start-line="436" selection-start-column="9" selection-end-line="436" selection-end-column="23" />
               <folding>
-                <element signature="e#7#44#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
-              <folding>
-                <element signature="e#46#82#0#PHP" expanded="true" />
+                <element signature="e#6#41#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -172,10 +142,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Send Invitations</find>
-      <find>fetch</find>
-      <find>profile-network</find>
-      <find>$data</find>
       <find>ambassador.fetch.network</find>
       <find>homse</find>
       <find>Route::c</find>
@@ -202,6 +168,10 @@
       <find>$(document).on('submit</find>
       <find>&lt;script src=&quot;{{url('index.js')}}&quot;&gt;&lt;/script&gt;</find>
       <find>pass</find>
+      <find>slugify</find>
+      <find>success : funct</find>
+      <find>success : function(</find>
+      <find>success</find>
     </findStrings>
     <replaceStrings>
       <replace>admin_assets/</replace>
@@ -234,8 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Models/Journal.php" />
-        <option value="$PROJECT_DIR$/resources/views/ambassador/wallet/earnings/index.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/kyc/rejected.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/kyc/show.blade.php" />
@@ -246,7 +214,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2022_07_19_120639_create_ambassador_receipts_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/ReceiptController.php" />
-        <option value="$PROJECT_DIR$/app/helpers.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/receipt/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/layouts/nav.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/AmbassadorReceipt.php" />
@@ -285,6 +252,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/profile.blade.php" />
         <option value="$USER_HOME$/Desktop/Connect Social Changes.txt" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ConfigurationController.php" />
+        <option value="$PROJECT_DIR$/app/helpers.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/configuration/ambassador_config.blade.php" />
       </list>
     </option>
   </component>
@@ -482,7 +452,7 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="Ambassador" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
@@ -512,6 +482,21 @@
               <item name="connect_social" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
+              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
+              <item name="connect_social" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="configuration" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="connect_social" type="b2602c69:ProjectViewProjectNode" />
@@ -856,12 +841,12 @@
       <workItem from="1657824532711" duration="8745000" />
       <workItem from="1658144184603" duration="861000" />
       <workItem from="1658145403551" duration="13786000" />
-      <workItem from="1658230065849" duration="21724000" />
+      <workItem from="1658230065849" duration="22454000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="526055000" />
+    <option name="totallyTimeSpent" value="526785000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -906,33 +891,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2022_07_19_120639_create_ambassador_receipts_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/layouts/nav.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="54" column="17" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/AmbassadorReceipt.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" column="63" selection-start-line="14" selection-start-column="63" selection-end-line="14" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2022_06_17_183030_create_posts_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/profile/components/partial/posts_html.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -1147,13 +1105,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="42" lean-forward="true" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/ambassador/layouts/app2.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1196,10 +1147,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="115" column="74" selection-start-line="115" selection-start-column="74" selection-end-line="115" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/Connect Social Changes.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="102" column="85" selection-start-line="102" selection-start-column="85" selection-end-line="102" selection-end-column="85" />
+          <folding>
+            <element signature="e#2491#2530#0#HTML" expanded="true" />
+            <element signature="e#2820#2870#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="62" column="51" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -1213,20 +1192,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="115" column="74" selection-start-line="115" selection-start-column="74" selection-end-line="115" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -1237,19 +1202,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/profile.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/home/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1139">
+          <caret line="5" column="42" selection-start-line="5" selection-start-column="42" selection-end-line="5" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RoleController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="46" selection-start-line="46" selection-end-line="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2022_07_06_183524_create_superadmin_referrals_table.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ConfigurationController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
-          <caret line="102" column="85" selection-start-line="102" selection-start-column="85" selection-end-line="102" selection-end-column="85" />
+          <caret line="38" column="81" selection-start-line="38" selection-start-column="81" selection-end-line="38" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="436" column="23" selection-start-line="436" selection-start-column="9" selection-end-line="436" selection-end-column="23" />
           <folding>
-            <element signature="e#2491#2530#0#HTML" expanded="true" />
-            <element signature="e#2820#2870#0#HTML" expanded="true" />
+            <element signature="e#6#41#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Desktop/Connect Social Changes.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/configuration/ambassador_config.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="36" column="159" lean-forward="true" selection-start-line="36" selection-start-column="159" selection-end-line="36" selection-end-column="159" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">

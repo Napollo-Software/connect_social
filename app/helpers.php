@@ -434,11 +434,8 @@ use App\Models\ChartOfAccount;
 function ConnectSocialCOA(){
     return ChartOfAccount::where('group','connect-social-account')->first();
 }
-function getConfigValue($key,$name)
+function getConfigValue($key)
 {
-    $data = Settings::first();
-    $data = unserialize($data->configurations);
-    $data=$data[$key];
-    $value=$data[$name];
-    return $value;
+    $data = Settings::where('key',$key)->first();
+    return $data->value;
 }
