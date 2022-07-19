@@ -14,6 +14,7 @@
                         </div>
                         <div class="wallet-stats-table-main">
                             <div class="wallet-stats-table-outer table-responsive  custom-card custom-border custom-padding clasic-shadow">
+                                <p class="text-danger">As there is no merchant, so I manipulate all users in merchant dropdown.</p>
                                 <table id="wallet-stats" class="table">
                                     <thead>
                                     <tr>
