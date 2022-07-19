@@ -180,8 +180,6 @@ Network
                         }
                     });
                 });
-
-
                 $(document).on('click', '.remove-connection', function () {
                     var id =$(this).parent().parent().parent().parent().parent().attr('data-id');
                     var now= $(this);
@@ -194,7 +192,6 @@ Network
                         success: function (data) {
                             $('#total-connections').text(parseInt($('#total-connections').text())-1);
                             now.closest('.friend-grid-col').remove();
-
                         },
                         error: function (xhr) {
                             erroralert(xhr);
