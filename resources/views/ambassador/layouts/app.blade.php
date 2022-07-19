@@ -23,7 +23,8 @@
 <div class="page-wrapper">
     <div class="page-wrapper-inner">
         <!-- <div class="container"> -->
-    @include('ambassador.layouts.top-nav')  
+    @include('ambassador.home.layouts.alert')
+    @include('ambassador.layouts.top-nav')
     <!-- Site Navigation -->
     @include('ambassador.layouts.navigation')
 

@@ -126,6 +126,7 @@
         $(function () {
             $('#add_post').submit(function (e) {
                 e.preventDefault();
+                var showPostDiv=$('.load-posts');
                 var privacy = $(this).find('.set-privacy-dropdown-value').attr('data-value');
                 $('#post_privacy').val(privacy);
                 var button = $(this).find('button[type=submit]');
@@ -143,7 +144,8 @@
                     success:function(data) {
                         button.attr('disabled',null).html(previous);
                         swal("Success", data.success, "success").then(function () {
-                            window.location.reload();
+                            $('#add_post').trigger('reset');
+                            showPostDiv.prepend(data.html);
                         });
                     },
                     error:function (xhr) {
