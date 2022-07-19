@@ -60,7 +60,7 @@ class User extends Authenticatable
     public function profile_image()
     {
         if ($this->roles->slug == 'super-admin') {
-            return url('admin_assets/images/avatars/coin.png');
+            return url('admin_assets/images/avatars/'. $this->profile);
 
         }else{
             if ($this->profile) {
