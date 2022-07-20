@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="{{url('ambassador_assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('kyc_assets/css/kyc.css')}}">
     <!-- Custom -->
-    <link rel="stylesheet" href="{{url('ambassador_assets/css/profile.css')}}">
+    <link rel="stylesheet" href="{{url('ambassador_assets/css/profile.css')}}?v={{rand(0,10)}}">
     <link rel="stylesheet" href="{{url('ambassador_assets/css/app.css')}}">
     <!-- Icons -->
     <link rel="stylesheet" href="{{url('ambassador_assets/lib/icons/themify-icons.css')}}">

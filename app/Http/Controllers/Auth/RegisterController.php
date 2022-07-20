@@ -48,7 +48,7 @@ class RegisterController extends Controller
             'fname.required'=>'First name is required.',
             'lname.required'=>'Last name is required.',
             'country_code.required'=>'Country code is required.',
-            'profile.required'=>'Profile picture is required.',
+            'profile.required'=>'Profile Picture is required.',
         ]);
     }
 

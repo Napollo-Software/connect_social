@@ -19,10 +19,7 @@
                             </ol>
                         </nav>
                     </div>
-                    <div class="ms-auto">
 
-                        <button class="btn btn-sm btn-primary" id="create-link"><i class="bx bx-plus-circle"></i> Activate Invitation </button>
-                    </div>
                 </div>
                 <!--end breadcrumb-->
                 <div class="row">
@@ -95,7 +92,7 @@
                 var route = '{{route('invite.send')}}';
                 var method = 'POST';
                 var data = new FormData(this);
-                var next = {'type':'form-reset','target':$('#send-invite-form')};
+                var next = {'type':'reload'};
                 submit($(this).find('button[type=submit]'),method,route,data,next);
             });
             var message= $('.message-value').html();
