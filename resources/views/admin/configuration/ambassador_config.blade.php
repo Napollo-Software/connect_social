@@ -45,7 +45,7 @@
                             <label for="New User">Tier 1</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bouns For Merchant Tier1" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bouns For Merchant Tier1" class="form-control title" value="{{getConfigValue('bouns-for-merchant-tier1')}}">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -56,7 +56,7 @@
                             <label for="New User">Tier 2</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bouns For Merchant Tier2" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bouns For Merchant Tier2" class="form-control title" value="{{getConfigValue('bouns-for-merchant-tier2')}}">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -79,7 +79,7 @@
                             <label for="New User">Ambassador who has recruited a merchant gains</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text"   data-change='0' data-title="Bonus For Recruiting Merchant Recuriting Ambassador Amount" class="form-control title">
+                            <input type="text"   data-change='0' data-title="Bonus For Recruiting Merchant Recuriting Ambassador Amount" class="form-control title" value="{{getConfigValue('bonus-for-recruiting-merchant-recuriting-ambassador-amount')}}">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -90,7 +90,7 @@
                             <label for="New User">Tier 1</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text"   data-title="Bonus For Recruiting Merchant Recuriting Tier 1" class="form-control title">
+                            <input type="text" data-change='0'  data-title="Bonus For Recruiting Merchant Recuriting Tier 1" class="form-control title" value="{{getConfigValue('bonus-for-recruiting-merchant-recuriting-tier-1')}}">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -101,7 +101,7 @@
                             <label for="New User">Tier 2</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text"  data-title="Bonus For Recruiting Merchant Recuriting Tier 2" class="form-control title">
+                            <input type="text" data-change='0'  data-title="Bonus For Recruiting Merchant Recuriting Tier 2" class="form-control title" value="{{getConfigValue('bonus-for-recruiting-merchant-recuriting-tier-2')}}">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -124,7 +124,7 @@
                             <label for="New User">The user will be paid </label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0'  data-title="Bonus For Uploading Receipt For Ambassador Amount" class="form-control title">
+                            <input type="text" data-change='0'  data-title="Bonus For Uploading Receipt For Ambassador Amount" class="form-control title" value="{{getConfigValue('bonus-for-uploading-receipt-for-ambassador-amount')}}">
                         </div>
                         <div class="col-md-6 pt-3">
                             <label for="coins"> % of the total payment made.(i.e., in the uploaded receipt) after verification</label>
@@ -135,7 +135,7 @@
                             <label for="New User">Tier 1</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0'  data-title="Bonus For Uploading Receipt For Ambassador Tier1" class="form-control title">
+                            <input type="text" data-change='0'  data-title="Bonus For Uploading Receipt For Ambassador Tier1" class="form-control title" value="{{getConfigValue('bonus-for-uploading-receipt-for-ambassador-tier1')}}">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -146,7 +146,7 @@
                             <label for="New User">Tier 2</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Ambassador Tier2" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Ambassador Tier2" class="form-control title" value="{{getConfigValue('bonus-for-uploading-receipt-for-ambassador-tier2')}}">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -169,7 +169,7 @@
                             <label for="New User">The user will be paid </label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Resident Paid User" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Resident Paid User" class="form-control title" value="{{getConfigValue('bonus-for-uploading-receipt-for-resident-paid-user')}}">
                         </div>
                         <div class="col-md-6 pt-3">
                             <label for="coins"> % of the total payment made.(i.e., in the uploaded receipt) after verification</label>
@@ -180,7 +180,7 @@
                             <label for="New User">Tier 1</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text"  data-change='0' data-title="Bonus For Uploading Receipt For Resident Tier 1" class="form-control title">
+                            <input type="text"  data-change='0' data-title="Bonus For Uploading Receipt For Resident Tier 1" class="form-control title" value="{{getConfigValue('bonus-for-uploading-receipt-for-resident-tier-1')}}">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -191,7 +191,7 @@
                             <label for="New User">Tier 2</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Resident Tier 2" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Resident Tier 2" class="form-control title" value="{{getConfigValue('bonus-for-uploading-receipt-for-resident-tier-2')}}">  
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -214,7 +214,7 @@
                             <label for="New User">The user will be paid </label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Citizen User will Paid" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Citizen User will Paid" class="form-control title" value="{{getConfigValue('bonus-for-uploading-receipt-for-citizen-user-will-paid')}}">
                         </div>
                         <div class="col-md-6 pt-3">
                             <label for="coins"> % of the total payment made.(i.e., in the uploaded receipt) after verification</label>
@@ -225,7 +225,7 @@
                             <label for="New User">Tier 1</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Citizen Tier 1" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bonus For Uploading Receipt For Citizen Tier 1" class="form-control title" value="{{getConfigValue('bonus-for-uploading-receipt-for-citizen-tier-1')}}">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -236,7 +236,7 @@
                             <label for="New User">Tier 2</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text"  data-change='0' data-title="Bonus For Uploading Receipt For Citizen Tier 2" class="form-control title">
+                            <input type="text"  data-change='0' data-title="Bonus For Uploading Receipt For Citizen Tier 2" class="form-control title" value="{{getConfigValue('bonus-for-uploading-receipt-for-citizen-tier-2')}}">
                         </div>
                         <div class="col-md-1 pt-3">
                             <label for="coins">Coins</label>
@@ -259,7 +259,7 @@
                             <label for="New User">Purchasing customers will be given</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bonus On Purchases On Resident Amount" class="form-control title"> 
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Resident Amount" class="form-control title" value="{{getConfigValue('bonus-on-purchases-on-resident-amount')}}"> 
                         </div>
                         <div class="col-md-5 pt-3">
                             <label for="coins"> %of the purchase payment.</label>
@@ -267,13 +267,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bonus On Purchases On Resident Tier1" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Resident Tier1" class="form-control title" value="{{getConfigValue('bonus-on-purchases-on-resident-tier1')}}">
                         </div>
                         <div class="col-md-4 pt-3">
                             % will be credited to tier 1 referee and   
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-title="Bonus On Purchases On Resident Tier 2" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Resident Tier 2" class="form-control title" value="{{getConfigValue('bonus-on-purchases-on-resident-tier-2')}}"> 
                         </div>
                         <div class="col-md-3 pt-3">
                             <label for="coins">% to tier 2 referee.</label>
@@ -281,7 +281,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bonus On Purchases On Resident Ambassador Who Acquired" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Resident Ambassador Who Acquired" class="form-control title" value="{{getConfigValue('bonus-on-purchases-on-resident-ambassador-who-acquired')}}">
                         </div>
                         <div class="col-md-7 pt-3">
                             <label for="coins">  %  will be credited to the ambassador who has acquired the merchant.</label>
@@ -305,7 +305,7 @@
                             <label for="New User">Purchasing customers will be given</label>
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bonus On Purchases On Citizens Amount"  class="form-control title"> 
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Citizens Amount"  class="form-control title" value="{{getConfigValue('bonus-on-purchases-on-citizens-amount')}}"> 
                         </div>
                         <div class="col-md-5 pt-3">
                             <label for="coins"> %of the purchase payment.</label>
@@ -313,13 +313,13 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bonus On Purchases On Citizens Tier1" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Citizens Tier1" class="form-control title" value="{{getConfigValue('bonus-on-purchases-on-citizens-tier1')}}">
                         </div>
                         <div class="col-md-3 pt-3">
                             % will be credited to tier 1 referee and   
                         </div>
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bonus On Purchases On Citizens Tier2" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Citizens Tier2" class="form-control title" value="{{getConfigValue('bonus-on-purchases-on-citizens-tier2')}}">
                         </div>
                         <div class="col-md-3 pt-3">
                             <label for="coins">% to tier 2 referee.</label>
@@ -327,7 +327,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-2 pt-2">
-                            <input type="text" data-change='0' data-title="Bonus On Purchases On Citizens Ambassador Who Acquired" class="form-control title">
+                            <input type="text" data-change='0' data-title="Bonus On Purchases On Citizens Ambassador Who Acquired" class="form-control title" value="{{getConfigValue('bonus-on-purchases-on-citizens-ambassador-who-acquired')}}">
                         </div>
                         <div class="col-md-5 pt-3">
                             <label for="coins">  %  will be credited to the ambassador who has acquired the merchant.</label>
