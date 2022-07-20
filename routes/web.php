@@ -12,7 +12,6 @@ use App\Http\Controllers\FrontEnd;
 Auth::routes(['verify' => true]);
 
 Route::get('/sms', [SmsController::class, 'sms'])->name('sms');
-Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
 Route::get('/sign-up', [ReferralController::class, 'sign_up'])->name('sign.up');
 Route::get('/user', [UserController::class, 'create'])->name('create');
 Route::post('/user', [UserController::class, 'store'])->name('store');
@@ -32,8 +31,5 @@ Route::group([],__DIR__.'/partials/ambassador.php');
 
 // Frontend Routes
 Route::get('/front-end', [FrontEnd::class, 'index']);
-
-Route::get('/front-end/wallet', [FrontEnd::class, 'wallet_earning']);
-
 Route::get('/under-construction', [FrontEnd::class, 'under_construction'])->name('site.under.construction');
 

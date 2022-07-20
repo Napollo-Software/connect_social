@@ -42,14 +42,7 @@
                             </thead>
                             <tbody>
                             </tbody>
-                            <tfoot>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Slug</th>
-                                <th>Action</th>
-                            </tr>
-                            </tfoot>
+
                         </table>
                     </div>
                 </div>
@@ -138,6 +131,5 @@
             });
         });
     </script>
-    <script src="{{url('index.js')}}"></script>
 
 @endsection

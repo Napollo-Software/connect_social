@@ -27,17 +27,17 @@ Home
                                                 </div>
                                                 <div class="add-image-inner">
                                                     <div class="add-image-main">
-                                                        <img src="ambassador_assets/images/merchants/01.png" alt="">
+                                                        <img src="{{url('ambassador_assets/images/merchants/01.png')}}" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="add-image-inner">
                                                     <div class="add-image-main">
-                                                        <img src="ambassador_assets/images/merchants/02.png" alt="">
+                                                        <img src="{{url('ambassador_assets/images/merchants/02.png')}}" alt="">
                                                     </div>
                                                 </div>
                                                 <div class="add-image-inner m-0">
                                                     <div class="add-image-main">
-                                                        <img src="ambassador_assets/images/merchants/03.png" alt="">
+                                                        <img src="{{url('ambassador_assets/images/merchants/03.png')}}" alt="">
                                                     </div>
                                                 </div>
                                             </div>

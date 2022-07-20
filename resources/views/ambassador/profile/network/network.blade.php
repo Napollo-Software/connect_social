@@ -62,7 +62,7 @@
                     $(this).parent().addClass('active');
                     var type= $(this).attr('data-type');
                     fetch(type,'{{$user->id}}');
-                    window.history.pushState({}, null, '/profile-view/network/{{$user->id}}/'+type);
+                    window.history.replaceState({}, null, '/profile-view/network/{{$user->id}}/'+type);
                 });
             });
             function fetch(type,user) {

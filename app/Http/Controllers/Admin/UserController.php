@@ -37,8 +37,17 @@ class UserController extends Controller
 
     public function view($id)
     {
-        $view=AmbassadorDetails::find($id);
+        $view=User::find($id);
         return view('admin.users.view',compact('view'));
-
+    }
+    public function update_profile(Request $request){
+        $user=User::find(auth()->user()->id);
+        if ($request->profile){
+            $imageName = $request->profile->getClientOriginalName();
+            $request->profile->move(public_path('admin_assets/images/profile'), $imageName);
+            $user->profile=$imageName;
+        }
+        $user->save();
+        return response()->json(['success'=>'Super admin data is updated successfully!']);
     }
 }

@@ -30,10 +30,10 @@ class PostController extends Controller
         }
         $network=auth()->user()->my_network();
         $network[]=$tier0;
-        $posts = Post::orderBy('created_at', 'DESC')->where('user_id','!=',auth()->user()->id)->whereIn('user_id',$network)->skip($request->n*2)->take(2)->get();
+        $network[]=auth()->user()->id;
+        $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$network)->skip($request->n*2)->take(2)->get();
         if ($type=='all'){
-           
-            $posts = Post::orderBy('created_at', 'DESC')->where('user_id','!=',auth()->user()->id)->whereIn('user_id',$network)->skip($request->n*2)->take(2)->get();
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$network)->skip($request->n*2)->take(2)->get();
         }
         if ($type=='friends'){
             
@@ -107,7 +107,13 @@ class PostController extends Controller
             $postAsset->post_id=$post->id;
             $postAsset->save();
         }
-        return response()->json(['success'=>'Post added successfully']);
+
+
+        $posts = Post::where('id',$post->id)->get();
+        $user=User::find($post->user_id);
+        $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
+
+        return response()->json(['success'=>'Post added successfully','html'=>$viewRender]);
     }
     public function update(Request $request){
         $post= Post::find($request->id);

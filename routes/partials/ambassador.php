@@ -6,7 +6,6 @@ use App\Http\Controllers\Ambassador\CommentController;
 use App\Http\Controllers\Ambassador\UserController;
 use App\Http\Controllers\Ambassador\LikeController;
 use App\Http\Controllers\Ambassador\GalleryController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Ambassador\FriendsController;
 use App\Http\Controllers\Ambassador\ConnectionsController;
 use App\Http\Controllers\Ambassador\ChatController;
@@ -15,12 +14,12 @@ use App\Http\Controllers\Ambassador\NetworkController;
 use App\Http\Controllers\Ambassador\SendInviteController;
 use App\Http\Controllers\Ambassador\KycController;
 use App\Http\Controllers\Ambassador\WalletController;
+use App\Http\Controllers\Ambassador\ReceiptController;
 use App\Http\Controllers\TransactionController;
 
 Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group(function () {
 
     Route::middleware('under-construction')->group(function () { 
-        Route::get('home/{type?}', [HomeController::class, 'index'])->name('ambassador.home');
         Route::prefix('profile-view')->group(function () {
             Route::get('{id}', [NetworkController::class, 'profile'])->name('network.profile');
             Route::get('network/{id}/{type}', [NetworkController::class, 'network'])->name('network.list');
@@ -45,6 +44,12 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::post('update-privacy', [UserController::class, 'update_privacy'])->name('ambassador.update.privacy');
             Route::post('update-social-info', [UserController::class, 'update_social_info'])->name('ambassador.update.social.info');
             Route::post('show-control', [UserController::class, 'show_control'])->name('ambassador.show.control');
+
+            Route::prefix('receipts')->group(function () {
+                Route::get('', [ReceiptController::class, 'index'])->name('ambassador.receipts');
+                Route::post('store', [ReceiptController::class, 'store'])->name('ambassador.receipts.store');
+            });
+
         });
         Route::prefix('comments')->group(function () {
             Route::post('store', [CommentController::class, 'store'])->name('comments.store');

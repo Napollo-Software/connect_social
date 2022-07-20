@@ -148,7 +148,7 @@ Gallery
                 dataType: "JSON", 
                 data: {'type': type, _token: '{{csrf_token()}}'},
                 beforeSend: function () {
-                    $('.friends-grid-main').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>')
+                    $('.container-for-assets').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>')
                 },
                 success: function (data) {
                     $('.container-for-assets').html(data);
@@ -246,10 +246,10 @@ Gallery
                 $(this).parent().addClass('active');
                 var type= $(this).attr('data-type');
                 fetch(type);
-                window.history.pushState({}, null, '/gallery/'+type);
+                window.history.replaceState({}, null, '/gallery/'+type);
             });
         });
-        
+
     </script>
     <style>
         .container-for-assets{

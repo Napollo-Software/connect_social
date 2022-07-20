@@ -34,7 +34,7 @@
         }
         $(function () {
             var page=0;
-            var type='<?= $type ?>';
+            var type='all';
             fetch_post(page,type);
             $(document).on('click','#scroll-to',function () {
                 page++;
@@ -54,7 +54,7 @@
         // Open Target
         $(document).on("click",".open-target",function() {
             var targeted_div = $(this).attr("data-target");
-            console.log(targeted_div)
+            console.log(targeted_div);
             $(targeted_div).toggle();
         });
     </script>

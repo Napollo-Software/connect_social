@@ -50,7 +50,7 @@ function sendEmail($to,$from,$subject,$message){
         }*/
 }
 function dateFormat($date,$format){
-    $seconds= strtotime($date);
+    $seconds= strtotime($date); 
     return date($format,$seconds);
 }
 class Privacy{
@@ -66,6 +66,12 @@ class KYC{
     const STATUS_APPROVED=1;
     const STATUS_REJECTED=2;
 }
+class AMBASSADOR_RECEIPT{
+    const STATUS_REQUESTED=0;
+    const STATUS_APPROVED=1;
+    const STATUS_REJECTED=2;
+}
+
 
 class Friends{
     const STATUS_REQUEST_SENT=0;
@@ -378,13 +384,13 @@ function invite_email_text($name){
     $message=str_replace('XXXXX',$name,$html);
     return $message;
 }
-
 function getNetworkPrivacy($type){
     $all=unserialize(auth()->user()->details->network_privacy);
     $privacy=$all[$type];
     return getPrivacyDetails($privacy);
 }
 use App\Models\User;
+use App\Models\Settings;
 function checkPrivacyInNetwork($privacy,$other_network_id)
 {
 
@@ -427,4 +433,13 @@ function checkPrivacyInNetwork($privacy,$other_network_id)
 use App\Models\ChartOfAccount;
 function ConnectSocialCOA(){
     return ChartOfAccount::where('group','connect-social-account')->first();
+}
+function getConfigValue($key)
+{
+    $data = Settings::where('key',$key)->first();
+    if($data){
+        return $data->value;
+    }else{
+        return '';
+    }
 }

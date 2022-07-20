@@ -180,8 +180,6 @@ Network
                         }
                     });
                 });
-
-
                 $(document).on('click', '.remove-connection', function () {
                     var id =$(this).parent().parent().parent().parent().parent().attr('data-id');
                     var now= $(this);
@@ -194,7 +192,6 @@ Network
                         success: function (data) {
                             $('#total-connections').text(parseInt($('#total-connections').text())-1);
                             now.closest('.friend-grid-col').remove();
-
                         },
                         error: function (xhr) {
                             erroralert(xhr);
@@ -209,7 +206,7 @@ Network
                     var type= $(this).attr('data-type');
                     $('.selected-type').attr('data-type',type);
                     fetch(type,'{{$user->id}}');
-                    window.history.pushState({}, null, '/network/'+type);
+                    window.history.replaceState({}, null, '/network/'+type);
                 });
             });
             function fetch(type,user) {

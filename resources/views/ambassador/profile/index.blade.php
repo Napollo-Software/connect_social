@@ -545,21 +545,133 @@
             <li class="set-privacy-dropdown-li" data-value="{{Privacy::PRIV_TIER_1}}">
                 <div class="set-privacy-dropdown-icon">
                     <img src="{{url('ambassador_assets/images/icons/personal-network.svg')}}" alt=""> <span
-                            class="text">Personal TR 01</span>
+                            class="text">Personal Tier 1</span>
                 </div>
             </li>
             <li class="set-privacy-dropdown-li" data-value="{{Privacy::PRIV_TIER_2}}">
                 <div class="set-privacy-dropdown-icon">
                     <img src="{{url('ambassador_assets/images/icons/extended-network.svg')}}" alt=""> <span
-                            class="text">Extended TR 02</span>
+                            class="text">Extended Tier 2</span>
                 </div>
             </li>
         </ul>
     </div>
+    @if($user->id==auth()->user()->id)
+        <div class="modal fade" id="update-social-info-modal" tabindex="-1" role="dialog"
+             aria-labelledby="update-social-info-modalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content ">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="update-social-info-modalLabel"><i class="ti-pencil"></i> Update Social
+                            Information</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form id="social_info_form">
+                        @csrf
+                        <div class="modal-body">
+                            <div class="row">
+                                @if (auth()->user()->details->kyc_status==KYC::STATUS_APPROVED)
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="username">Username</label>
+                                            <input type="text" class="form-control" value="{{auth()->user()->username}}"
+                                                   name="username" id="username">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="username">Phone</label>
+                                            <input type="text" class="form-field-input form-control w-100"
+                                                   value="{{auth()->user()->phone}}"  id="phone" placeholder='Mobile Number' name="phone">
+                                            <input type="hidden" value="" name="country_code" id="country_code">
+                                        </div>
+                                    </div>
+                                @endif
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="city">City</label>
+                                        <input type="text" class="form-control" value="{{auth()->user()->details->city}}"
+                                               name="city" id="city">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="state">Current State</label>
+                                        <input type="text" class="form-control" value="{{auth()->user()->details->state}}"
+                                               name="state" id="state">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="relationship">Relationship Status</label>
+                                        <select name="relationship" id="relationship" class="form-control">
+                                            <option value="" hidden>Select Status</option>
+                                            <option value="single" {{auth()->user()->details->relationship=='single'?'selected':''}}>
+                                                Single
+                                            </option>
+                                            <option value="married" {{auth()->user()->details->relationship=='married'?'selected':''}}>
+                                                Married
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="workplace">Workplace</label>
+                                        <input type="text" name="workplace" id="workplace" class="form-control"
+                                               value="{{auth()->user()->details->workplace}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="high_school">High School</label>
+                                        <input type="text" name="high_school" id="high_school" class="form-control"
+                                               value="{{auth()->user()->details->high_school}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="hobbies">Hobbies</label>
+                                        <input type="text" class="form-control" id="hobbies" name="hobbies"
+                                               value="{{auth()->user()->details->city}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="gender">Gender</label>
+                                        <select name="gender" id="gender" class="form-control">
+                                            <option value="" hidden>Select Gender</option>
+                                            <option value="male" {{auth()->user()->gender=='male'?'selected':''}}>Male
+                                            </option>
+                                            <option value="female" {{auth()->user()->gender=='female'?'selected':''}}>Female
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer share-post-button">
+                            <button type="button" data-dismiss="modal">Close</button>
+                            <button type="submit">Save changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    @endif
 @endsection
 <script src="{{url('index.js')}}"></script>
 @push('scripts')
     <script>
+         var input = document.querySelector("#phone");
+        window.intlTelInput(input, {
+            separateDialCode: true,
+            initialCountry: "auto",
+        });
+
         $('document').ready(function () {
             fetch('{{$type}}');
             $(document).on('click', '.profile-network', function (e) {
@@ -633,6 +745,7 @@
                 });
                 $(document).on('submit', '#social_info_form', function (e) {
                     e.preventDefault();
+                    $('#country_code').val($('.iti__selected-dial-code').text());
                     $.ajax({
                         type: "POST",
                         url: "{{route('ambassador.update.social.info')}}",
@@ -894,107 +1007,4 @@
     @endif
     @stack('subscripts')
 @endpush
-@if($user->id==auth()->user()->id)
-    <div class="modal fade" id="update-social-info-modal" tabindex="-1" role="dialog"
-         aria-labelledby="update-social-info-modalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-            <div class="modal-content ">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="update-social-info-modalLabel"><i class="ti-pencil"></i> Update Social
-                        Information</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <form id="social_info_form">
-                    @csrf
-                    <div class="modal-body">
-                        <div class="row">
-                            @if (auth()->user()->details->kyc_status!=Kyc::STATUS_APPROVED)
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="username">Username</label>
-                                    <input type="text" class="form-control" value="{{auth()->user()->username}}"
-                                    name="username" id="username">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="username">Phone</label>
-                                    <input type="text" class="form-control" value="{{auth()->user()->phone}}"
-                                    name="phone" id="phone">
-                                </div>
-                            </div>
-                            @endif
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="city">City</label>
-                                    <input type="text" class="form-control" value="{{auth()->user()->details->city}}"
-                                           name="city" id="city">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="state">Current State</label>
-                                    <input type="text" class="form-control" value="{{auth()->user()->details->state}}"
-                                           name="state" id="state">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="relationship">Relationship Status</label>
-                                    <select name="relationship" id="relationship" class="form-control">
-                                        <option value="" hidden>Select Status</option>
-                                        <option value="single" {{auth()->user()->details->relationship=='single'?'selected':''}}>
-                                            Single
-                                        </option>
-                                        <option value="married" {{auth()->user()->details->relationship=='married'?'selected':''}}>
-                                            Married
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="workplace">Workplace</label>
-                                    <input type="text" name="workplace" id="workplace" class="form-control"
-                                           value="{{auth()->user()->details->workplace}}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="high_school">High School</label>
-                                    <input type="text" name="high_school" id="high_school" class="form-control"
-                                           value="{{auth()->user()->details->high_school}}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="hobbies">Hobbies</label>
-                                    <input type="text" class="form-control" id="hobbies" name="hobbies"
-                                           value="{{auth()->user()->details->city}}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="gender">Gender</label>
-                                    <select name="gender" id="gender" class="form-control">
-                                        <option value="" hidden>Select Gender</option>
-                                        <option value="male" {{auth()->user()->gender=='male'?'selected':''}}>Male
-                                        </option>
-                                        <option value="female" {{auth()->user()->gender=='female'?'selected':''}}>Female
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer share-post-button">
-                        <button type="button" data-dismiss="modal">Close</button>
-                        <button type="submit">Save changes</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-@endif
+

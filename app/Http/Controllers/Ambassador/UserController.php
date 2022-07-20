@@ -44,38 +44,46 @@ class UserController extends Controller
         $id = auth()->user()->id;
         $user = User::find($id);
         $data = [];
-        $html = '';
         if ($type == 'friends') {
-            $data = [];
             $data = getFriendsListUsers($id);
         }
         if ($type == 'connections') {
-            $data = [];
             $data = getConnectionsListUsers($id);
         }
         if ($type == 'tier-1') {
-            $data = [];
             $data = $user->tier_1();
         }
         if ($type == 'tier-2') {
-            $data = [];
             $data = $user->tier_2();
         }
         $html='';
         $html.='<div class="friend-grid-inner">';
-        foreach($data as $k=>$details){if($k<15){
-        $html.='<div class="friend-grid-col">
-            <div class="friend-grid-col-inner">
-                <div class="firend-grid-col-image">
-                    <img src="'.$details->profile_image().'" alt="">
-                </div>
-                <div class="friend-grid-col-text">
-                    <a href="'.url('profile-view/'.$details->id).'" class="text-decoration-none text-muted">'.$details->fullName().'</a>
-                </div>
-            </div>
-        </div>';
-            } } 
-            $html .= '</div>';
+        if (count($data)>0){
+            foreach($data as $k=>$details){
+                if($k<15){
+                    $html.='<div class="friend-grid-col">
+                    <div class="friend-grid-col-inner">
+                        <div class="firend-grid-col-image">
+                            <img src="'.$details->profile_image().'" alt="">
+                        </div>
+                        <div class="friend-grid-col-text">
+                            <a href="'.url('profile-view/'.$details->id).'" class="text-decoration-none text-muted">'.$details->fullName().'</a>
+                        </div>
+                    </div>
+                </div>';
+                }
+            }
+        }else{
+            $html.='<div class="friend-grid-col">
+                    <div class="friend-grid-col-inner">
+                        <div class="friend-grid-col-text">
+                           <p>No '.$type.'</p>
+                        </div>
+                    </div>
+                </div>';
+        }
+
+        $html .= '</div>';
     return response()->json($html);
     }
 
@@ -165,6 +173,7 @@ class UserController extends Controller
         if($request->has('username')){
         $user->username = $request->username;
         }if($request->has('phone')){
+        $user->country_code = $request->country_code;
         $user->phone = $request->phone;
         }
         $user->save();
@@ -206,7 +215,7 @@ class UserController extends Controller
         } else {
             $data += [$request->key => $request->value];
         }
-        $detail->privacy = serialize($data);
+        $detail->privacy = serialize($data); 
         $detail->save();
         return response()->json(['success' => 'updated']);
     }

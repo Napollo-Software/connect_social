@@ -1,9 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Http\Traits\ChartOfAccount;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -12,12 +9,11 @@ class HomeController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index($type=null)
+    public function index()
     {
-
         if (Auth::user()->roles->slug == 'ambassador') {
             $user = auth()->user();
-            return view('ambassador.home.index', compact( 'user','type'));
+            return view('ambassador.home.index', compact( 'user'));
         }
         return view('admin.dashboard');
     }

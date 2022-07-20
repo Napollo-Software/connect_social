@@ -147,7 +147,7 @@ TRUNCATE TABLE `users`;
 --
 
 INSERT INTO `users` (`id`, `fname`, `lname`, `username`, `email`, `country_code`, `phone`, `email_verified_at`, `password`, `gender`, `role`, `email_code`, `coa`, `profile`, `email_token`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Super', 'Admin', 'super_admin', 'superadmin@connectsocial.com', '+92', '3001231231', '2022-06-12 00:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 1, NULL, NULL, 'super-admin.jpg', NULL, NULL, '2022-06-12 00:37:13', '2022-06-12 00:37:13'),
+(1, 'Super', 'Admin', 'super_admin', 'superadmin@connectsocial.com', '+92', '3001231231', '2022-06-12 00:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 1, NULL, NULL, 'coin.png', NULL, NULL, '2022-06-12 00:37:13', '2022-06-12 00:37:13'),
 (2, 'Parent', 'Tier', 'tier00', 'tier00@connectsocial.com', '+1', '3040647306', '2022-06-12 00:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '667966', 2, '1656675151blank-profile-picture-973460_640.png', NULL, NULL, '2022-06-30 15:32:35', '2022-07-14 09:55:54'),
 (3, 'Tier1', 'A', 'tier01a', 'tier01_a@connectsocial.com', '+92', '3040647306', '2022-06-12 00:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', 3, '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-06-30 20:36:38', '2022-07-14 09:55:54'),
 (4, 'Tier1', 'B', 'tier01b', 'tier01_b@connectsocial.com', '+92', '3040647306', '2022-06-12 00:37:13', '$2y$10$v1bbz8LrbsLpvZPXNwBpkuqv3ZKZImxkCgGvq2cAUHzoga2wX8vNm', 'male', 3, '930531', 4, '1656675394blank-profile-picture-973460_640.png', NULL, NULL, '2022-06-30 20:36:38', '2022-07-14 09:55:54'),
