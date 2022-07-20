@@ -15,7 +15,8 @@
                 @endif
                 @if(auth()->user()->details->kyc_status===KYC::STATUS_REQUESTED)
                     <div class="alert-text">
-                        Your details have been submitted for verification, you will be notified as review and verify your profile.
+                        Your details have been submitted for verification, you will be notified as review and verify
+                        your profile.
                     </div>
                 @endif
             </div>
