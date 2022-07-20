@@ -14,8 +14,8 @@
                         </div>
                         <div class="dashboard-sides">
                             <div class="dashboard-side-bar">
-                                <div class="dahboard-cards">
-                                    <div class="dahboard-card">
+                                <div class="dahboard-cards custom-flex-01">
+                                    <div class="dahboard-card custom-width-50">
                                         <div class="dahboard-card-inner custom-card custom-border custom-shadow">
                                             <div class="dahboard-card-title-bar custom-padding multi">
                                                 <div class="text">
@@ -47,11 +47,29 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="dahboard-card">
+                                    <div class="dahboard-card custom-width-50">
                                         <div class="dahboard-card-inner custom-card custom-border custom-shadow">
-                                            <div class="dahboard-card-title-bar custom-padding">
+                                            <div class="dahboard-card-title-bar custom-padding multi">
                                                 <div class="text">
                                                     Balance
+                                                </div>
+                                                <div class="statics">
+                                                    <div class="up">
+                                                        <div class="text number-text">
+                                                            45.0321
+                                                        </div>
+                                                        <div class="icon">
+                                                            <span class="ti-arrow-up"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="down">
+                                                        <div class="text number-text">
+                                                            45.0321
+                                                        </div>
+                                                        <div class="icon">
+                                                            <span class="ti-arrow-down"></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="dasboard-card-content">

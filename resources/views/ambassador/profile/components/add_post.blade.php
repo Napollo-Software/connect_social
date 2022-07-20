@@ -23,9 +23,58 @@
                         <div class="share-post-box-main-inner">
                             @csrf
                             <input type="hidden" value="{{Privacy::PRIV_FRIENDS}}" name="privacy" id="post_privacy">
+                            <div class="post-preview">
+                                <div class="post-preview-inner">
+                                    <div class="post-preview-name">
+                                        <div class="post-preview-icon">
+                                            <span class="ti-camera"></span>
+                                        </div>
+                                        post-image.png
+                                    </div>
+                                    <div class="delete-attachment">
+                                        <span class="ti-close"></span>
+                                    </div>
+                                </div>
+                                <div class="post-preview-inner d-none">
+                                    <div class="post-preview-name">
+                                        <div class="post-preview-icon">
+                                            <span class="ti-control-play"></span>
+                                        </div>
+                                        post-video.mp4
+                                    </div>
+                                    <div class="delete-attachment">
+                                        <span class="ti-close"></span>
+                                    </div>
+                                </div>
+                                <div class="post-preview-inner d-none">
+                                    <div class="post-preview-name">
+                                        <div class="post-preview-icon">
+                                            <span class="ti-microphone"></span>
+                                        </div>
+                                        post-audio.mp4
+                                    </div>
+                                    <div class="delete-attachment">
+                                        <span class="ti-close"></span>
+                                    </div>
+                                </div>
+                                <div class="post-preview-inner d-none">
+                                    <div class="post-preview-name">
+                                        <div class="post-preview-icon">
+                                            <span class="ti-link"></span>
+                                        </div>
+                                        <div class="link">
+                                            https://busy-leakey.18-118-49-57.plesk.page/ambassador
+                                        </div>
+                                    </div>
+                                    <div class="delete-attachment">
+                                        <span class="ti-close"></span>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="share-post-input-box">
                                 <div class="share-post-input-box-inner">
-                                    <textarea class="form-control" name="details" id="" cols="30" rows="10" placeholder="Write Something"></textarea>
+                                    <textarea class="form-control add-post-input" id="Add-Post-input" name="details" placeholder="Write Something"></textarea>
+                                    <!-- <input class="form-control add-post-input" name="details" placeholder="Write Something"/> -->
                                 </div>
                             </div>
                             <div class="share-post-box-main-bottom">
@@ -180,6 +229,16 @@
                 $('#file_type').val(type);
                 $('#create-post-upload-file-modal').modal('show');
             });
+        });
+
+        $("#Add-Post-input").keydown(function(){
+            var textInput = document.getElementById('Add-Post-input');
+            console.log(textInput.scrollHeight)
+            if (textInput.scrollHeight <= 200) {
+                textInput.style.height = (textInput.scrollHeight) + 'px';
+            } else {
+                textInput.style.height = '200px';
+            }
         });
     </script>
 @endpush

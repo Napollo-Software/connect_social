@@ -199,7 +199,7 @@ canvas#merchant-canvas {
 }
 
 .wallet-stats-graph-inner {
-    margin-bottom: 15px;
+    padding-bottom: 15px;
 }
 
 .stats-graph {
@@ -454,17 +454,18 @@ canvas#merchant-canvas {
 
 .wallet-dashboad {
     background: #f0f2f5;
-    padding: 50px 0;
+    padding: 15px 0;
 }
 
 .dashboard-sides {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
 }
 
 .dashboard-side-bar {
     flex: 0 0 30%;
-    margin-right: 20px;
+    /* margin-right: 20px; */
 }
 
 .dashboard-content-main {
@@ -558,10 +559,24 @@ a.dashboard-card-link {
 }
 
 .dahboard-title {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-bottom: 15px;
-    padding-bottom: 7px;
+    padding-bottom: 15px;
     border-bottom: 1px solid #dedede;
+    font-weight: 500;
+}   
+
+.custom-width-50 {
+    width: 49%;
+}
+
+.custom-flex-01 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wallet-screen-section {
+    background: #f0f2f5;
 }
 
 /* Responsive */
@@ -592,6 +607,24 @@ a.dashboard-card-link {
     .wallet-stats-graph-all-graphs {
         flex-direction: column;
         align-items: center;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .dahboard-card-title-bar.multi {
+        flex-direction: column;
+    }
+
+    .dahboard-card-title-bar .statics .up, .dahboard-card-title-bar .statics .down {
+        margin-left: 0px;
+    }
+
+    .dahboard-card-title-bar .statics .up{
+        margin-right: 15px;
+    }
+
+    .dahboard-card-title-bar .statics {
+        margin-top: 10px;
     }
 }
 
