@@ -20,42 +20,41 @@ class PostController extends Controller
     }
     public function fetch_all(Request $request){
 
+
         $type=$request->type;
         $tier_0=auth()->user()->tier_0();
-        if($tier_0!=null)
-        {
-            $tier0=$tier_0->id;
-        }else{
-            $tier0=null;
-        }
+        ($tier_0!=null)? ($tier0=$tier_0->id) : $tier0=null;
         $network=auth()->user()->my_network();
         $network[]=$tier0;
         $network[]=auth()->user()->id;
-        $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$network)->skip($request->n*2)->take(2)->get();
+
+        $take=($request->n == 0)?10:5;
+        $skip=$request->n*$take;
+
+        $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$network)->skip($skip)->take($take)->get();
         if ($type=='all'){
-            $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$network)->skip($request->n*2)->take(2)->get();
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$network)->skip($skip)->take($take)->get();
         }
         if ($type=='friends'){
             
             $friends=getArrayFromKeyofEloquent(getFriendsListUsers(auth()->user()->id),'id');
-            $posts = Post::orderBy('created_at', 'DESC')->whereIn('privacy',['public','friends'])->whereIn('user_id',$friends)->skip($request->n*2)->take(2)->get();
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('privacy',['public','friends'])->whereIn('user_id',$friends)->skip($skip)->take($take)->get();
         }
         if ($type=='connections'){
-           
             $connections=getArrayFromKeyofEloquent(getConnectionsListUsers(auth()->user()->id),'id');
-            $posts = Post::orderBy('created_at', 'DESC')->whereIn('privacy',['public','connections'])->whereIn('user_id',$connections)->skip($request->n*2)->take(2)->get();
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('privacy',['public','connections'])->whereIn('user_id',$connections)->skip($skip)->take($take)->get();
         }
         if ($type=='tier-1'){
            
             $tier1=getArrayFromKeyofEloquent(auth()->user()->tier_1(),'id');
-            $posts = Post::orderBy('created_at', 'DESC')->whereIn('privacy',['public','tier-1'])->whereIn('user_id',$tier1)->skip($request->n*2)->take(2)->get();
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('privacy',['public','tier-1'])->whereIn('user_id',$tier1)->skip($skip)->take($take)->get();
         } 
         if ($type=='tier-2'){
            
             $tier2=getArrayFromKeyofEloquent(auth()->user()->tier_2(),'id');
-            $posts = Post::orderBy('created_at', 'DESC')->whereIn('privacy',['public','tier-2'])->whereIn('user_id',$tier2)->skip($request->n*2)->take(2)->get();
+            $posts = Post::orderBy('created_at', 'DESC')->whereIn('privacy',['public','tier-2'])->whereIn('user_id',$tier2)->skip($skip)->take($take)->get();
         }
-     
+
         $user=User::find($request->user);
         $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
         return response()->json($viewRender);
