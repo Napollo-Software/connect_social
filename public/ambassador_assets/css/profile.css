@@ -80,6 +80,9 @@ i {
 .profile-top-bar-wallete-inner {
     display: flex;
     align-items: center;
+    border-radius: 4px;
+    padding: 5px;
+    box-shadow: 0 1px 2px rgb(67 53 26);
 }
 
 .profile-top-bar {
@@ -100,11 +103,11 @@ i {
 }
 
 .profile-wallete-text {
-    margin-left: 20px;
+    margin-left: 10px;
 }
 
 .profile-wallete-top-text {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -140,7 +143,8 @@ i {
 /* Site Navigation */
 
 .profile-site-navigation {
-    background: #000;
+    /* background: #000; */
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(12,9,5,1) 0%, rgba(20,15,8,1) 10%, rgba(29,22,11,1) 23%, rgba(42,33,16,1) 50%, rgba(70,55,27,1) 100%, rgba(80,63,31,1) 100%);
     /* padding: 10px 0; */
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 }
@@ -1133,7 +1137,7 @@ a.navigation-drop-down-link {
 .profile-site-navigation-li {
     padding: 10px 20px;
     border-radius: 0;
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #0000;
     position: relative;
     padding-top: 12px;
 }
@@ -1167,7 +1171,7 @@ a.navigation-drop-down-link {
 }
 
 .profile-site-navigation-li:hover .text {
-    display: inline-block;
+    display: block;
 }
 
 .profile-site-navigation-link .text {

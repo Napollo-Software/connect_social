@@ -1,6 +1,6 @@
 @extends('ambassador.kyc.layouts.app')
 @section('title')
-    Wallet Transactions
+    Add New Card
 @endsection
 @section('content')
     <link rel="stylesheet" href="{{url('ambassador_assets/css/wallet.css')}}">
