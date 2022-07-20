@@ -60,6 +60,7 @@ Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->grou
 
     Route::prefix('configurations')->group(function(){
         Route::get('/merchant',[ConfigurationController::class,'merchantConfig'])->name('merchant.config');
+        Route::post('/get-slug-from-title',[ConfigurationController::class,'getSlugFromTitle'])->name('config.get.slug.from.title');
         Route::get('/ambassador',[ConfigurationController::class,'ambassadorConfig'])->name('ambassador.config');
         Route::post('/update-ambassador-configuration',[ConfigurationController::class, 'updateAmbassadorConfig'])->name('update.ambassador.config');
     });

@@ -436,11 +436,10 @@ function ConnectSocialCOA(){
 }
 function getConfigValue($key)
 {
-    
     $data = Settings::where('key',$key)->first();
     if($data){
-    return $data->value;
+        return $data->value;
     }else{
-        return null;
+        return '';
     }
 }

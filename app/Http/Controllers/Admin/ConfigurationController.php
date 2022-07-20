@@ -38,4 +38,9 @@ class ConfigurationController extends Controller
 
         return response()->json(['success'=>'Configurations updated successfully']);
     }
+    public function getSlugFromTitle(Request $request){
+        $slugify = new Slugify();
+        $key=$slugify->slugify($request->title);
+        return response()->json(getConfigValue($key));
+    }
 }

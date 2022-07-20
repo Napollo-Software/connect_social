@@ -249,7 +249,7 @@ Gallery
                 window.history.replaceState({}, null, '/gallery/'+type);
             });
         });
-            
+
     </script>
     <style>
         .container-for-assets{
