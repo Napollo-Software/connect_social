@@ -24,7 +24,7 @@
                             @csrf
                             <input type="hidden" value="{{Privacy::PRIV_FRIENDS}}" name="privacy" id="post_privacy">
                             <div class="post-preview">
-                                <div class="post-preview-inner d-none">
+                                <div class="post-preview-inner">
                                     <div class="post-preview-name">
                                         <div class="post-preview-icon">
                                             <span class="ti-camera"></span>
@@ -35,7 +35,7 @@
                                         <span class="ti-close"></span>
                                     </div>
                                 </div>
-                                <div class="post-preview-inner d-none">
+                                <div class="post-preview-inner">
                                     <div class="post-preview-name">
                                         <div class="post-preview-icon">
                                             <span class="ti-control-play"></span>
@@ -46,7 +46,7 @@
                                         <span class="ti-close"></span>
                                     </div>
                                 </div>
-                                <div class="post-preview-inner d-none">
+                                <div class="post-preview-inner">
                                     <div class="post-preview-name">
                                         <div class="post-preview-icon">
                                             <span class="ti-microphone"></span>
@@ -57,7 +57,7 @@
                                         <span class="ti-close"></span>
                                     </div>
                                 </div>
-                                <div class="post-preview-inner d-none">
+                                <div class="post-preview-inner">
                                     <div class="post-preview-name">
                                         <div class="post-preview-icon">
                                             <span class="ti-link"></span>
