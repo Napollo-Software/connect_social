@@ -24,7 +24,7 @@
                             @csrf
                             <input type="hidden" value="{{Privacy::PRIV_FRIENDS}}" name="privacy" id="post_privacy">
                             <div class="post-preview">
-                                <div class="post-preview-inner">
+                                <div class="post-preview-inner d-none">
                                     <div class="post-preview-name">
                                         <div class="post-preview-icon">
                                             <span class="ti-camera"></span>
@@ -205,7 +205,7 @@
                     }
                 });
             });
-            $('.add-post-close-btn').click(function () {
+            $(document).on('click','.add-post-close-btn',function () {
                 $('#file_type').val('');
                 $('#create-post-upload-file-modal').modal('hide');
             });
@@ -216,6 +216,8 @@
                 else{
                     $('.share-post-attachments-li.add-post-modal-show').removeClass('add-post-modal-show');
                     $('#create-post-upload-file-modal').modal('hide');
+
+
                 }
             });
             $(document).on('click','.add-post-modal-show',function() {

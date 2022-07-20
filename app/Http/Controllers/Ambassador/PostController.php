@@ -173,7 +173,13 @@ class PostController extends Controller
             $postAsset->post_id=$post->id; 
             $postAsset->save();
         }
-        return response()->json(['success'=>'Post updated successfully']);
+
+
+        $posts = Post::where('id',$post->id)->get();
+        $user=User::find($post->user_id);
+        $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
+
+        return response()->json(['success'=>'Post updated successfully','html'=>$viewRender]);
     }
     public function destroy(Request $request){
         $post=Post::find($request->id);

@@ -42,9 +42,7 @@
     </script>
     @if($user->id==auth()->user()->id)
         <script>
-
             $(document).ready(function () {
-
                 $(document).on('click', '.edit-post-close-btn', function () {
                     var id = $(this).attr('data-post');
                     $('#file_type' + id).val('');
