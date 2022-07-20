@@ -22,9 +22,8 @@
                     if (response.data.more_comments_toggle){
                         $('#comment-box-'+post).closest('.all-comments-box').append(response.data.more_comments_html);
                     }
-                    if (response.data.total_comments<=5){
                         $('#comment-box-'+post).prepend(response.data.comment_html);
-                    }
+                   
                 },
                 error:function (xhr) {
                     button.attr('disabled',null).html(previous);
@@ -65,7 +64,7 @@
                     erroralert(xhr);
                 }
             });
-        });
+        }); 
         $(document).on('submit','.comment_form_popup',function (e) {
             e.preventDefault();
             var comment_input = $(this).find('input[id=comment]');

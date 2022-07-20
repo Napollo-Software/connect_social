@@ -33,7 +33,7 @@ class CommentController extends Controller
     }
 
     public function show_more(Request $request)
-    {
+    {   
         $post = Post::find($request->post);
         $previousComments = Comment::where('post_id',$request->post)->latest()->take($request->previous)->get();
         $id = [];
@@ -58,12 +58,14 @@ class CommentController extends Controller
                                         </div>
                                     </div>';
         }
+        
         $showPostHTML = '<div class="view-more-comments"><div class="view-more-comments-inner"><a href="javascript:void(0)" class="show-more-comments" data-post="' . $post->id . '">View post</a></div></div>';
         $data = [
             'html' => $nextHtml,
             'total_comments' => $post->comments->count(),
             'show_post'=>$showPostHTML,
         ];
+        
         return response()->json($data); 
     }
 }
