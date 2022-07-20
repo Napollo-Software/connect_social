@@ -19,6 +19,7 @@ use App\Http\Controllers\TransactionController;
 
 Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group(function () {
 
+
     Route::prefix('profile-view')->group(function () {
         Route::get('{id}', [NetworkController::class, 'profile'])->name('network.profile');
         Route::get('network/{id}/{type}', [NetworkController::class, 'network'])->name('network.list');
@@ -28,7 +29,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         Route::post('fetch-all', [PostController::class, 'fetch_all'])->name('post.fetch.all');
         Route::post('store', [PostController::class, 'store'])->name('post.store');
         Route::post('update', [PostController::class, 'update'])->name('post.update');
-        Route::post('pop-up', [PostController::class, 'popup'])->name('post.popup'); 
+        Route::post('pop-up', [PostController::class, 'popup'])->name('post.popup');
         Route::delete('destroy', [PostController::class, 'destroy'])->name('post.destroy');
         Route::delete('asset-destroy', [PostController::class, 'asset_destroy'])->name('post.asset.destroy');
     });
@@ -53,10 +54,9 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
     });
     Route::get('ambassador', [UserController::class, 'index'])->name('ambassador.profile');
 
-    Route::middleware('under-construction')->group(function () { 
-        Route::prefix('ambassador')->group(function () { 
-            
-            Route::post('fetch-network',[UserController::class,'fetch'])->name('ambassador.fetch.network');
+    Route::middleware('under-construction')->group(function () {
+        Route::prefix('ambassador')->group(function () {
+            Route::post('fetch-network', [UserController::class, 'fetch'])->name('ambassador.fetch.network');
             Route::post('update-name', [UserController::class, 'update_name'])->name('ambassador.update.name');
             Route::post('update-about', [UserController::class, 'update_about'])->name('ambassador.update.about');
             Route::post('update-cover', [UserController::class, 'update_cover'])->name('ambassador.update.cover');
@@ -94,7 +94,8 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::post('action', [ConnectionsController::class, 'action'])->name('connections.action');
             Route::post('cancel-request', [ConnectionsController::class, 'cancel_request'])->name('connections.cancel.request');
             Route::post('remove-connection', [ConnectionsController::class, 'remove_connection'])->name('connections.remove.connection');
-        });     
+        });
+
         Route::prefix('kyc')->group(function () {
             Route::get('submission', [KycController::class, 'submission'])->name('kyc.submission');
             Route::post('submit', [KycController::class, 'submit'])->name('kyc.submit');

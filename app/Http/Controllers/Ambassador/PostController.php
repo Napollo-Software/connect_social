@@ -8,8 +8,8 @@ use App\Models\PostAssets;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage; 
- 
+use Illuminate\Support\Facades\Storage;
+
 class PostController extends Controller
 {
     public function fetch(Request $request){
@@ -18,6 +18,8 @@ class PostController extends Controller
         $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
         return response()->json($viewRender);
     }
+
+
     public function fetch_all(Request $request){
 
 
