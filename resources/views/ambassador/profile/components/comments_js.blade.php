@@ -2,7 +2,7 @@
     $(function () {
         $(document).on('submit','.comment_form',function (e) {
             e.preventDefault();
-            var comment_input = $(this).find('textarea[id=comment]');
+            var comment_input = $(this).find('input[id=comment]');
             var button = $(this).find('button[type=submit]');
             var post= button.attr('data-post-id');
             var previous= button.text();
@@ -23,7 +23,7 @@
                         $('#comment-box-'+post).closest('.all-comments-box').append(response.data.more_comments_html);
                     }
                     if (response.data.total_comments<=5){
-                        $('#comment-box-'+post).append(response.data.comment_html);
+                        $('#comment-box-'+post).prepend(response.data.comment_html);
                     }
                 },
                 error:function (xhr) {

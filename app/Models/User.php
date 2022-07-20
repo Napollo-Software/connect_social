@@ -61,15 +61,15 @@ class User extends Authenticatable
     {
         if ($this->roles->slug == 'super-admin') {
             return url('admin_assets/images/profile/'. $this->profile);
-
         }else{
             if ($this->profile) {
                 if (!File::exists(public_path() . '/storage/profile/' . $this->email . '/' . $this->profile)) {
-                    return url('admin_assets/images/avatars/avatar-1.png');
+                    return url('admin_assets/images/profile/profile.png');
                 }
                 return Storage::disk('local')->url('/profile/' . $this->email . '/' . $this->profile);
             }
-            return url('admin_assets/images/avatars/avatar-1.png');
+            return url('admin_assets/images/profile/profile.png');
+
         }
     }
 
