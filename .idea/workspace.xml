@@ -56,7 +56,7 @@
           <entry key="js" value="30" />
           <entry key="json" value="9" />
           <entry key="lock" value="2" />
-          <entry key="php" value="1594" />
+          <entry key="php" value="1595" />
           <entry key="sql" value="39" />
           <entry key="txt" value="6" />
         </counts>
@@ -68,7 +68,7 @@
           <entry key="HTML" value="6" />
           <entry key="JSON" value="11" />
           <entry key="JavaScript" value="30" />
-          <entry key="PHP" value="843" />
+          <entry key="PHP" value="844" />
           <entry key="PLAIN_TEXT" value="29" />
           <entry key="SQL" value="39" />
         </counts>
@@ -81,7 +81,7 @@
           <entry key="html" value="321" />
           <entry key="js" value="1245" />
           <entry key="json" value="1" />
-          <entry key="php" value="93825" />
+          <entry key="php" value="93837" />
           <entry key="sql" value="150" />
           <entry key="txt" value="10" />
         </counts>
@@ -93,7 +93,7 @@
           <entry key="HTML" value="434" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="1245" />
-          <entry key="PHP" value="48675" />
+          <entry key="PHP" value="48687" />
           <entry key="PLAIN_TEXT" value="224" />
           <entry key="SQL" value="150" />
         </counts>
@@ -114,11 +114,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ConfigurationController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="419">
               <caret line="43" column="46" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Models/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="66" column="74" selection-start-line="66" selection-start-column="74" selection-end-line="66" selection-end-column="74" />
             </state>
           </provider>
         </entry>
@@ -242,7 +251,6 @@
         <option value="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/ambassador_receipts/index.blade.php" />
         <option value="$PROJECT_DIR$/database/connect_social.sql" />
-        <option value="$PROJECT_DIR$/app/Models/User.php" />
         <option value="$PROJECT_DIR$/routes/partials/ambassador.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/PostController.php" />
@@ -268,6 +276,7 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ConfigurationController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/configuration/ambassador_config.blade.php" />
         <option value="$PROJECT_DIR$/app/helpers.php" />
+        <option value="$PROJECT_DIR$/app/Models/User.php" />
       </list>
     </option>
   </component>
@@ -903,12 +912,12 @@
       <workItem from="1658144184603" duration="861000" />
       <workItem from="1658145403551" duration="13786000" />
       <workItem from="1658230065849" duration="23511000" />
-      <workItem from="1658317180693" duration="2293000" />
+      <workItem from="1658317180693" duration="3438000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="530135000" />
+    <option name="totallyTimeSpent" value="531280000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1154,13 +1163,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="62" column="51" selection-start-line="62" selection-start-column="24" selection-end-line="62" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -1298,6 +1300,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="419">
           <caret line="43" column="46" selection-start-line="43" selection-start-column="32" selection-end-line="43" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="66" column="74" selection-start-line="66" selection-start-column="74" selection-end-line="66" selection-end-column="74" />
         </state>
       </provider>
     </entry>
