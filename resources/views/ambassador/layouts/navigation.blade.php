@@ -110,9 +110,55 @@
                </span> <span class="text">Incentives</span> </a>
                 </li>
                 <li class="profile-site-navigation-li {{(Route::currentRouteName()=='wallet.dashboard')?'active':''}}">
-                    <a href="{{route('wallet.dashboard')}}" class="profile-site-navigation-link"> <span class="icon">
+                    <a href="javascript:void(0)" class="profile-site-navigation-link"> <span class="icon">
                <img src="{{url('ambassador_assets/images/nav-icon/wallet.png')}}" alt="">
                </span> <span class="text">Wallet</span> </a>
+                    <div class="navigation-drop-down">
+                        <div class="navigation-drop-down-inner">
+                            <ul class="navigation-drop-down-">
+                                <li class="navigation-drop-down-li">
+                                    <a href="javascript:void(0)" class="navigation-drop-down-link">
+                                        <div class="icon"><img
+                                                    src="{{asset('ambassador_assets/images/wallet-icons/dashboard.png')}}"
+                                                    alt=""></div>
+                                        <div class="text">Dashboard</div>
+                                    </a>
+                                </li>
+                                <li class="navigation-drop-down-li">
+                                    <a href="javascript:void(0)" class="navigation-drop-down-link">
+                                        <div class="icon"><img
+                                                    src="{{asset('ambassador_assets/images/wallet-icons/earnings.png')}}"
+                                                    alt=""></div>
+                                        <div class="text">Network Earnings</div>
+                                    </a>
+                                </li>
+                                <li class="navigation-drop-down-li">
+                                    <a href="javascript:void(0)" class="navigation-drop-down-link">
+                                        <div class="icon"><img
+                                                    src="{{asset('ambassador_assets/images/wallet-icons/purchase.png')}}"
+                                                    alt=""></div>
+                                        <div class="text">Coin Purchase</div>
+                                    </a>
+                                </li>
+                                <li class="navigation-drop-down-li">
+                                    <a href="javascript:void(0)" class="navigation-drop-down-link">
+                                        <div class="icon"><img
+                                                    src="{{asset('ambassador_assets/images/wallet-icons/transaction.png')}}"
+                                                    alt=""></div>
+                                        <div class="text">Transactions</div>
+                                    </a>
+                                </li>
+                                <li class="navigation-drop-down-li">
+                                    <a href="javascript:void(0)" class="navigation-drop-down-link">
+                                        <div class="icon"><img
+                                                    src="{{asset('ambassador_assets/images/wallet-icons/card.png')}}"
+                                                    alt=""></div>
+                                        <div class="text">Payment Methods</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </li>
             </ul>
         </div>
