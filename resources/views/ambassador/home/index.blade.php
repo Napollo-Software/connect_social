@@ -45,7 +45,7 @@ Home
                                     </div>
                                 </div>
                                 <div class="content-side-02">
-                                    <div class="content-cards"> 
+                                    <div class="content-cards">
                                         @include('ambassador.profile.components.add_post')
                                         @include('ambassador.home.components.show_posts')
                                     </div>
