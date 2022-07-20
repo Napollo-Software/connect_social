@@ -450,7 +450,126 @@ canvas#merchant-canvas {
     display: inline-block;
 }
 
+/* Dashboard */
+
+.wallet-dashboad {
+    background: #f0f2f5;
+    padding: 50px 0;
+}
+
+.dashboard-sides {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard-side-bar {
+    flex: 0 0 30%;
+    margin-right: 20px;
+}
+
+.dashboard-content-main {
+    flex-grow: 1;
+}
+
+.dahboard-title {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.dahboard-card-title-bar {
+    border-bottom: 1px solid #dedede;
+    font-weight: 500;
+}
+
+.dahboard-card-title-bar .statics {
+    font-size: 12px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+}
+
+.dahboard-card-title-bar.multi {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dahboard-card-title-bar .statics .up, .dahboard-card-title-bar .statics .down {
+    display: flex;
+    margin-left: 15px;
+}
+
+.statics .up .icon {
+    color: #28a745;
+}
+
+.statics .down .icon {
+    color: #dc3545;
+}
+
+.number-text {
+    font-family: 'Roboto Slab', serif;
+}
+
+.gold-text {
+    color: #e5b330;
+    font-size: 1.5em;
+}
+
+.gold-text, .black-text {
+    font-size: 1.5em;
+}
+
+.dasboard-card-grid {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dasboard-card-col-image {
+    background: #000;
+    text-align: center;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.dasboard-card-col {
+    flex: 0 0 30%;
+}
+
+.dasboard-card-col-image img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.dasboard-card-col-text {
+    font-size: 12px;
+    text-align: center;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.debit-text {
+    color: #28a745;
+}
+
+a.dashboard-card-link {
+    color: #000;
+    text-decoration: none;
+}
+
 /* Responsive */
+
+@media only screen and (max-width: 990px) {
+    .dasboard-card-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .dasboard-card-col-text {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+}
 
 @media only screen and (max-width: 768px) {
     .wallet-earning-stats-main-box {

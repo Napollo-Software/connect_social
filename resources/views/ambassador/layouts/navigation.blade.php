@@ -92,7 +92,7 @@
                 <li class="profile-site-navigation-li {{(Route::currentRouteName()=='network')?'active':''}}">
                     <a href="{{route('network',['friends'])}}" class="profile-site-navigation-link"> <span class="icon">
                <img src="{{url('ambassador_assets/images/nav-icon/network.png')}}" alt="">
-               </span> <span class="text">Social Network</span> </a>
+               </span> <span class="text" style="width:100px; text-align:center;">Social Network</span> </a>
                 </li>
                 <li class="profile-site-navigation-li">
                     <a href="javascript:void(0)" class="profile-site-navigation-link"> <span class="icon">

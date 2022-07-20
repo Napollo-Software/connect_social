@@ -33,3 +33,7 @@ Route::group([],__DIR__.'/partials/ambassador.php');
 Route::get('/front-end', [FrontEnd::class, 'index']);
 Route::get('/under-construction', [FrontEnd::class, 'under_construction'])->name('site.under.construction');
 
+// Wallet
+Route::get('/front-end/wallet/dashboard', [FrontEnd::class, 'wallet_dashboard']);
+Route::get('/front-end/wallet/add-card', [FrontEnd::class, 'add_card']);
+

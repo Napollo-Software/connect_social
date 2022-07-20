@@ -31,4 +31,14 @@ class FrontEnd extends Controller
     {
         return view('ambassador.wallet.earnings.index');
     }
+
+    public function wallet_dashboard()
+    {
+        return view('ambassador.wallet.dashboard.transaction');
+    }
+
+    public function add_card()
+    {
+        return view('ambassador.wallet.dashboard.add-card');
+    }
 }
