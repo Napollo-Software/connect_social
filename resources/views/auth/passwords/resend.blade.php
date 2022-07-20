@@ -25,7 +25,10 @@
                                         <h2>Password Link Sent</h2>
                                     </div>
                                     <div class="form-sub-title">
-                                        <p class="mb-0">We have sent you password reset link on your email. If you have not received it, please check your spam folder. If you are unable to find the email, please click on "Resend Link" button to try again.</p>
+                                        <p class="mb-0">
+                                            We have sent you password reset link on your email. If you have not received it, please ensure you have an account with us. Also check your spam folder. If you are still unable to find, please click on "Resend Link" button to try again.
+
+                                        </p>
                                     </div>
                                     <div class="form-action-button">
                                         <button class="custom-black-btn mr-3" type="submit">Resend Link</button>
