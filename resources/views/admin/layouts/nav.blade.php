@@ -1,9 +1,15 @@
+
 <div class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header text-center">
-        <div>
-            <h5 class="text-primary mt-1" style="font-size: 20px  ">
-                <img src="{{url('assets/images/logo.png')}}" alt="" style="width: 100%">
+        <div >
+            <h5 class="text-primary mt-1 " style="font-size: 20px  ">
+                <div style="display: flex">
+                <div>
+                    <img src="{{url('assets/images/logo.png')}}"  alt="connectSocial" style="width: 100%"></div><div>
+                    <i class='pt-2 toggle-icon ms-auto bx bx-arrow-to-left'></i></div>
+                </div>
             </h5>
+            
         </div>
     </div>
     <!--navigation-->

@@ -46,7 +46,7 @@ Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->grou
 
     Route::prefix('invite')->group(function () {
         Route::get('/', [InviteController::class, 'index'])->name('invite');
-        Route::post('send', [InviteController::class, 'send'])->name('invite.send');
+        Route::post('send', [InviteController::class, 'send'])->name('invite.send'); 
     });
 
     Route::middleware('under-construction')->group(function () {
@@ -56,14 +56,16 @@ Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->grou
             Route::post('action', [KycController::class, 'action'])->name('kyc.action');
             Route::get('show/{id}', [KycController::class, 'show'])->name('kyc.show');
         });
+
+        Route::prefix('configurations')->group(function(){
+            Route::get('/merchant',[ConfigurationController::class,'merchantConfig'])->name('merchant.config');
+            Route::post('/get-slug-from-title',[ConfigurationController::class,'getSlugFromTitle'])->name('config.get.slug.from.title');
+            Route::get('/ambassador',[ConfigurationController::class,'ambassadorConfig'])->name('ambassador.config');
+            Route::post('/update-ambassador-configuration',[ConfigurationController::class, 'updateAmbassadorConfig'])->name('update.ambassador.config');
+        });
+    
     });
 
-    Route::prefix('configurations')->group(function(){
-        Route::get('/merchant',[ConfigurationController::class,'merchantConfig'])->name('merchant.config');
-        Route::post('/get-slug-from-title',[ConfigurationController::class,'getSlugFromTitle'])->name('config.get.slug.from.title');
-        Route::get('/ambassador',[ConfigurationController::class,'ambassadorConfig'])->name('ambassador.config');
-        Route::post('/update-ambassador-configuration',[ConfigurationController::class, 'updateAmbassadorConfig'])->name('update.ambassador.config');
-    });
-
+   
  
 });
