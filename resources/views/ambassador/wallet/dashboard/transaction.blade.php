@@ -9,11 +9,11 @@
             <div class="container">
                 <div class="wallet-dashboad-main">
                     <div class="wallet-dashboad-main-inner">
+                        <div class="dahboard-title">
+                            Dashboard
+                        </div>
                         <div class="dashboard-sides">
                             <div class="dashboard-side-bar">
-                                <div class="dahboard-title">
-                                    Dashboard
-                                </div>
                                 <div class="dahboard-cards">
                                     <div class="dahboard-card">
                                         <div class="dahboard-card-inner custom-card custom-border custom-shadow">
@@ -61,7 +61,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="dahboard-card">
+                                    <!-- <div class="dahboard-card">
                                         <div class="dahboard-card-inner custom-card custom-border custom-shadow">
                                             <div class="dahboard-card-title-bar custom-padding">
                                                 <div class="text">
@@ -111,7 +111,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                             <!-- Table Side -->
@@ -139,7 +139,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="dashboard-card">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dashboard-card">
                                         <div class="dahboard-card">
                                             <div class="dahboard-card-inner custom-card custom-border custom-shadow">
                                                 <div class="dahboard-card-title-bar custom-padding">
@@ -198,9 +201,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
