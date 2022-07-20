@@ -33,6 +33,11 @@
             @yield('content')
         </div>
     </div>
+    <footer class="footer">
+    <div class="footer-inner">
+        © Connect Social, All rights reserved
+    </div>
+</footer>
     @include('ambassador.layouts.modals')
     <script src="{{asset('assets/js/jquery.js')}}"></script>
     <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>

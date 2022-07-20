@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="singal-post-content single-post-{{$post->id}}">
-                        <div class="singal-post-content-pop-up">
+                        <div class="singal-post-content-pop-up full-post">
                             <div class="text">
                                 <p>{{$post->details}}</p>
                             </div>
