@@ -112,6 +112,9 @@ Home
                 $(".recent-searches-box").show();
                 $(".recent-searches-box input").focus();
             });
+            $(function () {
+
+            });
         </script>
         @stack('subscripts')
     @endpush

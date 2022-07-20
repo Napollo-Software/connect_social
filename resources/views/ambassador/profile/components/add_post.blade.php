@@ -148,7 +148,6 @@
                         swal("Success", data.success, "success").then(function () {
                             showPostDiv.prepend(data.html);
                             $('#add_post').html(formHTML);
-                            console.log(formHTML);
                         });
                     },
                     error:function (xhr) {
