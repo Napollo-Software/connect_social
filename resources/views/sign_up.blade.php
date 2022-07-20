@@ -25,7 +25,7 @@
 
                                 <input type="hidden" value="{{$role}}" name="role">
                                 <input type="hidden" value="{{$by}}" name="referred_by">
-                                <input type="file" onchange="document.getElementById('user-image').src = window.URL.createObjectURL(this.files[0])" id="choose-pic-input" class='d-none' name="profile">
+                                <input type="file" onchange="document.getElementById('user-image').src = window.URL.createObjectURL(this.files[0]);console.log(this.files[0])" id="choose-pic-input" class='d-none' name="profile">
 
                                 <div class="form-box text-center">
                                     <div class="form-sub-title">

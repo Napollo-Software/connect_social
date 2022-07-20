@@ -3,6 +3,7 @@
 <div class="text-center col-md-12">
     <button id="scroll-to" class="black-button">Show more posts</button>
 </div>
+
 @include('ambassador.profile.components.post_popup')
 @push('subscripts')
     <script>

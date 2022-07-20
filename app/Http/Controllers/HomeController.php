@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Post;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -11,6 +12,8 @@ class HomeController extends Controller
     }
     public function index()
     {
+
+
         if (Auth::user()->roles->slug == 'ambassador') {
             $user = auth()->user();
             return view('ambassador.home.index', compact( 'user'));

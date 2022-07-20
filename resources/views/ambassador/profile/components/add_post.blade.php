@@ -173,6 +173,8 @@
 @push('subscripts')
     <script>
         $(function () {
+            var formHTML=$('#add_post').html();
+
             $('#add_post').submit(function (e) {
                 e.preventDefault();
                 var showPostDiv=$('.load-posts');
@@ -193,8 +195,8 @@
                     success:function(data) {
                         button.attr('disabled',null).html(previous);
                         swal("Success", data.success, "success").then(function () {
-                            $('#add_post').trigger('reset');
                             showPostDiv.prepend(data.html);
+                            $('#add_post').html(formHTML);
                         });
                     },
                     error:function (xhr) {
@@ -207,7 +209,7 @@
                 $('#file_type').val('');
                 $('#create-post-upload-file-modal').modal('hide');
             });
-            $('.add-post-upload-btn').click(function () {
+            $(document).on('click','.add-post-upload-btn',function () {
                 if (($('#attachment').val()== null || $('#attachment').val()=='') && ($('#url').val()==null || $('#url').val()=='')){
                     alert('null');
                 }
