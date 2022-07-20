@@ -20,6 +20,10 @@ use App\Http\Controllers\TransactionController;
 Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group(function () {
 
 
+    Route::prefix('profile-view')->group(function () {
+        Route::get('{id}', [NetworkController::class, 'profile'])->name('network.profile');
+        Route::get('network/{id}/{type}', [NetworkController::class, 'network'])->name('network.list');
+    });
     Route::prefix('post')->group(function () {
         Route::post('fetch', [PostController::class, 'fetch'])->name('post.fetch');
         Route::post('fetch-all', [PostController::class, 'fetch_all'])->name('post.fetch.all');
@@ -29,15 +33,18 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         Route::delete('destroy', [PostController::class, 'destroy'])->name('post.destroy');
         Route::delete('asset-destroy', [PostController::class, 'asset_destroy'])->name('post.asset.destroy');
     });
+    Route::prefix('comments')->group(function () {
+        Route::post('store', [CommentController::class, 'store'])->name('comments.store');
+        Route::post('show-more', [CommentController::class, 'show_more'])->name('comments.show.more');
+    });
+    Route::prefix('likes')->group(function () {
+        Route::post('store', [LikeController::class, 'store'])->name('likes.store');
+    });
     Route::prefix('search')->group(function () {
         Route::get('', [SearchController::class, 'index'])->name('search');
         Route::post('fetch', [SearchController::class, 'fetch'])->name('search.fetch');
         Route::post('fetch-dropdown', [SearchController::class, 'fetch_dropdown'])->name('search.dropdown');
-    });
-    Route::prefix('profile-view')->group(function () {
-        Route::get('{id}', [NetworkController::class, 'profile'])->name('network.profile');
-        Route::get('network/{id}/{type}', [NetworkController::class, 'network'])->name('network.list');
-    });
+    }); 
     Route::prefix('chat')->group(function () {
         Route::get('/{id?}', [ChatController::class, 'index'])->name('chat');
         Route::post('fetch-users', [ChatController::class, 'fetch_users'])->name('chat.users');
@@ -63,19 +70,12 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
                 Route::post('store', [ReceiptController::class, 'store'])->name('ambassador.receipts.store');
             });
 
-        });
-        Route::prefix('comments')->group(function () {
-            Route::post('store', [CommentController::class, 'store'])->name('comments.store');
-            Route::post('show-more', [CommentController::class, 'show_more'])->name('comments.show.more');
-        });
+        });      
         Route::prefix('gallery')->group(function () {
             Route::get('{type}', [GalleryController::class, 'index'])->name('gallery');
             Route::post('fetch', [GalleryController::class, 'fetch'])->name('gallery.fetch');
             Route::post('delete', [GalleryController::class, 'delete'])->name('gallery.delete');
-        });
-        Route::prefix('likes')->group(function () {
-            Route::post('store', [LikeController::class, 'store'])->name('likes.store');
-        });
+        });    
         Route::prefix('network')->group(function () {
             Route::get('{type}/{id?}', [NetworkController::class, 'index'])->name('network');
             Route::post('', [NetworkController::class, 'fetch'])->name('network.fetch');
