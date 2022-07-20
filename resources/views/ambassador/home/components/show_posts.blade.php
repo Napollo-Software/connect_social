@@ -2,7 +2,8 @@
 </div>
 
 <div class="text-center col-md-12">
-    <button id="scroll-to" class="black-button">Show more posts</button>
+    <button id="scroll-to" class="black-button show-more-posts">Show more posts</button>
+    <button disabled="disabled" style="display: none" class="white-button button-disabled no-more-posts">No more posts</button>
 </div>
 @push('subscripts')
     <script>
@@ -19,12 +20,20 @@
                     $('#scroll-to').attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm"></span> Processing ...');
                 },
                 success: function (data) {
-                    if (data){
-                        $('#scroll-to').attr('disabled',null).text('Show more posts');
-
-                        $('.load-posts').append(data);
+                    $('#scroll-to').attr('disabled',null).text('Show more posts');
+                    console.log(data);
+                    if (data.html){
+                        $('.load-posts').append(data.html);
                     } else{
-                        $('#scroll-to').text('No more posts').removeClass('black-button').addClass('white-button').addClass('button-disabled');
+                        $('.show-more-posts').hide();
+                        $('.no-more-posts').show();
+                    }
+                    if (data.show_more){
+                        $('.show-more-posts').show();
+                        $('.no-more-posts').hide();
+                    } else{
+                        $('.show-more-posts').hide();
+                        $('.no-more-posts').show();
                     }
                 },
                 error: function (xhr) {

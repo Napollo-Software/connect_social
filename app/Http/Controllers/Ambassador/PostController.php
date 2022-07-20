@@ -22,7 +22,6 @@ class PostController extends Controller
 
     public function fetch_all(Request $request){
 
-
         $type=$request->type;
         $tier_0=auth()->user()->tier_0();
         ($tier_0!=null)? ($tier0=$tier_0->id) : $tier0=null;
@@ -31,7 +30,7 @@ class PostController extends Controller
         $network[]=auth()->user()->id;
 
         $take=($request->n == 0)?10:5;
-        $skip=$request->n*$take;
+        $skip=($request->n == 0)?($request->n*$take):($request->n*$take)+1;
 
         $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$network)->skip($skip)->take($take)->get();
         if ($type=='all'){
@@ -59,7 +58,14 @@ class PostController extends Controller
 
         $user=User::find($request->user);
         $viewRender = view('ambassador.profile.components.partial.posts_html',compact('posts','user'))->render();
-        return response()->json($viewRender);
+
+        $show_more=false;
+        if ($posts->count()<$take){
+            $show_more=false;
+        }else{
+            $show_more=true;
+        }
+        return response()->json(['html'=>$viewRender,'show_more'=>$show_more]);
     }
     public function store(Request $request){
         if ($request->file_type){

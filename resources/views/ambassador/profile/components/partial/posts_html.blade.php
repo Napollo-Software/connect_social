@@ -13,7 +13,6 @@
                             <div class="singal-post-top-bar-post-detail">
                                 <div class="singal-post-top-bar-post-detail-inner">
                                     <div class="user-name">
-                                        {{$post->id}}
                                         {{$post->user->fullName()}}
                                     </div>
                                     <div class="date-and-privacy">
