@@ -28,11 +28,12 @@ class PostController extends Controller
         $network=auth()->user()->my_network();
         $network[]=$tier0;
         $network[]=auth()->user()->id;
-
+        
         $take=($request->n == 0)?10:5;
         $skip=($request->n == 0)?($request->n*$take):($request->n*$take)+1;
-
-        $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$network)->skip($skip)->take($take)->get();
+        dd($network);
+        $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$network)->take($take)->get();
+        
         if ($type=='all'){
             $posts = Post::orderBy('created_at', 'DESC')->whereIn('user_id',$network)->skip($skip)->take($take)->get();
         }
