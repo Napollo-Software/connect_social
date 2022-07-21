@@ -43,6 +43,19 @@
                 </ul>
             </li>
             <li>
+                <li>
+                    <a href="javascript:;" class="has-arrow">
+                        <div class="parent-icon"><i class='bx bx-money'></i>
+                        </div>
+                        <div class="menu-title">Coin</div>
+                    </a>
+                    <ul>
+                        <li> <a href="{{ route('coin.config') }}"><i class="bx bx-right-arrow-alt"></i>Configuration</a>
+                        </li>
+                       
+                    </ul>
+                </li>
+                <li>
             
             <li>
                 <a href="{{route('users')}}">

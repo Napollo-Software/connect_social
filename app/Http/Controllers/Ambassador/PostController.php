@@ -69,14 +69,15 @@ class PostController extends Controller
         if ($request->file_type){
             $postAsset=new PostAssets();
             if ($request->file_type=='link'){
+                $regex = '/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/';
                 $this->validate($request,[
-                    'url'=>'required',
+                    'url'=>'required|regex:'.$regex,
                 ]);
                 $postAsset->file=$request->url;
             }else{
                 if ($request->file_type=='audio'){
                     $this->validate($request,[
-                        'attachment'=>'required',
+                        'attachment'=>'required|mimes:mp3,mpeg,mpga,wav',
                     ]);
                 }
                 if ($request->file_type=='image'){
@@ -86,7 +87,7 @@ class PostController extends Controller
                 }
                 if ($request->file_type=='video'){
                     $this->validate($request,[
-                        'attachment'=>'required',
+                        'attachment'=>'required|mimes:mp4,ogx,oga,ogv,ogg,webm',
                     ]);
                 }
                 $attachment = time() . $request->attachment->getClientOriginalName();
@@ -126,14 +127,15 @@ class PostController extends Controller
         if ($request->file_type){
             $postAsset=new PostAssets();
             if ($request->file_type=='link'){
+                $regex = '/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/';
                 $this->validate($request,[
-                    'url'=>'required',
+                    'url'=>'required|regex:'.$regex,
                 ]);
                 $postAsset->file=$request->url;
             }else{
                 if ($request->file_type=='audio'){
                     $this->validate($request,[
-                        'attachment'=>'required',
+                        'attachment'=>'required|mimes:mp3,mpeg,mpga,wav',
                     ]);
                 }
                 if ($request->file_type=='image'){
@@ -143,7 +145,7 @@ class PostController extends Controller
                 }
                 if ($request->file_type=='video'){
                     $this->validate($request,[
-                        'attachment'=>'required',
+                        'attachment'=>'required|mimes:mp4,ogx,oga,ogv,ogg,webm',
                     ]);
                 }
                 $attachment = time() . $request->attachment->getClientOriginalName();
