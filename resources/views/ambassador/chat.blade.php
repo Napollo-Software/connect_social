@@ -46,6 +46,18 @@ Chat
                 <div class="chat-box">
                     <div class="chat-box-inner custom-card custom-border custom-shadow margin-top">
                         <div class="chat-box-main">
+                            <div class="chat-box-overlay">
+                                <div class="chat-box-overlay-inner">
+                                    <div class="chat-box-overlay-inner-main">
+                                        <div class="top-text">
+                                            Welcome to your inbox
+                                        </div>
+                                        <div class="bottom-text">
+                                            Please select a contact to start a conversation
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="chat-box-top-bar border-0">
                                 <div class="chat-box-top-bar-inner">
                                     <div class="back-btn close-chat-box" >
@@ -273,6 +285,7 @@ Chat
                         $('.chat-contacts').hide();
                         $('.chat-box').show();
                     }
+                    $('.chat-box-overlay').hide();
                 });
 
             });

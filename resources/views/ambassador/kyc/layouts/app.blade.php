@@ -35,7 +35,7 @@
     </div>
     <footer class="footer">
     <div class="footer-inner">
-        © Connect Social, All rights reserved
+        © Connect Social {{date('Y')}}, All Rights Reserved
     </div>
 </footer>
     @include('ambassador.layouts.modals')
