@@ -15,8 +15,11 @@ class Coin extends Model
     }
     public static function differenceFromCurrent(){
         $secondLast=Coin::orderBy('created_at', 'desc')->skip(1)->first();
-        $difference=self::CurrentValue()-$secondLast->dollar;
-        return $secondLast?$difference:0;
+        if ($secondLast){
+            $difference=self::CurrentValue()-$secondLast->dollar;
+            return $difference;
+        }
+        return 0;
     }
     public static function balanceOfCurrentUser(){
         $my_trxs=JournalDetails::where('account',auth()->user()->coa)->get();
