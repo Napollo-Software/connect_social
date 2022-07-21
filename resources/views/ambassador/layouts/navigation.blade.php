@@ -117,7 +117,7 @@
                         <div class="navigation-drop-down-inner">
                             <ul class="navigation-drop-down-">
                                 <li class="navigation-drop-down-li">
-                                    <a href="javascript:void(0)" class="navigation-drop-down-link">
+                                    <a href="{{route('wallet.dashboard')}}" class="navigation-drop-down-link">
                                         <div class="icon"><img
                                                     src="{{asset('ambassador_assets/images/wallet-icons/dashboard.png')}}"
                                                     alt=""></div>
@@ -125,7 +125,7 @@
                                     </a>
                                 </li>
                                 <li class="navigation-drop-down-li">
-                                    <a href="javascript:void(0)" class="navigation-drop-down-link">
+                                    <a href="{{route('network.dashboard')}}" class="navigation-drop-down-link">
                                         <div class="icon"><img
                                                     src="{{asset('ambassador_assets/images/wallet-icons/earnings.png')}}"
                                                     alt=""></div>
