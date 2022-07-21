@@ -9,4 +9,8 @@ class Coin extends Model
 {
     use HasFactory;
     protected $table="coin";
+    public static function CurrentValue(){
+        $latest=Coin::latest()->first();
+        return $latest?$latest->dollar:0;
+    }
 }
