@@ -62,7 +62,7 @@
                             <div class="image">
                             @if($post->assets()->exists())
                                 @if($post->assets->type=='link')
-                                    <a href="{{$post->assets->data()}}">{{$post->assets->data()}}</a>
+                                    {{genrate_url_card($post->assets->data())}}
                                 @elseif($post->assets->type=='image')
                                     <img src="{{$post->assets->data()}}" alt="">
                                 @elseif($post->assets->type=='video')

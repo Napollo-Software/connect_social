@@ -446,7 +446,6 @@ function getConfigValue($key)
 
 function genrate_url_card($url)
 {
-    echo "Hello";
     $title = ""; $description = ""; $image = "";
     $metas = get_meta_tags($url);
     foreach($metas AS $key => $value) {
@@ -461,9 +460,15 @@ function genrate_url_card($url)
 
     $iURL_html = "<div class='iURL-container-main'>";
     $iURL_html .= '<div class="iURL-container"><a href="'.$url.'" target="_blank"><div class="iURL-container-inner">';
-    $iURL_html .= '<div class="iURL-image"><img src="'.$image.'"></div>';
-    $iURL_html .= '<div class="iURL-title">'.$title.'</div>';
-    $iURL_html .= '<div class="iURL-description">'.$description.'</div>';
+    if($image !=""){
+        $iURL_html .= '<div class="iURL-image"><img src="'.$image.'"></div>';
+    }
+    if ($title !="") {
+        $iURL_html .= '<div class="iURL-title">'.$title.'</div>';
+    }
+    if ($description !="") {
+        $iURL_html .= '<div class="iURL-description">'.$description.'</div>';
+    }
     $iURL_html .= '<div class="iURL-url">'.$url.'</div>';
     $iURL_html .= '</div></a></div></div>';
 

@@ -41,7 +41,7 @@
                                                 </div>
                                             </div>
                                             <div class="dasboard-card-content">
-                                                <div class="dasboard-card-content-inner custom-padding">
+                                                <div class="dasboard-card-content-inner custom-padding text-center">
                                                     <span class="gold-text number-text">$11.2654</span>
                                                 </div>
                                             </div>
@@ -73,7 +73,7 @@
                                                 </div>
                                             </div>
                                             <div class="dasboard-card-content">
-                                                <div class="dasboard-card-content-inner custom-padding">
+                                                <div class="dasboard-card-content-inner custom-padding text-center">
                                                     <span class="black-text number-text">$88,761.00</span>
                                                 </div>
                                             </div>
