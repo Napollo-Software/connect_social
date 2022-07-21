@@ -24,7 +24,7 @@
                             @csrf
                             <input type="hidden" value="{{Privacy::PRIV_FRIENDS}}" name="privacy" id="post_privacy">
                             <div class="post-preview">
-                                <div class="post-preview-inner">
+                                <div class="post-preview-inner d-none">
                                     <div class="post-preview-name">
                                         <div class="post-preview-icon">
                                             <span class="ti-camera"></span>
@@ -35,7 +35,7 @@
                                         <span class="ti-close"></span>
                                     </div>
                                 </div>
-                                <div class="post-preview-inner">
+                                <div class="post-preview-inner d-none">
                                     <div class="post-preview-name">
                                         <div class="post-preview-icon">
                                             <span class="ti-control-play"></span>
@@ -46,7 +46,7 @@
                                         <span class="ti-close"></span>
                                     </div>
                                 </div>
-                                <div class="post-preview-inner">
+                                <div class="post-preview-inner d-none">
                                     <div class="post-preview-name">
                                         <div class="post-preview-icon">
                                             <span class="ti-microphone"></span>
@@ -57,7 +57,7 @@
                                         <span class="ti-close"></span>
                                     </div>
                                 </div>
-                                <div class="post-preview-inner">
+                                <div class="post-preview-inner d-none">
                                     <div class="post-preview-name">
                                         <div class="post-preview-icon">
                                             <span class="ti-link"></span>
@@ -209,15 +209,44 @@
                 $('#file_type').val('');
                 $('#create-post-upload-file-modal').modal('hide');
             });
+            $(document).on('click','.remove-attached-file',function () {
+                $('#file_type').val('');
+                $('#attachment').val('');
+                $('.post-preview').empty();
+                $('#url').val('');
+                $('.share-post-attachments-li').addClass('add-post-modal-show');
+                $('#create-post-upload-file-modal').modal('hide');
+            });
+
             $(document).on('click','.add-post-upload-btn',function () {
                 if (($('#attachment').val()== null || $('#attachment').val()=='') && ($('#url').val()==null || $('#url').val()=='')){
                     alert('null');
                 }
                 else{
+                    var type=$('#file_type').val();
+                    var icon='';
+                    var file_value='';
+                    if (type=='image'){ icon='ti-camera'; }
+                    if (type=='video'){ icon='ti-control-play'; }
+                    if (type=='audio'){ icon='ti-microphone'; }
+                    if (type=='link'){
+                        icon='ti-link';
+                        file_value=$('#url').val();
+                    }else{
+                        file_value=document.getElementById('attachment').files.item(0).name;
+                    }
+
                     $('.share-post-attachments-li.add-post-modal-show').removeClass('add-post-modal-show');
+                    $('.post-preview').html('<div class="post-preview-inner">\n' +
+                        '                                    <div class="post-preview-name">\n' +
+                        '                                        <div class="post-preview-icon">\n' +
+                        '                                            <span class="'+icon+'"></span>\n' +
+                        '                                        </div>'+file_value+' </div>\n' +
+                        '                                    <div class="delete-attachment remove-attached-file">\n' +
+                        '                                        <span class="ti-close"></span>\n' +
+                        '                                    </div>\n' +
+                        '                                </div>');
                     $('#create-post-upload-file-modal').modal('hide');
-
-
                 }
             });
             $(document).on('click','.add-post-modal-show',function() {

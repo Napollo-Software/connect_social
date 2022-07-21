@@ -2,12 +2,14 @@
 </div>
 
 <div class="text-center col-md-12">
+    <input type="hidden" value="10" id='take'>
     <button id="scroll-to" class="black-button show-more-posts">Show more posts</button>
     <button disabled="disabled" style="display: none" class="white-button button-disabled no-more-posts">No more posts</button>
 </div>
 @push('subscripts')
     <script>
         function fetch_post(n,t){
+            var take=parseInt($("#take").val());
             if (n == 0){ 
                 $('.load-posts').empty();
             }
@@ -15,18 +17,28 @@
                 type: "POST",
                 url: "{{route('post.fetch.all')}}",
                 dataType: "JSON", 
-                data: {'n':n,'type':t,'user':'{{$user->id}}',_token: '{{csrf_token()}}'},
+                data: {'n':n,'take':take,'type':t,'user':'{{$user->id}}',_token: '{{csrf_token()}}'},
                 beforeSend: function () {
                     $('#scroll-to').attr('disabled','disabled').html('<span class="spinner-border spinner-border-sm"></span> Processing ...');
                 },
                 success: function (data) {
+                    
                     $('#scroll-to').attr('disabled',null).text('Show more posts');
                     if (data.html){
-                        $('.load-posts').append(data.html);
+                        $('.load-posts').html(data.html);
                     } else{
                         $('.show-more-posts').hide();
                         $('.no-more-posts').show();
                     }
+                    $('#scroll-to').on('click',function(e){
+                        e.preventDefault();
+                        take=take+10;
+                        $("#take").val(take);
+                    });
+                    $('.home-posts').on('click',function(e){
+                        e.preventDefault();
+                        $("#take").val(10);
+                    })
                     if (data.show_more){
                         $('.show-more-posts').show();
                         $('.no-more-posts').hide();
@@ -70,7 +82,7 @@
             });
             $(document).on('click', '.edit-post-modal-show', function () {
                 var type = $(this).attr('data-type');
-                var id = $(this).attr('data-post');
+                var id = $(this).attr('data-post'); 
                 if (type == 'link') {
                     $('.url-div').show();
                     $('.file-div').hide();

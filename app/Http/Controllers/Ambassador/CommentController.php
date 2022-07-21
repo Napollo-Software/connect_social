@@ -33,7 +33,7 @@ class CommentController extends Controller
     }
 
     public function show_more(Request $request)
-    {   
+    {    
         $post = Post::find($request->post);
         $previousComments = Comment::where('post_id',$request->post)->latest()->take($request->previous)->get();
         $id = [];
