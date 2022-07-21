@@ -134,7 +134,20 @@
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                @foreach()
+                                                                @foreach($my_trxs as $my_trx)
+                                                                    <tr>
+                                                                        <td>{{$my_trx->chartOfAccount->title}}</td>
+                                                                        <td>{{$my_trx->journal->narration}}</td>
+                                                                        <td>{{$my_trx->created_at->format('d-m-Y')}}</td>
+                                                                        <td>
+                                                                            @if($my_trx->dr)
+                                                                                <span class="debit">+ ${{$my_trx->dr}}</span>
+                                                                            @else
+                                                                                <span class="credit">- ${{$my_trx->dr}}</span>
+                                                                            @endif
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
                                                                 </tbody>
                                                             </table>
                                                         </div>

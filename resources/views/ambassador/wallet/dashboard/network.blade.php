@@ -464,7 +464,6 @@
                     $.ajax({
                         type: method,
                         url: '{{route('kyc.submit')}}',
-                        type: 'POST',
                         data: new FormData(this),
                         dataType: 'JSON',
                         processData: false,

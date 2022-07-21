@@ -109,7 +109,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         Route::prefix('wallet')->group(function () {
             Route::get('dashboard', [WalletController::class, 'dashboard'])->name('wallet.dashboard');
         });
-        Route::prefix('network')->group(function () {
+        Route::prefix('networks')->group(function () {
             Route::get('dashboard', [NetworkController::class, 'dashboard'])->name('network.dashboard');
         });
 
