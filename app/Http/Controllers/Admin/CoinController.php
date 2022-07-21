@@ -24,7 +24,7 @@ class CoinController extends Controller
 
     public function fetchConfig(Request $request)
     {
-        $data = Coin::all();
+        $data = Coin::orderBy('created_at','DESC')->get();
         return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('date', function ($v) {
