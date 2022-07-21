@@ -150,7 +150,7 @@
                                                             data-modal="#upload-file-modal">
                                                             <div class="attachment-option">
                                                                 <div class="attachment-icon">
-                                                                    <span class="ti-camera"></span> 
+                                                                    <span class="ti-camera"></span>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -284,7 +284,7 @@
                                 </div>
                             </div>
 
-                        </div> 
+                        </div>
                     </div>
                     <div class="all-comments-box single-post-comments-{{$post->id}}">
                         <div class="all-comments-box-inner">
