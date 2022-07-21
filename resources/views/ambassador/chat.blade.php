@@ -50,7 +50,7 @@ Chat
                                 <div class="chat-box-overlay-inner">
                                     <div class="chat-box-overlay-inner-main">
                                         <div class="top-text">
-                                            Welcome to your inbox
+                                            Welcome to your inbox !
                                         </div>
                                         <div class="bottom-text">
                                             Please select a contact to start a conversation
@@ -66,10 +66,15 @@ Chat
                                         </div>
                                     </div>
                                     <div class="user-info-bar">
-                                        <div class="user-name" id="user-name"></div>
-                                        <div class="view-profile"><a href="javascript:void(0)" target="_blank"
+                                        <a href="javascript:void(0)" id="user-url" class="chat-view-profile" target="_blank">
+                                            <div class="user-profile-image">
+                                                <img src="{{asset('ambassador_assets/images/user-profile/user-01.png')}}" alt="">
+                                            </div>
+                                            <div class="user-name" id="user-name"></div>
+                                        </a>
+                                        <!-- <div class="view-profile"><a href="javascript:void(0)" target="_blank"
                                                                     id="user-url"></a></div>
-                                        <div class="date-time"></div>
+                                        <div class="date-time"></div> -->
                                     </div>
                                 </div>
                             </div>
@@ -276,7 +281,7 @@ Chat
                     $('#to').val(id);
                     var name = $(this).find('.chat-contacts-single-name');
                     $('#user-name').text(name.text());
-                    $('#user-url').attr('href', '{{url('profile-view')}}/' + id).text('View Profile');
+                    $('#user-url').attr('href', '{{url('profile-view')}}/' + id);
                     getMessages($(this).attr('data-id'));
                     $('.chat-box-top-bar').removeClass('border-0');
                     $('#message').focus();
