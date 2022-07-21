@@ -4,6 +4,7 @@
 @endsection
 @section('content')
     @php use App\Models\Coin; @endphp
+
     <link rel="stylesheet" href="{{url('ambassador_assets/css/wallet.css')}}">
     <div class="wallet-dashboad">
         <div class="wallet-dashboad-inner">
@@ -25,7 +26,7 @@
                                                 <div class="statics">
                                                     <div class="{{Coin::differenceFromCurrent()>=0?'up':'down'}}">
                                                         <div class="text number-text">
-                                                            {{Coin::differenceFromCurrent()}}
+                                                            ${{Coin::differenceFromCurrent()}}
                                                         </div>
                                                         <div class="icon">
                                                             <span class="ti-arrow-{{Coin::differenceFromCurrent()>=0?'up':'down'}}"></span>
@@ -49,7 +50,7 @@
                                                 <div class="statics">
                                                     <div class="{{(Coin::differenceFromCurrent()*Coin::balanceOfCurrentUser())>=0?'up':'down'}}">
                                                         <div class="text number-text">
-                                                            {{Coin::differenceFromCurrent()*Coin::balanceOfCurrentUser()}}
+                                                            ${{Coin::differenceFromCurrent()*Coin::balanceOfCurrentUser()}}
                                                         </div>
                                                         <div class="icon">
                                                             <span class="ti-arrow-{{(Coin::differenceFromCurrent()*Coin::balanceOfCurrentUser())>=0?'up':'down'}}"></span>

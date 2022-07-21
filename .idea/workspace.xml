@@ -81,14 +81,14 @@
           <entry key="html" value="321" />
           <entry key="js" value="1473" />
           <entry key="json" value="1" />
-          <entry key="php" value="97860" />
+          <entry key="php" value="97861" />
           <entry key="sql" value="150" />
           <entry key="txt" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="47586" />
+          <entry key="Blade" value="47587" />
           <entry key="CSS" value="116" />
           <entry key="HTML" value="437" />
           <entry key="JSON" value="1" />
@@ -102,7 +102,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Coin.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
@@ -120,11 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/ambassador/wallet/dashboard/wallet.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="168" column="51" selection-start-line="168" selection-start-column="51" selection-end-line="168" selection-end-column="51" />
+            <state relative-caret-position="255">
+              <caret line="27" column="61" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -253,8 +253,8 @@
         <option value="$PROJECT_DIR$/app/Models/User.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CoinController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/WalletController.php" />
-        <option value="$PROJECT_DIR$/resources/views/ambassador/wallet/dashboard/wallet.blade.php" />
         <option value="$PROJECT_DIR$/app/Models/Coin.php" />
+        <option value="$PROJECT_DIR$/resources/views/ambassador/wallet/dashboard/wallet.blade.php" />
       </list>
     </option>
   </component>
@@ -797,12 +797,12 @@
       <workItem from="1658144184603" duration="861000" />
       <workItem from="1658145403551" duration="13786000" />
       <workItem from="1658230065849" duration="23511000" />
-      <workItem from="1658317180693" duration="44686000" />
+      <workItem from="1658317180693" duration="45160000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="572528000" />
+    <option name="totallyTimeSpent" value="573002000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1212,17 +1212,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/wallet/dashboard/wallet.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="168" column="51" selection-start-line="168" selection-start-column="51" selection-end-line="168" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Coin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/wallet/dashboard/wallet.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" column="61" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
         </state>
       </provider>
     </entry>
