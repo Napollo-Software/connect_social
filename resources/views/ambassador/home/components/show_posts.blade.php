@@ -6,6 +6,7 @@
     <button id="scroll-to" class="black-button show-more-posts">Show more posts</button>
     <button disabled="disabled" style="display: none" class="white-button button-disabled no-more-posts">No more posts</button>
 </div>
+@include('ambassador.profile.components.post_popup')
 @push('subscripts')
     <script>
         function fetch_post(n,t){
@@ -26,10 +27,7 @@
                     $('#scroll-to').attr('disabled',null).text('Show more posts');
                     if (data.html){
                         $('.load-posts').html(data.html);
-                    } else{
-                        $('.show-more-posts').hide();
-                        $('.no-more-posts').show();
-                    }
+                    } 
                     $('#scroll-to').on('click',function(e){
                         e.preventDefault();
                         take=take+10;

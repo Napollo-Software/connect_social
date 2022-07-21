@@ -158,7 +158,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary add-post-close-btn">Close</button>
-                                        <button type="button" class="btn btn-primary add-post-upload-btn">Upload</button>
+                                        <button type="button" class="btn btn-primary add-post-upload-btn">Add</button>
                                     </div>
                                 </div>
                             </div>

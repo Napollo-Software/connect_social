@@ -107,8 +107,12 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::post('ambassador/fetch', [TransactionController::class, 'fetch'])->name('transactions.ambassador.fetch');
         });
         Route::prefix('wallet')->group(function () {
-            Route::get('dashboard', [WalletController::class, 'index'])->name('wallet.dashboard');
+            Route::get('dashboard', [WalletController::class, 'dashboard'])->name('wallet.dashboard');
         });
+        Route::prefix('network')->group(function () {
+            Route::get('dashboard', [NetworkController::class, 'dashboard'])->name('network.dashboard');
+        });
+
     });
     Route::prefix('send-invite-email')->group(function () {
         Route::post('for-referral', [SendInviteController::class, 'send_invite'])->name('send.invite.for.referral');
