@@ -75,6 +75,9 @@ Network
                             </div>
                         </div>
                         <div class="selection-icon">
+                            <div class="selection-privacy-text">
+                                Privacy :
+                            </div>
                             <div class="current-privacy">
                                 <div class="icon">
                                     <img src="{{getNetworkPrivacy($type)['url']}}" alt="">
