@@ -15,7 +15,7 @@ class CreateCoinTable extends Migration
     {
         Schema::create('coin', function (Blueprint $table) {
             $table->id();
-            $table->integer('price');
+            $table->float('dollar');
             $table->timestamps();
         });
     }
