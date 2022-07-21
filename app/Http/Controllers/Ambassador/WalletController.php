@@ -13,7 +13,10 @@ class WalletController extends Controller
     //
     use Transaction;
     public function dashboard(){
-        return view('ambassador.wallet.dashboard.wallet');
-
+        if (auth()->user()->details->kyc_status!=\KYC::STATUS_APPROVED){
+            return redirect()->route('home')->with('message','Please complete your KYC to access wallet!');
+        }
+        $my_trxs=JournalDetails::where('account',auth()->user()->coa)->get();
+        return view('ambassador.wallet.dashboard.wallet',compact('my_trxs'));
     }
 }

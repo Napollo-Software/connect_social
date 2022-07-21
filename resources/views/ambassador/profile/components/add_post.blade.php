@@ -23,54 +23,7 @@
                         <div class="share-post-box-main-inner">
                             @csrf
                             <input type="hidden" value="{{Privacy::PRIV_FRIENDS}}" name="privacy" id="post_privacy">
-                            <div class="post-preview">
-                                <div class="post-preview-inner d-none">
-                                    <div class="post-preview-name">
-                                        <div class="post-preview-icon">
-                                            <span class="ti-camera"></span>
-                                        </div>
-                                        post-image.png
-                                    </div>
-                                    <div class="delete-attachment">
-                                        <span class="ti-close"></span>
-                                    </div>
-                                </div>
-                                <div class="post-preview-inner d-none">
-                                    <div class="post-preview-name">
-                                        <div class="post-preview-icon">
-                                            <span class="ti-control-play"></span>
-                                        </div>
-                                        post-video.mp4
-                                    </div>
-                                    <div class="delete-attachment">
-                                        <span class="ti-close"></span>
-                                    </div>
-                                </div>
-                                <div class="post-preview-inner d-none">
-                                    <div class="post-preview-name">
-                                        <div class="post-preview-icon">
-                                            <span class="ti-microphone"></span>
-                                        </div>
-                                        post-audio.mp4
-                                    </div>
-                                    <div class="delete-attachment">
-                                        <span class="ti-close"></span>
-                                    </div>
-                                </div>
-                                <div class="post-preview-inner d-none">
-                                    <div class="post-preview-name">
-                                        <div class="post-preview-icon">
-                                            <span class="ti-link"></span>
-                                        </div>
-                                        <div class="link">
-                                            https://busy-leakey.18-118-49-57.plesk.page/ambassador
-                                        </div>
-                                    </div>
-                                    <div class="delete-attachment">
-                                        <span class="ti-close"></span>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="post-preview-parent"></div>
                             <div class="share-post-input-box">
                                 <div class="share-post-input-box-inner">
                                     <textarea class="form-control add-post-input" id="Add-Post-input" name="details" placeholder="Write Something"></textarea>
@@ -212,7 +165,7 @@
             $(document).on('click','.remove-attached-file',function () {
                 $('#file_type').val('');
                 $('#attachment').val('');
-                $('.post-preview').empty();
+                $('.post-preview-parent').empty();
                 $('#url').val('');
                 $('.share-post-attachments-li').addClass('add-post-modal-show');
                 $('#create-post-upload-file-modal').modal('hide');
@@ -237,7 +190,7 @@
                     }
 
                     $('.share-post-attachments-li.add-post-modal-show').removeClass('add-post-modal-show');
-                    $('.post-preview').html('<div class="post-preview-inner">\n' +
+                    $('.post-preview-parent').html('<div class="post-preview"><div class="post-preview-inner">\n' +
                         '                                    <div class="post-preview-name">\n' +
                         '                                        <div class="post-preview-icon">\n' +
                         '                                            <span class="'+icon+'"></span>\n' +
@@ -245,7 +198,7 @@
                         '                                    <div class="delete-attachment remove-attached-file">\n' +
                         '                                        <span class="ti-close"></span>\n' +
                         '                                    </div>\n' +
-                        '                                </div>');
+                        '                                </div></div>');
                     $('#create-post-upload-file-modal').modal('hide');
                 }
             });

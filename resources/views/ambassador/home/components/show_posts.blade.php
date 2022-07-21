@@ -1,6 +1,5 @@
 <div class="content-cards load-posts">
 </div>
-
 <div class="text-center col-md-12">
     <input type="hidden" value="10" id='take'>
     <button id="scroll-to" class="black-button show-more-posts">Show more posts</button>

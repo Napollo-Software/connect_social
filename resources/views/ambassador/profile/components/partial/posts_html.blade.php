@@ -150,7 +150,7 @@
                                                             data-modal="#upload-file-modal">
                                                             <div class="attachment-option">
                                                                 <div class="attachment-icon">
-                                                                    <span class="ti-camera"></span> 
+                                                                    <span class="ti-camera"></span>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -215,7 +215,7 @@
                         <p>{{$post->details}}</p>
                         @if($post->assets()->exists())
                             @if($post->assets->type=='link')
-                                <a href="{{$post->assets->data()}}">{{$post->assets->data()}}</a>
+                                {{genrate_url_card($post->assets->data())}}
                             @elseif($post->assets->type=='image')
                                 <img src="{{$post->assets->data()}}" alt="">
                             @elseif($post->assets->type=='video')
@@ -284,7 +284,7 @@
                                 </div>
                             </div>
 
-                        </div> 
+                        </div>
                     </div>
                     <div class="all-comments-box single-post-comments-{{$post->id}}">
                         <div class="all-comments-box-inner">
