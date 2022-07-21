@@ -6,6 +6,7 @@
     <button id="scroll-to" class="black-button show-more-posts">Show more posts</button>
     <button disabled="disabled" style="display: none" class="white-button button-disabled no-more-posts">No more posts</button>
 </div>
+@include('ambassador.profile.components.post_popup')
 @push('subscripts')
     <script>
         function fetch_post(n,t){
