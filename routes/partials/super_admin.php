@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\KycController;
 use App\Http\Controllers\ReferralController;
 use App\Http\Controllers\Admin\ConfigurationController;
 use App\Http\Controllers\Admin\AmbassadorReceiptsController;
+use App\Http\Controllers\Admin\CoinController;
 
 Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->group(function () {
     Route::get('profile', [UserController::class, 'profile'])->name('users.profile');
@@ -56,7 +57,12 @@ Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->grou
             Route::post('action', [KycController::class, 'action'])->name('kyc.action');
             Route::get('show/{id}', [KycController::class, 'show'])->name('kyc.show');
         });
-
+        Route::prefix('coin')->group(function(){
+            Route::get('configuration',[CoinController::class, 'config'])->name('coin.config');
+            Route::post('fetch',[CoinController::class,'fetchConfig'])->name('fetch.coin.config');
+            Route::post('store-configuration',[CoinController::class,'storeConfig'])->name('store.coin.config');
+           
+        });
         Route::prefix('configurations')->group(function(){
             Route::get('/merchant',[ConfigurationController::class,'merchantConfig'])->name('merchant.config');
             Route::post('/get-slug-from-title',[ConfigurationController::class,'getSlugFromTitle'])->name('config.get.slug.from.title');

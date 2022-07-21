@@ -11,7 +11,7 @@
                         </div>
                         <div class="singal-post-top-bar-post-detail">
                             <div class="singal-post-top-bar-post-detail-inner">
-                                <div class="user-name"> 
+                                <div class="user-name full-name-of-current-user">
                                     {{auth()->user()->fullName()}}
                                 </div>
                             </div>
@@ -170,7 +170,6 @@
                 $('.share-post-attachments-li').addClass('add-post-modal-show');
                 $('#create-post-upload-file-modal').modal('hide');
             });
-
             $(document).on('click','.add-post-upload-btn',function () {
                 if (($('#attachment').val()== null || $('#attachment').val()=='') && ($('#url').val()==null || $('#url').val()=='')){
                     alert('null');
@@ -216,7 +215,6 @@
                 $('#create-post-upload-file-modal').modal('show');
             });
         });
-
         $("#Add-Post-input").keydown(function(){
             var textInput = document.getElementById('Add-Post-input');
             console.log(textInput.scrollHeight)

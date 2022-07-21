@@ -86,7 +86,7 @@
 
         $(document).ready(function () {
             var columns=[
-                {"data": "id"},
+                {"data": "id"}, 
                 {"data": "name"},
                 {"data": "slug"},
                 {"data": "action",orderable: false, searchable: false},
