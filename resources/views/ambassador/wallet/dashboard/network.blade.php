@@ -197,7 +197,7 @@
                                                 @if($my_trx->dr)
                                                     <span class="debit">+ ${{$my_trx->dr}}</span>
                                                 @else
-                                                    <span class="credit">- ${{$my_trx->dr}}</span>
+                                                    <span class="credit">- ${{$my_trx->cr}}</span>
                                                 @endif
                                             </td>
                                         </tr>
