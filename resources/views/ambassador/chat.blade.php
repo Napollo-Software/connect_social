@@ -22,15 +22,7 @@ Chat
                                             <span class="icon"><span class="ti-search"></span></span>
                                         </div>
                                     </div>
-                                    {{--<div class="chat-contacts-field">
-                                        <div class="chat-contacts-inner">
-                                            <input type="input" class="chat-contact-field-input"
-                                                   placeholder="Search with date">
-                                            <input type="date" id="date-input" class="d-none">
-                                            <span class="icon" id="trigger-date"><span
-                                                        class="ti-calendar"></span></span>
-                                        </div>
-                                    </div>--}}
+
                                     <div class="chat-contacts-field">
                                         <div class="chat-contacts-inner">
                                             <select name="network" id="network" class="chat-contact-field-input">
@@ -110,11 +102,6 @@ Chat
             </div>
         </div>
     </div>
-    <footer class="footer">
-        <div class="footer-inner">
-            © Connect Social, All rights reserved
-        </div>
-    </footer>
     @push('scripts')
         <script src="https://js.pusher.com/7.1/pusher.min.js"></script>
 
@@ -125,6 +112,7 @@ Chat
             @else
                 onetimechatopen = false;
             @endif
+            var defaultChatBox=$('.chat-box').html();
             function search(data) {
                 var user_container = $('.chat-contacts-all-inner');
                 $.ajax({
@@ -135,18 +123,27 @@ Chat
                     beforeSend: function () {
                         user_container.empty().append('<div class="chat-contacts-single text-center"><span class="fa fa-spin fa-spinner"></span></div>');
                     },
-                    success: function (data) {
+                    success: function (d) {
                         user_container.empty();
-                        $.each(data, function (i, v) {
-                            user_container.append('<div class="chat-contacts-single user-of-chat-list" data-id="' + v['id'] + '"><div class="chat-contacts-single-inner"><div class="chat-contacts-single-info"><div class="chat-contacts-single-image"><img src="' + v['src'] + '" alt=""></div><div class="chat-contacts-single-name-message"><div><span class="chat-contacts-single-name">' + v['name'] + '</span><span class="badge badge-primary float-right ml-1"  id="unread-' + v['id'] + '" data-user="' + v['id'] + '">' + v['unread'] + '</span></div><div class="chat-contacts-single-message"></div></div></div><div class="chat-contacts-single-time"><span class="time"></span></div></div></div>');
-                        });
+                        console.log(d.length);
+                        if (d.length>0){
+                            $.each(d, function (i, v) {
+                                user_container.append('<div class="chat-contacts-single user-of-chat-list" data-id="' + v['id'] + '"><div class="chat-contacts-single-inner"><div class="chat-contacts-single-info"><div class="chat-contacts-single-image"><img src="' + v['src'] + '" alt=""></div><div class="chat-contacts-single-name-message"><div><span class="chat-contacts-single-name">' + v['name'] + '</span><span class="badge badge-primary float-right ml-1"  id="unread-' + v['id'] + '" data-user="' + v['id'] + '">' + v['unread'] + '</span></div><div class="chat-contacts-single-message"></div></div></div><div class="chat-contacts-single-time"><span class="time"></span></div></div></div>');
+                            });
+                        } else{
+                            if(data.search){
+                                user_container.html('<div class="chat-contacts-single user-of-chat-list" data-id="6"><i class="font-italic">Empty</i></div>');
+                            }else{
+                                user_container.html('<div class="chat-contacts-single user-of-chat-list" data-id="6"><i class="font-italic">No '+data.network+'</i></div>');
+                            }
+
+                        }
+
                         if (onetimechatopen) {
                             var user_to_chat = $('.user-of-chat-list[data-id="{{$receiver}}"]');
                             user_to_chat.trigger('click');
                             onetimechatopen = false;
                         }
-
-
                     },
                     error: function (xhr) {
                         user_container.empty().append('<div class="chat-contacts-single text-center"><i>Empty</i></div>');
@@ -228,9 +225,11 @@ Chat
                     });
                 });
                 $('#search').on("input", function () {
+                    $('.chat-box').html(defaultChatBox);
                     search({'search':$('#search').val(),'network':$('#network').val()});
                 });
                 $('#network').on("change", function () {
+                    $('.chat-box').html(defaultChatBox);
                     search({'search':$('#search').val(),'network':$('#network').val()});
                 });
 
