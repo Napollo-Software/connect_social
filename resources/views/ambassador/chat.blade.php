@@ -102,7 +102,6 @@ Chat
             </div>
         </div>
     </div>
-
     @push('scripts')
         <script src="https://js.pusher.com/7.1/pusher.min.js"></script>
 
