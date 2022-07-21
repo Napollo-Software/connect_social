@@ -443,3 +443,29 @@ function getConfigValue($key)
         return '';
     }
 }
+
+function genrate_url_card($url)
+{
+    echo "Hello";
+    $title = ""; $description = ""; $image = "";
+    $metas = get_meta_tags($url);
+    foreach($metas AS $key => $value) {
+        if (str_contains($key,"description")) {
+            $description = $value;
+        } elseif (str_contains($key,"title")) {
+            $title = $value;
+        } elseif (str_contains($key,"image")) {
+            $image = $value;
+        }
+    }
+
+    $iURL_html = "<div class='iURL-container-main'>";
+    $iURL_html .= '<div class="iURL-container"><a href="'.$url.'" target="_blank"><div class="iURL-container-inner">';
+    $iURL_html .= '<div class="iURL-image"><img src="'.$image.'"></div>';
+    $iURL_html .= '<div class="iURL-title">'.$title.'</div>';
+    $iURL_html .= '<div class="iURL-description">'.$description.'</div>';
+    $iURL_html .= '<div class="iURL-url">'.$url.'</div>';
+    $iURL_html .= '</div></a></div></div>';
+
+    echo $iURL_html;
+}
