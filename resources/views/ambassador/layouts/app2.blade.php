@@ -51,6 +51,8 @@
 <script src="{{url('ambassador_assets/js/bootstrap.min.js')}}"></script>
 <script src="{{url('ambassador_assets/js/profile.js')}}"></script>
 <script src="{{url('ambassador_assets/js/app.js')}}"></script>
+<script src="{{url('ambassador_assets/js/helpers.js')}}"></script>
+
 @include('ambassador.scripts.universal')
 @stack('scripts')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
