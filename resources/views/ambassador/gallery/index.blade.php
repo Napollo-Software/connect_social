@@ -14,11 +14,11 @@ Gallery
                                 <div class="network-filter-inner">
                                     <div class="network-filter-inner-main">
                                         <div class="text">
-                                            Gallary : 
+                                            Gallery : 
                                         </div>
                                         <div class="selected">
                                             <div class="icon">
-                                                <span class="ti-layout-grid3"></span>
+                                                <span class="ti-align-left"></span>
                                             </div>
                                             <div class="text">
                                                 All Media
@@ -32,7 +32,7 @@ Gallery
                                                     <li class="network-dropdown-li">
                                                         <a href="javascript:void(0)" class="network-dropdown-link  gallery-link inner-navigation-link" data-type="all">
                                                             <div class="icon">
-                                                                <span class="ti-layout-grid3"></span>
+                                                                <span class="ti-align-left"></span>
                                                             </div>
                                                             <div class="text">
                                                                 All Media

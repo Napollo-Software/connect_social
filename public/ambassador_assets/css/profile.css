@@ -1625,6 +1625,14 @@ a.navigation-drop-down-link {
     margin-left: 10px;
     position: relative;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.selection-privacy-text {
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-right: 10px;
 }
 
 .selection-dropdown {
@@ -1848,6 +1856,7 @@ li.recent-search-li {
 .recent-searches-box-main .search-btn {
     top: 10px;
     right: 10px;
+    font-size: 12px;
 }
 
 .search-input-home-navigation-inner {
@@ -2540,7 +2549,7 @@ body::-webkit-scrollbar-thumb {
 
 .network-filter-inner-main .selected .text {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 16px;
 }
 
 .network-filter-inner-main .selected {
