@@ -585,6 +585,7 @@ a.dashboard-card-link {
 .dashboard-card-add-card-main {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 15px;
 }
 
 .add-card-html {
@@ -713,7 +714,7 @@ a.dashboard-card-link {
     margin: 0 30px;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     flex-grow: 1;
 }
 
@@ -762,6 +763,10 @@ a.dashboard-card-link {
     font-weight: 400;
     margin: 0;
     margin-left: 15px;
+}
+
+.pera p, .agree p {
+    font-size: 14px;
 }
 
 /* Responsive */
