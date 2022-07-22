@@ -33,7 +33,7 @@ INSERT INTO `friends` (`id`, `from`, `to`, `status`, `deleted_at`, `created_at`,
 
 
 TRUNCATE TABLE `posts`;
---
+-- 
 -- Dumping data for table `posts`
 --
 

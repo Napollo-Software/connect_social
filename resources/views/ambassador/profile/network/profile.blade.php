@@ -276,7 +276,10 @@
                                                     </div>
                                                     <div class="see-all custom-padding">
                                                         <div class="see-all-inner">
-                                                            <a href="{{route('gallery',['all'])}}">See All</a>
+                                                            @php
+                                                                $id=$user->id
+                                                            @endphp
+                                                            <a href="{{route('network.gallery',[$id,'all'])}}">See All</a>
                                                         </div>
                                                     </div>
                                                 </div>
