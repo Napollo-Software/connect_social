@@ -703,7 +703,7 @@ a.dashboard-card-link {
 }
 
 .add-card-div {
-    /* display: none; */
+    display: none;
 }
 
 .add-card-action {
@@ -774,7 +774,7 @@ a.dashboard-card-link {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 20px;
-    border-bottom: 1px solid #dedede;
+    padding-top: 20px;
 }
 
 .existing-card-list-li-main {
@@ -823,6 +823,11 @@ a.dashboard-card-link {
 .existing-card-list-li .add-card-html {
     margin-top: 50px;
     display: none;
+    margin-bottom: 50px;
+}
+
+.existing-card-list-li {
+    border-bottom: 1px solid #dedede;
 }
 
 /* Responsive */

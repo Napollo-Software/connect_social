@@ -48,14 +48,101 @@
                                                                     <div class="existing-card-action-button">
                                                                         <span class="ti-trash"></span>
                                                                     </div>
-                                                                    <div class="existing-card-action-button show-card-html">
+                                                                    <div class="existing-card-action-button show-card-html" data-class=".show-edit-html-01">
                                                                         <span class="ti-pencil"></span>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="add-card-html">
+                                                    <div class="add-card-html show-edit-html-01">
+                                                        <div class="add-card-html-inner">
+                                                            <div class="add-card-html-main">
+                                                                <div class="add-card-html-top-bar end">
+                                                                    <div class="card-type">
+                                                                        <img src="{{asset('ambassador_assets/images/wallet-icons/master-card.svg')}}" alt="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-field-outer">
+                                                                    <div class="card-field-inner">
+                                                                        <div class="card-field-single">
+                                                                            <div class="card-field-single-row">
+                                                                                <div class="card-single-field">
+                                                                                    <label for="field-01">Card Number</label>
+                                                                                    <input type="text" class="card-field-input" placeholder="0000 0000 000 0000">
+                                                                                    <span class='icon'>
+                                                                                        <span class="ti-credit-card"></span>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-field-single-row rows">
+                                                                                <div class="card-single-field mr-2">
+                                                                                    <label for="field-01">Expiry Date</label>
+                                                                                    <input type="text" class="card-field-input" placeholder="MM/YY">
+                                                                                    <span class='icon'>
+                                                                                        <span class="ti-calendar"></span>
+                                                                                    </span>
+                                                                                </div>
+                                                                                <div class="card-single-field">
+                                                                                    <label for="field-01">CVC/CV</label>
+                                                                                    <input type="text" class="card-field-input" placeholder="...">
+                                                                                    <span class='icon'>
+                                                                                        <span class="ti-info-alt"></span>
+                                                                                    </span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-field-single-row">
+                                                                                <div class="card-single-field">
+                                                                                    <label for="field-01">Card Holder Name</label>
+                                                                                    <input type="text" class="card-field-input" placeholder="Enter Card Holder's Full Name">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="card-action-buttons">
+                                                                                <div class="card-action-buttons-inner">
+                                                                                    <div class="card-action-button">
+                                                                                        <button class="black-button no-border">Update</button>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li class="existing-card-list-li">
+                                                    <div class="existing-card-list-li-inner">
+                                                        <div class="existing-card-list-li-main">
+                                                            <div class="existing-card-image">
+                                                                <img src="{{asset('ambassador_assets/images/wallet-icons/master-card.svg')}}" alt="">
+                                                            </div>
+                                                            <div class="existing-card-text">
+                                                                <div class="name">
+                                                                    Jhon Doe
+                                                                </div>
+                                                                <div class="number">
+                                                                    **** **** **** 0420
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="existing-card-status">
+                                                            
+                                                        </div>
+                                                        <div class="existing-card-action">
+                                                            <div class="existing-card-action-inner">
+                                                                <div class="existing-card-action-main">
+                                                                    <div class="existing-card-action-button">
+                                                                        <span class="ti-trash"></span>
+                                                                    </div>
+                                                                    <div class="existing-card-action-button show-card-html" data-class=".show-edit-html-02">
+                                                                        <span class="ti-pencil"></span>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="add-card-html show-edit-html-02">
                                                         <div class="add-card-html-inner">
                                                             <div class="add-card-html-main">
                                                                 <div class="add-card-html-top-bar end">

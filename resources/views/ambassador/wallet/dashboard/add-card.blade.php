@@ -73,7 +73,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="card-field-outer">
-                                                                                    <div class="card">
+                                                                                    <!-- <div class="card">
                                                                                         <div class="card-header">{{ __('Checkout page') }}</div>
 
                                                                                         <div class="card-body">
@@ -92,7 +92,7 @@
                                                                                                 <button type="submit" class="btn btn-primary w-100" id="card-button" data-secret=" ">Pay</button>
                                                                                             </form>
                                                                                         </div>
-                                                                                    </div>
+                                                                                    </div> -->
                                                                                     <div class="card-field-inner">
                                                                                         <div class="card-field-single">
                                                                                             <div class="card-field-single-row">
@@ -242,4 +242,18 @@
             }
         })
     </script>
+    @push('scripts')
+    <script>
+        $(function() {
+            $(document).on('click','.add-button-span',function () {
+                $('.add-card-div').toggle();
+            })
+
+            $(document).on('click','.show-card-html',function() {
+                var element = $(this).attr('data-class');
+                $(element).toggle();
+            });
+        });
+    </script>
+    @endpush
 @endsection
