@@ -242,6 +242,10 @@
             $(document).on('click','.add-button-span',function () {
                 $('.add-card-div').show();
             })
+
+            $(document).on('click','.show-card-html',function() {
+                console.log('sdsd');
+            });
         </script>
 
     @endpush
