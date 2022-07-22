@@ -11,104 +11,17 @@
                     <div class="wallet-dashboad-main-inner">
                         <div class="dashboard-sides">
                             <div class="dashboard-side-bar">
-                                <div class="dahboard-title">
-                                    Dashboard
-                                </div>
-                                <div class="dahboard-cards">
-                                    <div class="dahboard-card">
-                                        <div class="dahboard-card-inner custom-card custom-border custom-shadow">
-                                            <div class="dahboard-card-title-bar custom-padding multi">
-                                                <div class="text">
-                                                    Coin Value
-                                                </div>
-                                                <div class="statics">
-                                                    <div class="up">
-                                                        <div class="text number-text">
-                                                            45.0321
-                                                        </div>
-                                                        <div class="icon">
-                                                            <span class="ti-arrow-up"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="down">
-                                                        <div class="text number-text">
-                                                            45.0321
-                                                        </div>
-                                                        <div class="icon">
-                                                            <span class="ti-arrow-down"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="dasboard-card-content">
-                                                <div class="dasboard-card-content-inner custom-padding">
-                                                    <span class="gold-text number-text">$11.2654</span>
-                                                </div>
-                                            </div>
-                                        </div>
+                                <div class="dahboard-title multi">
+                                    <div class="page-route">
+                                        Dashboard <span class="beadcrumb">/ Payment method</span>
                                     </div>
-                                    <div class="dahboard-card">
-                                        <div class="dahboard-card-inner custom-card custom-border custom-shadow">
-                                            <div class="dahboard-card-title-bar custom-padding">
-                                                <div class="text">
-                                                    Balance
-                                                </div>
-                                            </div>
-                                            <div class="dasboard-card-content">
-                                                <div class="dasboard-card-content-inner custom-padding">
-                                                    <span class="black-text number-text">$88,761.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="dahboard-card">
-                                        <div class="dahboard-card-inner custom-card custom-border custom-shadow">
-                                            <div class="dahboard-card-title-bar custom-padding">
-                                                <div class="text">
-                                                    Wallet
-                                                </div>
-                                            </div>
-                                            <div class="dasboard-card-content">
-                                                <div class="dasboard-card-content-inner custom-padding">
-                                                    <div class="dasboard-card-grid">
-                                                        <div class="dasboard-card-col">
-                                                            <div class="dasboard-card-col-inner">
-                                                                <a href="javascript:void(0)" class="dashboard-card-link">
-                                                                    <div class="dasboard-card-col-image">
-                                                                        <img src="{{asset('ambassador_assets/images/wallet-icons/coin-purchase.png')}}" alt="">
-                                                                    </div>
-                                                                    <div class="dasboard-card-col-text">
-                                                                        Purchase
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="dasboard-card-col">
-                                                            <div class="dasboard-card-col-inner">
-                                                                <a href="javascript:void(0)" class="dashboard-card-link">
-                                                                    <div class="dasboard-card-col-image">
-                                                                        <img src="{{asset('ambassador_assets/images/wallet-icons/transactions.png')}}" alt="">
-                                                                    </div>
-                                                                    <div class="dasboard-card-col-text">
-                                                                        Transactions
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <div class="dasboard-card-col">
-                                                            <div class="dasboard-card-col-inner">
-                                                                <a href="javascript:void(0)" class="dashboard-card-link">
-                                                                    <div class="dasboard-card-col-image">
-                                                                        <img src="{{asset('ambassador_assets/images/wallet-icons/payment-method.png')}}" alt="">
-                                                                    </div>
-                                                                    <div class="dasboard-card-col-text">
-                                                                        Payment Method
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                    <div class="add-button">
+                                        <div class="add-button-inner">
+                                            <div class="add-button-main">
+                                                <span class="add-button-span">
+                                                    <div class="icon"><span class="ti-plus"></span></div>
+                                                    <div class="text">Add new card</div>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
@@ -118,19 +31,92 @@
                             <div class="dashboard-content-main">
                                 <div class="dashboard-content-main-inner">
                                     <div class="dashboard-card">
-                                        <div class="dahboard-card">
+                                        <div class="dahboard-card add-card-div">
                                             <div class="dahboard-card-inner custom-card custom-border custom-shadow">
                                                 <div class="dahboard-card-title-bar custom-padding">
                                                     <div class="text">
-                                                        Coin Value History
+                                                        Add New Card
                                                     </div>
                                                 </div>
                                                 <div class="dasboard-card-content">
                                                     <div class="dasboard-card-content-inner custom-padding">
-                                                        <div class="dasboard-card-graph">
-                                                            <div class="dasboard-card-graph-inner">
-                                                                <div class="dasboard-card-graph-main">
-                                                                    <canvas id="history-graph" width="300px" height="100px"></canvas>
+                                                        <div class="dashboard-card-add-card">
+                                                            <div class="dashboard-card-add-card-inner">
+                                                                <div class="dashboard-card-add-card-main">
+                                                                    <!-- <div class="add-card-options">
+                                                                        <div class="add-card-options-inner">
+                                                                            <ul class="add-card-options-ul">
+                                                                                <li class="add-card-options-li">
+                                                                                    <label for="check-01">
+                                                                                        <input type="radio" name="name-01" id="check-01">
+                                                                                        <span class="text">Debit Card</span>
+                                                                                    </label>
+                                                                                </li>
+                                                                                <li class="add-card-options-li">
+                                                                                    <label for="check-02">
+                                                                                        <input type="radio" name="name-01" id="check-02">
+                                                                                        <span class="text">Credit Card</span>
+                                                                                    </label>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div> -->
+                                                                    <div class="add-card-html">
+                                                                        <div class="add-card-html-inner">
+                                                                            <div class="add-card-html-main">
+                                                                                <div class="add-card-html-top-bar">
+                                                                                    <div class="title-text">
+                                                                                        Add New Card
+                                                                                    </div>
+                                                                                    <div class="card-type">
+                                                                                        <img src="{{asset('ambassador_assets/images/wallet-icons/master-card.svg')}}" alt="">
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="card-field-outer">
+                                                                                    <div class="card-field-inner">
+                                                                                        <div class="card-field-single">
+                                                                                            <div class="card-field-single-row">
+                                                                                                <div class="card-single-field">
+                                                                                                    <label for="field-01">Card Number</label>
+                                                                                                    <input type="text" class="card-field-input" placeholder="0000 0000 000 0000">
+                                                                                                    <span class='icon'>
+                                                                                                        <span class="ti-credit-card"></span>
+                                                                                                    </span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="card-field-single-row rows">
+                                                                                                <div class="card-single-field mr-2">
+                                                                                                    <label for="field-01">Expiry Date</label>
+                                                                                                    <input type="text" class="card-field-input" placeholder="MM/YY">
+                                                                                                    <span class='icon'>
+                                                                                                        <span class="ti-calendar"></span>
+                                                                                                    </span>
+                                                                                                </div>
+                                                                                                <div class="card-single-field">
+                                                                                                    <label for="field-01">CVC/CV</label>
+                                                                                                    <input type="text" class="card-field-input" placeholder="...">
+                                                                                                    <span class='icon'>
+                                                                                                        <span class="ti-info-alt"></span>
+                                                                                                    </span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="card-field-single-row">
+                                                                                                <div class="card-single-field">
+                                                                                                    <label for="field-01">Card Holder Name</label>
+                                                                                                    <input type="text" class="card-field-input" placeholder="Enter Card Holder's Full Name">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="add-card-action">
+                                                                        <div class="add-card-action-inner">
+                                                                            <button class="black-button no-border">Save</button>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -144,51 +130,182 @@
                                             <div class="dahboard-card-inner custom-card custom-border custom-shadow">
                                                 <div class="dahboard-card-title-bar custom-padding">
                                                     <div class="text">
-                                                        Recent Transactions
+                                                        Existing Accounts
                                                     </div>
                                                 </div>
                                                 <div class="dasboard-card-content">
                                                     <div class="dasboard-card-content-inner custom-padding">
-                                                        <div class="dasboard-card-table">
-                                                            <div class="dasboard-card-table-inner">
-                                                                <div class="dasboard-card-table-main">
-                                                                    <div class="table-responsive">
-                                                                        <table class='table' id='history-table'>
-                                                                            <thead>
-                                                                                <tr>
-                                                                                    <th>Name</th>
-                                                                                    <th>Activity</th>
-                                                                                    <th>Date</th>
-                                                                                    <th>Amount</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td>Laura kiniare</td>
-                                                                                    <td>ABC</td>
-                                                                                    <td>26-03-2021</td>
-                                                                                    <td><span class="credit-text number-text">- $300.00</span></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Laura kiniare</td>
-                                                                                    <td>ABC</td>
-                                                                                    <td>26-03-2021</td>
-                                                                                    <td><span class="debit-text number-text">+ $300.00</span></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Jhon Doe</td>
-                                                                                    <td>ABC</td>
-                                                                                    <td>26-03-2021</td>
-                                                                                    <td><span class="credit-text number-text">- $300.00</span></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>Jhon Doe</td>
-                                                                                    <td>ABC</td>
-                                                                                    <td>26-03-2021</td>
-                                                                                    <td><span class="debit-text number-text">+ $300.00</span></td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
+                                                        <div class="existing-card-grid">
+                                                            <div class="existing-card-grid-inner">
+                                                                <div class="existing-card-col">
+                                                                    <div class="existing-card-col-inner">
+                                                                        <div class="slected-option">
+                                                                            <div class="slected-option-inner">
+                                                                                <input type="radio" name="ex-card">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="add-card-html">
+                                                                            <div class="add-card-html-inner">
+                                                                                <div class="add-card-html-main">
+                                                                                    <div class="add-card-html-top-bar end">
+                                                                                        <div class="card-type">
+                                                                                            <img src="{{asset('ambassador_assets/images/wallet-icons/master-card.svg')}}" alt="">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="card-field-outer">
+                                                                                        <div class="card-field-inner">
+                                                                                            <div class="card-field-single">
+                                                                                                <div class="card-field-single-row">
+                                                                                                    <div class="card-single-field">
+                                                                                                        <label for="field-01">Card Number</label>
+                                                                                                        <input type="text" class="card-field-input" placeholder="0000 0000 000 0000">
+                                                                                                        <span class='icon'>
+                                                                                                            <span class="ti-credit-card"></span>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="card-field-single-row rows">
+                                                                                                    <div class="card-single-field mr-2">
+                                                                                                        <label for="field-01">Expiry Date</label>
+                                                                                                        <input type="text" class="card-field-input" placeholder="MM/YY">
+                                                                                                        <span class='icon'>
+                                                                                                            <span class="ti-calendar"></span>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                    <div class="card-single-field">
+                                                                                                        <label for="field-01">CVC/CV</label>
+                                                                                                        <input type="text" class="card-field-input" placeholder="...">
+                                                                                                        <span class='icon'>
+                                                                                                            <span class="ti-info-alt"></span>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="card-field-single-row">
+                                                                                                    <div class="card-single-field">
+                                                                                                        <label for="field-01">Card Holder Name</label>
+                                                                                                        <input type="text" class="card-field-input" placeholder="Enter Card Holder's Full Name">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="existing-card-col">
+                                                                    <div class="existing-card-col-inner">
+                                                                        <div class="slected-option">
+                                                                            <div class="slected-option-inner">
+                                                                                <input type="radio" name="ex-card">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="add-card-html">
+                                                                            <div class="add-card-html-inner">
+                                                                                <div class="add-card-html-main">
+                                                                                    <div class="add-card-html-top-bar end">
+                                                                                        <div class="card-type">
+                                                                                            <img src="{{asset('ambassador_assets/images/wallet-icons/master-card.svg')}}" alt="">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="card-field-outer">
+                                                                                        <div class="card-field-inner">
+                                                                                            <div class="card-field-single">
+                                                                                                <div class="card-field-single-row">
+                                                                                                    <div class="card-single-field">
+                                                                                                        <label for="field-01">Card Number</label>
+                                                                                                        <input type="text" class="card-field-input" placeholder="0000 0000 000 0000">
+                                                                                                        <span class='icon'>
+                                                                                                            <span class="ti-credit-card"></span>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="card-field-single-row rows">
+                                                                                                    <div class="card-single-field mr-2">
+                                                                                                        <label for="field-01">Expiry Date</label>
+                                                                                                        <input type="text" class="card-field-input" placeholder="MM/YY">
+                                                                                                        <span class='icon'>
+                                                                                                            <span class="ti-calendar"></span>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                    <div class="card-single-field">
+                                                                                                        <label for="field-01">CVC/CV</label>
+                                                                                                        <input type="text" class="card-field-input" placeholder="...">
+                                                                                                        <span class='icon'>
+                                                                                                            <span class="ti-info-alt"></span>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="card-field-single-row">
+                                                                                                    <div class="card-single-field">
+                                                                                                        <label for="field-01">Card Holder Name</label>
+                                                                                                        <input type="text" class="card-field-input" placeholder="Enter Card Holder's Full Name">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="existing-card-col">
+                                                                    <div class="existing-card-col-inner">
+                                                                        <div class="slected-option">
+                                                                            <div class="slected-option-inner">
+                                                                                <input type="radio" name="ex-card">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="add-card-html">
+                                                                            <div class="add-card-html-inner">
+                                                                                <div class="add-card-html-main">
+                                                                                    <div class="add-card-html-top-bar end">
+                                                                                        <div class="card-type">
+                                                                                            <img src="{{asset('ambassador_assets/images/wallet-icons/master-card.svg')}}" alt="">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="card-field-outer">
+                                                                                        <div class="card-field-inner">
+                                                                                            <div class="card-field-single">
+                                                                                                <div class="card-field-single-row">
+                                                                                                    <div class="card-single-field">
+                                                                                                        <label for="field-01">Card Number</label>
+                                                                                                        <input type="text" class="card-field-input" placeholder="0000 0000 000 0000">
+                                                                                                        <span class='icon'>
+                                                                                                            <span class="ti-credit-card"></span>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="card-field-single-row rows">
+                                                                                                    <div class="card-single-field mr-2">
+                                                                                                        <label for="field-01">Expiry Date</label>
+                                                                                                        <input type="text" class="card-field-input" placeholder="MM/YY">
+                                                                                                        <span class='icon'>
+                                                                                                            <span class="ti-calendar"></span>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                    <div class="card-single-field">
+                                                                                                        <label for="field-01">CVC/CV</label>
+                                                                                                        <input type="text" class="card-field-input" placeholder="...">
+                                                                                                        <span class='icon'>
+                                                                                                            <span class="ti-info-alt"></span>
+                                                                                                        </span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="card-field-single-row">
+                                                                                                    <div class="card-single-field">
+                                                                                                        <label for="field-01">Card Holder Name</label>
+                                                                                                        <input type="text" class="card-field-input" placeholder="Enter Card Holder's Full Name">
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -265,6 +382,10 @@
                 $(".filter-icon").removeClass('close-filter').addClass('open-filter');
                 $(".filter-icon .icon").html('<span class="ti-filter"></span>');
             });
+
+            $(document).on('click','.add-button-span',function () {
+                $('.add-card-div').show();
+            })
         </script>
 
     @endpush
