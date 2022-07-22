@@ -162,7 +162,7 @@
                                                         <img src="{{asset('ambassador_assets/images/icons/coin.png')}}" alt="">
                                                     </div>
                                                     <div class="coin-pack-card-coins">
-                                                        25 Coins
+                                                        100 Coins
                                                     </div>
                                                     <div class="coin-pack-card-coin-value">
                                                         <span class='dolar'>$</span> 10
