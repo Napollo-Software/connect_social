@@ -37,5 +37,5 @@ Route::get('/under-construction', [FrontEnd::class, 'under_construction'])->name
 // Route::get('/front-end/wallet/dashboard', [FrontEnd::class, 'wallet_dashboard']);
 Route::get('/front-end/wallet/add-card', [FrontEnd::class, 'add_card']);
 Route::get('test', [FrontEnd::class, 'index']);
-Route::get('order-post', [FrontEnd::class, 'orderPost'])->name('order-post');
+Route::post('order-post', [FrontEnd::class, 'orderPost'])->name('order-post');
 

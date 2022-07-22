@@ -17,7 +17,7 @@ class CreateBankAccountsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->string('card_name');
-            $table->integer('card_number');
+            $table->integer('card_name');
             $table->date('expiry');
             $table->string('cvc',3);
             $table->timestamps();

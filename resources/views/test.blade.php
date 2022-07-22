@@ -20,71 +20,136 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">{{ __('Checkout page') }}</div>
-
+                    @if (count($errors) > 0)
+                        <div class = "alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="card-body">
-                        <form id="payment-form" action=" " method="POST">
+                        <form id="payment-form" action="{{route('order-post')}} " method="POST">
                             @csrf
-                            <input type="hidden" name="plan" id="plan" value="{{ request('plan') }}">
-                            <div class="form-group">
-                                <label for="">Name</label>
-                                <input type="text" name="name" id="card-holder-name" class="form-control" value="" placeholder="Name on the card">
-                            </div>
-                            <div class="form-group">
-                                <label for="">Card details</label>
-                                <div id="card-element"></div>
-                            </div>
 
-                            <button type="submit" class="btn btn-primary w-100" id="card-button" data-secret=" ">Pay</button>
+
+
+                            <div class="form-group">
+                                <label for="card_number">card_number</label>
+                                <input type="text" name="card_number" id="card_number" class="form-control" value="4242424242424242" placeholder="card_number">
+                            </div>
+                            <div class="form-group">
+                                <label for="expiration_year">expiration_year</label>
+                                <input type="text" name="expiration_year" id="expiration_year" class="form-control" value="23" placeholder="expiration_year">
+                            </div>
+                            <div class="form-group">
+                                <label for="expiration_month">expiration_month</label>
+                                <input type="text" name="expiration_month" id="expiration_month" class="form-control" value="12" placeholder="expiration_month">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvc">cvc</label>
+                                <input type="text" name="cvc" id="cvc" class="form-control" value="12345" placeholder="cvc">
+                            </div>
+                            <button type="submit">Pay</button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://js.stripe.com/v3/"></script>
-    <script>
-        const stripe = Stripe('{{ env('STRIPE_PUBLISH_KEY') }}');
+</div>
+<script>
 
-        const elements = stripe.elements();
-        const cardElement = elements.create('card');
+    function cardType(number){
+        var re = new RegExp("^4");
+        if (number.match(re) != null)
+            return "Visa";
 
-        cardElement.mount('#card-element');
+        // Mastercard
+        // Updated for Mastercard 2017 BINs expansion
+        if (/^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/.test(number))
+            return "Mastercard";
 
-        const form = document.getElementById('payment-form');
-        const cardBtn = document.getElementById('card-button');
-        const cardHolderName = document.getElementById('card-holder-name');
+        // AMEX
+        re = new RegExp("^3[47]");
+        if (number.match(re) != null)
+            return "AMEX";
 
-        form.addEventListener('submit', async (e) => {
+        // Discover
+        re = new RegExp("^(6011|622(12[6-9]|1[3-9][0-9]|[2-8][0-9]{2}|9[0-1][0-9]|92[0-5]|64[4-9])|65)");
+        if (number.match(re) != null)
+            return "Discover";
+
+        // Diners
+        re = new RegExp("^36");
+        if (number.match(re) != null)
+            return "Diners";
+
+        // Diners - Carte Blanche
+        re = new RegExp("^30[0-5]");
+        if (number.match(re) != null)
+            return "Diners - Carte Blanche";
+
+        // JCB
+        re = new RegExp("^35(2[89]|[3-8][0-9])");
+        if (number.match(re) != null)
+            return "JCB";
+
+        // Visa Electron
+        re = new RegExp("^(4026|417500|4508|4844|491(3|7))");
+        if (number.match(re) != null)
+            return "Visa Electron";
+
+        return false;
+    }
+    $(function () {
+
+
+        $(document).on('submit','#payment-form',function (e) {
+
+
             e.preventDefault();
 
-            cardBtn.disabled = true;
-            const { setupIntent, error } = await stripe.confirmCardSetup(
-                cardBtn.dataset.secret, {
-                    payment_method: {
-                        card: cardElement,
-                        billing_details: {
-                            name: cardHolderName.value
-                        }
-                    }
+            var number=$('#card_number').val();
+            console.log(cardType(number));
+            return false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            var route = '{{route('order-post')}}';
+            var data = new FormData(this);
+            $.ajax({
+                url: route,
+                type: "POST",
+                data: data,
+                dataType: "JSON",
+                processData: false,
+                contentType: false,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                },
+                error:function (xhr) {
+                    console.log(xhr);
                 }
-            );
-
-            if(error) {
-                cardBtn.disable = false
-            } else {
-                let token = document.createElement('input');
-
-                token.setAttribute('type', 'hidden');
-                token.setAttribute('name', 'token');
-                token.setAttribute('value', setupIntent.payment_method);
-
-                form.appendChild(token);
-
-                form.submit();
-            }
+            });
         })
-    </script>
-</div>
-
+    });
+</script>
 </body>
 </html>

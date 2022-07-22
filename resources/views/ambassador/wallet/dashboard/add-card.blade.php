@@ -236,8 +236,9 @@
                 token.setAttribute('type', 'hidden');
                 token.setAttribute('name', 'token');
                 token.setAttribute('value', setupIntent.payment_method);
-
                 form.appendChild(token);
+                console.log(token);
+
                 form.submit();
             }
         })
@@ -253,6 +254,7 @@
                 var element = $(this).attr('data-class');
                 $(element).toggle();
             });
+
         });
     </script>
     @endpush

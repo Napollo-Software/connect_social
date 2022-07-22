@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreditCardRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use LVR\CreditCard\CardCvc;
+use LVR\CreditCard\CardNumber;
+use LVR\CreditCard\CardExpirationYear;
+use LVR\CreditCard\CardExpirationMonth;
 
 class FrontEnd extends Controller
 {
@@ -41,34 +47,8 @@ class FrontEnd extends Controller
     {
         return view('ambassador.wallet.dashboard.add-card');
     }
-    public function orderPost(Request $request)
-    {
-        $user = auth()->user();
-        $input = $request->all();
-        $token =  $request->stripeToken;
-        $paymentMethod = $request->paymentMethod;
-        try {
+    public function orderPost(CreditCardRequest $request){
 
-            Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-
-            if (is_null($user->stripe_id)) {
-                $stripeCustomer = $user->createAsStripeCustomer();
-            }
-
-            \Stripe\Customer::createSource(
-                $user->stripe_id,
-                ['source' => $token]
-            );
-
-            $user->newSubscription('test',$input['plane'])
-                ->create($paymentMethod, [
-                    'email' => $user->email,
-                ]);
-
-            return back()->with('success','Subscription is completed.');
-        } catch (Exception $e) {
-            return back()->with('success',$e->getMessage());
-        }
-
+        return response()->json($request->all());
     }
 }
