@@ -36,10 +36,11 @@
                                 <div class="dashboard-content-main-inner">
                                     <div class="coin-packs-outer">
                                         <div class="coin-packs-inner">
+                                            @foreach($packages as  $package)
                                             <div class="coin-packs-card custom-card custom-border custom-shadow">
                                                 <div class="dahboard-card-title-bar custom-padding">
                                                     <div class="text text-center">
-                                                        Package 1
+                                                        Package {{$package->id}}
                                                     </div>
                                                 </div>
                                                 <div class="coin-pack-card-inner">
@@ -47,10 +48,10 @@
                                                         <img src="{{asset('ambassador_assets/images/icons/coin.png')}}" alt="">
                                                     </div>
                                                     <div class="coin-pack-card-coins">
-                                                        25 Coins
+                                                        {{$package->coin}} Coins
                                                     </div>
                                                     <div class="coin-pack-card-coin-value">
-                                                        <span class='dolar'>$</span> 10
+                                                        <span class='dolar'>$</span> {{$package->dollar}}
                                                     </div>
                                                 </div>
                                                 <div class="coin-pack-card-cart-btn">
@@ -59,121 +60,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="coin-packs-card custom-card custom-border custom-shadow">
-                                                <div class="dahboard-card-title-bar custom-padding">
-                                                    <div class="text text-center">
-                                                        Package 2
-                                                    </div>
-                                                </div>
-                                                <div class="coin-pack-card-inner">
-                                                    <div class="coin-pack-card-image">
-                                                        <img src="{{asset('ambassador_assets/images/icons/coin.png')}}" alt="">
-                                                    </div>
-                                                    <div class="coin-pack-card-coins">
-                                                        50 Coins
-                                                    </div>
-                                                    <div class="coin-pack-card-coin-value">
-                                                        <span class='dolar'>$</span> 15
-                                                    </div>
-                                                </div>
-                                                <div class="coin-pack-card-cart-btn">
-                                                    <div class="coin-pack-card-cart-btn-inner">
-                                                        <a href="javascript:void(0)" class="coin-pack-card-cart-link">Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="coin-packs-card custom-card custom-border custom-shadow">
-                                                <div class="dahboard-card-title-bar custom-padding">
-                                                    <div class="text text-center">
-                                                        Package 3
-                                                    </div>
-                                                </div>
-                                                <div class="coin-pack-card-inner">
-                                                    <div class="coin-pack-card-image">
-                                                        <img src="{{asset('ambassador_assets/images/icons/coin.png')}}" alt="">
-                                                    </div>
-                                                    <div class="coin-pack-card-coins">
-                                                        75 Coins
-                                                    </div>
-                                                    <div class="coin-pack-card-coin-value">
-                                                        <span class='dolar'>$</span> 25
-                                                    </div>
-                                                </div>
-                                                <div class="coin-pack-card-cart-btn">
-                                                    <div class="coin-pack-card-cart-btn-inner">
-                                                        <a href="javascript:void(0)" class="coin-pack-card-cart-link">Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="coin-packs-card custom-card custom-border custom-shadow">
-                                                <div class="dahboard-card-title-bar custom-padding">
-                                                    <div class="text text-center">
-                                                        Package 4
-                                                    </div>
-                                                </div>
-                                                <div class="coin-pack-card-inner">
-                                                    <div class="coin-pack-card-image">
-                                                        <img src="{{asset('ambassador_assets/images/icons/coin.png')}}" alt="">
-                                                    </div>
-                                                    <div class="coin-pack-card-coins">
-                                                        25 Coins
-                                                    </div>
-                                                    <div class="coin-pack-card-coin-value">
-                                                        <span class='dolar'>$</span> 10
-                                                    </div>
-                                                </div>
-                                                <div class="coin-pack-card-cart-btn">
-                                                    <div class="coin-pack-card-cart-btn-inner">
-                                                        <a href="javascript:void(0)" class="coin-pack-card-cart-link">Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="coin-packs-card custom-card custom-border custom-shadow">
-                                                <div class="dahboard-card-title-bar custom-padding">
-                                                    <div class="text text-center">
-                                                        Package 5
-                                                    </div>
-                                                </div>
-                                                <div class="coin-pack-card-inner">
-                                                    <div class="coin-pack-card-image">
-                                                        <img src="{{asset('ambassador_assets/images/icons/coin.png')}}" alt="">
-                                                    </div>
-                                                    <div class="coin-pack-card-coins">
-                                                        25 Coins
-                                                    </div>
-                                                    <div class="coin-pack-card-coin-value">
-                                                        <span class='dolar'>$</span> 10
-                                                    </div>
-                                                </div>
-                                                <div class="coin-pack-card-cart-btn">
-                                                    <div class="coin-pack-card-cart-btn-inner">
-                                                        <a href="javascript:void(0)" class="coin-pack-card-cart-link">Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="coin-packs-card custom-card custom-border custom-shadow">
-                                                <div class="dahboard-card-title-bar custom-padding">
-                                                    <div class="text text-center">
-                                                        Package 6
-                                                    </div>
-                                                </div>
-                                                <div class="coin-pack-card-inner">
-                                                    <div class="coin-pack-card-image">
-                                                        <img src="{{asset('ambassador_assets/images/icons/coin.png')}}" alt="">
-                                                    </div>
-                                                    <div class="coin-pack-card-coins">
-                                                        100 Coins
-                                                    </div>
-                                                    <div class="coin-pack-card-coin-value">
-                                                        <span class='dolar'>$</span> 10
-                                                    </div>
-                                                </div>
-                                                <div class="coin-pack-card-cart-btn">
-                                                    <div class="coin-pack-card-cart-btn-inner">
-                                                        <a href="javascript:void(0)" class="coin-pack-card-cart-link">Add to cart</a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>

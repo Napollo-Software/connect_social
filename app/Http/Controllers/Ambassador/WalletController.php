@@ -7,6 +7,7 @@ use App\Http\Traits\Transaction;
 use App\Models\Coin;
 use App\Models\Journal;
 use App\Models\JournalDetails;
+use App\Models\Package;
 use Illuminate\Http\Request;
 
 class WalletController extends Controller
@@ -21,4 +22,9 @@ class WalletController extends Controller
         $coins = Coin::all();
         return view('ambassador.wallet.dashboard.wallet',compact('my_trxs','coins'));
     }
+    public function coin_packages(){
+        $packages=Package::all();
+        return view('ambassador.wallet.dashboard.coin-package',compact('packages'));
+    }
+
 }
