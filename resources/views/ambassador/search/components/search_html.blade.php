@@ -7,7 +7,7 @@
             </div>
             <div class="search-result-box-profile-text">
                 <div class="user-name">
-                    <a href="{{url('profile-view/'.$user->id)}}" class="text-decoration-none text-secondary">{{$user->fullName()}}</a>
+                    <a href="{{url('profile-view/'.$user->username)}}" class="text-decoration-none text-secondary">{{$user->fullName()}}</a>
                 </div>
                 <div class="user-relation">
                     @if(in_array($user->id,$friends))

@@ -20,7 +20,6 @@ class GalleryController extends Controller
         $user = auth()->user();
         return view('ambassador.gallery.index', compact('type', 'user'));
     }
-
     public function fetch(Request $request)
     { 
         $assets = []; 

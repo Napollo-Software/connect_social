@@ -50,7 +50,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         Route::post('mark-as-read', [ChatController::class, 'mark_as_read'])->name('chat.mark.as.read');
     });
     Route::prefix('profile-view')->group(function () {
-        Route::get('{id}', [NetworkController::class, 'profile'])->name('network.profile');
+        Route::get('{username}', [NetworkController::class, 'profile'])->name('network.profile');
         Route::get('network/{id}/{type}', [NetworkController::class, 'network'])->name('network.list');
     });
 
@@ -64,8 +64,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::post('update-privacy', [UserController::class, 'update_privacy'])->name('ambassador.update.privacy');
             Route::post('update-social-info', [UserController::class, 'update_social_info'])->name('ambassador.update.social.info');
             Route::post('show-control', [UserController::class, 'show_control'])->name('ambassador.show.control');
-            Route::get('ambassador', [UserController::class, 'index'])->name('ambassador.profile');
-           
+            Route::get('', [UserController::class, 'index'])->name('ambassador.profile');
 
             Route::prefix('receipts')->group(function () {
                 Route::get('', [ReceiptController::class, 'index'])->name('ambassador.receipts');
@@ -97,7 +96,6 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::post('cancel-request', [ConnectionsController::class, 'cancel_request'])->name('connections.cancel.request');
             Route::post('remove-connection', [ConnectionsController::class, 'remove_connection'])->name('connections.remove.connection');
         });
-
         Route::prefix('kyc')->group(function () {
             Route::get('submission', [KycController::class, 'submission'])->name('kyc.submission');
             Route::post('submit', [KycController::class, 'submit'])->name('kyc.submit');

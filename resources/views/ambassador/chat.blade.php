@@ -68,7 +68,7 @@ Chat
                                     <div class="user-info-bar">
                                         <a href="javascript:void(0)" id="user-url" class="chat-view-profile" target="_blank">
                                             <div class="user-profile-image">
-                                                <img src="{{asset('ambassador_assets/images/user-profile/user-01.png')}}" alt="">
+                                                <img id="current-user-chat-profile" src="{{asset('ambassador_assets/images/user-profile/user-01.png')}}" alt="">
                                             </div>
                                             <div class="user-name" id="user-name"></div>
                                         </a>
@@ -241,6 +241,7 @@ Chat
                         }
                     });
                 });
+
                 $('#search').on("input", function () {
                     $('.chat-box').html(defaultChatBox);
                     search({'search':$('#search').val(),'network':$('#network').val()});
@@ -282,6 +283,7 @@ Chat
                     var name = $(this).find('.chat-contacts-single-name');
                     $('#user-name').text(name.text());
                     $('#user-url').attr('href', '{{url('profile-view')}}/' + id);
+                    $('#current-user-chat-profile').attr('src',$(this).find('img').attr('src'));
                     getMessages($(this).attr('data-id'));
                     $('.chat-box-top-bar').removeClass('border-0');
                     $('#message').focus();

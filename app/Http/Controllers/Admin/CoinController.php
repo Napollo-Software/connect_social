@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Coin;
+use App\Models\Package;
 use Yajra\DataTables\DataTables;
 
 class CoinController extends Controller
@@ -18,7 +19,7 @@ class CoinController extends Controller
         $data = new Coin();
         $data->dollar = $request->dollar_value;
         $data->save();
-        return response()->json('Added Successfully!');
+        return response()->json(['success'=>'Configuration added successfully!']);
 
     }
 
@@ -38,5 +39,59 @@ class CoinController extends Controller
             })
 
             ->make(true);
+    }
+
+    public function packages()
+    {
+        return view('admin.coin.packages');
+    }
+
+    public function storePackage(Request $request)
+    {
+        if($request->edit_id==0)
+        {
+        $data = new Package();
+        $data->coin = $request->coin_value;
+        $data->dollar = $request->dollar_value;
+        $data->save();
+        }elseif($request->edit_id!=0){
+        $data = Package::find($request->edit_id);
+        $data->coin = $request->coin_value;
+        $data->dollar = $request->dollar_value;
+        $data->save();
+        }
+        return response()->json(['success'=>'Package added successfully!']);
+    }
+
+    public function fetchPackage(Request $request)
+    {
+        $data = Package::orderBy('created_at','DESC')->get();
+        return DataTables::of($data)
+        ->addIndexColumn()
+        ->addColumn('date',function($v){
+            return $v->created_at->format('y-m-d');
+        })
+        ->addColumn('time',function($v){
+            return $v->created_at->format('h-i-s');
+        })
+        ->addColumn('action',function($v){
+            $actions =
+                    '<a href="#" class="btn p-0 edit" data-id="'.$v->id.'"><i class="bx bx-edit"></i></a>
+                    <a href="#" class="btn p-0 delete" data-id="'.$v->id.'"><i class="bx bx-trash"></i></a>';
+                return $actions;
+        })
+        ->make(true);
+    }
+
+    public function deletePackage(Request $request)
+    {
+        Package::find($request->id)->delete();
+        return response()->json(['success'=>'Package deleted successfully!']);
+    }
+
+    public function editPackage(Request $request)
+    {
+        $data = Package::where('id',$request->id)->first();
+        return response()->json($data);
     }
 }

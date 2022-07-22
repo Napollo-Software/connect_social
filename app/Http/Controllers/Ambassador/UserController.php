@@ -67,7 +67,7 @@ class UserController extends Controller
                             <img src="'.$details->profile_image().'" alt="">
                         </div>
                         <div class="friend-grid-col-text">
-                            <a href="'.url('profile-view/'.$details->id).'" class="text-decoration-none text-muted">'.$details->fullName().'</a>
+                            <a href="'.url('profile-view/'.$details->username).'" class="text-decoration-none text-muted">'.$details->fullName().'</a>
                         </div>
                     </div>
                 </div>';

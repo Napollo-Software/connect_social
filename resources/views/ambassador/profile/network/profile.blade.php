@@ -306,7 +306,7 @@
                                                                                          alt="">
                                                                                 </div>
                                                                                 <div class="friend-grid-col-text">
-                                                                                    <a href="{{url('profile-view/'.$friend->id)}}"
+                                                                                    <a href="{{url('profile-view/'.$friend->username)}}"
                                                                                        class="text-decoration-none text-muted">{{$friend->fullName()}}</a>
                                                                                 </div>
                                                                             </div>
@@ -513,7 +513,6 @@
                     }
                 });
             });
-
         });
 
         function showControls(id) {

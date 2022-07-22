@@ -10,13 +10,13 @@
         <div class="page-content">
             <!--breadcrumb-->
             <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-                <div class="breadcrumb-title pe-3">Configurations</div>
+                <div class="breadcrumb-title pe-3">Packages</div>
                 <div class="ps-3">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-0 p-0">
                             <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                             </li>
-                            <li class="breadcrumb-item active" aria-current="page">Connect Coin History</li>
+                            <li class="breadcrumb-item active" aria-current="page">Packages History</li>
                         </ol>
                     </nav>
                 </div>
@@ -29,12 +29,13 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">$</span>
                             </div>
+                            <input type="text" class="form-control coin-value"
+                                   aria-label="Amount (to the nearest dollar)" placeholder="Coin">
                             <input type="text" class="form-control dollar-value" placeholder="Dollar Value"
-                                   aria-label="Amount (to the nearest dollar)">  
-                            <input type="text" class="form-control confirm-dollar-value" placeholder="Confirm Dollar Value"
                                    aria-label="Amount (to the nearest dollar)">
+                            <input type="hidden" class="edit-id"  value="0">
                             <div class="input-group-append">
-                                <button class="input-group-text bx bx-plus" id="configCoin"></button>
+                                <button class="input-group-text bx bx-plus" id="coinPackage"></button>
                             </div>
                         </div>
                     </div>
@@ -44,7 +45,9 @@
                         <tr>
                             <th>Date</th>
                             <th>Time</th>
+                            <th>Coin</th>
                             <th>$</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -71,7 +74,7 @@
                 "order": [[0, 'asc']],
                 "pageLength": 25,
                 "ajax": {
-                    "url": "{{ route('fetch.coin.config') }}",
+                    "url": "{{ route('fetch.package') }}",
                     "dataType": "json",
                     "type": "POST",
                     "data": {_token: "{{csrf_token()}}"}
@@ -79,7 +82,9 @@
                 "columns": [
                     {"data": "date"},
                     {"data": "time"},
-                    {"data": "value"},
+                    {"data": "coin"},
+                    {"data": "dollar"},
+                    {"data": "action"}
                 ]
             });
         }
@@ -88,37 +93,73 @@
             InitTable();
         });
 
-        $(document).on('click', '#configCoin', function (e) {
+        $(document).on('click', '#coinPackage', function (e) {
             e.preventDefault();
             var dollarValue = $('.dollar-value').val();
-            var confirmValue = $('.confirm-dollar-value').val();
-            if (dollarValue.length === 0 || confirmValue.length === 0) {
+            var coinValue = $('.coin-value').val();
+            var editId = $('.edit-id').val();
+            if (dollarValue.length === 0 || coinValue.length === 0) {
                 swal({
                     title: "Both Fields are required !",
                     icon: "warning",
                     dangerMode: true
                 });
             }
-            if (dollarValue !== confirmValue) {
-                swal({
-                    title: "Confirm dollar value not match !",
-                    icon: "warning",
-                    dangerMode: true
-                });
-            }
-            if (dollarValue === confirmValue) {
+            else {
                 $.ajax({
                     type: "post",
-                    url: "{{route('store.coin.config')}}",
-                    data: {_token: "{{csrf_token()}}", "dollar_value": dollarValue},
+                    url: "{{route('store.package')}}",
+                    data: {_token: "{{csrf_token()}}", "dollar_value": dollarValue,'coin_value':coinValue,'edit_id':editId},
                     success: function (data) {
-                        $('.dollar-value').val('');
-                        $('.confirm-dollar-value').val('');
                         InitTable();
+                        $('.dollar-value').val('');
+                        $('.coin-value').val('');
+                        $('.edit-id').val('0');
                     }
                 })
             }
-        })
+        });
+
+        $(document).on('click','.delete' ,function(e){
+            e.preventDefault();
+            var id=$(this).attr('data-id');
+            swal({
+                title : "Are you sure , You want to delete!",
+                icon  : "warning",
+                buttons :true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if(willDelete)
+                {
+                $.ajax({
+                type : "post",
+                url  : "{{route('delete.package')}}",
+                data : { _token : "{{csrf_token()}}" , "id" : id },
+                dataType : "json",
+                success : function(data){
+                    InitTable();
+                }
+              })
+            }
+            })
+        });
+
+        $(document).on('click','.edit' ,function(e){
+            e.preventDefault();
+            var id=$(this).attr('data-id');
+            $.ajax({
+                type : "post",
+                url  : "{{route('edit.package')}}",
+                data : { _token : "{{csrf_token()}}" , "id" : id },
+                dataType : "json",
+                success : function(data){
+                    $('.dollar-value').val(data.dollar);
+                    $('.coin-value').val(data.coin);
+                    $('.edit-id').val(id);
+                }
+            });
+        });
 
     </script>
 

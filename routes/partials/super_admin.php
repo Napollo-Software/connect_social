@@ -59,8 +59,13 @@ Route::middleware(['auth', 'can:super-admin-views', 'email-verification'])->grou
         });
         Route::prefix('coin')->group(function(){
             Route::get('configuration',[CoinController::class, 'config'])->name('coin.config');
-            Route::post('fetch',[CoinController::class,'fetchConfig'])->name('fetch.coin.config');
+            Route::post('fetch-config',[CoinController::class,'fetchConfig'])->name('fetch.coin.config');
             Route::post('store-configuration',[CoinController::class,'storeConfig'])->name('store.coin.config');
+            Route::get('packages',[CoinController::class,'packages'])->name('coin.package');
+            Route::post('store-package',[CoinController::class,'storePackage'])->name('store.package');
+            Route::post('fetch-package',[CoinController::class,'fetchPackage'])->name('fetch.package');
+            Route::post('delete-package',[CoinController::class,'deletePackage'])->name('delete.package');
+            Route::post('edit-package',[CoinController::class,'editPackage'])->name('edit.package');
            
         });
         Route::prefix('configurations')->group(function(){

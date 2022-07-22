@@ -55,7 +55,7 @@ class SearchController extends Controller
                                         <img src="'.$user->profile_image().'" alt="">
                                     </div>
                                     <div class="profile-text">
-                                        <a href="'.url('profile-view/'.$user->id).'">'.$user->fullName().'</a>
+                                        <a href="'.url('profile-view/'.$user->username).'">'.$user->fullName().'</a>
                                     </div>
                                 </div>
                                 <!--<div class="remove-div">

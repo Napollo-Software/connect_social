@@ -16,12 +16,10 @@ use Mockery\Exception;
 
 class NetworkController extends Controller
 {
-    public function profile($id = null){
-        if($id == auth()->user()->id){
-            return redirect()->route('ambassador.profile');
-        }else{
-            $user =User::find($id);
-        }
+    public function profile($username){
+
+        $user =User::where('username',$username)->first();
+        $id=$user->id;
         $images = [];
         if (File::isDirectory(public_path('storage/profile/' . $user->email))) {
             foreach (File::files(public_path('storage/profile/' . $user->email)) as $file) {
@@ -56,6 +54,8 @@ class NetworkController extends Controller
                 </ul>
             </div>
         </div>';
+
+
         return view('ambassador.profile.network.network', compact('type', 'user', 'repeated_html'));
     }
 
@@ -71,7 +71,7 @@ class NetworkController extends Controller
 
         $reflection = new \ReflectionClass('Privacy');
 
-        $repeated_html = '<div class="friend-grid-col-options-dropdown-inner">
+       /* $repeated_html = '<div class="friend-grid-col-options-dropdown-inner">
             <div class="friend-grid-col-options-dropdown-main">
                 <ul class="friend-grid-col-options-dropdown-ul">';
         if ($type == 'friends' or $type == 'connection') {
@@ -85,9 +85,9 @@ class NetworkController extends Controller
                     </li>
                 </ul>
             </div>
-        </div>';
+        </div>';*/
 
-        return view('ambassador.profile.network', compact('type', 'user', 'repeated_html', 'reflection'));
+        return view('ambassador.profile.network', compact('type', 'user', 'reflection'));
     }
 
     public function fetch(Request $request)
@@ -132,7 +132,7 @@ class NetworkController extends Controller
                             </div>
                             <div class="friend-grid-col-profile-text">
                                 <div class="friend-grid-col-profile-text-top">
-                                    <a href="' . url('profile-view/' . $detail->id) . '" class="text-decoration-none text-secondary">' . $detail->fullName() . '</a>
+                                    <a href="' . url('profile-view/' . $detail->username) . '" class="text-decoration-none text-secondary">' . $detail->fullName() . '</a>
                                 </div>
                                 <div class="friend-grid-col-profile-text-bottom">
                                     ' . ucfirst($type) . '
@@ -189,7 +189,8 @@ class NetworkController extends Controller
             'show_privacy' => $show_privacy,
             'privacy' => $privacies,
         ];
-        return response()->json(['repeated_html' => $repeated_html, 'html' => $html, 'p' => $p]);
+        $privacy_details=getPrivacyDetails($type);
+        return response()->json(['repeated_html' => $repeated_html, 'html' => $html, 'p' => $p,'privacy-details'=>$privacy_details]);
 
     }
 
