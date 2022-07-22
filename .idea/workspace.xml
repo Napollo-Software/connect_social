@@ -81,14 +81,14 @@
           <entry key="html" value="321" />
           <entry key="js" value="1475" />
           <entry key="json" value="1" />
-          <entry key="php" value="99316" />
+          <entry key="php" value="99322" />
           <entry key="sql" value="150" />
           <entry key="txt" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="48793" />
+          <entry key="Blade" value="48799" />
           <entry key="CSS" value="116" />
           <entry key="HTML" value="437" />
           <entry key="JSON" value="1" />
@@ -111,27 +111,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/ambassador/wallet/dashboard/add-card.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218">
-              <caret line="191" column="10" selection-start-line="191" selection-start-column="10" selection-end-line="191" selection-end-column="10" />
+            <state relative-caret-position="300">
+              <caret line="95" column="114" selection-start-line="95" selection-start-column="114" selection-end-line="95" selection-end-column="114" />
               <folding>
-                <element signature="e#7879#8691#0#HTML" />
-                <element signature="e#8788#9588#0#HTML" />
+                <element signature="e#6121#8415#0#HTML" />
+                <element signature="e#18332#19205#0#HTML" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/test.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="29" column="71" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
-              <folding>
-                <element signature="e#5134#5907#0#HTML" />
-              </folding>
+            <state relative-caret-position="470">
+              <caret line="85" column="13" lean-forward="true" selection-end-line="89" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -147,7 +144,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>changePrivacy</find>
       <find>orderBy(</find>
       <find>\App\Models\Coin</find>
       <find>$coin</find>
@@ -177,6 +173,7 @@
       <find>key</find>
       <find>card-element</find>
       <find>card</find>
+      <find>densitydpi</find>
     </findStrings>
     <replaceStrings>
       <replace>admin_assets/</replace>
@@ -259,9 +256,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/FrontEnd.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/resources/views/test.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/scripts/universal.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/wallet/dashboard/add-card.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/test.blade.php" />
       </list>
     </option>
   </component>
@@ -825,12 +822,12 @@
       <workItem from="1658145403551" duration="13786000" />
       <workItem from="1658230065849" duration="23511000" />
       <workItem from="1658317180693" duration="45160000" />
-      <workItem from="1658488777371" duration="10895000" />
+      <workItem from="1658488777371" duration="11169000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="583897000" />
+    <option name="totallyTimeSpent" value="584171000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1229,24 +1226,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/test.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/wallet/dashboard/add-card.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="29" column="71" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
+        <state relative-caret-position="300">
+          <caret line="95" column="114" selection-start-line="95" selection-start-column="114" selection-end-line="95" selection-end-column="114" />
           <folding>
-            <element signature="e#5134#5907#0#HTML" />
+            <element signature="e#6121#8415#0#HTML" />
+            <element signature="e#18332#19205#0#HTML" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ambassador/wallet/dashboard/add-card.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/test.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218">
-          <caret line="191" column="10" selection-start-line="191" selection-start-column="10" selection-end-line="191" selection-end-column="10" />
-          <folding>
-            <element signature="e#7879#8691#0#HTML" />
-            <element signature="e#8788#9588#0#HTML" />
-          </folding>
+        <state relative-caret-position="470">
+          <caret line="85" column="13" lean-forward="true" selection-end-line="89" selection-end-column="7" />
         </state>
       </provider>
     </entry>

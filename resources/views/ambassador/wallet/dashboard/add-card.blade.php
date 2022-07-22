@@ -61,7 +61,6 @@
                                                                             </ul>
                                                                         </div>
                                                                     </div> -->
-                                                                    <form action="" id="payment-form" method="POST">
                                                                     <div class="add-card-html">
                                                                         <div class="add-card-html-inner">
                                                                             <div class="add-card-html-main">
@@ -74,42 +73,60 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="card-field-outer">
+                                                                                    <div class="card">
+                                                                                        <div class="card-header">{{ __('Checkout page') }}</div>
+
+                                                                                        <div class="card-body">
+                                                                                            <form id="payment-form" action=" " method="POST">
+                                                                                                @csrf
+                                                                                                <input type="hidden" name="plan" id="plan" value="{{ request('plan') }}">
+                                                                                                <div class="form-group">
+                                                                                                    <label for="">Name</label>
+                                                                                                    <input type="text" name="name" id="card-holder-name" class="form-control" value="" placeholder="Name on the card">
+                                                                                                </div>
+                                                                                                <div class="form-group">
+                                                                                                    <label for="">Card details</label>
+                                                                                                    <div id="card-element"></div>
+                                                                                                </div>
+
+                                                                                                <button type="submit" class="btn btn-primary w-100" id="card-button" data-secret=" ">Pay</button>
+                                                                                            </form>
+                                                                                        </div>
+                                                                                    </div>
                                                                                     <div class="card-field-inner">
-                                                                                            <div class="card-field-single">
-                                                                                                <div class="card-field-single-row">
-                                                                                                    <div class="card-single-field">
-                                                                                                        <label for="field-01">Card Number</label>
-                                                                                                        <input type="text" class="card-field-input" placeholder="0000 0000 000 0000">
-                                                                                                        <span class='icon'>
+                                                                                        <div class="card-field-single">
+                                                                                            <div class="card-field-single-row">
+                                                                                                <div class="card-single-field">
+                                                                                                    <label for="field-01">Card Number</label>
+                                                                                                    <input type="text" class="card-field-input" placeholder="0000 0000 000 0000">
+                                                                                                    <span class='icon'>
                                                                                                         <span class="ti-credit-card"></span>
                                                                                                     </span>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="card-field-single-row rows">
-                                                                                                    <div id="card-element"></div>
-                                                                                                    <div class="card-single-field mr-2">
-                                                                                                        <label for="field-01">Expiry Date</label>
-                                                                                                        <input type="text" class="card-field-input" placeholder="MM/YY">
-                                                                                                        <span class='icon'>
-                                                                                                        <span class="ti-calendar"></span>
-                                                                                                    </span>
-                                                                                                    </div>
-                                                                                                    <div class="card-single-field">
-                                                                                                        <label for="field-01">CVC/CV</label>
-                                                                                                        <input type="text" class="card-field-input" placeholder="...">
-                                                                                                        <span class='icon'>
-                                                                                                        <span class="ti-info-alt"></span>
-                                                                                                    </span>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="card-field-single-row">
-                                                                                                    <div class="card-single-field">
-                                                                                                        <label for="field-01">Card Holder Name</label>
-                                                                                                        <input type="text" class="card-field-input" id="card-holder-name" placeholder="Enter Card Holder's Full Name">
-                                                                                                    </div>
                                                                                                 </div>
                                                                                             </div>
-
+                                                                                            <div class="card-field-single-row rows">
+                                                                                                <div class="card-single-field mr-2">
+                                                                                                    <label for="field-01">Expiry Date</label>
+                                                                                                    <input type="text" class="card-field-input" placeholder="MM/YY">
+                                                                                                    <span class='icon'>
+                                                                                                        <span class="ti-calendar"></span>
+                                                                                                    </span>
+                                                                                                </div>
+                                                                                                <div class="card-single-field">
+                                                                                                    <label for="field-01">CVC/CV</label>
+                                                                                                    <input type="text" class="card-field-input" placeholder="...">
+                                                                                                    <span class='icon'>
+                                                                                                        <span class="ti-info-alt"></span>
+                                                                                                    </span>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="card-field-single-row">
+                                                                                                <div class="card-single-field">
+                                                                                                    <label for="field-01">Card Holder Name</label>
+                                                                                                    <input type="text" class="card-field-input" placeholder="Enter Card Holder's Full Name">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -158,14 +175,13 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="add-button-div">
-                                                                                <button class="black-button no-border" type="submit" id="card-button">
+                                                                                <button class="black-button no-border">
                                                                                     Save
                                                                                 </button>
                                                                             </div>
 
                                                                         </div>
                                                                     </div>
-                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -227,12 +243,4 @@
             }
         })
     </script>
-
-    @push('scripts')
-        <script>
-            $(document).on('click','.add-button-span',function () {
-                $('.add-card-div').show();
-            });
-        </script>
-    @endpush
 @endsection
