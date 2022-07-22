@@ -16,12 +16,10 @@ use Mockery\Exception;
 
 class NetworkController extends Controller
 {
-    public function profile($id = null){
-        if($id == auth()->user()->id){
-            return redirect()->route('ambassador.profile');
-        }else{
-            $user =User::find($id);
-        }
+    public function profile($username){
+
+        $user =User::where('username',$username)->first();
+        $id=$user->id;
         $images = [];
         if (File::isDirectory(public_path('storage/profile/' . $user->email))) {
             foreach (File::files(public_path('storage/profile/' . $user->email)) as $file) {
@@ -134,7 +132,7 @@ class NetworkController extends Controller
                             </div>
                             <div class="friend-grid-col-profile-text">
                                 <div class="friend-grid-col-profile-text-top">
-                                    <a href="' . url('profile-view/' . $detail->id) . '" class="text-decoration-none text-secondary">' . $detail->fullName() . '</a>
+                                    <a href="' . url('profile-view/' . $detail->username) . '" class="text-decoration-none text-secondary">' . $detail->fullName() . '</a>
                                 </div>
                                 <div class="friend-grid-col-profile-text-bottom">
                                     ' . ucfirst($type) . '

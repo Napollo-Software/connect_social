@@ -50,7 +50,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
         Route::post('mark-as-read', [ChatController::class, 'mark_as_read'])->name('chat.mark.as.read');
     });
     Route::prefix('profile-view')->group(function () {
-        Route::get('{id}', [NetworkController::class, 'profile'])->name('network.profile');
+        Route::get('{username}', [NetworkController::class, 'profile'])->name('network.profile');
         Route::get('network/{id}/{type}', [NetworkController::class, 'network'])->name('network.list');
         Route::get('gallery/{id}/{type}', [GalleryController::class, 'index'])->name('network.gallery');
     });
@@ -97,7 +97,6 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::post('cancel-request', [ConnectionsController::class, 'cancel_request'])->name('connections.cancel.request');
             Route::post('remove-connection', [ConnectionsController::class, 'remove_connection'])->name('connections.remove.connection');
         });
-
         Route::prefix('kyc')->group(function () {
             Route::get('submission', [KycController::class, 'submission'])->name('kyc.submission');
             Route::post('submit', [KycController::class, 'submit'])->name('kyc.submit');

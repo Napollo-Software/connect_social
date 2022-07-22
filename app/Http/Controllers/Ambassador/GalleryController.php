@@ -25,7 +25,6 @@ class GalleryController extends Controller
         }
         return view('ambassador.gallery.index', compact('type', 'user'));
     }
-
     public function fetch(Request $request)
     {  
         $user_id= $request->user_id;

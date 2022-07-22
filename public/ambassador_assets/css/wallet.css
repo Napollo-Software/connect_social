@@ -455,6 +455,7 @@ canvas#merchant-canvas {
 .wallet-dashboad {
     background: #f0f2f5;
     padding: 15px 0;
+    min-height: calc(100vh);
 }
 
 .dashboard-sides {
@@ -579,6 +580,251 @@ a.dashboard-card-link {
     background: #f0f2f5;
 }
 
+/* Payment Method */
+
+.dashboard-card-add-card-main {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+.add-card-html {
+    margin: 0 30px;
+}
+
+.add-card-html-top-bar {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #dedede;
+    justify-content: space-between;
+}
+
+.card-field-single {
+    padding: 15px;
+}
+
+.card-field-single-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-single-field {
+    position: relative;
+}
+
+.card-single-field label {
+    position: absolute;
+    top: 17px;
+    left: 11px;
+    background: #fff;
+    padding: 0 10px;
+}
+
+.card-field-input {
+    border: 1px solid #dedede;
+    width: 100%;
+    padding: 10px;
+    margin-top: 30px;
+    padding-right: 50px;
+}
+
+.card-single-field {
+    position: relative;
+    width: 100%;
+}
+
+.add-card-html {
+    margin: 0 30px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    margin-bottom: 20px;
+}
+
+.card-single-field .icon {
+    position: absolute;
+    right: 0;
+    padding: 15px;
+    top: 25px;
+}
+
+.beadcrumb {
+    color: #7a7a7a;
+    font-size: 15px;
+}
+
+.dahboard-title.multi {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-button-span {
+    display: flex;
+    padding: 7px 15px;
+    border-radius: 4px;
+    background: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.add-button-span:hover {
+    background: #000;
+    color: #fff;
+}
+
+.add-button-span .icon {
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.add-card-options-li {
+    cursor: pointer;
+}
+
+.existing-card-grid-inner {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.existing-card-col {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.existing-card-col-inner {
+    width: 100%;
+}
+
+.add-card-html-top-bar.end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.add-card-div {
+    /* display: none; */
+}
+
+.add-card-action {
+    width: 40%;
+}
+
+.add-card-html {
+    margin: 0 30px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    /* margin-bottom: 20px; */
+    flex-grow: 1;
+}
+
+.add-card-toptext-title .text {
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.all-cards-grid {
+    display: flex;
+}
+
+.single-card-icon {
+    margin-right: 15px;
+}
+
+.single-card-icon img {
+    height: 30px;
+}
+
+.add-card-toptext-title {
+    margin-bottom: 20px;
+}
+
+.add-card-bottom-text .text {
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.label-flex {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.black-button.no-border {
+    border-radius: 4px;
+    width: 100px;
+    margin-top: 15px;
+}
+
+.label-flex .text {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    margin-left: 15px;
+}
+
+.pera p, .agree p {
+    font-size: 14px;
+}
+
+.existing-card-list-li-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dedede;
+}
+
+.existing-card-list-li-main {
+    display: flex;
+    align-items: center;
+}
+
+.existing-card-image img {
+    height: 40px;
+    margin-right: 15px;
+}
+
+.existing-card-text {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.prefered-card-inner {
+    background: #d3d3d3;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.existing-card-action-main {
+    display: flex;
+}
+
+.existing-card-action-button {
+    margin-left: 15px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    font-size: 23px;
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+}
+
+.existing-card-action-button:hover {
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+
+.existing-card-list-li .add-card-html {
+    margin-top: 50px;
+    display: none;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 990px) {
@@ -590,6 +836,21 @@ a.dashboard-card-link {
     .dasboard-card-col-text {
         margin-top: 5px;
         margin-bottom: 5px;
+    }
+
+    .add-card-options-li label {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+
+    .existing-card-col {
+        width: 100%;
+    }
+
+    .existing-card-col .add-card-html {
+        flex-grow: 1;
     }
 }
 
@@ -607,6 +868,19 @@ a.dashboard-card-link {
     .wallet-stats-graph-all-graphs {
         flex-direction: column;
         align-items: center;
+    }
+
+    .dashboard-card-add-card-main {
+        flex-direction: column;
+    }
+
+    .add-card-options-li label {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .add-card-action {
+        text-align: center;
     }
 }
 
@@ -630,6 +904,11 @@ a.dashboard-card-link {
 
 @media only screen and (max-width: 400px) {
     .wallet-stats-graph-list-li {
+        flex-direction: column;
+    }
+
+    .card-field-single-row.rows {
+        display: flex;
         flex-direction: column;
     }
 }
