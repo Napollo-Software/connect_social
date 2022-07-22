@@ -666,11 +666,36 @@ a.dashboard-card-link {
     font-size: 16px;
     cursor: pointer;
     align-items: center;
+    position: relative;
+}
+
+.add-button-span .count {
+    position: absolute;
+    top: -8px;
+    right: -11px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background: #fff !important;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    align-items: center;
+}
+
+.add-button-main a {
+    color: unset;
+    text-decoration: none;
 }
 
 .add-button-span:hover {
     background: #000;
     color: #fff;
+}
+
+.add-button-span:hover .count{
+    color: #000;
 }
 
 .add-button-span .icon {
@@ -754,7 +779,7 @@ a.dashboard-card-link {
 
 .black-button.no-border {
     border-radius: 4px;
-    width: 100px;
+    min-width: 100px;
     margin-top: 15px;
 }
 
@@ -830,6 +855,70 @@ a.dashboard-card-link {
     border-bottom: 1px solid #dedede;
 }
 
+.card-type img {
+    height: 40px;
+    border-radius: 3px;
+}
+
+/* Coin Purchase */
+
+.coin-packs-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.coin-packs-card {
+    width: 30%;
+    overflow: hidden;
+}
+
+.coin-pack-card-cart-btn-inner a {
+    background: #000;
+    color: #fff;
+    width: 100%;
+    display: block;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    border-top: 1px solid #dedede;
+}
+
+.coin-pack-card-cart-btn-inner a:hover {
+    background: #fff;
+    color: #000;
+}
+
+.coin-pack-card-inner {
+    padding: 15px;
+    text-align: center;
+}
+
+.coin-packs-card .dahboard-card-title-bar {
+    font-size: 1.5em;
+}
+
+.coin-pack-card-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.coin-pack-card-coins {
+    font-size: 16px;
+    margin-top: 15px;
+    font-weight: 500;
+}
+
+.coin-pack-card-coin-value {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.coin-pack-card-coin-value .dolar {
+    font-size: 20px;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 990px) {
@@ -887,6 +976,10 @@ a.dashboard-card-link {
     .add-card-action {
         text-align: center;
     }
+
+    .coin-packs-card {
+        width: 48%;
+    }
 }
 
 @media only screen and (max-width: 560px) {
@@ -915,6 +1008,10 @@ a.dashboard-card-link {
     .card-field-single-row.rows {
         display: flex;
         flex-direction: column;
+    }
+
+    .coin-packs-card {
+        width: 100%;
     }
 }
 

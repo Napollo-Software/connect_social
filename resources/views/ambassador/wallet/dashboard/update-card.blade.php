@@ -58,7 +58,10 @@
                                                     <div class="add-card-html show-edit-html-01">
                                                         <div class="add-card-html-inner">
                                                             <div class="add-card-html-main">
-                                                                <div class="add-card-html-top-bar end">
+                                                                <div class="add-card-html-top-bar">
+                                                                    <div class="title-text">
+                                                                        Master Card
+                                                                    </div>
                                                                     <div class="card-type">
                                                                         <img src="{{asset('ambassador_assets/images/wallet-icons/master-card.svg')}}" alt="">
                                                                     </div>
@@ -99,8 +102,10 @@
                                                                             </div>
                                                                             <div class="card-action-buttons">
                                                                                 <div class="card-action-buttons-inner">
-                                                                                    <div class="card-action-button">
+                                                                                    <div class="card-action-button text-right">
                                                                                         <button class="black-button no-border">Update</button>
+                                                                                        <button class="black-button no-border">Make Preffered</button>
+                                                                                        <button class="black-button no-border  show-card-html" data-class=".show-edit-html-01">Cancel</button>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -115,7 +120,7 @@
                                                     <div class="existing-card-list-li-inner">
                                                         <div class="existing-card-list-li-main">
                                                             <div class="existing-card-image">
-                                                                <img src="{{asset('ambassador_assets/images/wallet-icons/master-card.svg')}}" alt="">
+                                                                <img src="{{asset('ambassador_assets/images/wallet-icons/visa.png')}}" alt="">
                                                             </div>
                                                             <div class="existing-card-text">
                                                                 <div class="name">
@@ -145,9 +150,12 @@
                                                     <div class="add-card-html show-edit-html-02">
                                                         <div class="add-card-html-inner">
                                                             <div class="add-card-html-main">
-                                                                <div class="add-card-html-top-bar end">
+                                                                <div class="add-card-html-top-bar">
+                                                                    <div class="title-text">
+                                                                        Visa Card
+                                                                    </div>
                                                                     <div class="card-type">
-                                                                        <img src="{{asset('ambassador_assets/images/wallet-icons/master-card.svg')}}" alt="">
+                                                                        <img src="{{asset('ambassador_assets/images/wallet-icons/visa.png')}}" alt="">
                                                                     </div>
                                                                 </div>
                                                                 <div class="card-field-outer">
@@ -186,8 +194,10 @@
                                                                             </div>
                                                                             <div class="card-action-buttons">
                                                                                 <div class="card-action-buttons-inner">
-                                                                                    <div class="card-action-button">
+                                                                                    <div class="card-action-button text-right">
                                                                                         <button class="black-button no-border">Update</button>
+                                                                                        <button class="black-button no-border">Make Preffered</button>
+                                                                                        <button class="black-button no-border  show-card-html" data-class=".show-edit-html-02">Cancel</button>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
