@@ -75,6 +75,7 @@ class ChatController extends Controller
         foreach ($data as $datum){
             $users[]=[
                 'id'=>$datum->id,
+                'username'=>$datum->username,
                 'name'=>$datum->fname.' '.$datum->lname,
                 'src'=>$datum->profile_image(),
                 'unread'=>$datum->unread_messages($datum->id)?$datum->unread_messages($datum->id):''
