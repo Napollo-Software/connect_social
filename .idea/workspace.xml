@@ -34,7 +34,7 @@
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.11" value="3" />
-          <entry key="project.open.time.12" value="3" />
+          <entry key="project.open.time.12" value="4" />
           <entry key="project.open.time.13" value="2" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="4" />
@@ -44,7 +44,7 @@
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="30" />
+          <entry key="project.opened" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -53,21 +53,21 @@
           <entry key="env" value="25" />
           <entry key="example" value="1" />
           <entry key="html" value="6" />
-          <entry key="js" value="34" />
+          <entry key="js" value="35" />
           <entry key="json" value="10" />
           <entry key="lock" value="2" />
-          <entry key="php" value="1739" />
+          <entry key="php" value="1740" />
           <entry key="sql" value="41" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Blade" value="834" />
+          <entry key="Blade" value="835" />
           <entry key="CSS" value="23" />
           <entry key="HTML" value="6" />
           <entry key="JSON" value="12" />
-          <entry key="JavaScript" value="34" />
+          <entry key="JavaScript" value="35" />
           <entry key="PHP" value="905" />
           <entry key="PLAIN_TEXT" value="32" />
           <entry key="SQL" value="41" />
@@ -79,20 +79,20 @@
           <entry key="dummy" value="1" />
           <entry key="env" value="219" />
           <entry key="html" value="321" />
-          <entry key="js" value="1473" />
+          <entry key="js" value="1475" />
           <entry key="json" value="1" />
-          <entry key="php" value="97861" />
+          <entry key="php" value="97931" />
           <entry key="sql" value="150" />
           <entry key="txt" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Blade" value="47587" />
+          <entry key="Blade" value="47657" />
           <entry key="CSS" value="116" />
           <entry key="HTML" value="437" />
           <entry key="JSON" value="1" />
-          <entry key="JavaScript" value="1473" />
+          <entry key="JavaScript" value="1475" />
           <entry key="PHP" value="50155" />
           <entry key="PLAIN_TEXT" value="230" />
           <entry key="SQL" value="150" />
@@ -102,29 +102,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Models/Coin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="21" column="17" selection-start-line="21" selection-start-column="17" selection-end-line="21" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/WalletController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="21" column="81" selection-start-line="21" selection-start-column="81" selection-end-line="21" selection-end-column="81" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/ambassador/wallet/dashboard/wallet.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="27" column="61" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
+            <state relative-caret-position="459">
+              <caret line="141" column="69" selection-start-line="141" selection-start-column="69" selection-end-line="141" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -247,13 +229,13 @@
         <option value="$PROJECT_DIR$/resources/views/ambassador/layouts/cover.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/profile/components/add_post.blade.php" />
-        <option value="$PROJECT_DIR$/public/ambassador_assets/js/helpers.js" />
         <option value="$PROJECT_DIR$/resources/views/admin/coin/configuration.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2022_07_21_134419_create_coin_table.php" />
         <option value="$PROJECT_DIR$/app/Models/User.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/CoinController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Ambassador/WalletController.php" />
         <option value="$PROJECT_DIR$/app/Models/Coin.php" />
+        <option value="$PROJECT_DIR$/public/ambassador_assets/js/helpers.js" />
         <option value="$PROJECT_DIR$/resources/views/ambassador/wallet/dashboard/wallet.blade.php" />
       </list>
     </option>
@@ -798,11 +780,12 @@
       <workItem from="1658145403551" duration="13786000" />
       <workItem from="1658230065849" duration="23511000" />
       <workItem from="1658317180693" duration="45160000" />
+      <workItem from="1658488777371" duration="1367000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="573002000" />
+    <option name="totallyTimeSpent" value="574369000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -891,9 +874,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#39#59#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -915,9 +895,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="40" column="30" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="30" />
-          <folding>
-            <element signature="e#90#1641#0#HTML" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -974,9 +951,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
           <caret line="63" column="29" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
-          <folding>
-            <element signature="e#6#41#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -991,9 +965,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" selection-start-line="6" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#9124#0#Blade" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1029,15 +1000,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
           <caret line="111" column="31" selection-start-line="111" selection-start-column="31" selection-end-line="111" selection-end-column="31" />
-          <folding>
-            <element signature="e#7#44#0#PHP" expanded="true" />
-            <element signature="e#3243#4605#2#PHP" />
-            <element signature="e#4357#4592#2#PHP" />
-            <element signature="e#4654#4956#2#PHP" />
-            <element signature="e#5003#5330#2#PHP" />
-            <element signature="e#5373#5944#2#PHP" />
-            <element signature="e#5991#6613#2#PHP" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1052,9 +1014,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="39" column="67" selection-start-line="39" selection-start-column="58" selection-end-line="39" selection-end-column="67" />
-          <folding>
-            <element signature="e#45#81#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1107,24 +1066,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="522" column="84" selection-start-line="522" selection-start-column="84" selection-end-line="522" selection-end-column="84" />
-          <folding>
-            <element signature="e#55867#56097#0#HTML" />
-            <element signature="e#57080#57293#0#HTML" />
-            <element signature="e#57365#58188#0#HTML" />
-            <element signature="e#58266#59606#0#HTML" />
-            <element signature="e#59691#59913#0#HTML" />
-            <element signature="e#60000#60232#0#HTML" />
-            <element signature="e#60113#60711#0#HTML" />
-            <element signature="e#60792#61392#0#HTML" />
-            <element signature="e#61477#62081#0#HTML" />
-            <element signature="e#62154#62753#0#HTML" />
-            <element signature="e#62830#63437#0#HTML" />
-            <element signature="e#63516#64448#0#HTML" />
-            <element signature="e#64531#65475#0#HTML" />
-            <element signature="e#65552#66154#0#HTML" />
-            <element signature="e#65737#66245#0#HTML" />
-            <element signature="e#66233#66693#0#HTML" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1132,36 +1073,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="575">
           <caret line="223" column="49" lean-forward="true" selection-start-line="223" selection-start-column="49" selection-end-line="223" selection-end-column="49" />
-          <folding>
-            <element signature="e#8753#10141#0#HTML" />
-            <element signature="e#10213#10336#0#HTML" />
-            <element signature="e#10410#10742#0#HTML" />
-            <element signature="e#10816#12710#0#HTML" />
-            <element signature="e#12782#13208#0#HTML" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/initial.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/database/initial.sql" />
     <entry file="file://$PROJECT_DIR$/database/connect_social.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="138" column="68" lean-forward="true" selection-start-line="138" selection-start-column="68" selection-end-line="138" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/ambassador_assets/js/helpers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="91" column="1" lean-forward="true" selection-start-line="91" selection-start-column="1" selection-end-line="91" selection-end-column="1" />
-          <folding>
-            <element signature="n#!!block;n#fetchNetworkOnProfile#0" />
-            <element signature="n#!!block;n#updateProfilePicture#0" />
-            <element signature="n#!!block;n#updateCoverPhoto#0" />
-            <element signature="n#!!block;n#changeFullName#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1205,6 +1124,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/ambassador_assets/js/helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="90" column="11" selection-start-line="75" selection-start-column="3" selection-end-line="90" selection-end-column="11" />
+          <folding>
+            <element signature="n#!!block;n#fetchNetworkOnProfile#0" />
+            <element signature="n#!!block;n#updateProfilePicture#0" />
+            <element signature="n#!!block;n#updateCoverPhoto#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Ambassador/WalletController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1221,8 +1152,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/ambassador/wallet/dashboard/wallet.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="61" selection-start-line="27" selection-start-column="61" selection-end-line="27" selection-end-column="61" />
+        <state relative-caret-position="459">
+          <caret line="141" column="69" selection-start-line="141" selection-start-column="69" selection-end-line="141" selection-end-column="69" />
         </state>
       </provider>
     </entry>
