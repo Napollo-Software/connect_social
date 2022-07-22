@@ -24,6 +24,11 @@
             </div>
             <div class="card radius-10">
                 <div class="card-body" style="position: relative;">
+                    <div class="row addPackage" >
+                        <div class="col-md-12 pb-2" align="right" >
+                        <button class="btn btn-sm btn-primary " ><i class="bx bx-plus-circle"></i> Add Package</button>
+                    </div>
+                    </div>
                     <div class="d-flex align-items-center">
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
@@ -34,8 +39,11 @@
                             <input type="text" class="form-control dollar-value" placeholder="Dollar Value"
                                    aria-label="Amount (to the nearest dollar)">
                             <input type="hidden" class="edit-id"  value="0">
-                            <div class="input-group-append">
-                                <button class="input-group-text bx bx-plus" id="coinPackage"></button>
+                            <div class="input-group-append create">
+                                <button class="input-group-text btn btn-primary" id="coinPackage"><i class="bx bx-plus-circle"></i></button>
+                            </div>
+                            <div class="input-group-append update" >
+                                <button class="input-group-text btn btn-danger" id="coinPackage"><i class="bx bx-edit"></i></button>
                             </div>
                         </div>
                     </div>
@@ -90,6 +98,8 @@
         }
 
         $(document).ready(function () {
+            $('.addPackage').hide();
+            $('.update').hide();
             InitTable();
         });
 
@@ -99,11 +109,7 @@
             var coinValue = $('.coin-value').val();
             var editId = $('.edit-id').val();
             if (dollarValue.length === 0 || coinValue.length === 0) {
-                swal({
-                    title: "Both Fields are required !",
-                    icon: "warning",
-                    dangerMode: true
-                });
+                swal('Warning','Both Fields are required !','warning');
             }
             else {
                 $.ajax({
@@ -115,6 +121,9 @@
                         $('.dollar-value').val('');
                         $('.coin-value').val('');
                         $('.edit-id').val('0');
+                        $('.update').hide();
+                        $('.create').show();
+                        $('.addPackage').hide();
                     }
                 })
             }
@@ -124,7 +133,8 @@
             e.preventDefault();
             var id=$(this).attr('data-id');
             swal({
-                title : "Are you sure , You want to delete!",
+                title : "Warning",
+                text : "Are you sure , You want to delete!",
                 icon  : "warning",
                 buttons :true,
                 dangerMode: true,
@@ -154,12 +164,25 @@
                 data : { _token : "{{csrf_token()}}" , "id" : id },
                 dataType : "json",
                 success : function(data){
+                    $('.addPackage').show();
+                    $('.create').hide();
+                    $('.update').show();
                     $('.dollar-value').val(data.dollar);
                     $('.coin-value').val(data.coin);
                     $('.edit-id').val(id);
                 }
             });
         });
+
+        $(document).on('click','.addPackage',function(e){
+            e.preventDefault();
+            $('.addPackage').hide();
+            $('.update').hide();
+            $('.create').show();
+            $('.dollar-value').val('');
+            $('.coin-value').val('');
+            $('.edit-id').val('0');
+        })
 
     </script>
 
