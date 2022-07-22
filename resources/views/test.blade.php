@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-        <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     <script>
         const stripe = Stripe('{{ env('STRIPE_PUBLISH_KEY') }}');
 
