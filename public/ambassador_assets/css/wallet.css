@@ -705,6 +705,65 @@ a.dashboard-card-link {
     /* display: none; */
 }
 
+.add-card-action {
+    width: 40%;
+}
+
+.add-card-html {
+    margin: 0 30px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.add-card-toptext-title .text {
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.all-cards-grid {
+    display: flex;
+}
+
+.single-card-icon {
+    margin-right: 15px;
+}
+
+.single-card-icon img {
+    height: 30px;
+}
+
+.add-card-toptext-title {
+    margin-bottom: 20px;
+}
+
+.add-card-bottom-text .text {
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.label-flex {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.black-button.no-border {
+    border-radius: 4px;
+    width: 100px;
+    margin-top: 15px;
+}
+
+.label-flex .text {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+    margin-left: 15px;
+}
+
 /* Responsive */
 
 @media only screen and (max-width: 990px) {
