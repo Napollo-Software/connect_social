@@ -66,7 +66,7 @@
                                                                             <div class="add-card-html-main">
                                                                                 <div class="add-card-html-top-bar">
                                                                                     <div class="title-text">
-                                                                                        Add New Card
+                                                                                        Card Name
                                                                                     </div>
                                                                                     <div class="card-type">
                                                                                         <img src="{{asset('ambassador_assets/images/wallet-icons/master-card.svg')}}" alt="">
@@ -242,4 +242,18 @@
             }
         })
     </script>
+    @push('scripts')
+    <script>
+        $(function() {
+            $(document).on('click','.add-button-span',function () {
+                $('.add-card-div').toggle();
+            })
+
+            $(document).on('click','.show-card-html',function() {
+                var element = $(this).attr('data-class');
+                $(element).toggle();
+            });
+        });
+    </script>
+    @endpush
 @endsection
