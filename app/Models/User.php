@@ -171,4 +171,5 @@ class User extends Authenticatable
     {
         return $this->belongsTo(ChartOfAccount::class, 'coa');
     }
+
 }

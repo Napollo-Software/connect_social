@@ -7,6 +7,8 @@
         </script>
     @endif
 @endpush
+@php use App\Models\Coin; @endphp
+
 <div class="profile-top-bar">
     <div class="profile-top-bar-inner">
         <div class="container">
@@ -21,7 +23,7 @@
                                 <a href="{{route('wallet.dashboard')}}">My Balance</a>
                             </div>
                             <div class="profile-wallete-balance">
-                                10 Coins (Worth $1500)
+                                {{Coin::balanceOfCurrentUser()}} Coins (Worth ${{Coin::CurrentValue()*Coin::balanceOfCurrentUser()}})
                             </div>
                         </div>
                     </div>

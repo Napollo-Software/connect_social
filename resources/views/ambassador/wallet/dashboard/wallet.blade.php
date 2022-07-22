@@ -3,6 +3,8 @@
     Wallet Transactions
 @endsection
 @section('content')
+    @php use App\Models\Coin; @endphp
+
     <link rel="stylesheet" href="{{url('ambassador_assets/css/wallet.css')}}">
     <div class="wallet-dashboad">
         <div class="wallet-dashboad-inner">
@@ -22,27 +24,19 @@
                                                     Coin Value
                                                 </div>
                                                 <div class="statics">
-                                                    <div class="up">
+                                                    <div class="{{Coin::differenceFromCurrent()>=0?'up':'down'}}">
                                                         <div class="text number-text">
-                                                            45.0321
+                                                            ${{Coin::differenceFromCurrent()}}
                                                         </div>
                                                         <div class="icon">
-                                                            <span class="ti-arrow-up"></span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="down">
-                                                        <div class="text number-text">
-                                                            45.0321
-                                                        </div>
-                                                        <div class="icon">
-                                                            <span class="ti-arrow-down"></span>
+                                                            <span class="ti-arrow-{{Coin::differenceFromCurrent()>=0?'up':'down'}}"></span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="dasboard-card-content">
                                                 <div class="dasboard-card-content-inner custom-padding text-center">
-                                                    <span class="gold-text number-text">$11.2654</span>
+                                                    <span class="gold-text number-text">${{Coin::CurrentValue()}}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -54,27 +48,22 @@
                                                     Balance
                                                 </div>
                                                 <div class="statics">
-                                                    <div class="up">
+                                                    <div class="{{(Coin::differenceFromCurrent()*Coin::balanceOfCurrentUser())>=0?'up':'down'}}">
                                                         <div class="text number-text">
-                                                            45.0321
+                                                            ${{Coin::differenceFromCurrent()*Coin::balanceOfCurrentUser()}}
                                                         </div>
                                                         <div class="icon">
-                                                            <span class="ti-arrow-up"></span>
+                                                            <span class="ti-arrow-{{(Coin::differenceFromCurrent()*Coin::balanceOfCurrentUser())>=0?'up':'down'}}"></span>
                                                         </div>
                                                     </div>
-                                                    <div class="down">
-                                                        <div class="text number-text">
-                                                            45.0321
-                                                        </div>
-                                                        <div class="icon">
-                                                            <span class="ti-arrow-down"></span>
-                                                        </div>
-                                                    </div>
+
                                                 </div>
                                             </div>
                                             <div class="dasboard-card-content">
                                                 <div class="dasboard-card-content-inner custom-padding text-center">
-                                                    <span class="black-text number-text">$88,761.00</span>
+                                                    <span class="black-text number-text">
+                                                        {{Coin::balanceOfCurrentUser()}}
+                                                        Coins ≈ ${{Coin::CurrentValue()*Coin::balanceOfCurrentUser()}} </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -176,21 +165,24 @@
             $(document).ready(function () {
                 $('#history-table').DataTable();
             });
-
+            var labels=[
+              @foreach($coins as $coin)
+                '{{$coin->created_at->format('d M, y')}}',
+              @endforeach
+            ];
+            var datum =[
+                @foreach($coins as $coin)
+                    '{{$coin->dollar}}',
+                @endforeach
+            ];
             var ctx = document.getElementById('history-graph').getContext('2d');
             const data = {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                labels: labels,
                 datasets: [{
-                    label: 'Highest',
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    label: 'Coin history',
+                    data: datum,
                     fill: false,
                     borderColor: 'rgba(229, 179, 48, 1)',
-                    tension: 0.1
-                }, {
-                    label: 'Lowest',
-                    data: [15, 29, 40, 31, 16, 35, 30],
-                    fill: false,
-                    borderColor: 'rgba(0, 0, 0, 1)',
                     tension: 0.1
                 }]
             };

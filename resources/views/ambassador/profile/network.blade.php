@@ -3,18 +3,81 @@
 Network
 @endsection
 @section('content')
-    @include('ambassador.layouts.friends-navigation')
+<!-- @include('ambassador.layouts.friends-navigation') -->
     <div class="friends-grid">
         <div class="friends-grid-inner">
             <div class="container">
                 <div class="gallary-top-bar">
                     <div class="gallary-top-bar-inner">
-                        <div class="gallary-top-title">
-                        </div>
-                        <div class="gallary-top-date">
-
+                        <div class="network-filter">
+                            <div class="network-filter-inner">
+                                <div class="network-filter-inner-main">
+                                    <div class="text">
+                                        Social Network : 
+                                    </div>
+                                    <div class="selected">
+                                        <div class="icon">
+                                            <img src="{{asset('ambassador_assets/images/icons/users.svg')}}" alt="">
+                                        </div>
+                                        <div class="text">
+                                            Friends
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="network-dropdown">
+                                    <div class="network-dropdown-inner">
+                                        <div class="network-dropdown-main">
+                                            <ul class="network-dropdown-ul">
+                                                <li class="network-dropdown-li">
+                                                    <a href="javascript:void(0)" class="network-link network-dropdown-link"  data-type="friends">
+                                                        <div class="icon">
+                                                            <img src="{{asset('ambassador_assets/images/icons/users.svg')}}" alt="">
+                                                        </div>
+                                                        <div class="text">
+                                                            Friends <span class="count">0</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="network-dropdown-li">
+                                                    <a href="javascript:void(0)" class="network-link network-dropdown-link"  data-type="connections">
+                                                        <div class="icon">
+                                                            <img src="{{asset('ambassador_assets/images/icons/connection.svg')}}" alt="">
+                                                        </div>
+                                                        <div class="text">
+                                                            Connections <span class="count">0</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="network-dropdown-li">
+                                                    <a href="javascript:void(0)" class="network-link network-dropdown-link" data-type="tier-1">
+                                                        <div class="icon">
+                                                            <img src="{{asset('ambassador_assets/images/icons/personal-network.svg')}}" alt="">
+                                                        </div>
+                                                        <div class="text">
+                                                            Personalized Network Tier 1 <span class="count">0</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li class="network-dropdown-li">
+                                                    <a href="javascript:void(0)" class="network-link network-dropdown-link" data-type="tier-2">
+                                                        <div class="icon">
+                                                            <img src="{{asset('ambassador_assets/images/icons/extended-network.svg')}}" alt="">
+                                                        </div>
+                                                        <div class="text">
+                                                            Extended Network Tier 2 <span class="count">0</span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="selection-icon">
+                            <div class="selection-privacy-text">
+                                Privacy :
+                            </div>
                             <div class="current-privacy">
                                 <div class="icon">
                                     <img src="{{getNetworkPrivacy($type)['url']}}" alt="">

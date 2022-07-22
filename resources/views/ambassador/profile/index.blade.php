@@ -454,32 +454,41 @@
                                                         <div class="content-top-bar-title w-100">
                                                             <div class="text w-100 custom-flex">
                                                                 <div class="icon-hover-network">
-                                                                    <span class="icon hover profile-network" {{$type=='friends'?'active':''}} data-type='friends'>
-                                                                            <img src="{{url('ambassador_assets/images/icons/users.svg')}}"alt="" style="width: 25px;margin-right: 2px;">
+                                                                    <span class="icon hover profile-network"
+                                                                          {{$type=='friends'?'active':''}} data-type='friends'>
+                                                                            <img src="{{url('ambassador_assets/images/icons/users.svg')}}"
+                                                                                 alt=""
+                                                                                 style="width: 25px;margin-right: 2px;">
                                                                     </span>
                                                                     <div class="text-badge-01">
                                                                         {{getFriendsList($user->id)->count()}}
                                                                     </div>
                                                                 </div>
                                                                 <div class="icon-hover-network">
-                                                                    <span class="icon profile-network" data-type='connections'>
-                                                                        <img src="{{url('ambassador_assets/images/icons/connection.svg')}}" alt="">
+                                                                    <span class="icon profile-network"
+                                                                          data-type='connections'>
+                                                                        <img src="{{url('ambassador_assets/images/icons/connection.svg')}}"
+                                                                             alt="">
                                                                     </span>
                                                                     <div class="text-badge-01">
                                                                         {{getConnectionsList($user->id)->count()}}
                                                                     </div>
                                                                 </div>
                                                                 <div class="icon-hover-network">
-                                                                    <span class="icon profile-network" data-type='tier-1'>
-                                                                        <img src="{{url('ambassador_assets/images/icons/personal-network.svg')}}" alt="">
+                                                                    <span class="icon profile-network"
+                                                                          data-type='tier-1'>
+                                                                        <img src="{{url('ambassador_assets/images/icons/personal-network.svg')}}"
+                                                                             alt="">
                                                                     </span>
                                                                     <div class="text-badge-01">
                                                                         {{auth()->user()->tier_1()->count()}}
                                                                     </div>
                                                                 </div>
                                                                 <div class="icon-hover-network">
-                                                                    <span class="icon profile-network" data-type='tier-2'>
-                                                                        <img src="{{url('ambassador_assets/images/icons/extended-network.svg')}}" alt="">
+                                                                    <span class="icon profile-network"
+                                                                          data-type='tier-2'>
+                                                                        <img src="{{url('ambassador_assets/images/icons/extended-network.svg')}}"
+                                                                             alt="">
                                                                     </span>
                                                                     <div class="text-badge-01">
                                                                         {{auth()->user()->tier_2()->count()}}
@@ -511,7 +520,7 @@
                                 <div class="content-side-02">
                                     <div class="content-cards">
                                         @if($user->id==auth()->user()->id)
-                                            @include('ambassador.profile.components.add_post')
+                                        @include('ambassador.profile.components.add_post')
                                         @endif
                                     </div>
                                     @include('ambassador.profile.components.show_posts')
@@ -562,7 +571,8 @@
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content ">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="update-social-info-modalLabel"><i class="ti-pencil"></i> Update Social
+                        <h5 class="modal-title" id="update-social-info-modalLabel"><i class="ti-pencil"></i> Update
+                            Social
                             Information</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
@@ -584,7 +594,8 @@
                                         <div class="form-group">
                                             <label for="username">Phone</label>
                                             <input type="text" class="form-field-input form-control w-100"
-                                                   value="{{auth()->user()->phone}}"  id="phone" placeholder='Mobile Number' name="phone">
+                                                   value="{{auth()->user()->phone}}" id="phone"
+                                                   placeholder='Mobile Number' name="phone">
                                             <input type="hidden" value="" name="country_code" id="country_code">
                                         </div>
                                     </div>
@@ -592,14 +603,16 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="city">City</label>
-                                        <input type="text" class="form-control" value="{{auth()->user()->details->city}}"
+                                        <input type="text" class="form-control"
+                                               value="{{auth()->user()->details->city}}"
                                                name="city" id="city">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="state">Current State</label>
-                                        <input type="text" class="form-control" value="{{auth()->user()->details->state}}"
+                                        <input type="text" class="form-control"
+                                               value="{{auth()->user()->details->state}}"
                                                name="state" id="state">
                                     </div>
                                 </div>
@@ -645,7 +658,8 @@
                                             <option value="" hidden>Select Gender</option>
                                             <option value="male" {{auth()->user()->gender=='male'?'selected':''}}>Male
                                             </option>
-                                            <option value="female" {{auth()->user()->gender=='female'?'selected':''}}>Female
+                                            <option value="female" {{auth()->user()->gender=='female'?'selected':''}}>
+                                                Female
                                             </option>
                                         </select>
                                     </div>
@@ -666,345 +680,252 @@
 <script src="{{url('index.js')}}"></script>
 @push('scripts')
     <script>
-         var input = document.querySelector("#phone");
+        var token = '{{csrf_token()}}';
+        var input = document.querySelector("#phone");
         window.intlTelInput(input, {
             separateDialCode: true,
             initialCountry: "auto",
         });
-
-        $('document').ready(function () {
-            fetch('{{$type}}');
+        $(function () {
+            fetchNetworkOnProfile('{{$type}}', '{{route('ambassador.fetch.network')}}', token, '{{route('network',['friends'])}}')
             $(document).on('click', '.profile-network', function (e) {
                 e.preventDefault();
                 var type = $(this).attr('data-type');
-                fetch(type);
+                fetchNetworkOnProfile(type, '{{route('ambassador.fetch.network')}}', token, '{{route('network',['friends'])}}')
             });
+            @if($user->id==auth()->user()->id)
+            $(document).on('submit', '#change_name_form', function (e) {
+                e.preventDefault();
+                var URLtoChangeName = "{{route('ambassador.update.name')}}";
+                changeFullName(new FormData(this), URLtoChangeName);
+            });
+            $(document).on('submit', '#about_form', function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('ambassador.update.about')}}",
+                    data: new FormData(this),
+                    dataType: 'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success: function (data) {
+                        $('.abouy-text-editor').hide();
+                        $('.about-content').show();
+                        $('#about-text').text(data.response.about);
+                    },
+                    error: function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+
+            });
+            $(document).on('submit', '#social_info_form', function (e) {
+                e.preventDefault();
+                $('#country_code').val($('.iti__selected-dial-code').text());
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('ambassador.update.social.info')}}",
+                    data: new FormData(this),
+                    dataType: 'JSON',
+                    processData: false,
+                    contentType: false,
+                    cache: false,
+                    success: function (data) {
+                        $('#update-social-info-modal').modal('hide');
+                        $('#city-text').text(data.response.city);
+                        $('#gender-text').text(data.response.gender);
+                        $('#high_school-text').text(data.response.high_school);
+                        $('#hobbies-text').text(data.response.hobbies);
+                        $('#relationship-text').text(data.response.relationship);
+                        $('#state-text').text(data.response.state);
+                        $('#workplace-text').text(data.response.workplace);
+
+                    },
+                    error: function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+
+            });
+            $(document).on('submit', '#update_cover_photo_form', function (e) {
+                e.preventDefault();
+                var routeToChangeCover = '{{route('ambassador.update.cover')}}';
+                updateCoverPhoto(new FormData(this), routeToChangeCover);
+            });
+            $(document).on('submit', '#update_profile_photo_form', function (e) {
+                e.preventDefault();
+                var routeToChangeProfile = '{{route('ambassador.update.profile')}}';
+                updateProfilePicture(new FormData(this), routeToChangeProfile);
+            });
+            @else
+            showControls('{{$user->id}}');
+            $(document).on('click', '#add-as-friend', function () {
+                var to = $(this).attr('data-to');
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('friends.send.request')}}",
+                    dataType: "JSON",
+                    data: {'to': to, _token: '{{csrf_token()}}'},
+                    success: function (data) {
+                        showControls('{{$user->id}}');
+                    },
+                    error: function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+            });
+            $(document).on('click', '.cancel-friend-request', function () {
+                var id = $(this).attr('data-id');
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('friends.cancel.request')}}",
+                    dataType: "JSON",
+                    data: {'id': id, _token: '{{csrf_token()}}'},
+                    success: function (data) {
+                        showControls('{{$user->id}}');
+                    },
+                    error: function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+            });
+            $(document).on('click', '.cancel-connection-request', function () {
+                var id = $(this).attr('data-id');
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('connections.cancel.request')}}",
+                    dataType: "JSON",
+                    data: {'id': id, _token: '{{csrf_token()}}'},
+                    success: function (data) {
+                        showControls('{{$user->id}}');
+                    },
+                    error: function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+            });
+            $(document).on('click', '.remove-friend', function () {
+                var id = $(this).attr('data-id');
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('friends.remove.friend')}}",
+                    dataType: "JSON",
+                    data: {'id': id, _token: '{{csrf_token()}}'},
+                    success: function (data) {
+                        showControls('{{$user->id}}');
+                    },
+                    error: function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+            });
+            $(document).on('click', '.remove-connection', function () {
+                var id = $(this).attr('data-id');
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('connections.remove.connection')}}",
+                    dataType: "JSON",
+                    data: {'id': id, _token: '{{csrf_token()}}'},
+                    success: function (data) {
+                        showControls('{{$user->id}}');
+                    },
+                    error: function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+            });
+            $(document).on('click', '.friend-request-sent', function () {
+                var id = $(this).attr('data-id');
+                var status = null;
+                if ($(this).hasClass('approve')) {
+                    status = '{{Friends::STATUS_APPROVED}}'
+                }
+                if ($(this).hasClass('decline')) {
+                    status = '{{Friends::STATUS_REJECTED}}'
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('friends.action')}}",
+                    dataType: "JSON",
+                    data: {'id': id, 'status': status, _token: '{{csrf_token()}}'},
+                    success: function (data) {
+                        showControls('{{$user->id}}');
+                    },
+                    error: function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+            });
+            $(document).on('click', '.connection-request-sent', function () {
+                var id = $(this).attr('data-id');
+                var status = null;
+                if ($(this).hasClass('approve')) {
+                    status = '{{Connections::STATUS_APPROVED}}'
+                }
+                if ($(this).hasClass('decline')) {
+                    status = '{{Connections::STATUS_REJECTED}}'
+                }
+
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('connections.action')}}",
+                    dataType: "JSON",
+                    data: {'id': id, 'status': status, _token: '{{csrf_token()}}'},
+                    success: function (data) {
+                        showControls('{{$user->id}}');
+                    },
+                    error: function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+            });
+            $(document).on('click', '#add-as-connection', function () {
+                var to = $(this).attr('data-to');
+                $.ajax({
+                    type: "POST",
+                    url: "{{route('connections.send.request')}}",
+                    dataType: "JSON",
+                    data: {'to': to, _token: '{{csrf_token()}}'},
+                    success: function (data) {
+                        showControls('{{$user->id}}');
+                    },
+                    error: function (xhr) {
+                        erroralert(xhr);
+                    }
+                });
+            });
+            @endif
         });
-        
-        function fetch(type) {
+        function showControls(id) {
             $.ajax({
                 type: "POST",
-                url: "{{route('ambassador.fetch.network')}}",
-                data: {'type': type, _token: '{{csrf_token()}}'},
-                beforeSend: function () {
-                    $('.friend-grid-inner').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>');
-                },
+                url: "{{route('ambassador.show.control')}}",
+                dataType: "JSON",
+                data: {'id': id, _token: '{{csrf_token()}}'},
                 success: function (data) {
-                    $('.friend-grid-inner').html(data);
-                    $('.see-all-url').html('<a href="{{route('network',['friends'])}}">See All</a>');
+                    $('.profile-action-btns-inner').html(data);
                 },
                 error: function (xhr) {
                     erroralert(xhr);
                 }
-            })
+            });
+        }
+        function changePrivacy(key, value) {
+            $.ajax({
+                type: "POST",
+                url: "{{route('ambassador.update.privacy')}}",
+                dataType: "JSON",
+                data: {'key': key, 'value': value, _token: '{{csrf_token()}}'},
+                success: function (data) {
+                },
+                error: function (xhr) {
+                    erroralert(xhr);
+                }
+            });
         }
     </script>
-    @if($user->id==auth()->user()->id)
-        <script>
-            $(function () {
-                $(document).on('submit', '#change_name_form', function (e) {
-                    e.preventDefault();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('ambassador.update.name')}}",
-                        data: new FormData(this),
-                        dataType: 'JSON',
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        success: function (data) {
-                            $('#update-name-modal').modal('hide');
-                            $('#full-name-of-current-user').html(data.response.fname + ' ' + data.response.lname);
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-
-                });
-                $(document).on('submit', '#about_form', function (e) {
-                    e.preventDefault();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('ambassador.update.about')}}",
-                        data: new FormData(this),
-                        dataType: 'JSON',
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        success: function (data) {
-                            $('.abouy-text-editor').hide();
-                            $('.about-content').show();
-                            $('#about-text').text(data.response.about);
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-
-                });
-                $(document).on('submit', '#social_info_form', function (e) {
-                    e.preventDefault();
-                    $('#country_code').val($('.iti__selected-dial-code').text());
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('ambassador.update.social.info')}}",
-                        data: new FormData(this),
-                        dataType: 'JSON',
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        success: function (data) {
-                            console.log(data);
-                            $('#update-social-info-modal').modal('hide');
-                            $('#city-text').text(data.response.city);
-                            $('#gender-text').text(data.response.gender);
-                            $('#high_school-text').text(data.response.high_school);
-                            $('#hobbies-text').text(data.response.hobbies);
-                            $('#relationship-text').text(data.response.relationship);
-                            $('#state-text').text(data.response.state);
-                            $('#workplace-text').text(data.response.workplace);
-
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-
-                });  
-                $(document).on('submit', '#update_cover_photo_form', function (e) {
-                    e.preventDefault();
-                    swal({
-                        title: "Are you sure to change cover photo?",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                        .then((willDelete) => {
-                            if (willDelete) {
-                                $.ajax({
-                                    url: "{{route('ambassador.update.cover')}}",
-                                    data: new FormData(this),
-                                    dataType: "JSON",
-                                    type: "post",
-                                    processData: false,
-                                    contentType: false,
-                                    cache: false,
-                                    success: function (data) {
-                                        $('#cover_photo_preview').attr('src', data.response);
-                                        $('#cover_photo_input').val('');
-                                    },
-                                    error: function (xhr) {
-                                        erroralert(xhr);
-                                    },
-                                });
-                            }
-                        });
-                });
-                $(document).on('submit', '#update_profile_photo_form', function (e) {
-                    e.preventDefault();
-                    swal({
-                        title: "Are you sure to change profile photo?",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                        .then((willDelete) => {
-                            if (willDelete) {
-                                $.ajax({
-                                    url: "{{route('ambassador.update.profile')}}",
-                                    data: new FormData(this),
-                                    dataType: "JSON",
-                                    type: "post",
-                                    processData: false,
-                                    contentType: false,
-                                    cache: false,
-                                    success: function (data) {
-                                        $('.profile_photo_preview').attr('src', data.response);
-                                        $('#profile_photo_input').val('');
-                                    },
-                                    error: function (xhr) {
-                                        erroralert(xhr);
-                                    },
-                                });
-                            }
-                        });
-                });
-            });
-
-            function changePrivacy(key, value) {
-                $.ajax({
-                    type: "POST",
-                    url: "{{route('ambassador.update.privacy')}}",
-                    dataType: "JSON",
-                    data: {'key': key, 'value': value, _token: '{{csrf_token()}}'},
-                    success: function (data) {
-                    },
-                    error: function (xhr) {
-                        erroralert(xhr);
-                    }
-                });
-            }
-        </script>
-    @else
-        <script>
-            $(function () {
-                showControls('{{$user->id}}');
-                $(document).on('click', '#add-as-friend', function () {
-                    var to = $(this).attr('data-to');
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('friends.send.request')}}",
-                        dataType: "JSON",
-                        data: {'to': to, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '.cancel-friend-request', function () {
-                    var id = $(this).attr('data-id');
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('friends.cancel.request')}}",
-                        dataType: "JSON",
-                        data: {'id': id, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '.cancel-connection-request', function () {
-                    var id = $(this).attr('data-id');
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('connections.cancel.request')}}",
-                        dataType: "JSON",
-                        data: {'id': id, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '.remove-friend', function () {
-                    var id = $(this).attr('data-id');
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('friends.remove.friend')}}",
-                        dataType: "JSON",
-                        data: {'id': id, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '.remove-connection', function () {
-                    var id = $(this).attr('data-id');
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('connections.remove.connection')}}",
-                        dataType: "JSON",
-                        data: {'id': id, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '.friend-request-sent', function () {
-                    var id = $(this).attr('data-id');
-                    var status = null;
-                    if ($(this).hasClass('approve')) {
-                        status = '{{Friends::STATUS_APPROVED}}'
-                    }
-                    if ($(this).hasClass('decline')) {
-                        status = '{{Friends::STATUS_REJECTED}}'
-                    }
-
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('friends.action')}}",
-                        dataType: "JSON",
-                        data: {'id': id, 'status': status, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '.connection-request-sent', function () {
-                    var id = $(this).attr('data-id');
-                    var status = null;
-                    if ($(this).hasClass('approve')) {
-                        status = '{{Connections::STATUS_APPROVED}}'
-                    }
-                    if ($(this).hasClass('decline')) {
-                        status = '{{Connections::STATUS_REJECTED}}'
-                    }
-
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('connections.action')}}",
-                        dataType: "JSON",
-                        data: {'id': id, 'status': status, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-                $(document).on('click', '#add-as-connection', function () {
-                    var to = $(this).attr('data-to');
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('connections.send.request')}}",
-                        dataType: "JSON",
-                        data: {'to': to, _token: '{{csrf_token()}}'},
-                        success: function (data) {
-                            showControls('{{$user->id}}');
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
-                });
-
-            });
-
-            function showControls(id) {
-                $.ajax({
-                    type: "POST",
-                    url: "{{route('ambassador.show.control')}}",
-                    dataType: "JSON",
-                    data: {'id': id, _token: '{{csrf_token()}}'},
-                    success: function (data) {
-                        $('.profile-action-btns-inner').html(data);
-                    },
-                    error: function (xhr) {
-                        erroralert(xhr);
-                    }
-                });
-            }
-        </script>
-    @endif
     @stack('subscripts')
 @endpush
 

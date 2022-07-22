@@ -199,7 +199,7 @@ i {
     left: -10%;
     right: -10%;
     border-radius: 50%;
-    bottom: -295px;
+    bottom: -69%;
     background: #fff;
 }
 
@@ -1337,12 +1337,12 @@ a.navigation-drop-down-link {
     font-size: 15px;
 }
 
-.inner-navigation-link {
+/* .inner-navigation-link {
     color: #5c5c5c;
     padding-bottom: 10px;
     border-bottom: 2px solid;
     border-color: #fff;
-}
+} */
 
 .inner-navigation-link:hover {
     color: #000;
@@ -1625,6 +1625,14 @@ a.navigation-drop-down-link {
     margin-left: 10px;
     position: relative;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.selection-privacy-text {
+    font-size: 1.3em;
+    font-weight: 500;
+    margin-right: 10px;
 }
 
 .selection-dropdown {
@@ -1848,6 +1856,7 @@ li.recent-search-li {
 .recent-searches-box-main .search-btn {
     top: 10px;
     right: 10px;
+    font-size: 12px;
 }
 
 .search-input-home-navigation-inner {
@@ -2523,7 +2532,81 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+.network-filter-inner-main .selected .icon {
+    margin-right: 10px;
+}
 
+.network-filter-inner-main .selected {
+    display: flex;
+}
+
+.network-filter-inner-main .text {
+    margin-right: 15px;
+    font-weight: 500;
+    font-size: 1.3em;
+    font-weight: 500;
+}
+
+.network-filter-inner-main .selected .text {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.network-filter-inner-main .selected {
+    display: flex;
+    align-items: center;
+}
+
+.network-filter-inner {
+    position: relative;
+}
+
+.network-filter-inner-main {
+    display: flex;
+}
+
+.network-dropdown {
+    position: absolute;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    top: 27px;
+    left: 110px;
+    display: none;
+    z-index: 1;
+    min-width: 150px;
+}
+
+.network-dropdown-li {
+    padding: 10px;
+    border-bottom: 1px solid #dedede;
+}
+
+a.network-dropdown-link {
+    display: flex;
+    color: #000;
+    text-decoration: none;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+
+.network-dropdown-li:hover {
+    background: #efefef;
+}
+
+.network-dropdown-link .icon {
+    margin-right: 12px;
+}
+
+.network-filter {
+    cursor: pointer;
+}
+
+.network-filter:hover .network-dropdown {
+    display: block;
+}
 
 /* Customization */
 

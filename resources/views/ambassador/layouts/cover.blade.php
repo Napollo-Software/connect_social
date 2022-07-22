@@ -49,7 +49,7 @@
             <div class="profile-box-info-name-inner">
                 <div class="profile-box-info-name-main">
                     <div class="profile-box-info-name-text">
-                        <span id="full-name-of-current-user" title="{{$user->id}}">{{$user->fullName()}}</span>
+                        <span class="full-name-of-current-user" title="{{$user->id}}">{{$user->fullName()}}</span>
                     </div>
                     @if($user->id==auth()->user()->id)
                         <div class="edit-button open-editor-modal" data-toggle="modal" data-target="#update-name-modal">

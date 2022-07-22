@@ -3,14 +3,78 @@
 Gallery
 @endsection
 @section('content')
-    @include('ambassador.layouts.gallery-navigation')
+<!-- @include('ambassador.layouts.gallery-navigation') -->
     <div class="gallary-grid">
         <div class="gallary-grid-inner">
             <div class="container">
                 <div class="gallary-top-bar">
                     <div class="gallary-top-bar-inner">
                         <div class="gallary-top-title">
-                            All Media  
+                            <div class="network-filter">
+                                <div class="network-filter-inner">
+                                    <div class="network-filter-inner-main">
+                                        <div class="text">
+                                            Gallery : 
+                                        </div>
+                                        <div class="selected">
+                                            <div class="icon">
+                                                <span class="ti-align-left"></span>
+                                            </div>
+                                            <div class="text">
+                                                All Media
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="network-dropdown">
+                                        <div class="network-dropdown-inner">
+                                            <div class="network-dropdown-main">
+                                                <ul class="network-dropdown-ul">
+                                                    <li class="network-dropdown-li">
+                                                        <a href="javascript:void(0)" class="network-dropdown-link  gallery-link inner-navigation-link" data-type="all">
+                                                            <div class="icon">
+                                                                <span class="ti-align-left"></span>
+                                                            </div>
+                                                            <div class="text">
+                                                                All Media
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="network-dropdown-li">
+                                                        <a href="javascript:void(0)" class="network-dropdown-link  gallery-link inner-navigation-link" data-type="image">
+                                                            <div class="icon">
+                                                                <span class="ti-gallery"></span>
+                                                            </div>
+                                                            <div class="text">
+                                                                Photo
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="network-dropdown-li">
+                                                        <a href="javascript:void(0)" class="network-dropdown-link gallery-link inner-navigation-link" data-type="video">
+                                                            <div class="icon">
+                                                                <span class="ti-control-play"></span>
+                                                            </div>
+                                                            <div class="text">
+                                                                Video
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                    <li class="network-dropdown-li">
+                                                        <a href="javascript:void(0)" class="network-dropdown-link gallery-link inner-navigation-link" data-type="audio">
+                                                            <div class="icon">
+                                                                <span class="ti-microphone"></span>
+                                                            </div>
+                                                            <div class="text">
+                                                                Audio
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="gallary-top-date">
                             June 1, 2022
