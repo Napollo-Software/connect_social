@@ -52,8 +52,9 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
     Route::prefix('profile-view')->group(function () {
         Route::get('{username}', [NetworkController::class, 'profile'])->name('network.profile');
         Route::get('network/{id}/{type}', [NetworkController::class, 'network'])->name('network.list');
+        Route::get('gallery/{id}/{type}', [GalleryController::class, 'index'])->name('network.gallery');
     });
-
+ 
     Route::middleware('under-construction')->group(function () {
         Route::prefix('ambassador')->group(function () {
             Route::post('fetch-network', [UserController::class, 'fetch'])->name('ambassador.fetch.network');
@@ -76,7 +77,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::get('{type}', [GalleryController::class, 'index'])->name('gallery');
             Route::post('fetch', [GalleryController::class, 'fetch'])->name('gallery.fetch');
             Route::post('delete', [GalleryController::class, 'delete'])->name('gallery.delete');
-        });    
+        });     
         Route::prefix('network')->group(function () {
             Route::get('{type}/{id?}', [NetworkController::class, 'index'])->name('network');
             Route::post('', [NetworkController::class, 'fetch'])->name('network.fetch');

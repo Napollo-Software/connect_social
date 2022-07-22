@@ -221,12 +221,12 @@ Gallery
 
             $('.selected .text').text(text[type]);
             $('.selected .icon span').attr('class',icons[type]);
-
+            var user_id = {{$user->id}};
             $.ajax({ 
                 type: "POST",
                 url: "{{route('gallery.fetch')}}",
                 dataType: "JSON", 
-                data: {'type': type, _token: '{{csrf_token()}}'},
+                data: {'type': type, 'user_id': user_id ,_token: '{{csrf_token()}}'},
                 beforeSend: function () {
                     $('.container-for-assets').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>')
                 },
