@@ -139,6 +139,7 @@
                                                                 @endforeach
                                                                 </tbody>
                                                             </table>
+                                                            <a href="" class="float-right black-button">Show all transactions</a>
                                                         </div>
                                                     </div>
                                                 </div>

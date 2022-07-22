@@ -73,20 +73,20 @@ function updateCoverPhoto(form, route) {
 }
 
 function changeFullName(form,route) {
-    $.ajax({
-        type: "POST",
-        url:route,
-        data: form,
-        dataType: 'JSON',
-        processData: false,
-        contentType: false,
-        cache: false,
-        success: function (data) {
-            $('#update-name-modal').modal('hide');
-            $('.full-name-of-current-user').html(data.response.fname + ' ' + data.response.lname);
-        },
-        error: function (xhr) {
-            erroralert(xhr);
-        }
-    });
+        $.ajax({
+            type: "POST",
+            url:route,
+            data: form,
+            dataType: 'JSON',
+            processData: false,
+            contentType: false,
+            cache: false,
+            success: function (data) {
+                $('#update-name-modal').modal('hide');
+                $('.full-name-of-current-user').html(data.response.fname + ' ' + data.response.lname);
+            },
+            error: function (xhr) {
+                erroralert(xhr);
+            }
+        });
 }

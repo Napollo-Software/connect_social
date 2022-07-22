@@ -78,7 +78,7 @@
                                     </a>
                                 </li>
                                 <li class="navigation-drop-down-li">
-                                    <a href="{{route('gallery',['friends'])}}" class="navigation-drop-down-link">
+                                    <a href="{{route('gallery',['all'])}}" class="navigation-drop-down-link">
                                         <div class="icon"><img
                                                     src="{{asset('ambassador_assets/images/nav-icon/gallery.png')}}"
                                                     alt=""></div>

@@ -64,8 +64,7 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
             Route::post('update-privacy', [UserController::class, 'update_privacy'])->name('ambassador.update.privacy');
             Route::post('update-social-info', [UserController::class, 'update_social_info'])->name('ambassador.update.social.info');
             Route::post('show-control', [UserController::class, 'show_control'])->name('ambassador.show.control');
-            Route::get('ambassador', [UserController::class, 'index'])->name('ambassador.profile');
-           
+            Route::get('', [UserController::class, 'index'])->name('ambassador.profile');
 
             Route::prefix('receipts')->group(function () {
                 Route::get('', [ReceiptController::class, 'index'])->name('ambassador.receipts');

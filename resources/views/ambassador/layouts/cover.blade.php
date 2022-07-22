@@ -115,4 +115,25 @@
             </div>
         </div>
     </div>
+    @push('scripts')
+        <script>
+            $(function () {
+                $(document).on('submit', '#change_name_form', function (e) {
+                    e.preventDefault();
+                    var URLtoChangeName = "{{route('ambassador.update.name')}}";
+                    changeFullName(new FormData(this), URLtoChangeName);
+                });
+                $(document).on('submit', '#update_cover_photo_form', function (e) {
+                    e.preventDefault();
+                    var routeToChangeCover = '{{route('ambassador.update.cover')}}';
+                    updateCoverPhoto(new FormData(this), routeToChangeCover);
+                });
+                $(document).on('submit', '#update_profile_photo_form', function (e) {
+                    e.preventDefault();
+                    var routeToChangeProfile = '{{route('ambassador.update.profile')}}';
+                    updateProfilePicture(new FormData(this), routeToChangeProfile);
+                });
+            });
+        </script>
+    @endpush
 @endif
