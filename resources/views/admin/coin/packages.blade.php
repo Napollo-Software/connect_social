@@ -33,6 +33,7 @@
                                    aria-label="Amount (to the nearest dollar)" placeholder="Coin">
                             <input type="text" class="form-control dollar-value" placeholder="Dollar Value"
                                    aria-label="Amount (to the nearest dollar)">
+                            <input type="hidden" class="edit-id"  value="0">
                             <div class="input-group-append">
                                 <button class="input-group-text bx bx-plus" id="coinPackage"></button>
                             </div>
@@ -96,6 +97,7 @@
             e.preventDefault();
             var dollarValue = $('.dollar-value').val();
             var coinValue = $('.coin-value').val();
+            var editId = $('.edit-id').val();
             if (dollarValue.length === 0 || coinValue.length === 0) {
                 swal({
                     title: "Both Fields are required !",
@@ -107,38 +109,41 @@
                 $.ajax({
                     type: "post",
                     url: "{{route('store.package')}}",
-                    data: {_token: "{{csrf_token()}}", "dollar_value": dollarValue,'coin_value':coinValue},
+                    data: {_token: "{{csrf_token()}}", "dollar_value": dollarValue,'coin_value':coinValue,'edit_id':editId},
                     success: function (data) {
                         InitTable();
+                        $('.dollar-value').val('');
+                        $('.coin-value').val('');
+                        $('.edit-id').val('0');
                     }
                 })
             }
         });
 
-        // $(document).on('click','.delete' ,function(e){
-        //     e.preventDefault();
-        //     var id=$(this).attr('data-id');
-        //     swal({
-        //         title : "Are you sure , You want to delete!",
-        //         icon  : "warning",
-        //         buttons :true,
-        //         dangerMode: true,
-        //     })
-        //     .then((delete) => {
-        //         if(delete)
-        //         {
-        //         $.ajax({
-        //         type : "post",
-        //         url  : "{{route('delete.package')}}",
-        //         data : { _token : "{{csrf_token()}}" , "id" : id },
-        //         dataType : "json",
-        //         success : function(data){
-        //             InitTable();
-        //         }
-        //           })
-        //     }
-        //     })
-        // });
+        $(document).on('click','.delete' ,function(e){
+            e.preventDefault();
+            var id=$(this).attr('data-id');
+            swal({
+                title : "Are you sure , You want to delete!",
+                icon  : "warning",
+                buttons :true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if(willDelete)
+                {
+                $.ajax({
+                type : "post",
+                url  : "{{route('delete.package')}}",
+                data : { _token : "{{csrf_token()}}" , "id" : id },
+                dataType : "json",
+                success : function(data){
+                    InitTable();
+                }
+              })
+            }
+            })
+        });
 
         $(document).on('click','.edit' ,function(e){
             e.preventDefault();
@@ -149,7 +154,9 @@
                 data : { _token : "{{csrf_token()}}" , "id" : id },
                 dataType : "json",
                 success : function(data){
-                    
+                    $('.dollar-value').val(data.dollar);
+                    $('.coin-value').val(data.coin);
+                    $('.edit-id').val(id);
                 }
             });
         });

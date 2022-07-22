@@ -48,10 +48,18 @@ class CoinController extends Controller
 
     public function storePackage(Request $request)
     {
+        if($request->edit_id==0)
+        {
         $data = new Package();
         $data->coin = $request->coin_value;
         $data->dollar = $request->dollar_value;
         $data->save();
+        }elseif($request->edit_id!=0){
+        $data = Package::find($request->edit_id);
+        $data->coin = $request->coin_value;
+        $data->dollar = $request->dollar_value;
+        $data->save();
+        }
         return response()->json(['success'=>'Package added successfully!']);
     }
 
@@ -75,7 +83,7 @@ class CoinController extends Controller
         ->make(true);
     }
 
-    public function deletePackge(Request $request)
+    public function deletePackage(Request $request)
     {
         Package::find($request->id)->delete();
         return response()->json(['success'=>'Package deleted successfully!']);
@@ -83,7 +91,7 @@ class CoinController extends Controller
 
     public function editPackage(Request $request)
     {
-        $data = Package::find($request->id)->get();
-        return response()->json(['data'=>$data]);
+        $data = Package::where('id',$request->id)->first();
+        return response()->json($data);
     }
 }
