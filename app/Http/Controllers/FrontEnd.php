@@ -8,7 +8,7 @@ class FrontEnd extends Controller
 {
     public function index()
     {
-        echo "Hello World";  
+        return view('test');
     }
 
     public function under_construction()
@@ -40,5 +40,35 @@ class FrontEnd extends Controller
     public function add_card()
     {
         return view('ambassador.wallet.dashboard.add-card');
+    }
+    public function orderPost(Request $request)
+    {
+        $user = auth()->user();
+        $input = $request->all();
+        $token =  $request->stripeToken;
+        $paymentMethod = $request->paymentMethod;
+        try {
+
+            Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+
+            if (is_null($user->stripe_id)) {
+                $stripeCustomer = $user->createAsStripeCustomer();
+            }
+
+            \Stripe\Customer::createSource(
+                $user->stripe_id,
+                ['source' => $token]
+            );
+
+            $user->newSubscription('test',$input['plane'])
+                ->create($paymentMethod, [
+                    'email' => $user->email,
+                ]);
+
+            return back()->with('success','Subscription is completed.');
+        } catch (Exception $e) {
+            return back()->with('success',$e->getMessage());
+        }
+
     }
 }
