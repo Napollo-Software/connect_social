@@ -73,7 +73,7 @@
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="card-field-outer">
-                                                                                    <!-- <div class="card">
+                                                                                    <div class="card">
                                                                                         <div class="card-header">{{ __('Checkout page') }}</div>
 
                                                                                         <div class="card-body">
@@ -92,7 +92,7 @@
                                                                                                 <button type="submit" class="btn btn-primary w-100" id="card-button" data-secret=" ">Pay</button>
                                                                                             </form>
                                                                                         </div>
-                                                                                    </div> -->
+                                                                                    </div>
                                                                                     <div class="card-field-inner">
                                                                                         <div class="card-field-single">
                                                                                             <div class="card-field-single-row">
