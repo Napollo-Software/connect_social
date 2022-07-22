@@ -52,7 +52,8 @@
                     <ul>
                         <li> <a href="{{ route('coin.config') }}"><i class="bx bx-right-arrow-alt"></i>Configuration</a>
                         </li>
-                       
+                        <li> <a href="{{ route('coin.package') }}"><i class="bx bx-right-arrow-alt"></i>Packages</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
