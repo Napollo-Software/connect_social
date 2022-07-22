@@ -37,6 +37,12 @@ class FrontEnd extends Controller
         return view('ambassador.wallet.dashboard.transaction');
     }
 
+    public function submit_form(Request $request)
+    {
+        print_r($request->all());
+        die;
+    }
+
     public function add_card()
     {
         return view('ambassador.wallet.dashboard.add-card');

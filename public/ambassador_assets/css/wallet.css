@@ -754,7 +754,7 @@ a.dashboard-card-link {
 
 .black-button.no-border {
     border-radius: 4px;
-    width: 100px;
+    min-width: 100px;
     margin-top: 15px;
 }
 
@@ -828,6 +828,11 @@ a.dashboard-card-link {
 
 .existing-card-list-li {
     border-bottom: 1px solid #dedede;
+}
+
+.card-type img {
+    height: 40px;
+    border-radius: 3px;
 }
 
 /* Responsive */
