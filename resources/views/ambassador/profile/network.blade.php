@@ -17,10 +17,10 @@ Network
                                     </div>
                                     <div class="selected">
                                         <div class="icon">
-                                            <img src="{{asset('ambassador_assets/images/icons/users.svg')}}" alt="">
+                                            <img src="{{getPrivacyDetails($type)['url']}}" alt="">
                                         </div>
                                         <div class="text">
-                                            Friends
+                                            {{getPrivacyDetails($type)['name']}}
                                         </div>
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@ Network
                                                             <img src="{{asset('ambassador_assets/images/icons/users.svg')}}" alt="">
                                                         </div>
                                                         <div class="text">
-                                                            Friends <span class="count">0</span>
+                                                            Friends <span class="count">{{count(getFriendsListUsers(auth()->user()->id))}}</span>
                                                         </div>
                                                     </a>
                                                 </li>
@@ -44,7 +44,7 @@ Network
                                                             <img src="{{asset('ambassador_assets/images/icons/connection.svg')}}" alt="">
                                                         </div>
                                                         <div class="text">
-                                                            Connections <span class="count">0</span>
+                                                            Connections <span class="count">{{count(getConnectionsListUsers(auth()->user()->id))}}</span>
                                                         </div>
                                                     </a>
                                                 </li>
@@ -54,7 +54,7 @@ Network
                                                             <img src="{{asset('ambassador_assets/images/icons/personal-network.svg')}}" alt="">
                                                         </div>
                                                         <div class="text">
-                                                            Personalized Network Tier 1 <span class="count">0</span>
+                                                            Personalized Network Tier 1 <span class="count">{{auth()->user()->tier_1()->count()}}</span>
                                                         </div>
                                                     </a>
                                                 </li>
@@ -64,7 +64,7 @@ Network
                                                             <img src="{{asset('ambassador_assets/images/icons/extended-network.svg')}}" alt="">
                                                         </div>
                                                         <div class="text">
-                                                            Extended Network Tier 2 <span class="count">0</span>
+                                                            Extended Network Tier 2 <span class="count">{{auth()->user()->tier_1()->count()}}</span>
                                                         </div>
                                                     </a>
                                                 </li>
@@ -74,15 +74,15 @@ Network
                                 </div>
                             </div>
                         </div>
+
                         <div class="selection-icon">
                             <div class="selection-privacy-text">
-                                Privacy :
                             </div>
                             <div class="current-privacy">
                                 <div class="icon">
-                                    <img src="{{getNetworkPrivacy($type)['url']}}" alt="">
+                                    <img src="{{in_array($type,['friends','connections'])?getNetworkPrivacy($type)['url']:''}}" alt="">
                                 </div>
-                                <p>{{getNetworkPrivacy($type)['name']}}</p>
+                                <p>{{in_array($type,['friends','connections'])?getNetworkPrivacy($type)['name']:''}}</p>
                             </div>
                             <div class="selection-dropdown">
                                 <div class="selection-dropdown-inner">
@@ -100,6 +100,7 @@ Network
                                 </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -111,92 +112,10 @@ Network
             </div>
         </div>
     </div>
-    <div id="repeated-html" class="d-none">
-        {{$repeated_html}}
-    </div>
+
     @push('scripts')
         <script>
-            $(function(){
-                $(document).on('submit', '#update_cover_photo_form', function (e) {
-                    e.preventDefault();
-                    swal({
-                        title: "Are you sure to change cover photo?",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                        .then((willDelete) => {
-                            if (willDelete) {
-                                $.ajax({
-                                    url: "{{route('ambassador.update.cover')}}",
-                                    data: new FormData(this),
-                                    dataType: "JSON",
-                                    type: "post",
-                                    processData: false,
-                                    contentType: false,
-                                    cache: false,
-                                    success: function (data) {
-                                        $('#cover_photo_preview').attr('src', data.response);
-                                        $('#cover_photo_input').val('');
-                                    },
-                                    error: function (xhr) {
-                                        erroralert(xhr);
-                                    },
-                                });
-                            }
-                        });
-                });
-                $(document).on('submit', '#update_profile_photo_form', function (e) {
-                    e.preventDefault();
-                    swal({
-                        title: "Are you sure to change profile photo?",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true,
-                    })
-                        .then((willDelete) => {
-                            if (willDelete) {
-                                $.ajax({
-                                    url: "{{route('ambassador.update.profile')}}",
-                                    data: new FormData(this),
-                                    dataType: "JSON",
-                                    type: "post",
-                                    processData: false,
-                                    contentType: false,
-                                    cache: false,
-                                    success: function (data) {
-                                        $('.profile_photo_preview').attr('src', data.response);
-                                        $('#profile_photo_input').val('');
-                                    },
-                                    error: function (xhr) {
-                                        erroralert(xhr);
-                                    },
-                                });
-                            }
-                        });
-                });
-              
-                $(document).on('submit', '#change_name_form', function (e) {
-                    e.preventDefault();
-                    $.ajax({
-                        type: "POST",
-                        url: "{{route('ambassador.update.name')}}",
-                        data: new FormData(this),
-                        dataType: 'JSON',
-                        processData: false,
-                        contentType: false,
-                        cache: false,
-                        success: function (data) {
-                            $('#update-name-modal').modal('hide');
-                            $('#full-name-of-current-user').html(data.response.fname + ' ' + data.response.lname);
-                        },
-                        error: function (xhr) {
-                            erroralert(xhr);
-                        }
-                    });
 
-                });
-            });
             $(document).ready(function() {
                 $(".selection-icon").click(function () {
                     $(".selection-dropdown").toggle();
@@ -269,10 +188,12 @@ Network
                     var type= $(this).attr('data-type');
                     $('.selected-type').attr('data-type',type);
                     fetch(type,'{{$user->id}}');
+                    $('.selected.text').html();
                     window.history.replaceState({}, null, '/network/'+type);
                 });
             });
             function fetch(type,user) {
+
                 $.ajax({
                     type: "POST",
                     url: "{{route('network.fetch')}}",
@@ -286,11 +207,15 @@ Network
                         $(".friend-grid-col-options-dropdown").html(data.repeated_html);
                         if (data.p.show_privacy){
                             $('.current-privacy').show();
+                            $('.selection-privacy-text').text('Privacy :');
                             $('.current-privacy').find('img').attr('src',data.p.privacy.url);
                             $('.current-privacy').find('p').text(data.p.privacy.name);
                         } else{
+                            $('.selection-privacy-text').text('');
                             $('.current-privacy').hide();
                         }
+                        $('.selected .icon img').attr('src',data['privacy-details']['url']);
+                        $('.selected .text').text(data['privacy-details']['name']);
                     },
                     error: function (xhr) {
                         console.log(xhr);
