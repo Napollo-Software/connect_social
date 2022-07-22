@@ -52,7 +52,8 @@ Route::middleware(['auth', 'can:ambassador-views', 'email-verification'])->group
     Route::prefix('profile-view')->group(function () {
         Route::get('{username}', [NetworkController::class, 'profile'])->name('network.profile');
         Route::get('network/{id}/{type}', [NetworkController::class, 'network'])->name('network.list');
-        Route::get('gallery/{id}/{type}', [GalleryController::class, 'index'])->name('network.gallery');
+        Route::get('viewAllnetwork/{username}/{type}', [NetworkController::class, 'profileViewnetwork'])->name('profileview.network.list');
+        Route::get('gallery/{username}/{type}', [NetworkController::class, 'networkGallery'])->name('network.gallery');
     });
  
     Route::middleware('under-construction')->group(function () {

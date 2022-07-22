@@ -35,6 +35,15 @@ class NetworkController extends Controller
         $posts = Post::where('user_id', $user->id)->orderBy('created_at', 'DESC')->get();
         return view('ambassador.profile.network.profile', compact('posts', 'images', 'user'));
     }
+
+    public function networkGallery(Request $request)
+    {   
+        $username = $request->username;
+        $type = $request->type;
+        $user =User::where('username',$username)->first();
+        return view('ambassador.profile.network.gallery', compact('type', 'user'));
+    }
+
     public function network($id, $type)
     {
 
@@ -57,6 +66,30 @@ class NetworkController extends Controller
 
 
         return view('ambassador.profile.network.network', compact('type', 'user', 'repeated_html'));
+    }
+
+    public function profileViewnetwork($username, $type)
+    {
+       
+        $user =User::where('username',$username)->first();
+        $repeated_html = '<div class="friend-grid-col-options-dropdown-inner">
+            <div class="friend-grid-col-options-dropdown-main">
+                <ul class="friend-grid-col-options-dropdown-ul">';
+        if ($type == 'friends' or $type == 'connections') {
+            $repeated_html .= '<li class="friend-grid-col-options-dropdown-li network-dropdown-option-in-options">
+                                <a href="javascript:void(0)" class="friend-grid-col-options-dropdown-link remove-' . $type . '">Remove ' . ucfirst($type) . '</a>
+                            </li>';
+        }
+
+        $repeated_html .= '<li class="friend-grid-col-options-dropdown-li">
+                        <a href="' . url('chat') . '" class="friend-grid-col-options-dropdown-link">Send Message</a>
+                    </li>
+                </ul>
+            </div>
+        </div>';
+
+
+        return view('ambassador.profile.network.viewAllNetwork', compact('type', 'user', 'repeated_html'));
     }
 
     public function index($type, $id = null)
@@ -89,7 +122,7 @@ class NetworkController extends Controller
 
         return view('ambassador.profile.network', compact('type', 'user', 'reflection'));
     }
-
+ 
     public function fetch(Request $request)
     {
         $type = $request->type;

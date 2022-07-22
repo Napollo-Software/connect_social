@@ -277,9 +277,9 @@
                                                     <div class="see-all custom-padding">
                                                         <div class="see-all-inner">
                                                             @php
-                                                                $id=$user->id
+                                                                $username=$user->username
                                                             @endphp
-                                                            <a href="{{route('network.gallery',[$id,'all'])}}">See All</a>
+                                                            <a href="{{route('network.gallery',[$username,'all'])}}">See All</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -322,8 +322,11 @@
                                                         </div>
                                                     </div>
                                                     <div class="see-all custom-padding">
-                                                        <div class="see-all-inner">
-                                                            <a href="{{route('network',['friends'])}}">See All</a>
+                                                         <div class="see-all-inner">
+                                                            @php
+                                                            $username=$user->username
+                                                            @endphp
+                                                            <a href="{{route('profileview.network.list',[$username,'friends'])}}">See All</a>
                                                         </div>
                                                     </div>
                                                 </div>

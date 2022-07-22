@@ -226,7 +226,7 @@ Gallery
                 type: "POST",
                 url: "{{route('gallery.fetch')}}",
                 dataType: "JSON", 
-                data: {'type': type ,'username':username ,_token: '{{csrf_token()}}'},
+                data: {'type': type,'username':username ,_token: '{{csrf_token()}}'},
                 beforeSend: function () {
                     $('.container-for-assets').html('<div class="col-md-12 text-center"><h1><i class="spinner-border spinner-border-large"></i></h1></div>')
                 },
@@ -249,7 +249,7 @@ Gallery
                 $(this).parent().addClass('active');
                 var type= $(this).attr('data-type');
                 fetch(type);
-                window.history.replaceState({}, null, '/gallery/'+type);
+                window.history.replaceState({}, null, '/profile-view/gallery/'+type);
             });
         });
 

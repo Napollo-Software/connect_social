@@ -15,27 +15,35 @@ class GalleryController extends Controller
 {
     //
     public function index(Request $request)
-    {   
-        $id = $request->id;
+    {
         $type = $request->type;
-        if($id==null){
         $user = auth()->user();
-        }else{
-        $user = User::find($id);
-        }
         return view('ambassador.gallery.index', compact('type', 'user'));
     }
+
+    public function networkGallery(Request $request)
+    {   
+        $username = $request->username;
+        $type = $request->type;
+        $user =User::where('username',$username)->first();
+        return view('ambassador.profile.network.gallery', compact('type', 'user'));
+    }
+
     public function fetch(Request $request)
-    {  
-        $user_id= $request->user_id;
-        $data = User::find($request->user_id)->first();
-        $email =$data->email;
+    { 
         $assets = []; 
         $type = $request->type; 
+        if($request->username!=auth()->user()->username){
+        $data = User::where('username',$request->username)->first();
+        }else{
+            $data = auth()->user();
+        }
+        $email=$data->email;
+        $user_id=$data->id;
         if ($type == 'all' or $type == 'image') {
-            if (File::isDirectory(public_path('storage/profile/' .  $email))) {
-                foreach (File::files(public_path('storage/profile/' .  $email)) as $file) {
-                    $assets[] = ['source'=>'profile','type' => 'image','asset_directory'=> $email,'asset_name'=>$file->getFilename(),'post_id'=>'null' ,'url' => Storage::disk('local')->url('/profile/' .  $email . '/' . $file->getFilename()),];
+            if (File::isDirectory(public_path('storage/profile/' . $email))) {
+                foreach (File::files(public_path('storage/profile/' . $email)) as $file) {
+                    $assets[] = ['source'=>'profile','type' => 'image','asset_directory'=>$email,'asset_name'=>$file->getFilename(),'post_id'=>'null' ,'url' => Storage::disk('local')->url('/profile/' . $email. '/' . $file->getFilename()),];
                 }
             }
             if (File::isDirectory(public_path('storage/a/covers/' . $user_id))) {
