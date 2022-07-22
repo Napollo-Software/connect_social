@@ -142,10 +142,9 @@ Chat
                     },
                     success: function (d) {
                         user_container.empty();
-                        console.log(d.length);
                         if (d.length>0){
                             $.each(d, function (i, v) {
-                                user_container.append('<div class="chat-contacts-single user-of-chat-list" data-id="' + v['id'] + '"><div class="chat-contacts-single-inner"><div class="chat-contacts-single-info"><div class="chat-contacts-single-image"><img src="' + v['src'] + '" alt=""></div><div class="chat-contacts-single-name-message"><div><span class="chat-contacts-single-name">' + v['name'] + '</span><span class="badge badge-primary float-right ml-1"  id="unread-' + v['id'] + '" data-user="' + v['id'] + '">' + v['unread'] + '</span></div><div class="chat-contacts-single-message"></div></div></div><div class="chat-contacts-single-time"><span class="time"></span></div></div></div>');
+                                user_container.append('<div class="chat-contacts-single user-of-chat-list" data-username="' + v['username'] + '" data-id="' + v['id'] + '"><div class="chat-contacts-single-inner"><div class="chat-contacts-single-info"><div class="chat-contacts-single-image"><img src="' + v['src'] + '" alt=""></div><div class="chat-contacts-single-name-message"><div><span class="chat-contacts-single-name">' + v['name'] + '</span><span class="badge badge-primary float-right ml-1"  id="unread-' + v['id'] + '" data-user="' + v['id'] + '">' + v['unread'] + '</span></div><div class="chat-contacts-single-message"></div></div></div><div class="chat-contacts-single-time"><span class="time"></span></div></div></div>');
                             });
                         } else{
                             if(data.search){
@@ -279,10 +278,11 @@ Chat
                 });
                 $(document).on('click', '.user-of-chat-list', function (e) {
                     var id = $(this).attr('data-id');
+                    var username = $(this).attr('data-username');
                     $('#to').val(id);
                     var name = $(this).find('.chat-contacts-single-name');
                     $('#user-name').text(name.text());
-                    $('#user-url').attr('href', '{{url('profile-view')}}/' + id);
+                    $('#user-url').attr('href', '{{url('profile-view')}}/' + username);
                     $('#current-user-chat-profile').attr('src',$(this).find('img').attr('src'));
                     getMessages($(this).attr('data-id'));
                     $('.chat-box-top-bar').removeClass('border-0');
